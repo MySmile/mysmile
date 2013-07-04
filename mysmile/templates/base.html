@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="{{ lang|lower }}">
+ 
+	<head>
+        <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
+		<meta charset="UTF-8">
+		<meta name="description" content="{{ meta_description }}"  />
+		<meta name="keywords" content="{{ meta_keywords }}" />
+		<meta name="author" content="{{ meta_author }}">
+		<title>{{ meta_title }}</title>
+	    
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/style.css">
+		<link rel="stylesheet" type="text/css" media="print" href="{{ STATIC_URL }}css/print.css">
+        <style type="text/css">
+            .line_left_color{               
+                background: #{{ color }}; 
+                background: -moz-linear-gradient(top, {{ color }}, #FFF); 
+    
+                background: -webkit-gradient(linear, left top, left bottom, 
+                color-stop(0%,{{ color }}), color-stop(100%,#FFF));
+
+                background: -webkit-linear-gradient(top, {{ color }}, #FFF);
+                background: -o-linear-gradient(top, {{ color }}, #FFF); 
+                background: -ms-linear-gradient(top, {{ color }}, #FFF); 
+                background: linear-gradient(top, {{ color }}, #FFF);  
+            }
+            header nav .active, header nav li:hover { 
+                background-color:  {{ color }}
+            } 
+        </style>
+		
+        {% block google_analytics %} {% endblock %}
+	</head>
+<body>
+<div id="carrier">
+	<header>
+		{% block logo %} {% endblock %}
+		<div id="line_top" style="background-color: {{ color }};">
+			{% block lang %}{% endblock %}
+		</div>	
+		<nav>  
+            {% block nav %}{% endblock %} 
+		</nav>
+		<div class="clear"></div>
+		{% block contact %}{% endblock %}		
+	</header>
+	<div class="clear"></div>
+		
+	<article>
+		<div id="col_central">
+			<div id="line_left" class="line_left_color"></div>	
+			{% block col_right %}{% endblock %}
+			{% block central_col %}{% endblock %}
+			          
+		</div> <!--end central-->
+		<div class="clear"></div>
+			
+			{% block bottom_col %}{% endblock %}
+	</article>
+	<div class="clear"></div>
+		
+    <footer>
+		{% block footer %} {% endblock %}
+        <div>&copy; copyright 2012&ndash;{{ current_year }}  </div>
+    </footer>
+    <div id="line_bottom"></div>    
+    <div class="clear"></div>		
+    <div id="version">powered by <a href="http://mysmile.com.ua">MySmile</a> v0.1.0</div>
+</div>
+
+</body>
+</html>

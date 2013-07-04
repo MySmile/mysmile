@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block google_analytics %}
+    {% if GOOGLE_ANALITYCS_CODE %}
+        <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '{{GOOGLE_ANALITYCS_CODE}}']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        </script>
+    {% endif %}    
+{% endblock %}
+
+{% block logo %} 
+	<div id="logo"><a href="/"><img src="{{ STATIC_URL }}images/logo.png" width="108" height="115" alt="" /></a></div>
+{% endblock %}
+
+{% block nav %}
+<ul>
+{% for links, menu in nav %}
+  {% if links == slug %}
+	<li class="active"><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+  {% else %}
+	<li><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% endblock %}
+
+{% block lang %}
+{% if menu_flag|length > 1 %}
+<div id="lang">
+    {% for i in ALL_LANGS %}
+    	{% if i in menu_flag %}
+    <a href="/{{ i }}/{{ slug }}.html"><img src="{{ STATIC_URL }}images/{{i}}.png" width="24" height="24" alt="{{ i }}"></a>
+		{% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+
+
+{% block contact %}
+<ul id="contact">
+{% if EMAIL %}
+	<li>
+        <img src="{{ STATIC_URL }}images/email.png" width="16" height="16" alt="e-mail" />
+        <!--<span class = "{{ EMAIL }}"><a href="#"></a> -->
+        <a href="mailto:{{ EMAIL }}">{{ EMAIL }}</a>					
+    </li>
+{% endif %}
+{% if PHONE %}
+	<li>    
+		<img src="{{ STATIC_URL }}images/phone.png" height="16" width="16" alt="phone" />
+		{{ PHONE }}
+	</li>
+{% endif %}
+{% if SKYPE %}
+	<li>    
+		<img src="{{ STATIC_URL }}images/skype.png" height="16" width="16" alt="skype" />
+        {{ SKYPE }}
+	</li>
+{% endif %}
+</ul>
+{% endblock %}
+
+
+{% block col_right %}
+	{% if right_col or photo %}
+			<aside id="col_right" >
+                {% if photo %}
+                    <div id="photo">
+                        <!--<img src="/media/images/1.png" width="333" alt="{{ photo_alt }}" />-->
+                        <img src="{{ MEDIA_URL }}{{ photo }}" width="333" alt="{{ photo_alt }}" />
+                    </div>
+                {% endif %}    
+                <div class="col_right_text">
+                    {{ right_col|safe }}
+                </div>
+			</aside>
+	{% endif %}
+{% endblock %}
+
+
+{% block central_col %}
+<h1><a href="#">{{ name }}</a></h1>
+<div class="col_central_text">{{ central_col|safe }}</div>
+{% endblock %} 
+
+
+
+{% block bottom_col %}
+	<aside id="col_bottom">
+	{% for col in bottom_cols %}
+    	<div class="col_bottom col_bottom_{{ bottom_cols|length }}">{{ col|safe }}</div>
+	{% endfor %}
+	<div class="clear"></div>
+    </aside>
+{% endblock %}
+
+
+{% block footer %}
+       <ul>
+            {% for links, menu in nav %}
+            <li><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+            {% endfor %}
+        </ul>
+{% endblock %}
+
+
+
