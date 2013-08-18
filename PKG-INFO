@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: MySmile
+Version: 0.2.0b
+Author: Andrii Pryz
+Author-email: info at mysmile com ua
+Home-page: http://mysmile.com.ua
+Summary: It is CMS based on Django aimed to the quality content.
+License: BSD
+Download-URL: UNKNOWN
+Description: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Natural Language :: Russian
+Classifier: Natural Language :: Ukranian
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

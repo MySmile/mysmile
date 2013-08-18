@@ -1,9 +1,14 @@
-# Django settings for my project.
+# Django settings for mysmile project.
+from mysmile import user_settings
 import os
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
 DEBUG = True
+
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+ALLOWED_HOSTS= ['127.0.0.1', 'demo.mysmile.com.ua', 'www.demo.mysmile.com.ua']
 
 TEMPLATE_DEBUG = DEBUG
 
@@ -15,8 +20,9 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', 
-        'NAME': os.path.join(SITE_ROOT, 'db/mysmile.sqlite3'),  
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': os.path.join(SITE_ROOT, 'db/mysmile.sqlite3'),               
+       # Or path to database file if using sqlite3.
         'OPTIONS': '',
         # The following settings are not used with sqlite3:
         'USER': '',
@@ -25,10 +31,6 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
-
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -67,7 +69,8 @@ MEDIA_URL = ('/media/')
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT =''#os.path.join(SITE_ROOT, 'static/') 
+
+STATIC_ROOT = os.path.join(SITE_ROOT, '')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -91,7 +94,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'W3/^x=+JnorlH9#=DpIkfVqq(&)6Pe+8!Szw8621W0gKZ=I7)AE'
+SECRET_KEY = 'eghg&6Tr%jh#kleT7YoOW3/^x=0JT+8!Sz08621W0gKZ=I7(01'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -99,6 +102,9 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
 )
+
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -109,6 +115,8 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+
 
 ROOT_URLCONF = 'mysmile.urls'
 
@@ -154,7 +162,7 @@ LOGGING = {
     },
     'handlers': {
         'mail_admins': {
-            'level': 'ERROR',
+            'level': 'DEBUG',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         }
@@ -162,8 +170,9 @@ LOGGING = {
     'loggers': {
         'django.request': {
             'handlers': ['mail_admins'],
-            'level': 'ERROR',
+            'level': 'DEBUG',
             'propagate': True,
         },
     }
 }
+

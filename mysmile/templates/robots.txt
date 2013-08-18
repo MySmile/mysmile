@@ -1,2 +1,1 @@
-User-agent: *
-Disallow: /
+Sitemap: http://mysmile.com.ua/Sitemap.xml

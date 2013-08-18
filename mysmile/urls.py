@@ -21,14 +21,16 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", mimetype="text/plain")),
-    #(r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nHost: mysmile.com.ua\nSitemap: http://mysmile.com.ua/Sitemap.xml", mimetype="text/plain")),  
-    (r'^Sitemap\.xml$', 'sitemap.views.SitemapXML'),
+    #(r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", mimetype="text/plain")),
+    (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nHost: demo.mysmile.com.ua\nSitemap: \
+  http://demo.mysmile.com.ua/Sitemap.xml", mimetype="text/plain")),
 
+   	(r'^Sitemap\.xml$', 'sitemap.views.SitemapXML'),
 )
 
-# if DEBUG=False this line enable you custom page errors
+
 handler404 = 'mysmile.views.my_custom_404_view'
+
 
 if settings.DEBUG:
     urlpatterns += patterns('django.views.static',

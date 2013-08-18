@@ -23,6 +23,7 @@
 {% endblock %}
 
 {% block nav %}
+<nav>
 <ul>
 {% for links, menu in nav %}
   {% if links == slug %}
@@ -32,13 +33,28 @@
   {% endif %}
 {% endfor %}
 </ul>
+</nav>
+{% endblock %}
+
+{% block innver_nav %}
+{% if inav|length > 0  %}
+<ul id = "inav">
+{% for links, menu in inav %}
+  {% if links == slug %}
+	<li class="active"><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+  {% else %}
+	<li><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% endif %}
 {% endblock %}
 
 {% block lang %}
 {% if menu_flag|length > 1 %}
 <div id="lang">
     {% for i in ALL_LANGS %}
-    	{% if i in menu_flag %}
+		{% if i in menu_flag %}
     <a href="/{{ i }}/{{ slug }}.html"><img src="{{ STATIC_URL }}images/{{i}}.png" width="24" height="24" alt="{{ i }}"></a>
 		{% endif %}
     {% endfor %}
@@ -73,14 +89,20 @@
 
 
 {% block col_right %}
-	{% if right_col or photo %}
+	{% if right_col or photo or youtube %}
 			<aside id="col_right" >
                 {% if photo %}
                     <div id="photo">
                         <!--<img src="/media/images/1.png" width="333" alt="{{ photo_alt }}" />-->
                         <img src="{{ MEDIA_URL }}{{ photo }}" width="333" alt="{{ photo_alt }}" />
                     </div>
-                {% endif %}    
+                {% endif %}
+                
+                {% if youtube %}
+<iframe style="box-shadow: 0 15px 15px -13px #333; -moz-box-shadow: 0 15px 15px -13px #333; -webkit-box-shadow: 0 15px 15px -13px #333; width:330px; height:250px;margin:2px;" 
+src="{{ youtube }}" frameborder="0" allowfullscreen></iframe>
+                {% endif %}
+                    
                 <div class="col_right_text">
                     {{ right_col|safe }}
                 </div>
@@ -95,16 +117,16 @@
 {% endblock %} 
 
 
-
 {% block bottom_col %}
+{% if bottom_cols|length > 0  %}
 	<aside id="col_bottom">
 	{% for col in bottom_cols %}
     	<div class="col_bottom col_bottom_{{ bottom_cols|length }}">{{ col|safe }}</div>
 	{% endfor %}
 	<div class="clear"></div>
     </aside>
+{% endif %}
 {% endblock %}
-
 
 {% block footer %}
        <ul>

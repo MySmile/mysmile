@@ -6,7 +6,9 @@
 		<meta charset="UTF-8">
 		<meta name="description" content="{{ meta_description }}"  />
 		<meta name="keywords" content="{{ meta_keywords }}" />
+		<meta name="viewport" content="width=device-width, initial-scale=2, maximum-scale=5">
 		<meta name="author" content="{{ meta_author }}">
+		<meta name='yandex-verification' content='40224cd0d3cc6303' />
 		<title>{{ meta_title }}</title>
 	    
 		<link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/style.css">
@@ -38,9 +40,9 @@
 		<div id="line_top" style="background-color: {{ color }};">
 			{% block lang %}{% endblock %}
 		</div>	
-		<nav>  
-            {% block nav %}{% endblock %} 
-		</nav>
+		  
+        {% block nav %}{% endblock %} 
+		{% block innver_nav %}{% endblock %}
 		<div class="clear"></div>
 		{% block contact %}{% endblock %}		
 	</header>
@@ -64,9 +66,13 @@
         <div>&copy; copyright 2012&ndash;{{ current_year }}  </div>
     </footer>
     <div id="line_bottom"></div>    
-    <div class="clear"></div>		
-    <div id="version">powered by <a href="http://mysmile.com.ua">MySmile</a> v0.1.0</div>
-</div>
+    <div class="clear"></div>
+    
+    <a href="https://hosting4django.net/aff.php?aff=009"><img 
+src="{{ STATIC_URL }}images/logohosting.png" border="0" alt="A best Django hosting!" 
+title="A best Django hosting!" width="237" height="41" /></a> 
+    <div id="version">powered by <a href="http://mysmile.com.ua">MySmile</a> v0.2.0</div>
 
+    </div>
 </body>
 </html>
