@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     (r'^$', 'pages.views.home'),
     (r'^(?P<lang>[a-z]{2})/$', 'pages.views.home'),
 
-    (r'^(?P<lang>[a-z]{2})/(?P<slug>[a-z,A-Z,_]+)\.html$', 'pages.views.page'),
+    (r'^(?P<lang>[a-z]{2})/(?P<slug>[a-z,A-Z,-]+)\.html$', 'pages.views.page'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

@@ -9,7 +9,7 @@ from django.contrib.sites.models import Site
 
 class Page(models.Model):
 	slug = models.SlugField(unique=True, help_text='This is unique. Valid characters of the alphabet in upper \
- lower case, and the underscore')
+ lower case, and the hyphen (not underscore!)')
 	color = models.CharField(max_length=7, default='#FDA132', help_text='Click once with the mouse to select a color, and then twice to save')
 	photo = models.ImageField(upload_to='images/', null=True, blank=True)  #blank=True add "clear" checkbox into admin page
 	sortorder = models.IntegerField(unique=True)
