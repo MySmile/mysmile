@@ -30,7 +30,6 @@ def page(request, lang='', slug='', c={}):
 	
 	c['lang'] = lang
 	c['slug'] = slug
-	print(nav)
 	c['nav'] = nav
 	c['inav'] = inav
 	if cc['youtube']:
