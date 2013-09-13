@@ -10,7 +10,7 @@ from pages.models import Page, Page_translation
 class PagesManager(models.Manager):
 	def get_first_slug(self):
 		#refactoring below
-		return Page.objects.raw('SELECT id,slug FROM Page ORDER BY sortorder ASC')[0]
+		return Page.objects.raw('SELECT id,slug FROM Page ORDER BY sortorder ASC')[0].slug
 
 	def get_nav(self, lang):
 		cursor = connection.cursor()
