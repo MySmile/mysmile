@@ -57,3 +57,7 @@ class PagesManager(models.Manager):
         cc.update(c) 
         return cc
 
+    def get_slug_published(self):
+        return Page.objects.raw('SELECT id, slug FROM page WHERE status=1')
+    def get_data_for_node(self,id): 
+        return  Page_translation.objects.raw('SELECT id,lang,updated_at FROM page_translation WHERE page_id=%s',[id])
