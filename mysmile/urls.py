@@ -12,8 +12,10 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 
-    (r'^$', 'pages.views.home'),
-    (r'^(?P<lang>[a-z]{2})/$', 'pages.views.home'),
+    (r'^$', 'pages.views.page'),
+    #~ (r'^$', 'pages.views.home'),
+    (r'^(?P<lang>[a-z]{2})/$', 'pages.views.page'),
+    #~ (r'^(?P<lang>[a-z]{2})/$', 'pages.views.home'),
 
     (r'^(?P<lang>[a-z]{2})/(?P<slug>[a-z,A-Z,-]+)\.html$', 'pages.views.page'),
 

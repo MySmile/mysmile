@@ -12,40 +12,23 @@ import logging  # import the logging library
 from pages.models import Page, Page_translation
 from mysmile import user_settings  # import user settings PHONE, EMAIL, etc.
 from pages.managers import PagesManager  #all connection to db
+from pages.decorators import ls_check
 
 logger = logging.getLogger(__name__)  # Get an instance of a logger
 
-
+@ls_check
 def page(request, lang='', slug='',c={}):
-    if lang in user_settings.ALL_LANGS:
-        w = PagesManager()
-        nav = w.get_nav(lang)
-        menu_flag = w.get_menu_flags(slug)
-        cc = w.get_content(lang, slug)
-        inav = w.get_inner_nav(request, cc['menu'], slug)
-        c['logo_link'] = '/'+lang+'/'+w.get_first_slug()+'.html'
-    else:
-        logger.error('Unsupported language parameter: '+lang)
-        return HttpResponse("Impossible to load current page. Unsupported language parameter. \
-            Please use one of supported", user_settings.ALL_LANGS, ".")
-
+    w = PagesManager()
+    nav = w.get_nav(lang)
+    menu_flag = w.get_menu_flags(slug)
+    c = w.get_content(lang, slug)
+    inav = w.get_inner_nav(request, c['menu'], slug)
+    c['logo_link'] = '/'+lang+'/'+w.get_first_slug()+'.html'
     c['lang'] = lang
     c['slug'] = slug
     c['nav'] = nav
     c['inav'] = inav
-    if cc['youtube']:
-        cc['youtube'] = create_embed_url_youtube(cc['youtube'])
     c['menu_flag'] = menu_flag
-    c.update(cc)
-
-    c['bottom_cols'] = []  #  some processing of the columns...
-    if c['bottom_col1']:
-        c['bottom_cols'].append(c['bottom_col1'])
-    if c['bottom_col2']:
-        c['bottom_cols'].append(c['bottom_col2'])
-    if c['bottom_col3']:
-        c['bottom_cols'].append(c['bottom_col3'])
-
     c['ALL_LANGS'] = user_settings.ALL_LANGS  # get user settings
     if user_settings.PHONE:
         c['PHONE'] = user_settings.PHONE
@@ -64,36 +47,9 @@ def page(request, lang='', slug='',c={}):
     html = t.render(Context(c))
     return HttpResponse(html)
   
- 
-def home(request, lang='', slug=''):
-    if (('' == slug) or ('' == lang)):
-        w = PagesManager()
-        entry_point = w.get_first_slug()
-        if 'HTTP_ACCEPT_LANGUAGE' in request.META:  # automatic language selection
-            for k in user_settings.ALL_LANGS:
-                if k in request.META['HTTP_ACCEPT_LANGUAGE']:
-                    lang = k
-                    k = 0
-                else:
-                    lang = user_settings.ALL_LANGS[0] 
-        else:
-            lang = user_settings.ALL_LANGS[0]
-        return http.HttpResponseRedirect(user_settings.DOMAIN_NAME+\
-               lang+'/'+entry_point+'.html')
-    else:
-        return HttpResponse('Application error. Please reload page or contact administrator.')
-
-
-def create_embed_url_youtube(url):
-    code = url.split('=')[-1]
-    return 'https://www.youtube.com/embed/'+code+'?feature=player_detailpage'
-
-# function get lang & slug from request
-#~ def get_lang_slug(request):
-    #~ url = HttpRequest.build_absolute_uri(request)
-    #~ url = url.split('/')
-    #~ temp = url[-1].split('.')
-    #~ ls = {'slug':temp[0]}
-    #~ ls['lang'] = url[-2] 
-    #~ return ls
-    
+#~ paste somewhere this code!
+#~ if lang not in user_settings.ALL_LANGS:
+    #~ logger.error('Unsupported language parameter: '+lang)
+    #~ return HttpResponse("Impossible to load current page. Unsupported language parameter. \
+            #~ Please use one of supported", user_settings.ALL_LANGS, ".")
+ #~ 
