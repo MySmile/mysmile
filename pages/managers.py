@@ -4,7 +4,7 @@ from django.http import HttpRequest
 from django.contrib.sessions.backends.db import SessionStore
 from django.http import Http404
 
-from mysmile import user_settings
+from mysmile.user_settings import user_settings
 from pages.models import Page, Page_translation
 
 
@@ -22,12 +22,12 @@ class PagesManager(models.Manager):
     def get_inner_nav(self, request, menu, slug0):
         inner_nav = request.session.get('inner_nav', [])
         if Page.objects.filter(slug=slug0, ptype=0):  # ptype=0 --- inner_page
-            while len(inner_nav) >= user_settings.MAX_INNERLINK_HISTORY:
+            while len(inner_nav) > user_settings['MAX_INNERLINK_HISTORY']:
                 inner_nav.pop(0)
-            temp = [slug0, menu]#[HttpRequest.build_absolute_uri(request), menu]
+            temp = [slug0, menu]
             # work with sessions
             if not temp in inner_nav:
-                inner_nav.append([slug0, menu])#([HttpRequest.build_absolute_uri(request), menu])
+                inner_nav.append([slug0, menu])
                 # save data to the session
                 request.session['inner_nav'] = inner_nav
         return inner_nav

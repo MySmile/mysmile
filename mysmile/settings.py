@@ -1,8 +1,8 @@
 # Django settings for mysmile project.
-from mysmile import user_settings
+#from mysmile import user_settings
 import os
 
-SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+PROJECT_DIR = os.path.realpath(os.path.dirname(__file__))
 
 DEBUG = True
 
@@ -21,7 +21,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(SITE_ROOT, 'db/mysmile.sqlite3'),               
+        'NAME': os.path.join(PROJECT_DIR, 'db/mysmile.sqlite3'),               
        # Or path to database file if using sqlite3.
         'OPTIONS': '',
         # The following settings are not used with sqlite3:
@@ -58,7 +58,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = os.path.join(SITE_ROOT, 'media/')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -70,7 +70,7 @@ MEDIA_URL = ('/media/')
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
 
-STATIC_ROOT = os.path.join(SITE_ROOT, '')
+STATIC_ROOT = os.path.join(PROJECT_DIR, '')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -78,8 +78,8 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(SITE_ROOT, 'static/'),
-    os.path.join(SITE_ROOT, 'media/'),
+    os.path.join(PROJECT_DIR, 'static/'),
+    os.path.join(PROJECT_DIR, 'media/'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -127,7 +127,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(SITE_ROOT, 'templates'),
+    os.path.join(PROJECT_DIR, 'templates'),
 )
 
 INSTALLED_APPS = (

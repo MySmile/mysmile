@@ -2,7 +2,7 @@ from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Max
 #from django.contrib.sitemaps import ping_google
-from mysmile import user_settings
+from mysmile.user_settings import user_settings
 
 from django.contrib.sites.models import Site
 
@@ -14,7 +14,7 @@ class Page(models.Model):
 	photo = models.ImageField(upload_to='images/', null=True, blank=True)  #blank=True add "clear" checkbox into admin page
 	sortorder = models.IntegerField(unique=True)
 	status = models.IntegerField(unique=False, choices=((0, 'draft'), (1, 'published'),), default=0)
-	ptype = models.IntegerField(unique=False, choices=((0, 'inner_page'), (1, 'menu_page'),), default=1)   
+	ptype = models.IntegerField(unique=False, choices=((0, 'inner page'), (1, 'menu page'),), default=1)   
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	
@@ -28,12 +28,12 @@ class Page(models.Model):
 		
 class Page_translation(models.Model):
 	ALL_LANGS_DESC = []
-	for i in user_settings.ALL_LANGS:
+	for i in user_settings['ALL_LANGS']:
 		ALL_LANGS_DESC.append((i, i))
 	ALL_LANGS_DESC = tuple(ALL_LANGS_DESC)
 	
 	page = models.ForeignKey(Page)
-	lang = models.CharField(max_length=2, choices=ALL_LANGS_DESC, default=user_settings.ALL_LANGS[0])
+	lang = models.CharField(max_length=2, choices=ALL_LANGS_DESC, default=user_settings['ALL_LANGS'][0])
 	menu = models.CharField(max_length=200)
 	name = models.CharField(max_length=200, blank=True, null=True)
 	central_col = models.TextField(blank=False, null=False)

@@ -1,6 +1,6 @@
 from pages.models import Page, Page_translation
 from django.http import HttpResponse
-from mysmile import user_settings
+from mysmile.user_settings import user_settings
 
 from pages.managers import PagesManager
 
@@ -15,7 +15,7 @@ def SitemapXML(request):
     for i in slug_pages:
         p_trans = w.get_data_for_node(i.id)
         for j in p_trans:
-            url = user_settings.DOMAIN_NAME + j.lang + '/' + i.slug + '.html'
+            url = user_settings['DOMAIN_NAME'] + j.lang + '/' + i.slug + '.html'
             modified = j.updated_at.strftime('%Y-%m-%d')
             xml += createNode(url, modified)
     xml += '</urlset>'

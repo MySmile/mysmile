@@ -4,7 +4,7 @@ from django.db import models
 from django.db import connection
 
 from pages.models import Page, Page_translation
-from mysmile import user_settings
+from mysmile.user_settings import user_settings
 
 
 class Page_translationInline(admin.StackedInline):  # TabularInline):
@@ -18,7 +18,7 @@ class Page_translationInline(admin.StackedInline):  # TabularInline):
 		'photo_alt'], 'classes': ['collapse']}),
 	]
 	search_fields = ['central_col', 'right_col', 'bottom_col1', 'bottom_col2', 'bottom_col3']
-	max_num = len(user_settings.ALL_LANGS)
+	max_num = len(user_settings['ALL_LANGS'])
 
 class PageAdmin(admin.ModelAdmin):
 	model = Page
@@ -36,14 +36,6 @@ class PageAdmin(admin.ModelAdmin):
 			if obj.slug == 'index':
 				return ('slug',) + self.readonly_fields
 		return self.readonly_fields
-
-	# disable 'add' button in condition MAX_NUM_PAGE
-	#~ def has_add_permission(self, request):
-		#~ num_page = len(Page.objects.filter(status=1))
-		#~ if ( num_page >= user_settings.MAX_NUM_PAGE):
-			#~ return False
-		#~ else:
-			#~ return True
 
 admin.site.register(Page, PageAdmin)
 

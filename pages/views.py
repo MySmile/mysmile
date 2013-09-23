@@ -10,46 +10,32 @@ import datetime
 import logging  # import the logging library
 
 from pages.models import Page, Page_translation
-from mysmile import user_settings  # import user settings PHONE, EMAIL, etc.
+from mysmile.user_settings import user_settings  # import user settings PHONE, EMAIL, etc.
 from pages.managers import PagesManager  #all connection to db
 from pages.decorators import ls_check
 
 logger = logging.getLogger(__name__)  # Get an instance of a logger
 
 @ls_check
-def page(request, lang='', slug='',c={}):
+def page(request, lang='', slug=''): #, c={}):
     w = PagesManager()
-    nav = w.get_nav(lang)
-    menu_flag = w.get_menu_flags(slug)
     c = w.get_content(lang, slug)
-    inav = w.get_inner_nav(request, c['menu'], slug)
+    c['nav'] = w.get_nav(lang)
+    c['menu_flag'] = w.get_menu_flags(slug)
+    c['inav'] = w.get_inner_nav(request, c['menu'], slug)
     c['logo_link'] = '/'+lang+'/'+w.get_first_slug()+'.html'
     c['lang'] = lang
     c['slug'] = slug
-    c['nav'] = nav
-    c['inav'] = inav
-    c['menu_flag'] = menu_flag
-    c['ALL_LANGS'] = user_settings.ALL_LANGS  # get user settings
-    if user_settings.PHONE:
-        c['PHONE'] = user_settings.PHONE
-    if user_settings.EMAIL:
-        c['EMAIL'] = user_settings.EMAIL
-    if user_settings.SKYPE:
-        c['SKYPE'] = user_settings.SKYPE
-    if user_settings.GOOGLE_ANALITYCS_CODE:
-        c['GOOGLE_ANALITYCS_CODE'] = user_settings.GOOGLE_ANALITYCS_CODE
     
+    c.update(user_settings)
+    # ------- drop this    
     c['STATIC_URL'] = settings.STATIC_URL
     c['MEDIA_URL'] = settings.MEDIA_URL
     c['current_year'] = datetime.datetime.now().strftime('%Y')
-
+    # --------drop this
+      
     t = get_template('pages/page.html')
     html = t.render(Context(c))
     return HttpResponse(html)
   
-#~ paste somewhere this code!
-#~ if lang not in user_settings.ALL_LANGS:
-    #~ logger.error('Unsupported language parameter: '+lang)
-    #~ return HttpResponse("Impossible to load current page. Unsupported language parameter. \
-            #~ Please use one of supported", user_settings.ALL_LANGS, ".")
- #~ 
+
