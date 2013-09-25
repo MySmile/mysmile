@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block google_analytics %}
     {% if GOOGLE_ANALITYCS_CODE %}
@@ -18,9 +19,8 @@
     {% endif %}    
 {% endblock %}
 
-{% block logo %} 
-	<div id="logo"><a href="{{ logo_link }}"><img src="{{ STATIC_URL }}images/logo.png" 
-width="108" height="115" alt="MySmile logo" /></a></div>
+{% block logo %}
+	<div id="logo"><a href="{{ logo_link }}"><img src="{% static "images/logo.png" %}" width="108" height="115" alt="MySmile logo" /></a></div>
 {% endblock %}
 
 {% block nav %}
@@ -56,7 +56,7 @@ width="108" height="115" alt="MySmile logo" /></a></div>
 <div id="lang">
     {% for i in ALL_LANGS %}
 		{% if i in menu_flag %}
-    <a href="/{{ i }}/{{ slug }}.html"><img src="{{ STATIC_URL }}images/{{i}}.png" width="24" height="24" alt="{{ i }}"></a>
+    <a href="/{{ i }}/{{ slug }}.html"><img src="{% static 'images/'|add:i|add:'.png' %}" width="24" height="24" alt="{{ i }}"></a>
 		{% endif %}
     {% endfor %}
 </div>
@@ -68,20 +68,19 @@ width="108" height="115" alt="MySmile logo" /></a></div>
 <ul id="contact">
 {% if EMAIL %}
 	<li>
-        <img src="{{ STATIC_URL }}images/email.png" width="16" height="16" alt="e-mail" />
-        <!--<span class = "{{ EMAIL }}"><a href="#"></a> -->
+        <img src="{% static 'images/email.png' %}" width="16" height="16" alt="e-mail" />
         <a href="mailto:{{ EMAIL }}">{{ EMAIL }}</a>					
     </li>
 {% endif %}
 {% if PHONE %}
 	<li>    
-		<img src="{{ STATIC_URL }}images/phone.png" height="16" width="16" alt="phone" />
+		<img src="{% static 'images/phone.png' %}" height="16" width="16" alt="phone" />
 		{{ PHONE }}
 	</li>
 {% endif %}
 {% if SKYPE %}
 	<li>    
-		<img src="{{ STATIC_URL }}images/skype.png" height="16" width="16" alt="skype" />
+		<img src="{% static 'images/skype.png' %}" height="16" width="16" alt="skype" />
         {{ SKYPE }}
 	</li>
 {% endif %}
@@ -95,7 +94,7 @@ width="108" height="115" alt="MySmile logo" /></a></div>
                 {% if photo %}
                     <div id="photo">
                         <!--<img src="/media/images/1.png" width="333" alt="{{ photo_alt }}" />-->
-                        <img src="{{ MEDIA_URL }}{{ photo }}" width="333" alt="{{ photo_alt }}" />
+                        <img src="{% static photo  %}" width="333" alt="{{ photo_alt }}" />
                     </div>
                 {% endif %}
                 

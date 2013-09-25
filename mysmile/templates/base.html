@@ -1,8 +1,9 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="{{ lang|lower }}">
  
 	<head>
-        <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
 		<meta charset="UTF-8">
 		<meta name="description" content="{{ meta_description }}"  />
 		<meta name="keywords" content="{{ meta_keywords }}" />
@@ -11,8 +12,8 @@
 		<meta name='yandex-verification' content='40224cd0d3cc6303' />
 		<title>{{ meta_title }}</title>
 	    
-		<link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/main.css">
-		<link rel="stylesheet" type="text/css" media="print" href="{{ STATIC_URL }}css/print.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}">
+		<link rel="stylesheet" type="text/css" media="print" href="{% static 'css/print.css' %}">
         <style type="text/css">
             .line_left_color{               
                 background: #{{ color }}; 
@@ -69,7 +70,7 @@
     <div class="clear"></div>
     
     <a href="https://hosting4django.net/aff.php?aff=009"><img 
-src="{{ STATIC_URL }}images/logohosting.png" border="0" alt="A best Django hosting!" 
+src="{% static 'images/logohosting.png' %}" border="0" alt="A best Django hosting!" 
 title="A best Django hosting!" width="237" height="41" /></a> 
     <div id="version">powered by <a href="http://mysmile.com.ua">MySmile</a> v0.2.0</div>
 

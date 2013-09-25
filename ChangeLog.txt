@@ -1,4 +1,4 @@
-2013-??-?? development version 0.2.1 rev23102013
+2013-??-?? development version 0.2.1 rev24-10-2013
 
 2013-09-19  Version 0.2.0
 * Fixed some bugs

@@ -28,11 +28,7 @@ def page(request, lang='', slug=''): #, c={}):
     c['slug'] = slug
     
     c.update(user_settings)
-    # ------- drop this    
-    c['STATIC_URL'] = settings.STATIC_URL
-    c['MEDIA_URL'] = settings.MEDIA_URL
     c['current_year'] = datetime.datetime.now().strftime('%Y')
-    # --------drop this
       
     t = get_template('pages/page.html')
     html = t.render(Context(c))
