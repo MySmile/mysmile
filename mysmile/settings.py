@@ -21,7 +21,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(PROJECT_DIR, 'db/mysmile.sqlite3'),               
+        'NAME': os.path.join(PROJECT_DIR, 'db/mysmile.sqlite3'),
        # Or path to database file if using sqlite3.
         'OPTIONS': '',
         # The following settings are not used with sqlite3:
@@ -58,7 +58,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''#os.path.join(PROJECT_DIR, 'media/')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.

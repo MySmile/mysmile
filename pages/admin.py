@@ -46,7 +46,7 @@ class PageAdmin(admin.ModelAdmin):
         for item in user_settings['ALL_LANGS']:
             if not Page_translation.objects.filter(page_id=model.id, lang=item):
                 flags += '<img src="' + STATIC_URL + \
-                         'images/' + item + '.png"/>'
+                         'images/' + item + '.png" alt= "' + str(item) + '"/>'
         return flags
     waiting_for_translation.short_description = 'waiting for translation'
     waiting_for_translation.allow_tags = True
@@ -54,11 +54,9 @@ class PageAdmin(admin.ModelAdmin):
     def preview_image_url(self, model):
         if model.photo:
             image_path = os.path.join(MEDIA_URL, str(model.photo))
-            print('----------------------------', image_path)
-        #~ image_path = image_path.replace('\\','/') # Windows-Fix
             return '<img src="' + image_path + '" height="32"/>'
         else:
-            return '---'
+            return ''
 
     preview_image_url.short_description = 'Thumbnails'
     preview_image_url.allow_tags = True

@@ -1,6 +1,4 @@
 from django.conf.urls import patterns, include, url, handler404
-from django.contrib import sitemaps
-from django.shortcuts import render
 from django.http import HttpResponse
 
 from mysmile import settings
