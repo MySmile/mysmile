@@ -6,10 +6,9 @@ from mysmile.settings import MEDIA_URL, STATIC_URL
 from mysmile.user_settings import user_settings
 
 
-class Page_translationInline(admin.StackedInline):  # TabularInline):
+class Page_translationInline(admin.StackedInline):
     model = Page_translation
     verbose_name = 'Lang'
-    # model.lang.help_text('SOME HELP!')
     extra = 0
     fieldsets = [
         ('Content', {'fields': ['lang', 'menu', 'name', 'central_col',

@@ -1,7 +1,5 @@
 from django.db import models
 from django.db import connection
-#from django.http import HttpRequest
-#from django.contrib.sessions.backends.db import SessionStore
 from django.http import Http404
 
 from mysmile.user_settings import user_settings
@@ -11,7 +9,6 @@ from pages.models import Page, Page_translation
 class PagesManager(models.Manager):
 
     def get_first_slug(self):
-        #refactoring below
         return Page.objects.raw('SELECT id,slug FROM Page \
                                 ORDER BY sortorder ASC')[0].slug
 

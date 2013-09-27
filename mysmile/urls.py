@@ -24,7 +24,7 @@ urlpatterns = patterns('',
     (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nHost: demo.mysmile.com.ua\nSitemap: \
   http://demo.mysmile.com.ua/Sitemap.xml", mimetype="text/plain")),
 
-   	(r'^Sitemap\.xml$', 'sitemap.views.SitemapXML'),
+    (r'^Sitemap\.xml$', 'sitemap.views.SitemapXML'),
 )
 
 

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import Context
 from django.template.loader import get_template
-import datetime
+from datetime import datetime
 import logging
 
 # import user settings PHONE, EMAIL, etc.
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)  # Get an instance of a logger
 
 
 @ls_check
-def page(request, lang='', slug=''):  # c={}):
+def page(request, lang='', slug=''):
     w = PagesManager()
     c = w.get_content(lang, slug)
     c['nav'] = w.get_nav(lang)
@@ -25,7 +25,7 @@ def page(request, lang='', slug=''):  # c={}):
     c['slug'] = slug
 
     c.update(user_settings)
-    c['current_year'] = datetime.datetime.now().strftime('%Y')
+    c['current_year'] = datetime.now().strftime('%Y')
 
     t = get_template('pages/page.html')
     html = t.render(Context(c))
