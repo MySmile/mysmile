@@ -1,5 +1,5 @@
-2013-19-? Version 0.2.2
-* in progress
+2013-10-?? Version 0.2.2
++ Add apple-touch-icon-precomposed.png
 
 2013-09-27 Version 0.2.1
 * Admin tweaking
