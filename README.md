@@ -1,6 +1,6 @@
 MySmile --- simple CMS based on Django.
 
-This is development version!
+This is version 0.2.1!
 
 Download stable version from http://mysmile.com.ua. 
 
