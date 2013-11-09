@@ -1,5 +1,6 @@
 2013-10-?? Version 0.2.2
 + Add apple-touch-icon-precomposed.png
+* Improved localize system
 
 2013-09-27 Version 0.2.1
 * Admin tweaking

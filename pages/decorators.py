@@ -1,7 +1,7 @@
 from django import http
 
 from pages.managers import PagesManager
-from mysmile.user_settings import user_settings
+from mysmile.settings import LANGUAGES
 
 
 def ls_check(view_func):
@@ -14,14 +14,14 @@ def ls_check(view_func):
             entry_point = w.get_first_slug()
             # automatic language selection
             if 'HTTP_ACCEPT_LANGUAGE' in request.META:
-                for k in user_settings['ALL_LANGS']:
-                    if k in request.META['HTTP_ACCEPT_LANGUAGE']:
-                        lang = k
+                for k in LANGUAGES:
+                    if k[0] in request.META['HTTP_ACCEPT_LANGUAGE']:
+                        lang = k[0]
                         k = 0
                     else:
-                        lang = user_settings['ALL_LANGS'][0]
+                        lang = LANGUAGES[0][0]
             else:
-                lang = user_settings['ALL_LANGS'][0]
+                lang = LANGUAGES[0][0]
             return http.HttpResponseRedirect(user_settings['DOMAIN_NAME'] +
                                              lang + '/' + entry_point + '.html')
         else:

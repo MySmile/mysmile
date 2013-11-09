@@ -3,7 +3,7 @@ from django.contrib import admin
 
 from pages.models import Page, Page_translation
 from mysmile.settings import MEDIA_URL, STATIC_URL
-from mysmile.user_settings import user_settings
+from mysmile.settings import LANGUAGES
 
 
 class Page_translationInline(admin.StackedInline):
@@ -20,7 +20,7 @@ class Page_translationInline(admin.StackedInline):
     ]
     search_fields = ['central_col', 'right_col', 'bottom_col1', 'bottom_col2',
                      'bottom_col3']
-    max_num = len(user_settings['ALL_LANGS'])
+    max_num = len(LANGUAGES)
 
 
 class PageAdmin(admin.ModelAdmin):
@@ -42,10 +42,10 @@ class PageAdmin(admin.ModelAdmin):
 
     def waiting_for_translation(self, model):
         flags = ''
-        for item in user_settings['ALL_LANGS']:
-            if not Page_translation.objects.filter(page_id=model.id, lang=item):
+        for item in LANGUAGES:
+            if not Page_translation.objects.filter(page_id=model.id, lang=item[0]):
                 flags += '<img src="' + STATIC_URL + \
-                         'images/' + item + '.png" alt= "' + str(item) + '"/>'
+                         'images/' + item[0] + '.png" alt= "' + str(item[1]) + '"/>'
         return flags
     waiting_for_translation.short_description = 'waiting for translation'
     waiting_for_translation.allow_tags = True

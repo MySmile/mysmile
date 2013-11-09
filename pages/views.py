@@ -4,11 +4,12 @@ from django.template.loader import get_template
 from datetime import datetime
 import logging
 
-# import user settings PHONE, EMAIL, etc.
-from mysmile.user_settings import user_settings
+#from mysmile.settings import LANGUAGES
 # manager all connection to db
 from pages.managers import PagesManager
 from pages.decorators import ls_check
+# import user settings PHONE, EMAIL, etc.
+from mysmile.user_settings import user_settings
 
 logger = logging.getLogger(__name__)  # Get an instance of a logger
 
@@ -23,6 +24,7 @@ def page(request, lang='', slug=''):
     c['logo_link'] = '/' + lang + '/' + w.get_first_slug() + '.html'
     c['lang'] = lang
     c['slug'] = slug
+    #c['ALL_LANGS'] = [item[0] for item in LANGUAGES]
 
     c.update(user_settings)
     c['current_year'] = datetime.now().strftime('%Y')

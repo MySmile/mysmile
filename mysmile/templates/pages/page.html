@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load staticfiles %}{% load i18n %}
 
 {% block google_analytics %}
     {% if GOOGLE_ANALITYCS_CODE %}
@@ -52,15 +52,11 @@
 {% endblock %}
 
 {% block lang %}
-{% if menu_flag|length > 1 %}
 <div id="lang">
-    {% for i in ALL_LANGS %}
-		{% if i in menu_flag %}
+    {% for i in menu_flag %}
     <a href="/{{ i }}/{{ slug }}.html"><img src="{% static 'images/'|add:i|add:'.png' %}" width="24" height="24" alt="{{ i }}"></a>
-		{% endif %}
     {% endfor %}
 </div>
-{% endif %}
 {% endblock %}
 
 

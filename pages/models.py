@@ -1,5 +1,5 @@
 from django.db import models
-from mysmile.user_settings import user_settings
+from mysmile.settings import LANGUAGES
 
 
 class Page(models.Model):
@@ -29,14 +29,14 @@ class Page(models.Model):
 
 
 class Page_translation(models.Model):
-    ALL_LANGS_DESC = []
-    for i in user_settings['ALL_LANGS']:
-        ALL_LANGS_DESC.append((i, i))
-    ALL_LANGS_DESC = tuple(ALL_LANGS_DESC)
+    ALL_LANGS = []
+    for i in LANGUAGES:
+        ALL_LANGS.append((i[0], i[0]))
+    ALL_LANGS = tuple(ALL_LANGS)
 
     page = models.ForeignKey(Page)
-    lang = models.CharField(max_length=2, choices=ALL_LANGS_DESC,
-                            default=user_settings['ALL_LANGS'][0])
+    lang = models.CharField(max_length=2, choices=ALL_LANGS,
+                            default=LANGUAGES[0][0])
     menu = models.CharField(max_length=200)
     name = models.CharField(max_length=200, blank=True, null=True)
     central_col = models.TextField(blank=False, null=False)
