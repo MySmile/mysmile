@@ -40,12 +40,12 @@ TIME_ZONE = 'Europe/Kiev'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'uk'
+LANGUAGE_CODE = 'en'
 
 LANGUAGES = (
+    ('en', 'English'),
     ('uk', 'Ukraine'),
     ('ru', 'Russian'),
-    ('en', 'English'),
 )
 
 SITE_ID = 1
