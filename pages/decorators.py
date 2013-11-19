@@ -2,6 +2,7 @@ from django import http
 
 from pages.managers import PagesManager
 from mysmile.settings import LANGUAGES
+from mysmile.user_settings import user_settings
 
 
 def ls_check(view_func):
