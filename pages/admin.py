@@ -2,12 +2,14 @@ import os
 from django.contrib import admin
 
 from pages.models import Page, Page_translation
+from pages.forms import Page_translationForm
 from mysmile.settings import MEDIA_URL, STATIC_URL
 from mysmile.settings import LANGUAGES
 
 
 class Page_translationInline(admin.StackedInline):
     model = Page_translation
+    form = Page_translationForm
     verbose_name = 'Lang'
     extra = 0
     fieldsets = [
