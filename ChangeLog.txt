@@ -1,10 +1,17 @@
-2013-10-?? Version 0.2.2
+2013-??-?? Version 0.2.3 (under development)
++ 
+* 
+- 
+
+2013-11-23 Version 0.2.2
 + Add apple-touch-icon-precomposed.png
-* Improved localize system
+* Improved admin localize system
+* Django 1.6 support!
 
 2013-09-27 Version 0.2.1
 * Admin tweaking
 * The big code refactoring
+* Last realise for Django 1.5x series
 
 2013-09-19  Version 0.2.0
 * Fixed some bugs

@@ -3,14 +3,14 @@ About
 
 MySmile --- simple CMS based on Django.
 
-This is development version!
+This is development version 0.2.3!
 
-Download stable version from http://mysmile.com.ua. 
+Download stable version 0.2.2 from http://mysmile.com.ua. 
 
 Dependences
 ===========
 
-a) Django 1.5.x: https://github.com/django/django, http://djangoproject.com
+a) Django 1.6: https://github.com/django/django, http://djangoproject.com
 b) PIL library for working with images: https://github.com/python-imaging/Pillow
 
 
