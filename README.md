@@ -3,7 +3,7 @@ About
 
 MySmile --- simple CMS based on Django.
 
-This is development version 0.2.3!
+This is development version 0.2.3b!
 
 Download stable version 0.2.2 from http://mysmile.com.ua. 
 
@@ -17,6 +17,7 @@ b) PIL library for working with images: https://github.com/python-imaging/Pillow
 Installation
 ============
 
+0. Install dependences: $ pip install -r requirements.pip
 1. Unpack archive with MySmile to the project directory
 2. In the project directory run a command in the terminal: 
     
