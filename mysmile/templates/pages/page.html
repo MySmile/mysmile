@@ -53,8 +53,8 @@
 
 {% block lang %}
 <div id="lang">
-    {% for i in menu_flag %}
-    <a href="/{{ i }}/{{ slug }}.html"><img src="{% static 'images/'|add:i|add:'.png' %}" width="24" height="24" alt="{{ i }}"></a>
+    {% for item in menu_flag %}
+    <a href="/{{ item }}/{{ slug }}.html"><img src="{% static 'images/'|add:item|add:'.png' %}" width="24" height="24" alt="{{ item }}"></a>
     {% endfor %}
 </div>
 {% endblock %}
@@ -87,10 +87,9 @@
 {% block col_right %}
 	{% if right_col or photo or youtube %}
 			<aside id="col_right" >
-                {% if photo %}
+                {% if page__photo %}
                     <div id="photo">
-                        <!--<img src="/media/images/1.png" width="333" alt="{{ photo_alt }}" />-->
-                        <img src="{% static photo  %}" width="333" alt="{{ photo_alt }}" />
+                        <img src="{% static page__photo  %}" width="333" alt="{{ photo_alt }}" />
                     </div>
                 {% endif %}
                 

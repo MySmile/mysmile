@@ -1,73 +1,63 @@
+from datetime import datetime
+
 from django.db import models
-from django.db import connection
 from django.http import Http404
 
+from mysmile.settings import LANGUAGES
 from mysmile.user_settings import user_settings
 from pages.models import Page, Page_translation
 
 
 class PagesManager(models.Manager):
 
-    def get_first_slug(self):
-        return Page.objects.raw('SELECT id,slug FROM Page \
-                                ORDER BY sortorder ASC')[0].slug
+    def get_content(self, request, lang=None, slug=None):
+        page_id = Page.objects.filter(slug=slug, status=1).values('id')
+        content = Page_translation.objects.filter(lang=lang, page__status=1, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'central_col', 'right_col', 'youtube', 'bottom_col1', 'bottom_col2', 'bottom_col3', 'photo_alt', 'meta_title', 'meta_description', 'meta_keywords')
 
-    def get_nav(self, lang):
-        cursor = connection.cursor()
-        cursor.execute('SELECT P.slug, PT.menu \
-                       FROM Page P, Page_translation PT WHERE \
-            P.id = PT.page_id and P.status = 1 and P.ptype = 1 \
-                   and PT.lang = %s ORDER BY P.sortorder', [lang])
-        return cursor.fetchall()
+        c = {}
+        cols = ['bottom_col1', 'bottom_col2', 'bottom_col3']  # some processing of the columns...
+        c['bottom_cols'] = [content[0].pop(item) for item in cols if content[0][item]]
 
-    def get_inner_nav(self, request, menu, slug0):
+        try:
+            c['inav'] = self.get_inner_nav(request, content[0]['menu'], slug)
+        except IndexError:
+            raise Http404
+
+        slugs = Page.objects.filter(status=1, ptype=1).values_list('slug', flat=True).order_by('sortorder')
+        menues = Page_translation.objects.filter(lang=lang, page__status=1, page__ptype=1).values_list( 'menu', flat=True).order_by('page__sortorder')
+        c['nav'] = list(map(lambda x, y: (x, y), slugs, menues))
+
+        c['menu_flag'] = [item[0] for item in LANGUAGES]
+        c['logo_link'] = '/' + lang + '/' + self.get_first_slug() + '.html'
+        c['lang'] = lang
+        c['slug'] = slug
+        c['current_year'] = datetime.now().strftime('%Y')
+
+        c.update(user_settings)
+        c.update(content[0])
+
+        if c['youtube']:
+            c['youtube'] = self.get_youtube_embedded_url(c['youtube'])
+        return c
+
+    def get_inner_nav(self, request, menu, slug):
         inner_nav = request.session.get('inner_nav', [])
-        if Page.objects.filter(slug=slug0, ptype=0):  # ptype=0 --- inner_page
+        if Page.objects.filter(slug=slug, ptype=0):  # ptype=0 --- value for inner_page
             while len(inner_nav) > user_settings['MAX_INNERLINK_HISTORY']:
                 inner_nav.pop(0)
-            temp = [slug0, menu]
-            # work with sessions
-            if not temp in inner_nav:
-                inner_nav.append([slug0, menu])
-                # save data to the session
-                request.session['inner_nav'] = inner_nav
+            temp = [slug, menu]
+            if not temp in inner_nav:  # work with sessions
+                inner_nav.append([slug, menu])
+                request.session['inner_nav'] = inner_nav  # save data to the session
         return inner_nav
 
-    def get_menu_flags(self, slug):
-        cursor = connection.cursor()
-        cursor.execute('SELECT PT.lang FROM Page P, Page_translation PT WHERE \
-            P.id = PT.page_id and P.status = 1 and P.slug = %s', [slug])
-        return list(list(i)[0] for i in cursor.fetchall())
+    def get_first_slug(self):
+        return Page.objects.filter(status=1, ptype=1).values_list('slug', flat=True).order_by('sortorder').first()
 
-    def get_content(self, lang0, slug0):
+    def get_youtube_embedded_url(self, url):
         try:
-            c = Page.objects.filter(slug=slug0).values('id', 'color',
-                                                       'photo')[0]
-            cc = Page_translation.objects.filter(page_id=c['id'], lang=lang0)
-            cc = cc.values('meta_title', 'meta_description', 'meta_keywords',
-                           'photo_alt', 'menu', 'name', 'central_col',
-                           'right_col', 'youtube', 'bottom_col1',
-                           'bottom_col2', 'bottom_col3')[0]
-        except:
-            raise Http404
-        cc['bottom_cols'] = []  # some processing of the columns...
-        if cc['bottom_col1']:
-            cc['bottom_cols'].append(cc['bottom_col1'])
-        if cc['bottom_col2']:
-            cc['bottom_cols'].append(cc['bottom_col2'])
-        if cc['bottom_col3']:
-            cc['bottom_cols'].append(cc['bottom_col3'])
-        if cc['youtube']:
-            cc['youtube'] = 'https://www.youtube.com/embed/' + \
-                            cc['youtube'].split('=')[-1] + \
-                            '?feature = player_detailpage'
-        cc.update(c)
-        return cc
-
-    def get_slug_published(self):
-        return Page.objects.raw('SELECT id, slug FROM page WHERE status=1')
-
-    def get_data_for_node(self, id):
-        return  Page_translation.objects.raw('SELECT id, lang, updated_at \
-                                             FROM page_translation \
-                                             WHERE page_id = %s', [id])
+            code = url.split('=')[-1]
+            embedded_url = 'https://www.youtube.com/embed/' + code + '?feature=player_detailpage'
+        except Exception:
+            embedded_url = False
+        return embedded_url

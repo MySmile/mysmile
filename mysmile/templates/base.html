@@ -1,71 +1,71 @@
 {% load staticfiles %}<!DOCTYPE html>
 <html lang="{{ lang|lower }}">
  
-	<head>
+    <head>
         <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'apple-touch-icon-precomposed.png' %}" />
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'apple-touch-icon-precomposed.png' %}" />
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'apple-touch-icon-precomposed.png' %}" />
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'apple-touch-icon-precomposed.png' %}" />
-		<meta charset="UTF-8">
-		<meta name="description" content="{{ meta_description }}"  />
-		<meta name="keywords" content="{{ meta_keywords }}" />
-		<meta name="viewport" content="width=device-width, initial-scale=2, maximum-scale=5">
-		<meta name="author" content="{{ meta_author }}">
-		<title>{{ meta_title }}</title>
-	    
-		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}">
-		<link rel="stylesheet" type="text/css" media="print" href="{% static 'css/print.css' %}">
+        <meta charset="UTF-8">
+        <meta name="description" content="{{ meta_description }}"  />
+        <meta name="keywords" content="{{ meta_keywords }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=2, maximum-scale=5">
+        <meta name="author" content="{{ meta_author }}">
+        <title>{{ meta_title }}</title>
+        
+        <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" type="text/css" media="print" href="{% static 'css/print.css' %}">
         <style type="text/css">
             .line_left_color{               
-                background: #{{ color }}; 
-                background: -moz-linear-gradient(top, {{ color }}, #FFF); 
+                background: #{{ page__color }}; 
+                background: -moz-linear-gradient(top, {{ page__color }}, #FFF); 
     
                 background: -webkit-gradient(linear, left top, left bottom, 
-                color-stop(0%,{{ color }}), color-stop(100%,#FFF));
+                color-stop(0%,{{ page__color }}), color-stop(100%,#FFF));
 
-                background: -webkit-linear-gradient(top, {{ color }}, #FFF);
-                background: -o-linear-gradient(top, {{ color }}, #FFF); 
-                background: -ms-linear-gradient(top, {{ color }}, #FFF); 
-                background: linear-gradient(top, {{ color }}, #FFF);  
+                background: -webkit-linear-gradient(top, {{ page__color }}, #FFF);
+                background: -o-linear-gradient(top, {{ page__color }}, #FFF); 
+                background: -ms-linear-gradient(top, {{ page__color }}, #FFF); 
+                background: linear-gradient(top, {{ page__color }}, #FFF);  
             }
             header nav .active { 
-                background-color:  {{ color }};
+                background-color:  {{ page__color }};
             } 
         </style>
-		
+        
         {% block google_analytics %} {% endblock %}
-	</head>
+    </head>
 <body>
 <div id="carrier">
-	<header>
-		{% block logo %} {% endblock %}
-		<div id="line_top" style="background-color: {{ color }};">
-			{% block lang %}{% endblock %}
-		</div>	
-		  
+    <header>
+        {% block logo %} {% endblock %}
+        <div id="line_top" style="background-color: {{ page__color }};">
+            {% block lang %}{% endblock %}
+        </div>  
+
         {% block nav %}{% endblock %} 
-		{% block innver_nav %}{% endblock %}
-		<div class="clear"></div>
-		{% block contact %}{% endblock %}		
-	</header>
-	<div class="clear"></div>
-		
-	<article>
-		<div id="col_central">
-			<div id="line_left" class="line_left_color"></div>	
-			{% block col_right %}{% endblock %}
-			{% block central_col %}{% endblock %}
-			          
-		</div> <!--end central-->
-		<div class="clear"></div>
-			
-			{% block bottom_col %}{% endblock %}
-	</article>
-	<div class="clear"></div>
-		
+        {% block innver_nav %}{% endblock %}
+        <div class="clear"></div>
+        {% block contact %}{% endblock %}
+    </header>
+    <div class="clear"></div>
+
+    <article>
+        <div id="col_central">
+            <div id="line_left" class="line_left_color"></div>  
+            {% block col_right %}{% endblock %}
+            {% block central_col %}{% endblock %}
+                      
+        </div> <!--end central-->
+        <div class="clear"></div>
+            
+            {% block bottom_col %}{% endblock %}
+    </article>
+    <div class="clear"></div>
+        
     <footer>
-		{% block footer %} {% endblock %}
+        {% block footer %} {% endblock %}
         <div>&copy; copyright 2012&ndash;{{ current_year }}  </div>
     </footer>
     <div id="line_bottom"></div>    
