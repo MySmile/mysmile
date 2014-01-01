@@ -1,7 +1,9 @@
 # run - Run local server
 run:
 	@python3 manage.py runserver
-	
+# help  - Display callable targets.
+help:
+	@egrep "^# [a-z,\",=,_ ]+ - " Makefile	
 # app="someapp" - Create app name "someapp"
 app:
 	python3 manage.py startapp $(app)
@@ -25,12 +27,12 @@ clean:
 syncdb:
 	python3 manage.py syncdb
 
-# locale - Create locale
-locale:
+# makemessages - Create locale
+makemessages:
 	@cd pages && django-admin.py makemessages -l uk -a 
 
-# locale_compile - Compile locale 
-locale_compile:
+# compilemessages - Compile locale 
+compilemessages:
 	@cd pages && django-admin.py compilemessages
 
 # style - Check PEP8 and others
@@ -44,6 +46,4 @@ style:
 	@echo
 	-pep8 --ignore=$(PEP8IGNORE) .
 
-# help  - Display callable targets.
-help:
-	@egrep "^# [a-z,\",=,_ ]+ - " Makefile
+
