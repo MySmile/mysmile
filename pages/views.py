@@ -12,5 +12,5 @@ from pages.decorators import ls_check
 def page(request, lang='', slug=''):
     w = PagesManager()
     c = w.get_content(request, lang, slug)
-    return render_to_response('pages/page.html',
+    return render_to_response('page.html',
                                c, context_instance=RequestContext(request))
