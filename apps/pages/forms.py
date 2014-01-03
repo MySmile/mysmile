@@ -1,6 +1,7 @@
-from django.forms import ModelForm
 from django import forms
-from pages.models import Page_translation
+from django.forms import ModelForm
+
+from apps.pages.models import Page_translation
 
 class Page_translationForm(ModelForm):
     class Meta:

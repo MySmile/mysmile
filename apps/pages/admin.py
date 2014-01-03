@@ -1,10 +1,10 @@
 import os
 from django.contrib import admin
 
-from pages.models import Page, Page_translation
-from pages.forms import Page_translationForm
-from mysmile.settings import MEDIA_URL, STATIC_URL
-from mysmile.settings import LANGUAGES
+from mysmile.settings import MEDIA_URL, STATIC_URL, LANGUAGES
+
+from apps.pages.models import Page, Page_translation
+from apps.pages.forms import Page_translationForm
 
 
 class Page_translationInline(admin.StackedInline):

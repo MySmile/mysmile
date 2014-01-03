@@ -9,12 +9,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 
-    (r'^$', 'pages.views.page'),
-    #~ (r'^$', 'pages.views.home'),
-    (r'^(?P<lang>[a-z]{2})/$', 'pages.views.page'),
-    #~ (r'^(?P<lang>[a-z]{2})/$', 'pages.views.home'),
-
-    (r'^(?P<lang>[a-z]{2})/(?P<slug>[a-z,A-Z,-]+)\.html$', 'pages.views.page'),
+    (r'^$', 'apps.pages.views.page'),
+    (r'^(?P<lang>[a-z]{2})/$', 'apps.pages.views.page'),
+    (r'^(?P<lang>[a-z]{2})/(?P<slug>[a-z,A-Z,-]+)\.html$', 'apps.pages.views.page'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -24,7 +21,7 @@ urlpatterns = patterns('',
     (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nHost: demo.mysmile.com.ua\nSitemap: \
   http://demo.mysmile.com.ua/Sitemap.xml", mimetype="text/plain")),
 
-    (r'^Sitemap\.xml$', 'sitemap.views.SitemapXML'),
+    (r'^Sitemap\.xml$', 'apps.sitemap.views.SitemapXML'),
 )
 
 

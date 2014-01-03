@@ -5,7 +5,7 @@ from django.http import Http404
 
 from mysmile.settings import LANGUAGES
 from mysmile.user_settings import user_settings
-from pages.models import Page, Page_translation
+from apps.pages.models import Page, Page_translation
 
 
 class PagesManager(models.Manager):

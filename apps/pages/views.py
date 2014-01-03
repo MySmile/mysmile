@@ -2,8 +2,8 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 #import logging
 
-from pages.managers import PagesManager
-from pages.decorators import ls_check
+from apps.pages.managers import PagesManager
+from apps.pages.decorators import ls_check
 
 #logger = logging.getLogger(__name__)  # Get an instance of a logger
 

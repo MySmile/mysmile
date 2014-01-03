@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from mysmile.user_settings import user_settings
 
-from pages.models import Page_translation
+from apps.pages.models import Page_translation
 
 
 def createNode(url, modified):
