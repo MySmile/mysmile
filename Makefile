@@ -35,6 +35,10 @@ makemessages:
 compilemessages:
 	@cd pages && django-admin.py compilemessages
 
+test:
+	@python3 manage.py test apps.pages
+	@echo "Preferences have tested!"	
+	
 # style - Check PEP8 and others
 PEP8IGNORE=E22,E23,E24,E302,E401
 style:
