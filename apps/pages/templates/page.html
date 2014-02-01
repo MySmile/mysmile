@@ -53,8 +53,8 @@
 
 {% block lang %}
 <div id="lang">
-    {% for item in menu_flag %}
-    <a href="/{{ item }}/{{ slug }}.html"><img src="{% static 'images/'|add:item|add:'.png' %}" width="24" height="24" alt="{{ item }}"></a>
+    {% for item in languages %}
+    <a href="/{{ item.0 }}/{{ slug }}.html"><img src="{% static 'images/'|add:item.0|add:'.png' %}" width="24" height="24" alt="{{ item.1 }}"></a>
     {% endfor %}
 </div>
 {% endblock %}

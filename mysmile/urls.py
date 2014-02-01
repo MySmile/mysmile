@@ -25,7 +25,8 @@ urlpatterns = patterns('',
 )
 
 
-handler404 = 'mysmile.views.my_custom_404_view'
+#~ handler404 = 'mysmile.views.my_custom_404_view'
+handler404 = 'apps.pages.views.my_custom_404_view'
 
 
 if settings.DEBUG:

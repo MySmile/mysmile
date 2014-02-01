@@ -1,7 +1,7 @@
-2013-??-?? Version 0.2.3 (under development)
-+ 
-* 
-- 
+2014-02-01 Version 0.2.3
++ add tests 
+* clear settings
+* change project structure 
 
 2013-11-23 Version 0.2.2
 + Add apple-touch-icon-precomposed.png

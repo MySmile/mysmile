@@ -15,7 +15,6 @@ class Page_translationTestCase(TestCase):
         updated_at=datetime.datetime.now(),
         created_at=datetime.datetime.now())
         
-        
         Page_translation.objects.create(id=1,
         page=some_page,
         lang='en',

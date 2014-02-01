@@ -1,4 +1,5 @@
 from django import http
+from django.http import Http404
 
 from apps.pages.managers import PagesManager
 from mysmile.settings import LANGUAGES
@@ -13,6 +14,8 @@ def ls_check(view_func):
         if (('lang' not in kwargs) or ('slug' not in kwargs)):
             w = PagesManager()
             entry_point = w.get_first_slug()
+            if entry_point == None:
+                raise Http404
             # automatic language selection
             if 'HTTP_ACCEPT_LANGUAGE' in request.META:
                 for k in LANGUAGES:

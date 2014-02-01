@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for mysmile project.
 
@@ -7,13 +8,11 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
+import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
-#~ BASE_DIR = os.realpath.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.realpath(os.path.dirname(__file__))
 
-print(BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -96,8 +95,8 @@ STATIC_URL = '/static/'
 
 LANGUAGES = (
     ('en', 'English'),
-    ('uk', 'Ukraine'),
-    ('ru', 'Russian'),
+    ('uk', 'Українська'),
+    ('ru', 'Русский'),
 )
 
 # Custom settings
@@ -118,6 +117,8 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 
+
+#~ LOGIN_REDIRECT_URL = '/admin/pages/page'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
