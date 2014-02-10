@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" media="print" href="{% static 'css/print.css' %}">
         <style type="text/css">
             .line_left_color{               
-                background: #{{ page__color }}; 
+                background: {{ page__color }}; 
                 background: -moz-linear-gradient(top, {{ page__color }}, #FFF); 
     
                 background: -webkit-gradient(linear, left top, left bottom, 
@@ -74,7 +74,7 @@
     <a href="https://hosting4django.net/aff.php?aff=009"><img 
 src="{% static 'images/logohosting.png' %}" alt="A best Django hosting!" 
 title="A best Django hosting!" width="237" height="41" /></a> 
-    <div id="version">powered by <a href="http://mysmile.com.ua">MySmile</a> v0.2.2</div>
+    <div id="version">powered by <a href="http://mysmile.com.ua">MySmile</a> v1.0.0</div>
 
     </div>
 </body>
