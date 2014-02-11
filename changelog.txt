@@ -1,9 +1,17 @@
-2014-02-?? Version 1.0.0
-+ add tests 
-+ Use sphinx for docs
-* clear settings
-* change project structure 
+2014-04-19 Version 1.1.0 annual celebratory release!
++ Possibility of autonomous translation of each unit of the page 
++ Error page for a nonexistent translation 
 
+2014-03-?? Version 1.0.1
+* Separate caption for the picture and video
+* Fix incorrect behavior of the parameter MAX_INNERLINK_HISTORY
+
+2014-02-19 Version 1.0.0
++ Add api
++ Add tests 
++ Use sphinx for docs
+* Clear settings
+* Change project structure 
 
 2013-11-23 Version 0.2.2
 + Add apple-touch-icon-precomposed.png
