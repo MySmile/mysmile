@@ -1,12 +1,15 @@
-Properties technicals
----------------------
+Properties design
+-----------------
 
-+----------+----------------------------+------+----------+--------+
-| Property | Description                | I18n | Required | Unique |
-+==========+============================+======+==========+========+
-| Color    | Color of active menu and   | no   | yes      | no     |
-|          | vertical line on left side |      |          |        |
-+----------+----------------------------+------+----------+--------+
++----------+----------------------------------+------+----------+--------+
+| Property | Description                      | I18n | Required | Unique |
++==========+==================================+======+==========+========+
+| Color    | Color of active menu and vertical| no   | yes      | no     |
+|          | line on left side. Each page can |      |          |        |
+|          | have its own color vertical line |      |          |        |
+|          | on left side.                    |      |          |        |
++----------+----------------------------------+------+----------+--------+
+
 
 
 

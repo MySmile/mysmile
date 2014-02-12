@@ -10,7 +10,7 @@ Technology
 +----------------+---------------------+
 | Database       | SQLite 3            |
 +----------------+---------------------+
-| Frontend       | HTML5 cross browser |
+| Frontend       | HTML5 cross browser,|
 |                | CSS3 cross browser  |
 +----------------+---------------------+
 

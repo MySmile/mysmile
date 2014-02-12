@@ -2,14 +2,20 @@ Next release
 ============
 
 
+**2014-##-## Version 1.#.0**
 
-* Contact page with contact form
-* Ability to upload price
-* Social networks “likes”
-
-
-
+* add: contact page with contact form
+* add: ability to upload price
+* add: social networks "likes"
 
 
+**2014-04-19 Version 1.1.0** --- annual celebratory release!
 
+* add: possibility of autonomous translation of each unit of the page 
+* add: error page for a nonexistent translation 
+
+**2014-03-## Version 1.0.1**
+
+* change:  separate caption for the picture and video
+* change: incorrect behavior of the parameter MAX_INNERLINK_HISTORY
 

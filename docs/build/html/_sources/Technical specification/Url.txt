@@ -1,8 +1,9 @@
+.. _Url:
+
 Url
 ===
 
-URL --- friendly like url that consist of:
+URL --- friendly like http://domain/language/slug.html. For example:
 
-http://mysmile.com.ua/language/slug_of_menu.html
 
-http://mysmile/language/index.html Home page URL 
+http://mysmile.com.ua/en/index.html 

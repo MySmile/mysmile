@@ -33,6 +33,6 @@ are the reasons for this site?
 +------------------+------------------------------------------+----------+
 
 .. rubric:: Footnotes
-.. [#f1] Оптимальное число основного меню.
-.. [#f2] Only for this release. Настраивается в файле settings.py
+.. [#f1] The optimal number of the main menu
+.. [#f2] Only for this release. Configured in settings.py
 

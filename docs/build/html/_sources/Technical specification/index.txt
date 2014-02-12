@@ -6,12 +6,11 @@ Technical specification
    :maxdepth: 2
 
    Objective
-   Structure schema
-   Design <Design>
+   Structure schema and design <Design>
    Menu
    Content/index
-   Url
-   Configuration
+   Url <Url>
+   User configuration <User_configuration>
    SEO
    Technology
    Database Schema <Database_Schema>
