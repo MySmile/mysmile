@@ -1,7 +1,8 @@
 Menu
 ====
 
-Site provides only 5 menus four of them are not required but is.
+
+Site provides two types of menus --- Main Menu and Dynamic Menu for internal pages.
 
 +---------------------+-----------+
 | Name                | Required  |

@@ -4,8 +4,10 @@ Technical specification
 
 .. toctree::
    :maxdepth: 2
+   :titlesonly:
 
    Objective
+   What is... <What_is>
    Structure schema and design <Design>
    Menu
    Content/index
@@ -14,6 +16,6 @@ Technical specification
    SEO
    Technology
    Database Schema <Database_Schema>
-   Demo
-   Next Release <Next_Release>
+   Enter to demo admin panel <Enter_to_demo_admin_panel>
+   Next Releases <Next_Releases>
    References

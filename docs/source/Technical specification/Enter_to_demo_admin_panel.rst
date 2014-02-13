@@ -1,5 +1,5 @@
-Demo
-====
+Enter to demo admin panel
+=========================
 
 
 

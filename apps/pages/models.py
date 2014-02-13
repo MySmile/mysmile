@@ -7,7 +7,7 @@ class Page(models.Model):
                             help_text='This is unique. Valid characters \
                                        of the alphabet in upper lower case, \
                                        and the hyphen (not underscore!)')
-    color = models.CharField(max_length=7, default='#FDA132',
+    color = models.CharField(max_length=500, default='#FDA132',
                              help_text='Click once with the mouse to select \
                                         a color, and then twice to save')
     # blank=True add "clear image" checkbox into admin page
@@ -35,18 +35,18 @@ class Page_translation(models.Model):
     ALL_LANGS = tuple(ALL_LANGS)
 
     page = models.ForeignKey(Page)
-    lang = models.CharField(max_length=2, choices=ALL_LANGS,
+    lang = models.CharField(max_length=500, choices=ALL_LANGS,
                             default=LANGUAGES[0][0])
-    menu = models.CharField(max_length=200)
-    name = models.CharField(max_length=200, blank=True, null=True)
-    central_col = models.TextField(blank=False, null=False)
-    youtube = models.CharField(max_length=2048, blank=True, null=True,
+    menu = models.CharField(max_length=500)
+    name = models.CharField(max_length=500, blank=True, null=True)
+    col_central = models.TextField(blank=False, null=False)
+    youtube = models.CharField(max_length=500, blank=True, null=True,
                                help_text='Link to youtube video. \
                                Max length url =  2048 characters')
-    right_col = models.TextField(blank=True, null=True)
-    bottom_col1 = models.TextField(blank=True, null=True)
-    bottom_col2 = models.TextField(blank=True, null=True)
-    bottom_col3 = models.TextField(blank=True, null=True)
+    col_right = models.TextField(blank=True, null=True)
+    col_bottom_1 = models.TextField(blank=True, null=True)
+    col_bottom_2 = models.TextField(blank=True, null=True)
+    col_bottom_3 = models.TextField(blank=True, null=True)
 
     meta_title = models.CharField(max_length=500)
     meta_description = models.CharField(max_length=500)

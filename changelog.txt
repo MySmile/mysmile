@@ -2,13 +2,11 @@
 + Contact page with contact form
 + Ability to upload price
 + Social networks “likes”
-
-2014-04-19 Version 1.1.0 annual celebratory release!
 + Possibility of autonomous translation of each unit of the page 
 + Error page for a nonexistent translation 
 
-2014-03-## Version 1.0.1
-* Separate caption for the picture and video
+2014-04-19 Version 1.0.1 annual celebratory release!
++ Email protection from spambot
 * Fix incorrect behavior of the parameter MAX_INNERLINK_HISTORY
 
 2014-02-19 Version 1.0.0

@@ -85,7 +85,7 @@
 
 
 {% block col_right %}
-	{% if right_col or photo or youtube %}
+	{% if col_right or photo or youtube %}
 			<aside id="col_right" >
                 {% if page__photo %}
                     <div id="photo">
@@ -99,20 +99,20 @@ src="{{ youtube }}" frameborder="0" allowfullscreen></iframe>
                 {% endif %}
                     
                 <div class="col_right_text">
-                    {{ right_col|safe }}
+                    {{ col_right|safe }}
                 </div>
 			</aside>
 	{% endif %}
 {% endblock %}
 
 
-{% block central_col %}
+{% block col_central %}
 <h1><a href="#">{{ name }}</a></h1>
-<div class="col_central_text">{{ central_col|safe }}</div>
+<div class="col_central_text">{{ col_central|safe }}</div>
 {% endblock %} 
 
 
-{% block bottom_col %}
+{% block col_bottoms %}
 {% if bottom_cols|length > 0  %}
 	<aside id="col_bottom">
 	{% for col in bottom_cols %}

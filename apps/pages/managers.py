@@ -12,9 +12,9 @@ class PagesManager(models.Manager):
 
     def get_content(self, request, lang=None, slug=None):
         page_id = Page.objects.filter(slug=slug, status=1).values('id')
-        content = Page_translation.objects.filter(lang=lang, page__status=1, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'central_col', 'right_col', 'youtube', 'bottom_col1', 'bottom_col2', 'bottom_col3', 'photo_alt', 'meta_title', 'meta_description', 'meta_keywords')
+        content = Page_translation.objects.filter(lang=lang, page__status=1, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'meta_title', 'meta_description', 'meta_keywords')
         c = {}
-        cols = ['bottom_col1', 'bottom_col2', 'bottom_col3']  # some processing of the columns...
+        cols = ['col_bottom_1', 'col_bottom_2', 'col_bottom_3']  # some processing of the columns...
         try:
             c['bottom_cols'] = [content[0].pop(item) for item in cols if content[0][item]]
             c['inav'] = self.get_inner_nav(request, content[0]['menu'], slug)

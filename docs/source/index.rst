@@ -10,14 +10,14 @@ Contents:
 
 .. toctree::
    :maxdepth: 4
-   :glob:
-
+   :titlesonly:
+   
    Technical specification/index
 
-Indices and tables
-==================
+.. Indices and tables
+.. ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
 
