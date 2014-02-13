@@ -13,15 +13,15 @@ class Page_translationInline(admin.StackedInline):
     verbose_name = 'Lang'
     extra = 0
     fieldsets = [
-        ('Content', {'fields': ['lang', 'menu', 'name', 'central_col',
-                                'youtube', 'right_col', 'bottom_col1',
-                                'bottom_col2', 'bottom_col3'],
+        ('Content', {'fields': ['lang', 'menu', 'name', 'col_central',
+                                'youtube', 'col_right', 'col_bottom_1',
+                                'col_bottom_2', 'col_bottom_3'],
                     'classes': ['collapse']}),
         ('SEO', {'fields': ['meta_title', 'meta_description', 'meta_keywords',
         'photo_alt'], 'classes': ['collapse']}),
     ]
-    search_fields = ['central_col', 'right_col', 'bottom_col1', 'bottom_col2',
-                     'bottom_col3']
+    search_fields = ['col_central', 'col_right', 'col_bottom_1', 'col_bottom_2',
+                     'col_bottom_3']
     max_num = len(LANGUAGES)
 
 
