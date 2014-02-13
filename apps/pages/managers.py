@@ -41,12 +41,14 @@ class PagesManager(models.Manager):
     def get_inner_nav(self, request, menu, slug):
         inner_nav = request.session.get('inner_nav', [])
         if Page.objects.filter(slug=slug, ptype=0):  # ptype=0 --- value for inner_page
-            while len(inner_nav) > user_settings['MAX_INNERLINK_HISTORY']:
-                inner_nav.pop(0)
+            #~ while len(inner_nav) > user_settings['MAX_INNERLINK_HISTORY']:
+                #~ inner_nav.pop(0)
             temp = [slug, menu]
             if not temp in inner_nav:  # work with sessions
                 inner_nav.append([slug, menu])
                 request.session['inner_nav'] = inner_nav  # save data to the session
+            while len(inner_nav) > user_settings['MAX_INNERLINK_HISTORY']:
+                inner_nav.pop(0)    
         return inner_nav
 
     def get_first_slug(self):
