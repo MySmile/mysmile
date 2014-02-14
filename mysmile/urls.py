@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url, handler404
 from django.http import HttpResponse
 
-from mysmile import settings
+from mysmile.settings import MEDIA_ROOT, DEBUG
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     (r'^(?P<lang>[a-z]{2})/$', 'apps.pages.views.page'),
     (r'^(?P<lang>[a-z]{2})/(?P<slug>[a-z,A-Z,-]+)\.html$', 'apps.pages.views.page'),
 
+    url(r'^api/', include('apps.api.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
@@ -29,9 +30,9 @@ urlpatterns = patterns('',
 handler404 = 'apps.pages.views.my_custom_404_view'
 
 
-if settings.DEBUG:
+if DEBUG:
     urlpatterns += patterns('django.views.static',
-        (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
+        (r'media/(?P<path>.*)', 'serve', {'document_root': MEDIA_ROOT}),
     )
 
 
