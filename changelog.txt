@@ -1,15 +1,18 @@
 2014-##-## Version 1.?.0
 + Contact page with contact form
 + Ability to upload price
-+ Social networks “likes”
++ Social networks "likes"
 + Possibility of autonomous translation of each unit of the page 
 + Error page for a nonexistent translation 
 
-2014-04-19 Version 1.0.1 annual celebratory release!
+2014-04-19 Version 1.0.0 annual celebratory release!
 + Email protection from spambot
++ Support versions Django from 1.4.x to 1.6.x 
 
-2014-02-19 Version 1.0.0
+2014-03-?? Version 0.4.0
 + Add api
+
+2014-02-15 Version 0.3.0
 + Add tests 
 + Use sphinx for docs
 * Fix incorrect behavior of the dynamic menu

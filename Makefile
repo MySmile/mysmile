@@ -1,16 +1,19 @@
 # run - Run local server
 run:
 	@python3 manage.py runserver
+
 # help  - Display callable targets.
 help:
 	@egrep "^# [a-z,\",=,_ ]+ - " Makefile	
-# app="someapp" - Create app name "someapp"
-app:
-	python3 manage.py startapp $(app)
 
+test:
+	@python3 manage.py test apps.pages.tests
+	@echo "App 'pages' have tested!"
+	
 # sqlall - Run sqlall command
 sqlall:	
 	@python3 manage.py sqlall $(app)
+
 # stop - Stop local server
 stop:
 	@killall python3
@@ -33,11 +36,7 @@ makemessages:
 
 # compilemessages - Compile locale 
 compilemessages:
-	@cd pages && django-admin.py compilemessages
-
-test:
-	@python3 manage.py test apps.pages.tests
-	@echo "App 'pages' have tested!"	
+	@cd pages && django-admin.py compilemessages	
 	
 # style - Check PEP8 and others
 PEP8IGNORE=E22,E23,E24,E302,E401

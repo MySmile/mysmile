@@ -1,5 +1,5 @@
-Next release
-============
+Next releases
+=============
 
 
 **2014-##-## Version #.#.#**
@@ -13,4 +13,8 @@ Next release
 **2014-04-19 Version 1.0.1** --- annual celebratory release!
 
 * add: email protection from spambot
+* support versions Django from 1.4.x to 1.6.x 
 
+**2014-03-## Version 0.4.0**
+
+* add api

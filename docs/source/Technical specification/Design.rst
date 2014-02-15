@@ -3,4 +3,4 @@
 Structure schema and design
 ===========================
 
-.. image:: _static/images/image02.png
+.. image:: _static/images/image02.jpeg
