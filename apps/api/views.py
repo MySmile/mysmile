@@ -1,8 +1,9 @@
 #~ from django.shortcuts import render
 from django.core import serializers
 import json
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.utils.datastructures import MultiValueDictKeyError
+
 
 from apps.pages.models import Page, Page_translation
 from mysmile.user_settings import user_settings
@@ -43,15 +44,26 @@ def get_content(request):
     
     else:        
         response_data = {}
-        response_data['msg'] = 200
         page_id = Page.objects.filter(slug=slug, status=1).values('id')
-        content = Page_translation.objects.filter(lang=lang, page__status=1, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'meta_title', 'meta_description', 'meta_keywords')
+        if page_id:
+            content = Page_translation.objects.filter(lang=lang, page__status=1, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'meta_title', 'meta_description', 'meta_keywords')
+            response_data['data'] = list(content)
+            response_data['msg'] = 200
+        else:
+            response_data['code'] = 404
+            response_data['msg'] = 'Not Found'
+
         
-        response_data['data'] = list(content)
         #~ response_data = dict('data', content)
         return HttpResponse(json.dumps(response_data), mimetype="application/json")
 
 
+
+
+
+class ApiException(Exception):
+    pass
+    
 
 
 
