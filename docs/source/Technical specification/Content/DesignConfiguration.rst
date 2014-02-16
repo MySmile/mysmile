@@ -1,5 +1,5 @@
-Properties design
------------------
+Design configuration
+--------------------
 
 +----------+----------------------------------+------+----------+--------+
 | Property | Description                      | I18n | Required | Unique |
@@ -9,10 +9,3 @@ Properties design
 |          | have its own color vertical line |      |          |        |
 |          | on left side.                    |      |          |        |
 +----------+----------------------------------+------+----------+--------+
-
-
-
-
-
-
-

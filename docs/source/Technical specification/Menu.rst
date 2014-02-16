@@ -1,8 +1,9 @@
 Menu
 ====
 
-
-Site provides two types of menus --- Main Menu and Dynamic Menu for internal pages.
+MySmile provides two types of menu:
+  * Main - like "home", "about", "contact", etc.
+  * Dynamic - internal links inside page for instance "readme", "instructions", etc.
 
 +---------------------+-----------+
 | Name                | Required  |
@@ -12,8 +13,6 @@ Site provides two types of menus --- Main Menu and Dynamic Menu for internal pag
 | Menu 1, ..., Menu 5 | no        |
 +---------------------+-----------+
 
-By the way "Main page" is required page so it is not available to change status or slug for this 
-page. Logo link to always link to the first page of the order from the menu. When you change the 
-order of the pages in the menu, then link to the Logo is changed automatically.
-
-
+Note:
+  * "Main page" is required page. Moreover it can not possible to change status or slug.
+  * Click on Logo is always follow to the first page from menu. Therefore changing menu order automatically change link for Logo.

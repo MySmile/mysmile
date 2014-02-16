@@ -7,15 +7,15 @@ Technical specification
    :titlesonly:
 
    Objective
-   What is... <What_is>
    Structure schema and design <Design>
    Menu
    Content/index
    Url <Url>
-   User configuration <User_configuration>
+   User configuration <UserConfiguration>
    SEO
    Technology
-   Database Schema <Database_Schema>
-   Enter to demo admin panel <Enter_to_demo_admin_panel>
-   Next Releases <Next_Releases>
+   Database Schema <DatabaseSchema>
+   Admin panel <AdminPanel>
+   What is... <WhatIs>
+   Next Releases <NextReleases>
    References

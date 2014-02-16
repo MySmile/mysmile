@@ -1,6 +1,5 @@
-Properties technicals
----------------------
-
+Technical configuration
+-----------------------
 
 +----------+---------------------------+------+----------+--------+
 | Property | Description               | I18n | Required | Unique |
@@ -12,10 +11,3 @@ Properties technicals
 | Dates    | Date of creation          | no   | yes      | no     |
 |          | Date of modification      |      |          |        |
 +----------+---------------------------+------+----------+--------+
-
-
-
-
-
-
-

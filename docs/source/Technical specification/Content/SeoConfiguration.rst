@@ -1,5 +1,5 @@
-Properties SEO
---------------
+SEO configuration
+-----------------
 
 +-------------------+-----------------------------------+------+-----------------+--------+
 | Property          | Description                       | I18n | Required        | Unique |
@@ -13,9 +13,3 @@ Properties SEO
 | Right Column,     | Alt property  of <img> tag        | yes  | yes, if         | no     |
 | Photo:            |                                   |      | Photo available |        |
 +-------------------+-----------------------------------+------+-----------------+--------+
-
-
-
-
-
-
