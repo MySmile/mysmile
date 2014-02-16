@@ -1,18 +1,18 @@
 Objective
 =========
 
-Small site that provide information about one person or small business. It is something similar with 
-Blog and Homepage. But comparing with Blog and Homepage it provides more simple structure. 
-Information in this site does not change so often as in Blog but more often then on Homepage. 
+MySmile is CMS based on Django. That project is aimed particularly to small site that provides information about one person or business. It is something similar to Blog and Homepage. Information of such site does not change so often as in Blog but more then on Homepage. In other side MySmile can be extended for the way as you want.
 
-What are the reasons for this site? Simple skeleton for sites like that:
+MySmile includes:
+  * Admin panel for content managing
+  * SEO: friendly url, meta, HTML5 semantic, Google analytics, etc
+  * Flexible design configuration
 
-* Small business site with pages: "Main", "Products", "Technologies", "Partners", "Contacts".
-* Personal site with pages: "Main", "Education", "Hobbies", "Contacts".
-* Conference site with pages: "Main", "Schedule", "Speakers", "Accommodation", "Contacts".
-* Sites that focus on context, usability and SEO not on a  design.
+Example of site structures that MySmile will be a best choose:
+  * Small business site with pages: "Main", "Products", "Technologies", "Partners", "Contacts".
+  * Personal site with pages: "Main", "Education", "Hobbies", "Contacts".
+  * Conference site with pages: "Main", "Schedule", "Speakers", "Accommodation", "Contacts".
+  * Project focus on context, usability and SEO.
+  * Quick start of Python and Django.
 
-After analyzed all projects that we work with we provide general structure of material and pages is 
-depicted in the diagram.
-
-.. image:: _static/images/image04.png
+.. image:: _static/images/site_diagram.png

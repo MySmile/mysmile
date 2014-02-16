@@ -1,9 +1,8 @@
-Properties
-----------
-
+Article parts
+-------------
 
 +------------------+-----------------------------------+---------------+----------+--------+
-| Property         | Description                       | Multilanguage | Required | Unique |
+| Part name        | Description                       | Multilanguage | Required | Unique |
 +==================+===================================+===============+==========+========+
 | Menu             | It is important to choose simple  | yes           | yes      | no     |
 |                  | short name. It is used for menu.  |               |          |        |
@@ -23,9 +22,3 @@ Properties
 |                  | article. There are only 3 or less |               |          |        |
 |                  | bottom columns                    |               |          |        |
 +------------------+-----------------------------------+---------------+----------+--------+
-
-
-
-
-
-
