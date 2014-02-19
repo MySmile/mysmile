@@ -1,6 +1,9 @@
 # run - Run local server
 run:
-	@python3 manage.py runserver
+	@echo "--------------------------------------"
+	@echo "python3 manage.py runserver --nostatic"
+	@echo "======================================"
+	@python3 manage.py runserver --nostatic
 
 # help  - Display callable targets.
 help:
