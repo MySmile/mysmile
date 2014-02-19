@@ -1,5 +1,9 @@
 from django.conf.urls import patterns, include, url, handler404
 from django.http import HttpResponse
+from django.conf import settings
+from django.contrib.staticfiles.views import serve as serve_static
+from django.views.decorators.cache import never_cache
+
 
 from mysmile.settings import MEDIA_ROOT, DEBUG
 
@@ -33,6 +37,7 @@ handler404 = 'apps.pages.views.my_custom_404_view'
 if DEBUG:
     urlpatterns += patterns('django.views.static',
         (r'media/(?P<path>.*)', 'serve', {'document_root': MEDIA_ROOT}),
+        url(r'^static/(?P<path>.*)$', never_cache(serve_static)),
     )
 
 
