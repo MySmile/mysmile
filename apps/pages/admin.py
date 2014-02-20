@@ -14,8 +14,8 @@ class Page_translationInline(admin.StackedInline):
     extra = 0
     fieldsets = [
         ('Content', {'fields': ['lang', 'menu', 'name', 'col_central',
-                                'youtube', 'col_right', 'col_bottom_1',
-                                'col_bottom_2', 'col_bottom_3'],
+                                'youtube', 'photo_description', 'col_right', 
+                                'col_bottom_1', 'col_bottom_2', 'col_bottom_3'],
                     'classes': ['collapse']}),
         ('SEO', {'fields': ['meta_title', 'meta_description', 'meta_keywords',
         'photo_alt'], 'classes': ['collapse']}),

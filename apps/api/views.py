@@ -52,7 +52,8 @@ def get_content(request):
         else:
             response_data['code'] = 404
             response_data['msg'] = 'Not Found'
-
+            #~ return HttpResponse(json.dumps(response_data), mimetype="application/json")
+            return HttpResponse(json.dumps(response_data), mimetype="application/json", status=404)
         
         #~ response_data = dict('data', content)
         return HttpResponse(json.dumps(response_data), mimetype="application/json")

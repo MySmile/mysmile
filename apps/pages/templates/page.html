@@ -79,6 +79,7 @@
                 {% if page__photo %}
                     <figure>
                         <img src="{% static page__photo  %}" width="333" alt="{{ photo_alt }}" />
+                        {% if photo_description %}<figcaption>{{ photo_description }}</figcaption>{% endif %}
                     </figure>
                 {% endif %}
                 

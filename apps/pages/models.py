@@ -52,6 +52,7 @@ class Page_translation(models.Model):
     meta_description = models.CharField(max_length=500)
     meta_keywords = models.CharField(max_length=500)
     photo_alt = models.CharField(max_length=500, blank=True, null=True)
+    photo_description = models.CharField(max_length=500, blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
