@@ -77,9 +77,9 @@
 	{% if col_right or photo or youtube %}
 			<aside id="col_right" >
                 {% if page__photo %}
-                    <div id="photo">
+                    <figure>
                         <img src="{% static page__photo  %}" width="333" alt="{{ photo_alt }}" />
-                    </div>
+                    </figure>
                 {% endif %}
                 
                 {% if youtube %}
