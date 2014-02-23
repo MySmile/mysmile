@@ -1,18 +1,14 @@
-#~ from django.shortcuts import render
 from django.core import serializers
 import json
 from django.http import HttpResponse, HttpResponseNotFound
 from django.utils.datastructures import MultiValueDictKeyError
-#~ from django.views.generic import View
 from django.views.generic.base import View
-
 from django.db import DatabaseError
 from django.core.exceptions import FieldError
 
 from apps.pages.models import Page, Page_translation
 from mysmile.user_settings import user_settings
 from mysmile.settings import LANGUAGES
-
 
 
 class MySmileApi(View):
@@ -93,8 +89,7 @@ class MySmileApi(View):
             response_data['msg'] = 'Internal Server Error'
         return response_data
 
-
-    def post(self, request):
+    def post(self, request, resource):
         response_data = {}
         response_data['code'] = 502
         response_data['msg'] = 'Method Not Allowed'
