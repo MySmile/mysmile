@@ -1,12 +1,9 @@
 from django.conf.urls import patterns, url
+from apps.api.views import MySmileApi
 
 
-urlpatterns = patterns('apps.api.views',
-    url(r'^content$', 'get_content'),
-    
-    #~ url(r'^contact$', 'get_contact'),
-    #~ url(r'^languages$', 'get_languages'),
-    #~ url(r'^content?v=1&lang=(?P<lang>[a-z]{2})&format=json$', 'get_content'),  
-    #~ url(r'^content?slug=(?P<resource>[a-z,_]+)&v=1&lang=(?P<lang>[a-z]{2})&format=json$', 'get_content'),  
+urlpatterns = patterns('',
+    url(r'^(?P<resource>[a-z]+)$', MySmileApi.as_view()),
 )
+
 
