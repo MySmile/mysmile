@@ -95,6 +95,18 @@ class MySmileApi(View):
         response_data['msg'] = 'Method Not Allowed'
         return HttpResponse(json.dumps(response_data), mimetype="application/json", status=502)
 
+    def put(self, request, resource):
+        response_data = {}
+        response_data['code'] = 502
+        response_data['msg'] = 'Method Not Allowed'
+        return HttpResponse(json.dumps(response_data), mimetype="application/json", status=502)
+
+    def delete(self, request, resource):
+        response_data = {}
+        response_data['code'] = 502
+        response_data['msg'] = 'Method Not Allowed'
+        return HttpResponse(json.dumps(response_data), mimetype="application/json", status=502)
+
 
 #~ class BadRequest(Exception):
     #~ def __init__(self, code):
