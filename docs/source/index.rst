@@ -13,6 +13,7 @@ Contents:
    :titlesonly:
    
    Technical specification/index
+   REST API/index
 
 .. Indices and tables
 .. ==================
