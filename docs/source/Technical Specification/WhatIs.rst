@@ -14,7 +14,7 @@ What is...
 | :ref:`Design`    | Simple with minimum graphics             | no       |
 +------------------+------------------------------------------+----------+
 
-.. rubric:: Footnotes
+.. rubric:: Notes
 .. [#f1] The optimal number of the main menu
-.. [#f2] Only for this release. Configured in settings.py
+.. [#f2] Only for this release. Configured in mysmile/settings.py
 

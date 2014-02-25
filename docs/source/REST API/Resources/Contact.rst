@@ -1,7 +1,7 @@
 Contact
 -------
 
-That resource returns structured contact information such as phone, email, skype.
+That resource [#f1]_ returns structured contact information such as phone, email, skype.
 
 +-------------------+-------------------------+---------------------------------------------------+
 | Resource          | GET                     | Example                                           |
@@ -16,4 +16,5 @@ That resource returns structured contact information such as phone, email, skype
 |                   |                          |  }                                               |
 +-------------------+--------------------------+--------------------------------------------------+
 
-Note: parameters of response configurable through MySmile config file.
+.. rubric:: Notes
+.. [#f1] Parameters of response configurable through MySmile config file.

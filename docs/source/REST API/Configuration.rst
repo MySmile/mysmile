@@ -5,4 +5,4 @@ REST API is configurable feature in the MySmile project. Therefore to turn it on
 
 ``REST_API = True`` 
 
-in the configuration.
+in the configuration *mysmile/user_settings.py*.

@@ -9,4 +9,4 @@ MySmile SEO features:
   * SiteMap.xml
   * Robots.txt
   * Friendly :ref:`Url`
-  * Google recommendation: https://support.google.com/webmasters/answer/35291?hl=en
+  * `Google recommendation <https://support.google.com/webmasters/answer/35291?hl=en>`_

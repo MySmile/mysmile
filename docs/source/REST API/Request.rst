@@ -14,3 +14,4 @@ Request to get list of all contents:
 
 ``/content``
 
+See :ref:`Examples` for details.

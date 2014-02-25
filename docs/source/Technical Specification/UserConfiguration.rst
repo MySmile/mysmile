@@ -1,3 +1,5 @@
+.. _User_configuration:
+
 User settings
 =============
 

@@ -14,8 +14,9 @@ Contents:
    :maxdepth: 5
    :titlesonly:
    
-   Technical specification/index
+   Technical Specification/index
    REST API/index
+   glossary
 
 .. Indices and tables
 .. ==================

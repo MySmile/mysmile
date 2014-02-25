@@ -1,10 +1,12 @@
+.. _Errors:
+
 Errors
 ======
 
 +-----------+---------------------------+-----------------------------------------------------------+
 | HTTP code | Description               | Example                                                   |
 +===========+===========================+===========================================================+
-| 404       | Resource not found        | { code: 404, msg: "Not Found" }                           |
+| 404       | Resource not found        | { code: 404, msg: "Not Found" } [#f1]_                    |
 +-----------+---------------------------+-----------------------------------------------------------+
 | 405       | Try to get access to POST | { code: 502, msg: "Method Not Allowed" }                  |
 |           | if only GET available     |                                                           |
@@ -14,5 +16,6 @@ Errors
 |           | invalid parameters use    | { code: 500, msg: "Unsupported value of parameter lang" } |
 +-----------+---------------------------+-----------------------------------------------------------+
 
-Note: error messages should be only in English.
+.. rubric:: Notes
+.. [#f1] Error messages should be only in English.
 
