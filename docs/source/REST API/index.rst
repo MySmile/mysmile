@@ -14,3 +14,7 @@ REST API
    Response/index
    General parameters/index
    Resources/index
+   Errors
+   Examples
+   Useful links <Useful_links>
+   
