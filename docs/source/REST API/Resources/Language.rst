@@ -1,5 +1,5 @@
 Language
-========
+--------
 
 That resource returns list of available languages.
 

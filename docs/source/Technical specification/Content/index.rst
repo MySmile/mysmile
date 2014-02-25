@@ -1,9 +1,8 @@
-=======
 Content
 =======
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    Article
    Article parts <ArticleParts>
