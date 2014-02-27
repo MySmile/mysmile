@@ -12,7 +12,11 @@ user_settings = {
     # go to the http://www.google.com/analytics/ to get the GOOGLE_ANALITYCS_CODE
     # it's unique number like 'UA-1111111-1'
     'GOOGLE_ANALITYCS_CODE': '',
-    'MAX_INNERLINK_HISTORY': 4 # for inner_type page only <= MAX_INNERLINK_HISTORY
+    
+    # for inner_type page only <= MAX_INNERLINK_HISTORY
+    'MAX_INNERLINK_HISTORY': 4, 
+    
+    'REST_API' = False
 }
 
 

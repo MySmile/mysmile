@@ -14,16 +14,16 @@ That resource return content of current page by slug or list of available conten
 |                   |                         |  data: {                                          |
 |                   |                         |    col_central: "html of central column",         |
 |                   |                         |    col_right: "html of right column",             |
-|                   |                         |    col_bottom: [                                  | 
+|                   |                         |    col_bottom: [                                  |
 |                   |                         |        "html of first bottom column",             |
-|                   |                         |         "html of second bottom column",           |
-|                   |                         |         "html of third bottom column"             |
+|                   |                         |        "html of second bottom column",            |
+|                   |                         |        "html of third bottom column"              |
 |                   |                         |          ],                                       |
-|                   |                         |    photo: {                                       | 
+|                   |                         |    photo: {                                       |
 |                   |                         |    src: "url to photo",                           |
 |                   |                         |    alt: "alt text",                               |
 |                   |                         |    description: "description"                     |
-|                   |                         |    }                                              | 
+|                   |                         |    }                                              |
 |                   |                         |   }                                               |
 |                   |                         | }                                                 |
 +-------------------+-------------------------+---------------------------------------------------+
