@@ -49,13 +49,29 @@ class MySmileApi(View):
             try:
                 page_id = Page.objects.filter(slug=slug, status=1).values('id')
                 if page_id:
-                    content = Page_translation.objects.filter(lang=lang, page__status=1, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords')
+                    content = Page_translation.objects.filter(lang=lang, page__status=1, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords')[0]
                     if content: #  if lang exists
-                        response_data['data'] = list(content)
-                    else:
-                        response_data['code'] = 404
-                        response_data['msg'] = 'Not Found'
+                        #~ print('content = ', content)
+                        #~ print(' list(content) = ', list(content))
+                        #~ print(' content[col_central] = ', content['col_central'])
+                        
+                        
+                        #~ response_data['data'] = list(content)
+                        response_data['data'] = {}
+                        response_data['data']['name'] = content['name']
+                        response_data['data']['col_central'] = content['col_central']
+                        response_data['data']['col_right'] = content['col_right']
+                        response_data['data']['col_bottom'] = [content[item] for item in ['col_bottom_1', 'col_bottom_2', 'col_bottom_3'] if content[item]]
+                        
+                        response_data['data']['photo'] = {}
+                        response_data['data']['photo']['src'] = content['page__photo']
+                        response_data['data']['photo']['alt'] = content['photo_alt']
+                        response_data['data']['photo']['description'] = content['photo_description']
+                        
                 else:
+                    response_data['code'] = 404
+                    response_data['msg'] = 'Not Found'
+            except IndexError:
                     response_data['code'] = 404
                     response_data['msg'] = 'Not Found'
             except (DatabaseError, FieldError):
@@ -85,8 +101,8 @@ class MySmileApi(View):
                 response_data['code'] = 500
                 response_data['msg'] = 'Internal Server Error'          
         else:
-            response_data['code'] = 500
-            response_data['msg'] = 'Internal Server Error'
+            response_data['code'] = 501
+            response_data['msg'] = 'Not Implemented' 
         return response_data
 
     def post(self, request, resource):
