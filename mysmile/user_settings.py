@@ -16,7 +16,7 @@ user_settings = {
     # for inner_type page only <= MAX_INNERLINK_HISTORY
     'MAX_INNERLINK_HISTORY': 4, 
     
-    'REST_API' = False
+    'REST_API': False
 }
 
 
