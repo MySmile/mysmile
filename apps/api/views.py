@@ -67,7 +67,7 @@ class MySmileApi(View):
                         response_data['data']['photo']['src'] = content['page__photo']
                         response_data['data']['photo']['alt'] = content['photo_alt']
                         response_data['data']['photo']['description'] = content['photo_description']
-                        
+
                 else:
                     response_data['code'] = 404
                     response_data['msg'] = 'Not Found'
