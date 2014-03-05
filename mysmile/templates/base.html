@@ -1,6 +1,5 @@
 {% load staticfiles %}<!DOCTYPE html>
 <html lang="{{ lang|lower }}">
- 
     <head>
         <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'apple-touch-icon-precomposed.png' %}" />
@@ -13,17 +12,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=2, maximum-scale=5">
         <meta name="author" content="{{ meta_author }}">
         <title>{{ meta_title }}</title>
-        
         <link rel="stylesheet" media="screen" href="{% static 'css/main.css' %}">
         <link rel="stylesheet" media="print" href="{% static 'css/print.css' %}">
         <style>
             .line_left_color{               
                 background: {{ page__color }}; 
                 background: -moz-linear-gradient(top, {{ page__color }}, #FFF); 
-    
                 background: -webkit-gradient(linear, left top, left bottom, 
                 color-stop(0%,{{ page__color }}), color-stop(100%,#FFF));
-
                 background: -webkit-linear-gradient(top, {{ page__color }}, #FFF);
                 background: -o-linear-gradient(top, {{ page__color }}, #FFF); 
                 background: -ms-linear-gradient(top, {{ page__color }}, #FFF); 
@@ -33,7 +29,6 @@
                 background-color:  {{ page__color }};
             } 
         </style>
-        
         {% block google_analytics %} {% endblock %}
     </head>
 <body>
@@ -41,10 +36,8 @@
         {% block logo %}{% endblock %}
         {% block line_top %}{% endblock %}
         {% block nav %}{% endblock %} 
-        {% block innver_nav %}{% endblock %}
-        <div class="clear"></div>
-        {% block contact %}{% endblock %}
-        <div class="clear"></div>
+        {% block innver_nav %}{% endblock %}<div class="clear"></div>
+        {% block contact %}{% endblock %}<div class="clear"></div>
     </header>
 
     <main>
@@ -53,19 +46,16 @@
             {% block col_right %}{% endblock %}
             {% block col_central %}{% endblock %}
             <div class="clear"></div>
-                
             {% block col_bottoms %}{% endblock %}
         </article>
-    </main>
-    <div class="clear"></div>
-        
+    </main><div class="clear"></div>
+
     <footer>
         {% block footer %} {% endblock %}
-        <div>&copy; copyright 2012&ndash;{{ current_year }}  </div>
+        <div>&copy; copyright 2012&ndash;{{ current_year }}</div>
     </footer>
-    <div id="line_bottom"></div>    
-    <div class="clear"></div>
-    
+    <div id="line_bottom"></div><div class="clear"></div>
+
     <a href="https://hosting4django.net/aff.php?aff=009"><img 
 src="{% static 'images/logohosting.png' %}" alt="A best Django hosting!" 
 title="A best Django hosting!" width="237" height="41" /></a> 
