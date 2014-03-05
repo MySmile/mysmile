@@ -19,5 +19,4 @@ Technical specification
    Database Schema <DatabaseSchema>
    Admin panel <AdminPanel>
    What is... <WhatIs>
-   Next Releases <NextReleases>
    References
