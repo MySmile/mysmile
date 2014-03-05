@@ -1,3 +1,9 @@
+2014-03-## Version 0.4.0b
++ REST API
++ REST API docs
++ Improved HTML5 support
++ Someone bugfixes
+
 2014-02-15 Version 0.3.0
 + Add tests 
 + Use sphinx for docs
