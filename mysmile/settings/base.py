@@ -76,14 +76,11 @@ TEMPLATE_DIRS = (
 
 
 """
-app settings
-Empty '' string means setting "off"
-
-http://en.wikipedia.org/wiki/Telephone_numbering_plan 
-
-go to the http://www.google.com/analytics/ to get the GOOGLE_ANALITYCS_CODE
-
-for inner_type page only <= MAX_INNERLINK_HISTORY
+* Empty '' string means some app_setting "off"
+* Put 'DOMAIN': '' for 127.0.0.1 and registered 'domain.com' for production
+* For PHONE: http://en.wikipedia.org/wiki/Telephone_numbering_plan 
+* Go to the http://www.google.com/analytics/ to get the GOOGLE_ANALITYCS_CODE
+* For inner_type page only <= MAX_INNERLINK_HISTORY
 """
 
 app_settings = {
