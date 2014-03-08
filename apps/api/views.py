@@ -7,8 +7,7 @@ from django.db import DatabaseError
 from django.core.exceptions import FieldError
 
 from apps.pages.models import Page, Page_translation
-from mysmile.user_settings import user_settings
-from mysmile.settings import LANGUAGES
+from mysmile.settings.base import LANGUAGES, app_settings
 
 
 class MySmileApi(View):
@@ -37,9 +36,9 @@ class MySmileApi(View):
             response_data['data'] = list(Page_translation.objects.filter(lang=self.lang, page__status=1).values_list('name', flat=True))
                         
         elif slug == 'contact':
-            response_data['data'] = {'email':user_settings['EMAIL'],
-                                'phone':user_settings['PHONE'],
-                                'skype':user_settings['SKYPE']
+            response_data['data'] = {'email': app_settings['EMAIL'],
+                                'phone': app_settings['PHONE'],
+                                'skype': app_settings['SKYPE']
                                 }            
         
         elif slug == 'language':
@@ -86,9 +85,9 @@ class MySmileApi(View):
 
         if resource == 'contact':
             try:
-                response_data['data'] = {'email':user_settings['EMAIL'],
-                                        'phone':user_settings['PHONE'],
-                                        'skype':user_settings['SKYPE']
+                response_data['data'] = {'email': app_settings['EMAIL'],
+                                        'phone': app_settings['PHONE'],
+                                        'skype': app_settings['SKYPE']
                                         }
             except KeyError:
                 response_data['code'] = 500

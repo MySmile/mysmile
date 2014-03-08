@@ -5,7 +5,8 @@ from django.contrib.staticfiles.views import serve as serve_static
 from django.views.decorators.cache import never_cache
 
 
-from mysmile.settings import MEDIA_ROOT, DEBUG
+from mysmile.settings.local import MEDIA_ROOT
+from config.local import DEBUG
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin

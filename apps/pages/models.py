@@ -1,5 +1,5 @@
 from django.db import models
-from mysmile.settings import LANGUAGES
+from mysmile.settings.base import LANGUAGES
 
 
 class Page(models.Model):

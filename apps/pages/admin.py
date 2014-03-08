@@ -1,7 +1,7 @@
 import os
 from django.contrib import admin
 
-from mysmile.settings import MEDIA_URL, STATIC_URL, LANGUAGES
+from mysmile.settings.base import MEDIA_URL, STATIC_URL, LANGUAGES
 
 from apps.pages.models import Page, Page_translation
 from apps.pages.forms import Page_translationForm

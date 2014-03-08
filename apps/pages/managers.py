@@ -3,8 +3,7 @@ from datetime import datetime
 from django.db import models
 from django.http import Http404
 
-from mysmile.settings import LANGUAGES
-from mysmile.user_settings import user_settings
+from mysmile.settings.base import LANGUAGES, app_settings
 from apps.pages.models import Page, Page_translation
 
 
@@ -31,7 +30,7 @@ class PagesManager(models.Manager):
         c['slug'] = slug
         c['current_year'] = datetime.now().strftime('%Y')
 
-        c.update(user_settings)
+        c.update(app_settings)
         c.update(content[0])
 
         if c['youtube']:
@@ -45,7 +44,7 @@ class PagesManager(models.Manager):
             if not temp in inner_nav:  # work with sessions
                 inner_nav.append([slug, menu])
                 request.session['inner_nav'] = inner_nav  # save data to the session
-                while len(inner_nav) > user_settings['MAX_INNERLINK_HISTORY']:
+                while len(inner_nav) > app_settings['MAX_INNERLINK_HISTORY']:
                     inner_nav.pop(0)    
         return inner_nav
 

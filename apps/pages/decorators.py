@@ -2,8 +2,7 @@ from django import http
 from django.http import Http404
 
 from apps.pages.managers import PagesManager
-from mysmile.settings import LANGUAGES
-from mysmile.user_settings import user_settings
+from mysmile.settings.base import LANGUAGES, app_settings
 
 
 def ls_check(view_func):
@@ -26,7 +25,7 @@ def ls_check(view_func):
                         lang = LANGUAGES[0][0]
             else:
                 lang = LANGUAGES[0][0]
-            return http.HttpResponseRedirect(user_settings['DOMAIN_NAME'] +
+            return http.HttpResponseRedirect(app_settings['DOMAIN'] +
                                              lang + '/' + entry_point + '.html')
         else:
             return view_func(request, *args, **kwargs)

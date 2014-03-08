@@ -1,6 +1,6 @@
 from django.http import HttpResponse
-from mysmile.user_settings import user_settings
 
+from mysmile.settings.base import LANGUAGES, app_settings
 from apps.pages.models import Page_translation
 
 
@@ -13,7 +13,7 @@ def SitemapXML(request):
     <urlset xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9">'
     langs_and_slugs = Page_translation.objects.filter(page__status=1).values('lang', 'page__slug',           'updated_at').order_by('lang')
     for item in langs_and_slugs:
-        url = user_settings['DOMAIN_NAME'] + item['lang'] + '/' + item['page__slug'] + '.html'
+        url = app_settings['DOMAIN_NAME'] + item['lang'] + '/' + item['page__slug'] + '.html'
         modified = item['updated_at'].strftime('%Y-%m-%d')
         xml += createNode(url, modified)
     xml += '</urlset>'
