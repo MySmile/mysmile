@@ -15,8 +15,8 @@ Article parts
 | Right Column:    | Right Column of the article       | yes           | no       | no     |
 | Text             | Central column of the article     |               |          |        |
 +------------------+-----------------------------------+---------------+----------+--------+
-| Right Column:    | Photo that available in the       | no            | no       | no     |
-| Text             | Right Column                      |               |          |        |
+| Right Column:    | Photo or video that available     | no            | no       | no     |
+| Multimedia       | in the Right Column               |               |          |        |
 +------------------+-----------------------------------+---------------+----------+--------+
 | Bottom columns   | Columns in the bottom side of the | yes           | no       | no     |
 |                  | article. There are only 3 or less |               |          |        |

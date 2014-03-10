@@ -87,7 +87,7 @@ app_settings = {
     'PHONE': '000 000 000 00 00', 
     'EMAIL': 'myemail@email.com',
     'SKYPE': 'myskype',
-    'DOMAIN': '', # put '' for localhost 127.0.0.1
+    'DOMAIN': '',
     'GOOGLE_ANALITYCS_CODE': '',
     'MAX_INNERLINK_HISTORY': 4, 
     'REST_API': False

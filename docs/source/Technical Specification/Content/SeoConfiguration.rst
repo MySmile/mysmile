@@ -4,7 +4,8 @@ SEO configuration
 +-------------------+-----------------------------------+------+-----------------+--------+
 | Property          | Description                       | I18n | Required        | Unique |
 +===================+===================================+======+=================+========+
-| Meta tags         | Title, description, keywords      | yes  | yes             | no     |
+| Meta tags         | Title, description, keywords,     | yes  | yes             | no     |
+|                   | photo description                 |      |                 |        |
 +-------------------+-----------------------------------+------+-----------------+--------+
 | Slug              | Part of URL. All spaces and other | no   | yes             | yes    |
 |                   | non alphanumeric characters are   |      |                 |        |

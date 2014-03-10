@@ -2,8 +2,8 @@ Menu
 ====
 
 MySmile provides two types of menu:
-  * Main - like "home", "about", "contact", etc.
-  * Dynamic - internal links inside page for instance "readme", "instructions", etc.
+  * Main menu --- like "home", "about", "contact", etc.
+  * Dynamic menu --- internal links inside page for instance "readme", "instructions", etc.
 
 +---------------------------+-------------+
 | Name                      | Required    |
@@ -16,4 +16,4 @@ MySmile provides two types of menu:
 
 .. rubric:: Notes
 .. [#f1]  Click on Logo is always follow to the first page from menu. Therefore changing menu order automatically change link for Logo.
-.. [#f2] "Main page" is required page. Moreover it can not possible to change status or slug in :ref:`AdminPanel`.
+.. [#f2] "Main page" is recommended page with slug name "index". :ref:`AdminPanel`.

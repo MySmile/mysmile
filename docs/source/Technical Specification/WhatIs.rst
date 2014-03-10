@@ -16,5 +16,5 @@ What is...
 
 .. rubric:: Notes
 .. [#f1] The optimal number of the main menu
-.. [#f2] Only for this release. Configured in mysmile/settings.py
+.. [#f2] Only for this release. Configured in mysmile/settings/base.py
 

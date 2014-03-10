@@ -14,7 +14,7 @@ Technical specification
    Content/index
    Url <Url>
    User configuration <UserConfiguration>
-   SEO
+   SEO features <SEO_features>
    Technology
    Database Schema <DatabaseSchema>
    Admin panel <AdminPanel>
