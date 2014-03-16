@@ -2,8 +2,6 @@
 REST API
 ********
 
-.. sectionauthor:: Sergii Pryz <picamator@gmail.com>
-
 .. toctree::
    :maxdepth: 2
    :titlesonly:
@@ -19,4 +17,3 @@ REST API
    Errors
    Examples
    Useful links <Useful_links>
-   

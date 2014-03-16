@@ -1,7 +1,7 @@
 Content
 -------
 
-That resource return content of current page by slug or list of available contents.
+That resource returns content of current page by slug or list of available contents.
 
 .. list-table::
     :widths: 15 15 40
@@ -14,14 +14,22 @@ That resource return content of current page by slug or list of available conten
       - list of contents
       - ::
     
-        { code: 200, data: ["home", "about", "contact"] }
+            {
+                code: 200,
+                data: {
+                    "home":"Home",
+                    "about":"About",
+                    "contact":"Contact"
+                }
+            }
     * - /content?slug=foo
       - current content by slug
       - ::
             
             {
                 code: 200, 
-                data: { 
+                data: {
+                    menu: "Home",
                     name: "name of central column",
                     col_central: "html of central column", 
                     col_right: "html of right column", 
