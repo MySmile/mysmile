@@ -32,8 +32,11 @@ class MySmileApi(View):
         response_data = {}
         response_data['code'] = 200
         
-        if slug == '':             
-            response_data['data'] = list(Page_translation.objects.filter(lang=self.lang, page__status=1).values_list('name', flat=True))
+        if slug == '':
+            content = Page_translation.objects.filter(lang=self.lang, page__status=1).values_list('page__slug', 'menu')
+            response_data['data'] = {}
+            for item in content:
+                response_data['data'][item[0]] = item[1]
                         
         elif slug == 'contact':
             response_data['data'] = {'email': app_settings['EMAIL'],
@@ -57,6 +60,7 @@ class MySmileApi(View):
                         
                         #~ response_data['data'] = list(content)
                         response_data['data'] = {}
+                        response_data['data']['menu'] = content['menu']
                         response_data['data']['name'] = content['name']
                         response_data['data']['col_central'] = content['col_central']
                         response_data['data']['col_right'] = content['col_right']
