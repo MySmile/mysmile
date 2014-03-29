@@ -38,6 +38,7 @@ That resource returns content of current page by slug or list of available conte
                     "html of second bottom column", 
                     "html of third bottom column"
                     ],
+                youtube: "link to YouTube resource",
                 photo: { 
                         src: "url to photo", 
                         alt: "alt text", 

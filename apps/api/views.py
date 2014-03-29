@@ -45,6 +45,10 @@ class MySmileApi(View):
         if self.slug == '':
             # get list of pages
             content = Page_translation.objects.filter(lang=self.lang, page__status=1).values_list('page__slug', 'menu')
+
+            if not content:
+                raise MySmileApiException('Not Found', 404)
+
             for item in content:
                 response_data['data'][item[0]] = item[1]
 
@@ -67,7 +71,8 @@ class MySmileApi(View):
         response_data['data'] = {'menu': content['menu'],
                                  'name': content['name'],
                                  'col_central': content['col_central'],
-                                 'col_right': content['col_right']
+                                 'col_right': content['col_right'],
+                                 'youtube': content['youtube']
                                 }
 
         response_data['data']['col_bottom'] = [content[item] for item in ['col_bottom_1', 'col_bottom_2', 'col_bottom_3'] if content[item]]
