@@ -44,7 +44,7 @@ class MySmileApi(View):
 
         if self.slug == '':
             # get list of pages
-            content = Page_translation.objects.filter(lang=self.lang, page__status=1).values_list('page__slug', 'menu')
+            content = Page_translation.objects.filter(lang=self.lang, page__status=1, page__ptype=1).values_list('page__slug', 'menu')
 
             if not content:
                 raise MySmileApiException('Not Found', 404)
