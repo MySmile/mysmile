@@ -21,8 +21,8 @@ Examples
             {
                 code: 200,
                 data: {
-                    "home":"Home",
-                    "about":"About",
-                    "contact":"Contact"
+                    10: {"home":"Home"},
+                    20: {"about":"About"},
+                    30: {"contact":"Contact"}
                 }
             }
