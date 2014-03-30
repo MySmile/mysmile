@@ -20,7 +20,7 @@ class MySmileApi(View):
 
         try:
             if resource == 'content':
-                response_data = self.get_content()
+                response_data = self.get_content(request)
             elif resource == 'language':
                 response_data = self.get_language()
             elif resource == 'contact':
@@ -39,7 +39,7 @@ class MySmileApi(View):
 
         return HttpResponse(json.dumps(response_data), mimetype="application/json", status=response_data['code'])
 
-    def get_content(self):
+    def get_content(self, request):
         response_data = {'code': 200, 'data': {}}
 
         if self.slug == '':
@@ -77,7 +77,7 @@ class MySmileApi(View):
 
         response_data['data']['col_bottom'] = [content[item] for item in ['col_bottom_1', 'col_bottom_2', 'col_bottom_3'] if content[item]]
 
-        response_data['data']['photo'] = {'src': content['page__photo'],
+        response_data['data']['photo'] = {'src': request.build_absolute_uri('/static/' + content['page__photo']),
                                           'alt': content['photo_alt'],
                                           'description': content['photo_description']
                                          }
