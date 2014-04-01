@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: MySmile
-Version: 0.3.0
+Version: 0.4.0
 Author: Andrii Pryz
 Author-email: info@mysmile com ua
 Home-page: http://mysmile.com.ua
@@ -11,25 +11,35 @@ Description:
 
     MySmile is best choose for:
 
-        0) Small websites aimed on static content with limited dynamic. For example such: "Personal 
+        1. Small websites aimed on static content with limited dynamic. For example such: "Personal 
 site", "Startup business", "Advertising new Project/Product".
-        1) Some prototypes/ideas that now looks tiny but has enormous potential to grow. Because 
+        
+        2. Some prototypes/ideas that now looks tiny but has enormous potential to grow. Because 
 MySmile use Django framework it breaks all barriers for implementation your new features.
-        2) Freshmen Python developers for studying and experimenting.
+        
+        3. Freshmen Python developers for studying and experimenting.
 
     Innovation MySmile features:
 
-        0) Use newspaper text organize technology like: columns, incuts.
-        1) The design is changes via admin panel without any additional program coding.
-        2) There are more then 27 unique designers combination! How we get them? Let's look into 
+        1. Use newspaper text organize technology like: columns, incuts.
+        
+        2. REST API helps construct mobile and desktop application. Moreofer REST API client is available, for now it is php-client with examples and unitTests
+        
+        3. The design is changes via admin panel without any additional program coding.
+        
+        4. There are more then 27 unique designers combination! How we get them? Let's look into 
 calculation. Every page consists of the 3 parts: central-column, right-column, bottom-column. 
 Right-column can have 3 columns. And right-column has also 3 components: photo, youtube, text. 
 Additionally every element can or can't be present.
-        3) The additional menu creating dynamically for pages that is not in the menu. It works 
+        
+        5. The additional menu creating dynamically for pages that is not in the menu. It works 
 like mix of "cloud of links" and "bread crumbs". So you open links and it's on the menu.
 
-    Demo version is avalible on http://demo.mysmile.com.ua
-    Development version is available on GitHub: https://github.com/MySmile/MySmile.git.   
+	Demo version is avalible on http://demo.mysmile.com.ua
+    
+	Development version is available on GitHub: 
+    
+	https://github.com/MySmile/MySmile.git.   
  
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Environment :: Web Environment

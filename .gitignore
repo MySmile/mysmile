@@ -1,3 +1,6 @@
 *.pyc
 docs/build/**
 .idea
+
+bin/**
+
