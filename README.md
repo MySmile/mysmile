@@ -1,9 +1,9 @@
 About
 =====
 
-MySmile --- simple CMS based on Django.
+MySmile is the lightweight open-source CMS based on Django. It helps to create websites with configurable design and minimum cost. 
 
-This is version 0.4.0!
+This is development version 0.4.1b!
 
 Dependences
 ===========
@@ -15,24 +15,23 @@ b) PIL library for working with images: https://github.com/python-imaging/Pillow
 Installation
 ============
 
-0. Install dependences: $ pip install -r requirements.pip
-1. Unpack archive with MySmile to the project directory
-2. In the project directory run a command in the terminal: 
+1. Install dependences: $ pip install -r requirements.pip
+2. Unpack archive with MySmile to the project directory
+3. In the project directory run a command in the terminal: 
     
       python3 manage.py runserver
     
    Now demo is available here  http://127.0.0.1:8000
 
-3. Change default credentials to admin page:
-   3.1. Link to admin page: http://127.0.0.1:8000/admin
-   3.2. Default credentials: login: test, password: test
+4. Change default credentials to admin page:
 
-4. Let’s start create your own project:
-   4.1. Upload new logo to the "/static/images/" folder
-   4.2. Update content using agmin page
-   4.3. Change user_settings.py
-   
+  4.1. Link to admin page: http://127.0.0.1:8000/admin
+  4.2. Default credentials: login: test, password: test
 
+5. Let’s start create your own project:
+
+  5.1. Upload new logo to the "/static/images/" folder
+  5.2. Update content using agmin page
 
 Documentation
 =============
