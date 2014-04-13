@@ -21,27 +21,30 @@ Installation
 
 3. In the project directory run a command in the terminal: 
     
-      `python3 manage.py runserver`
+  `python3 manage.py runserver`
     
-   Now your website is available here:
+  Now your website is available here:
        
-       `http://127.0.0.1:8000`
+  `<http://127.0.0.1:8000>`_ 
 
 4. Change default credentials to admin page:
 
   4.1. Link to admin page: 
       
-      `http://127.0.0.1:8000/admin`
+  `<http://127.0.0.1:8000/admin>`_
       
   4.2. Log in with default credentials: 
-      
-      `login: test` 
-      `password: test`
+  
+  `login: test` 
+  
+  `password: test`
 
 Documentation
 =============
 
-For more information please visit: http://mysmile.com.ua/en/documentation.html
+Latest documentation is avalible on
+
+  `<http://mysmile.readthedocs.org/en/latest/>`_
 
 Welcome to MySmile!
  
