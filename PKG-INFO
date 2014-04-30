@@ -37,10 +37,11 @@ like mix of "cloud of links" and "bread crumbs". So you open links and it's on t
 
 	Demo version is avalible on http://demo.mysmile.com.ua
     
-	Development version is available on GitHub: 
-    
-	https://github.com/MySmile/MySmile.git.   
- 
+	Development version is available on GitHub: https://github.com/MySmile/MySmile.git.
+	
+	Latest documentation is avalible on http://mysmile.readthedocs.org/en/latest/
+
+
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Environment :: Web Environment
 Classifier: Framework :: Django
