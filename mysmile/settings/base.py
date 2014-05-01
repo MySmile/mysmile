@@ -90,7 +90,7 @@ app_settings = {
     'DOMAIN': '',
     'GOOGLE_ANALITYCS_CODE': '',
     'MAX_INNERLINK_HISTORY': 4, 
-    'REST_API': False
+    'REST_API': True
 }
 
 

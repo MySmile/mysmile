@@ -8,13 +8,16 @@ from django.core.exceptions import FieldError
 
 from apps.pages.models import Page, Page_translation
 from mysmile.settings.base import LANGUAGES, app_settings
-from apps.api.myexception import MySmileApiException
+from apps.api.exceptions import MySmileApiException
 
 
 class MySmileApi(View):
 
-    def get(self, request, resource):
+    def __init__(self, **kwargs):
+        if not app_settings['REST_API']:
+            raise MySmileApiException('Forbidden', 403)
 
+    def get(self, request, resource):
         self.lang = request.GET.get('lang', 'en')
         self.slug = request.GET.get('slug', '')
 
@@ -44,13 +47,11 @@ class MySmileApi(View):
 
         if self.slug == '':
             # get list of pages
-            content = Page_translation.objects.filter(lang=self.lang, page__status=1, page__ptype=1).values_list('page__slug', 'menu', 'page__sortorder').order_by('page__sortorder')
+            content = Page_translation.objects.filter(lang=self.lang, page__status=1, page__ptype=1).order_by('page__sortorder').values_list('page__slug', 'menu')
 
             if not content:
                 raise MySmileApiException('Not Found', 404)
-
-            for item in content:
-                response_data['data'][item[2]] = {item[0]: item[1]}
+            response_data['data'] = [{item[0]: item[1]} for item in content]
 
             return response_data
 
