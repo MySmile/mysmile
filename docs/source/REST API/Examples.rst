@@ -20,9 +20,8 @@ Examples
 
             {
                 code: 200,
-                data: {
-                    10: {"home":"Home"},
-                    20: {"about":"About"},
-                    30: {"contact":"Contact"}
-                }
+                data: [{"home":"Home"},
+                        {"about":"About"},
+                        {"contact":"Contact"}
+                        ]
             }

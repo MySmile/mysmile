@@ -16,11 +16,10 @@ That resource returns content of current page by slug or list of available conte
     
             {
                 code: 200,
-                data: {
-                    10: {"home":"Home"},
-                    20: {"about":"About"},
-                    30: {"contact":"Contact"}
-                }
+                data: [{"home":"Home"},
+                        {"about":"About"},
+                        {"contact":"Contact"}
+                        ]
             }
     * - /content?slug=foo
       - current content by slug
