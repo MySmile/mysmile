@@ -13,15 +13,19 @@ from apps.api.exceptions import MySmileApiException
 
 class MySmileApi(View):
 
-    def __init__(self, **kwargs):
-        if not app_settings['REST_API']:
-            raise MySmileApiException('Forbidden', 403)
+#    def __init__(self, **kwargs):
+#        if not app_settings['REST_API']:
+#            raise MySmileApiException('Forbidden', 403)
 
     def get(self, request, resource):
         self.lang = request.GET.get('lang', 'en')
         self.slug = request.GET.get('slug', '')
 
         try:
+            # turn off api by configuration
+            if not app_settings['REST_API']:
+                raise MySmileApiException('Forbidden', 403)
+
             if resource == 'content':
                 response_data = self.get_content(request)
             elif resource == 'language':
