@@ -1,15 +1,20 @@
+2014-05-?? Version 0.4.1
++ Added REST_API setting parameter to turn on/off REST API
+* Changed response of contents resource of REST API
+* Updated layout if project has only one language  then flag icon is not displayed
+* Bug fixed of sitemap generation
+
 2014-04-01 Version 0.4.0
 + REST API and documentation for them
 + Added REST API Client for PHP
 * Improved HTML5 support
-* Someone bugfixes
 
 2014-02-15 Version 0.3.0
-+ Add tests 
-+ Use sphinx for docs
-* Fix incorrect behavior of the dynamic menu
-* Clear settings
-* Change project structure 
++ Added Unit tests
++ Used sphinx for docs
+* Fixed incorrect behavior of the dynamic menu
+* Updated settings
+* Changed project structure
 
 2013-11-23 Version 0.2.2
 + Add apple-touch-icon-precomposed.png
@@ -17,8 +22,8 @@
 * Django 1.6 support!
 
 2013-09-27 Version 0.2.1
-* Admin tweaking
-* The big code refactoring
+* Improved Admin panel
+* Code was refactored
 * Last realise for Django 1.5x series
 
 2013-09-19  Version 0.2.0
@@ -26,18 +31,18 @@
 * Improved main menu
 
 2013-08-18  Version 0.2.0b
-+ New type of page: "inner_page"
-+ Embedding videos from youtube
-* Improved usability admin
-* Some refactoring code
-* Temporarily disable parameter MAX_NUM_PAGE
++ Added new page type "inner_page"
++ Integrated videos from YouTube
+* Improved usability of admin panel
+* Config parameter MAX_NUM_PAGE was temporary disabled
 
 2013-05-15  Version 0.1.0
 * Fixed one bug in Sitemap.xml 
 * Fixed some bugs and inconveniences
 
 2013-04-19  Version 0.1.0b
-* First beta! 
+* Beta version was launched
 
 2012-12-01  Version 0.0.1
-* Start idea the project! 
+* Created technical documentation
+* Made design
