@@ -24,7 +24,7 @@ class PagesManager(models.Manager):
         menues = Page_translation.objects.filter(lang=lang, page__status=1, page__ptype=1).values_list( 'menu', flat=True).order_by('page__sortorder')
         c['nav'] = list(map(lambda x, y: (x, y), slugs, menues))
 
-        c['languages'] = LANGUAGES
+        c['languages'] = LANGUAGES if len(LANGUAGES) > 1 else ''
         c['logo_link'] = '/' + lang + '/' + self.get_first_slug() + '.html'
         c['lang'] = lang
         c['slug'] = slug
