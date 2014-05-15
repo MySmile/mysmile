@@ -1,15 +1,16 @@
 import os
 from django.contrib import admin
+from django import forms
 
 from mysmile.settings.main import MEDIA_URL, STATIC_URL, LANGUAGES
 
 from apps.pages.models import Page, Page_translation
-from apps.pages.forms import Page_translationForm
+from apps.pages.forms import Page_translationInlineForm
 
 
 class Page_translationInline(admin.StackedInline):
     model = Page_translation
-    form = Page_translationForm
+    form = Page_translationInlineForm
     verbose_name = 'Lang'
     extra = 0
     fieldsets = [

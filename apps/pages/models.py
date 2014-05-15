@@ -58,6 +58,7 @@ class Page_translation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+        
     def __unicode__(self):
         return self.lang
 
