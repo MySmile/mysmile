@@ -1,6 +1,7 @@
 from django.db import models
-from mysmile.settings.base import LANGUAGES
 
+from mysmile.settings.base import LANGUAGES
+SORTORDER_STEP = 10
 
 class Page(models.Model):
     slug = models.SlugField(unique=True,
@@ -12,7 +13,7 @@ class Page(models.Model):
                                         a color, and then twice to save')
     # blank=True add "clear image" checkbox into admin page
     photo = models.ImageField(upload_to='images/', null=True, blank=True)
-    sortorder = models.IntegerField(unique=True)
+    sortorder = models.IntegerField(unique=True, default=lambda: Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+SORTORDER_STEP)
     status = models.IntegerField(unique=False, choices=((0, 'draft'),
                                  (1, 'published'),), default=0)
     ptype = models.IntegerField(unique=False, choices=((0, 'inner page'),
