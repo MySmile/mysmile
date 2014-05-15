@@ -1,7 +1,10 @@
-2014-05-?? Version 0.4.1
+2014-05-16 Version 0.4.1
 + Added REST_API setting parameter to turn on/off REST API
++ Added autocomplete sortorder-field for new pages
++ Easy to switch between local and production versions with a single parameter DEBUG
 * Changed response of contents resource of REST API
 * Updated layout if project has only one language  then flag icon is not displayed
+* Improved separation of project settings 
 * Bug fixed of sitemap generation
 
 2014-04-01 Version 0.4.0
