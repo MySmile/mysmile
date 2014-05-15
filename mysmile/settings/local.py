@@ -1,8 +1,9 @@
 """
-Django settings/local.py for MySmile project.
+Django settings/local.py for MySmile development project.
 """
 import os
 import datetime
+
 from .base import *
 from config.local import *
 

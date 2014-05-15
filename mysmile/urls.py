@@ -4,13 +4,11 @@ from django.conf import settings
 from django.contrib.staticfiles.views import serve as serve_static
 from django.views.decorators.cache import never_cache
 
-
-from mysmile.settings.local import MEDIA_ROOT
-from config.local import DEBUG
-
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+
+from mysmile.settings.main import DEBUG, MEDIA_ROOT
 
 urlpatterns = patterns('',
 
@@ -31,7 +29,6 @@ urlpatterns = patterns('',
 )
 
 
-#~ handler404 = 'mysmile.views.my_custom_404_view'
 handler404 = 'apps.pages.views.my_custom_404_view'
 
 

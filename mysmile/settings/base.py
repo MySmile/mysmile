@@ -4,12 +4,8 @@ Django settings/base.py for MySmile project.
 """
 import os
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-#~ BASE_DIR = os.path.realpath(os.path.dirname(__file__))
 BASE_DIR =  os.path.dirname(os.path.realpath(__file__))
-
-#~ SITE_ID = 1
 
 ########## APP CONFIGURATION
 DJANGO_APPS = (
@@ -56,7 +52,6 @@ LANGUAGES = (
     ('ru', 'Русский'),
 )
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
@@ -72,25 +67,3 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
-
-
-
-"""
-* Empty '' string means some app_setting "off"
-* Put 'DOMAIN': '' for 127.0.0.1 and registered 'domain.com' for production
-* For PHONE: http://en.wikipedia.org/wiki/Telephone_numbering_plan 
-* Go to the http://www.google.com/analytics/ to get the GOOGLE_ANALITYCS_CODE
-* For inner_type page only <= MAX_INNERLINK_HISTORY
-"""
-
-app_settings = {
-    'PHONE': '000 000 000 00 00', 
-    'EMAIL': 'myemail@email.com',
-    'SKYPE': 'myskype',
-    'DOMAIN': '',
-    'GOOGLE_ANALITYCS_CODE': '',
-    'MAX_INNERLINK_HISTORY': 4, 
-    'REST_API': True
-}
-
-

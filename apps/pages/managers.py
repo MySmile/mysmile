@@ -3,7 +3,7 @@ from datetime import datetime
 from django.db import models
 from django.http import Http404
 
-from mysmile.settings.base import LANGUAGES, app_settings
+from mysmile.settings.main import LANGUAGES, app_settings
 from apps.pages.models import Page, Page_translation
 
 
