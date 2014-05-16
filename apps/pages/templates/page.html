@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}{% load i18n %}
+{% load staticfiles %}{% load i18n %}{% load email2img %}
 
 {% block google_analytics %}
     {% if GOOGLE_ANALITYCS_CODE %}
@@ -52,9 +52,8 @@
 {% block contact %}
 <ul id="contact">
 {% if EMAIL %}
-	<li>
-        <img src="{% static 'images/email.png' %}" width="16" height="16" alt="e-mail" />
-        <a href="mailto:{{ EMAIL }}">{{ EMAIL }}</a>					
+	<li><img src="{% static 'images/email.png' %}" height="16" width="16" alt="phone" />
+        {% autoescape off %} {{ EMAIL|email2img }} {% endautoescape %}
     </li>
 {% endif %}
 {% if PHONE %}
