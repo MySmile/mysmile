@@ -14,6 +14,7 @@ Contents:
    :maxdepth: 5
    :titlesonly:
    
+   Getting started/index
    Technical Specification/index
    REST API/index
    glossary

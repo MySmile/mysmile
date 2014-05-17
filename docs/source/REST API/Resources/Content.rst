@@ -4,7 +4,7 @@ Content
 That resource returns content of current page by slug or list of available contents.
 
 .. list-table::
-    :widths: 15 15 40
+    :widths: 7 7 12
     :header-rows: 1
 
     * - Resource

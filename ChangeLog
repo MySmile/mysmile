@@ -1,3 +1,7 @@
+2014-05-xx Version 0.5.0
++ E-mail address is being protected through picture
++ Python REST API client
+
 2014-05-16 Version 0.4.1
 + Added REST_API setting parameter to turn on/off REST API
 + Added autocomplete sortorder-field for new pages
