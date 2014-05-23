@@ -13,7 +13,7 @@ def SitemapXML(request):
     <urlset xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9">'
     langs_and_slugs = Page_translation.objects.filter(page__status=1).values('lang', 'page__slug', 'updated_at').order_by('lang')
     for item in langs_and_slugs:
-        url = request.META['HTTP_HOST'] + '/' + item['lang'] + '/' + item['page__slug'] + '.html'
+        url = 'http://' + request.META['HTTP_HOST'] + '/' + item['lang'] + '/' + item['page__slug'] + '.html'
         modified = item['updated_at'].strftime('%Y-%m-%d')
         xml += createNode(url, modified)
     xml += '</urlset>'
