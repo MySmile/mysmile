@@ -34,7 +34,8 @@ def email2img(email):
                 draw.text((0,0), email, (0,0,0), font=font)
                 img_full_path = STATIC_ROOT+'static/images/email2img.png'
                 im.save(img_full_path)
-
+            except Exception:
+                pass    
     except MySmilePagesException, e:
         logger.warning("E-mail is not protected from spambots!")
         return '<a href="mailto:'+email+'">'+email+'</a>'
