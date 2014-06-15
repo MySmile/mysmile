@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: MySmile
-Version: 0.5.0
+Version: 0.4.2
 Author: Andrii Pryz
 Author-email: info@mysmile com ua
 Home-page: http://mysmile.com.ua
@@ -35,12 +35,11 @@ Additionally every element can or can't be present.
         5. The additional menu creating dynamically for pages that is not in the menu. It works 
 like mix of "cloud of links" and "bread crumbs". So you open links and it's on the menu.
 
-	Demo version is avalible on http://demo.mysmile.com.ua
+    Demo version is avalible on http://demo.mysmile.com.ua
     
-	Development version is available on GitHub: https://github.com/MySmile/MySmile.git.
-	
-	Latest documentation is avalible on http://mysmile.readthedocs.org/en/latest/
+    Development version is available on GitHub: https://github.com/MySmile/MySmile.git.
 
+    Latest documentation is avalible on http://mysmile.readthedocs.org/en/latest/
 
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Environment :: Web Environment
