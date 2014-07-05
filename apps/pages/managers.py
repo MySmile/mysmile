@@ -25,9 +25,8 @@ class PagesManager(models.Manager):
         c['nav'] = list(map(lambda x, y: (x, y), slugs, menues))
 
         c['languages'] = LANGUAGES if len(LANGUAGES) > 1 else ''
-        c['logo_link'] = '/' + lang + '/' + self.get_first_slug() + '.html'
-        c['lang'] = lang
-        c['slug'] = slug
+        c['logo_link'] = '/' + lang + '/' + slugs[0] + '.html'
+        c['lang'], c['slug'] = lang, slug
         c['current_year'] = datetime.now().strftime('%Y')
 
         c.update(app_settings)
@@ -47,9 +46,6 @@ class PagesManager(models.Manager):
                 while len(inner_nav) > app_settings['MAX_INNERLINK_HISTORY']:
                     inner_nav.pop(0)    
         return inner_nav
-
-    def get_first_slug(self):
-        return Page.objects.filter(status=1, ptype=1).values_list('slug', flat=True).order_by('sortorder').first()
 
     def get_youtube_embedded_url(self, url):
         try:

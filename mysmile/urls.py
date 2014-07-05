@@ -11,11 +11,8 @@ admin.autodiscover()
 from mysmile.settings.main import DEBUG, MEDIA_ROOT
 
 urlpatterns = patterns('',
-
-    (r'^$', 'apps.pages.views.page'),
-    (r'^(?P<lang>[a-z]{2})/$', 'apps.pages.views.page'),
-    (r'^(?P<lang>[a-z]{2})/(?P<slug>[a-z,A-Z,-]+)\.html$', 'apps.pages.views.page'),
-
+    
+    url('', include('apps.pages.urls')),
     url(r'^api/', include('apps.api.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
