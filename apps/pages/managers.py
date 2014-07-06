@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from django.db import models
 from django.http import Http404
 
@@ -12,11 +10,11 @@ class PagesManager(models.Manager):
     def get_content(self, request, lang=None, slug=None):
         page_id = Page.objects.filter(slug=slug, status=1).values('id')
         content = Page_translation.objects.filter(lang=lang, page__status=1, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords')
-        c = {}
+        c = content[0] if content else {}
         cols = ['col_bottom_1', 'col_bottom_2', 'col_bottom_3']  # some processing of the columns...
         try:
             c['bottom_cols'] = [content[0].pop(item) for item in cols if content[0][item]]
-            c['inav'] = self.get_inner_nav(request, content[0]['menu'], slug)
+            c['inav'] = self.get_inner_nav(request, c['menu'], slug)
         except IndexError:
             raise Http404
 
@@ -25,15 +23,10 @@ class PagesManager(models.Manager):
         c['nav'] = list(map(lambda x, y: (x, y), slugs, menues))
 
         c['languages'] = LANGUAGES if len(LANGUAGES) > 1 else ''
-        c['logo_link'] = '/' + lang + '/' + slugs[0] + '.html'
         c['lang'], c['slug'] = lang, slug
-        c['current_year'] = datetime.now().strftime('%Y')
+        c['youtube'] = self.get_youtube_embedded_url(c['youtube']) if c['youtube'] else ''
 
         c.update(app_settings)
-        c.update(content[0])
-
-        if c['youtube']:
-            c['youtube'] = self.get_youtube_embedded_url(c['youtube'])
         return c
 
     def get_inner_nav(self, request, menu, slug):
@@ -44,7 +37,7 @@ class PagesManager(models.Manager):
                 inner_nav.append([slug, menu])
                 request.session['inner_nav'] = inner_nav  # save data to the session
                 while len(inner_nav) > app_settings['MAX_INNERLINK_HISTORY']:
-                    inner_nav.pop(0)    
+                    inner_nav.pop(0)
         return inner_nav
 
     def get_youtube_embedded_url(self, url):

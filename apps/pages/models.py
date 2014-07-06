@@ -3,6 +3,7 @@ from django.db import models
 from mysmile.settings.base import LANGUAGES
 SORTORDER_STEP = 10
 
+
 class Page(models.Model):
     slug = models.SlugField(unique=True,
                             help_text='This is unique. Valid characters \
@@ -58,7 +59,6 @@ class Page_translation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-        
     def __unicode__(self):
         return self.lang
 

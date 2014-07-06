@@ -1,63 +1,14 @@
-{% load staticfiles %}<!DOCTYPE html>
-<html lang="{{ lang|lower }}">
- 
-    <head>
-        <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'apple-touch-icon-precomposed.png' %}" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'apple-touch-icon-precomposed.png' %}" />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'apple-touch-icon-precomposed.png' %}" />
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'apple-touch-icon-precomposed.png' %}" />
-        <meta charset="UTF-8">
-        <meta name="description" content="{{ meta_description }}"  />
-        <meta name="keywords" content="{{ meta_keywords }}" />
-        <meta name="viewport" content="width=device-width, initial-scale=2, maximum-scale=5">
-        <meta name="author" content="{{ meta_author }}">
-        <title>{{ meta_title }}</title>
-        
-        <link rel="stylesheet" media="screen" href="{% static 'css/main.css' %}">
-        <link rel="stylesheet" media="print" href="{% static 'css/print.css' %}">
-        <style>
-            .line_left_color{
-                background: #FDA132; 
-                background: -moz-linear-gradient(top, #FDA132, #FFF); 
-                
-                background: -webkit-gradient(linear, left top, left bottom, 
-                color-stop(0%, #FDA132), color-stop(100%,#FFF));
 
-                background: -webkit-linear-gradient(top, #FDA132, #FFF);
-                background: -o-linear-gradient(top, #FDA132, #FFF); 
-                background: -ms-linear-gradient(top, #FDA132, #FFF); 
-                background: linear-gradient(top, #FDA132, #FFF);  
-            }
-        </style>
-    </head>
-<body>
-    <header>
-        {% block logo %}{% endblock %}
-        {% block line_top %}{% endblock %}
+<header>
+    {% block logo %}{% endblock %}
+    {% block line_top %}{% endblock %}
+    <div class="clear"></div>
+</header>
+
+<main>
+    <article>
+        <div id="line_left" class="line_left_color"></div>  
+        {% block col_central %}{% endblock %}
         <div class="clear"></div>
-    </header>
-
-    <main>
-        <article>
-            <div id="line_left" class="line_left_color"></div>  
-            {% block col_central %}{% endblock %}
-            <div class="clear"></div>
-                
-        </article>
-    </main>
-    <div class="clear"></div>
-        
-    <footer>
-        <div>&copy; copyright 2012  </div>
-    </footer>
-    <div id="line_bottom"></div>    
-    <div class="clear"></div>
-    
-    <a href="https://hosting4django.net/aff.php?aff=009"><img 
-src="{% static 'images/logohosting.png' %}" alt="A best Django hosting!" 
-title="A best Django hosting!" width="237" height="41" /></a> 
-    <div id="version">powered by <a href="http://mysmile.com.ua">MySmile</a></div>
-
-</body>
-</html>
+    </article>
+</main>

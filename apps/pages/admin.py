@@ -1,9 +1,7 @@
 import os
 from django.contrib import admin
-from django import forms
 
 from mysmile.settings.main import MEDIA_URL, STATIC_URL, LANGUAGES
-
 from apps.pages.models import Page, Page_translation
 from apps.pages.forms import Page_translationInlineForm
 
@@ -15,7 +13,7 @@ class Page_translationInline(admin.StackedInline):
     extra = 0
     fieldsets = [
         ('Content', {'fields': ['lang', 'menu', 'name', 'col_central',
-                                'youtube', 'photo_description', 'col_right', 
+                                'youtube', 'photo_description', 'col_right',
                                 'col_bottom_1', 'col_bottom_2', 'col_bottom_3'],
                     'classes': ['collapse']}),
         ('SEO', {'fields': ['meta_title', 'meta_description', 'meta_keywords',
