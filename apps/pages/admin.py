@@ -3,7 +3,7 @@ from django.contrib import admin
 
 from mysmile.settings.main import MEDIA_URL, STATIC_URL, LANGUAGES
 from apps.pages.models import Page, Page_translation
-from apps.pages.forms import Page_translationInlineForm
+from apps.pages.forms import Page_translationInlineForm, PageForm
 
 
 class Page_translationInline(admin.StackedInline):
@@ -26,6 +26,7 @@ class Page_translationInline(admin.StackedInline):
 
 class PageAdmin(admin.ModelAdmin):
     model = Page
+    form = PageForm
     fieldsets = [
         (None, {'fields': ['slug']}),
         ('Main settings', {'fields': ['color', 'photo', ('sortorder',

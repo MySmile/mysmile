@@ -5,10 +5,8 @@ SORTORDER_STEP = 10
 
 
 class Page(models.Model):
-    slug = models.SlugField(unique=True,
-                            help_text='This is unique. Valid characters \
-                                       of the alphabet in upper lower case, \
-                                       and the hyphen (not underscore!)')
+    slug = models.SlugField(unique=True, \
+                            help_text='See <a href="http://mysmile.readthedocs.org/en/latest/Technical%20Specification/Url.html">docs</a> for detail')
     color = models.CharField(max_length=500, default='#FDA132',
                              help_text='Click once with the mouse to select \
                                         a color, and then twice to save')
