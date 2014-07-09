@@ -22,7 +22,7 @@ class Page_translationInline(admin.StackedInline):
     search_fields = ['col_central', 'col_right', 'col_bottom_1', 'col_bottom_2',
                      'col_bottom_3']
     max_num = len(LANGUAGES)
-
+    
 
 class PageAdmin(admin.ModelAdmin):
     model = Page
@@ -33,8 +33,7 @@ class PageAdmin(admin.ModelAdmin):
     ]
     inlines = [Page_translationInline]
     list_display = ('slug', 'status', 'ptype', 'sortorder',
-                    'preview_image_url', 'waiting_for_translation',
-                    'date_update')
+                    'preview_image_url', 'waiting_for_translation', 'date_update')
     list_display_links = ('slug',)
     save_on_top = True
 
@@ -60,5 +59,6 @@ class PageAdmin(admin.ModelAdmin):
 
     preview_image_url.short_description = 'Thumbnails'
     preview_image_url.allow_tags = True
+
 
 admin.site.register(Page, PageAdmin)

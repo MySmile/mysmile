@@ -2,8 +2,8 @@ import http
 from django.template import RequestContext, loader, Template, TemplateDoesNotExist
 from django.views.decorators.csrf import requires_csrf_token
 from django.shortcuts import render_to_response
-from django.views.generic import View
-from django.views.generic.base import RedirectView
+#~ from django.views.generic import View
+from django.views.generic.base import RedirectView, TemplateView
 #logger = logging.getLogger(__name__)  # Get an instance of a logger
 
 from mysmile.settings.main import LANGUAGES
@@ -27,14 +27,13 @@ class MySmilePageRedirectView(RedirectView):
         return super(MySmilePageRedirectView, self).get_redirect_url(lang=lang, slug=slug)
 
 
-class MySmilePage(View):
-
-    def get(self, request, *args, **kwargs):
+class MySmilePageView(TemplateView):
+    template_name = ''
+    def get_context_data(self, **kwargs):
+        context = super(MySmilePageView, self).get_context_data(**kwargs)
         w = PagesManager()
-        c = w.get_content(request, kwargs['lang'], kwargs['slug'])
-        return render_to_response('page.html',
-                            c, context_instance=RequestContext(request))
-
+        context.update(w.get_content(self.request, kwargs['lang'], kwargs['slug']))
+        return context
 
 @requires_csrf_token
 def my_custom_404_view(request, template_name='404.html'):

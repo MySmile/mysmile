@@ -4,31 +4,28 @@ from django.conf import settings
 from django.contrib.staticfiles.views import serve as serve_static
 from django.views.decorators.cache import never_cache
 
-# Uncomment the next two lines to enable the admin:
+# comment the next two lines to disable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
-from mysmile.settings.main import DEBUG, MEDIA_ROOT
-
 urlpatterns = patterns('',
-    
     url('', include('apps.pages.urls')),
     url(r'^api/', include('apps.api.urls')),
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
+    url('', include('apps.sitemap.urls')),
     #(r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", mimetype="text/plain")),
     (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nHost: demo.mysmile.com.ua\nSitemap: \
   http://demo.mysmile.com.ua/Sitemap.xml", mimetype="text/plain")),
 
-    (r'^Sitemap\.xml$', 'apps.sitemap.views.SitemapXML'),
+    # Uncomment the admin/doc line below to enable admin documentation:
+    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    # comment the next line to disable the admin:
+    url(r'^admin/', include(admin.site.urls)),
 )
-
 
 handler404 = 'apps.pages.views.my_custom_404_view'
 
-
+from mysmile.settings.main import DEBUG, MEDIA_ROOT
 if DEBUG:
     urlpatterns += patterns('django.views.static',
         (r'media/(?P<path>.*)', 'serve', {'document_root': MEDIA_ROOT}),
