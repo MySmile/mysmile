@@ -16,7 +16,8 @@ class Page(models.Model):
     status = models.IntegerField(unique=False, choices=((0, 'draft'),
                                  (1, 'published'),), default=0)
     ptype = models.IntegerField(unique=False, choices=((0, 'inner page'),
-                                (1, 'menu page'),), default=1)
+                                                       (1, 'menu page'),
+                                                       (2, 'api page'),), default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
