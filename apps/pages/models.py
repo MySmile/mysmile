@@ -5,8 +5,7 @@ SORTORDER_STEP = 10
 
 
 class Page(models.Model):
-    slug = models.SlugField(unique=True, \
-                            help_text='See <a href="http://mysmile.readthedocs.org/en/latest/Technical%20Specification/Url.html">docs</a> for detail')
+    slug = models.SlugField(unique=True,)
     color = models.CharField(max_length=500, default='#FDA132',
                              help_text='Click once with the mouse to select \
                                         a color, and then twice to save')
@@ -20,7 +19,16 @@ class Page(models.Model):
                                                        (2, 'api page'),), default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
+    
+    def photo_thumb(self):
+        if self.photo:
+            return '<img src="' + self.photo.url + '" height="48"/>'
+        else:
+            return ''
+    photo_thumb.allow_tags = True
+    #~ photo_thumb.short_description = 'Thumbnails'
+    #~ photo_thumb.label = ''
+    
     def __unicode__(self):
         return self.slug
 

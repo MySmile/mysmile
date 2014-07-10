@@ -28,15 +28,14 @@ class PageAdmin(admin.ModelAdmin):
     model = Page
     form = PageForm
     fieldsets = [
-        (None, {'fields': ['slug']}),
-        ('Main settings', {'fields': ['color', 'photo', ('sortorder',
-                                                         'status', 'ptype')]}),
+        ('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder', 'color', ('photo', 'photo_thumb')]}),
     ]
     inlines = [Page_translationInline]
     list_display = ('slug', 'status', 'ptype', 'sortorder',
-                    'preview_image_url', 'waiting_for_translation', 'date_update')
+                    'photo_thumb', 'waiting_for_translation', 'date_update')
     list_display_links = ('slug',)
     save_on_top = True
+    readonly_fields = ('photo_thumb',)
 
     def date_update(self, model):
         return model.updated_at.strftime('%d %B %Y, %H:%M')
@@ -50,16 +49,6 @@ class PageAdmin(admin.ModelAdmin):
         return flags
     waiting_for_translation.short_description = 'waiting for translation'
     waiting_for_translation.allow_tags = True
-
-    def preview_image_url(self, model):
-        if model.photo:
-            image_path = os.path.join(MEDIA_URL, str(model.photo))
-            return '<img src="' + image_path + '" height="32"/>'
-        else:
-            return ''
-
-    preview_image_url.short_description = 'Thumbnails'
-    preview_image_url.allow_tags = True
 
 
 admin.site.register(Page, PageAdmin)
