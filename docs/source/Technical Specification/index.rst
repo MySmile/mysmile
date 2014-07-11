@@ -18,5 +18,4 @@ Technical specification
    User configuration <UserConfiguration>
    Database Schema <DatabaseSchema>
    Admin panel <AdminPanel>
-   What is... <WhatIs>
    References

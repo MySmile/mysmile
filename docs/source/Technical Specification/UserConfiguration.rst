@@ -3,7 +3,7 @@
 User configuration
 ==================
 
-User configuration in *config/local.py* or *config/production.py* contains general technical information such as:
+User configuration in *config/local.py* or *config/production.py* contains info of contact and general technical information.
     ::
 
       app_settings = {
@@ -14,3 +14,7 @@ User configuration in *config/local.py* or *config/production.py* contains gener
 	'MAX_INNERLINK_HISTORY': 4, 
 	'REST_API': False
 	}
+
+The **MAX_INNERLINK_HISTORY** describes the maximum number of items of additional dynamic menu.
+
+The **REST_API** allows you to globally enable/disable all pages accessible via API. 
