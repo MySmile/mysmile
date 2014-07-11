@@ -74,3 +74,4 @@ class Page_translation(models.Model):
         ordering = ['lang']
         verbose_name = 'Translation'
         verbose_name_plural = 'Translations'
+        unique_together = ('page', 'lang')
