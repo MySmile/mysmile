@@ -1,6 +1,13 @@
-2014-05-xx Version 0.5.0
-+ E-mail address is being protected through picture
+2014-07-xx Version 0.4.3
 + Python REST API client
+* Django 1.7 support!
+
+2014-07-13 Version 0.4.2
++ E-mail address is being protected through image on production
+* Improved admin usability
+* Use CBV for all apps
+* Update docs
+* Revision of the source code
 
 2014-05-16 Version 0.4.1
 + Added REST_API setting parameter to turn on/off REST API
