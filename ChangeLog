@@ -1,14 +1,12 @@
-2014-07-xx Version 0.4.3
-+ Python REST API client
+2014-xx-xx Version 0.4.3
 + Implementing soft delete pages
 * Django 1.7 support!
 
-2014-07-13 Version 0.4.2
-+ E-mail address is being protected through image on production
-* Improved admin usability
-* Use CBV for all apps
-* Update docs
-* Revision of the source code
+2014-07-xx Version 0.4.2
++ E-mail address was converted to image to protect against spam bots
+* Improved image preview in admin panel
+* Applied class based view (CBV)
+* Updated docs and code refactored
 
 2014-05-16 Version 0.4.1
 + Added REST_API setting parameter to turn on/off REST API
