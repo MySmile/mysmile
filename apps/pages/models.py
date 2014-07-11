@@ -5,6 +5,22 @@ SORTORDER_STEP = 10
 
 
 class Page(models.Model):
+    PTYPE_INNER = 0
+    PTYPE_MENU = 1
+    PTYPE_API = 2
+    PTYPE_MENU_API = 3
+
+    PTYPE = ((PTYPE_INNER, 'inner page'),
+             (PTYPE_MENU, 'menu page'),
+             (PTYPE_API, 'api page'),
+             (PTYPE_MENU_API, 'api & menu page'),)
+
+    STATUS_DRAFT = 0;
+    STATUS_PUBLISHED = 1;
+
+    STATUS = ((STATUS_DRAFT, 'draft'),
+              (STATUS_PUBLISHED, 'published'),)
+
     slug = models.SlugField(unique=True,)
     color = models.CharField(max_length=500, default='#FDA132',
                              help_text='Click once with the mouse to select \
@@ -12,11 +28,8 @@ class Page(models.Model):
     # blank=True add "clear image" checkbox into admin page
     photo = models.ImageField(upload_to='images/', null=True, blank=True)
     sortorder = models.IntegerField(unique=True, default=lambda: Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+SORTORDER_STEP)
-    status = models.IntegerField(unique=False, choices=((0, 'draft'),
-                                 (1, 'published'),), default=0)
-    ptype = models.IntegerField(unique=False, choices=((0, 'inner page'),
-                                                       (1, 'menu page'),
-                                                       (2, 'api page'),), default=1)
+    status = models.IntegerField(unique=False, choices=STATUS, default=STATUS_DRAFT)
+    ptype = models.IntegerField(unique=False, choices=PTYPE, default=PTYPE_MENU)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
