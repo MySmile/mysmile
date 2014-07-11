@@ -9,7 +9,7 @@ class PagesManager(models.Manager):
 
     def get_content(self, request, lang=None, slug=None):
         page_id = Page.objects.filter(slug=slug, status=1).values('id')
-        content = Page_translation.objects.filter(lang=lang, page__status=1, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords')
+        content = Page_translation.objects.filter(lang=lang, page__ptype__in = [0,1], page__status=1, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords')
 
         slugs = Page.objects.filter(status=1, ptype=1).values_list('slug', flat=True).order_by('sortorder')
         menues = Page_translation.objects.filter(lang=lang, page__status=1, page__ptype=1).values_list( 'menu', flat=True).order_by('page__sortorder')
