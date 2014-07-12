@@ -2,8 +2,8 @@ import os
 from django.contrib import admin
 
 from mysmile.settings.main import MEDIA_URL, STATIC_URL, LANGUAGES
-from apps.pages.models import Page, Page_translation
-from apps.pages.forms import Page_translationInlineForm, PageForm
+from apps.pages.models import Page, Page_translation, Settings
+from apps.pages.forms import Page_translationInlineForm, PageForm, SettingsForm
 
 
 class Page_translationInline(admin.StackedInline):
@@ -50,5 +50,28 @@ class PageAdmin(admin.ModelAdmin):
     waiting_for_translation.short_description = 'waiting for translation'
     waiting_for_translation.allow_tags = True
 
+class SettingsAdmin(admin.ModelAdmin):
+    model = Settings
+    form = SettingsForm
+    fieldsets = [
+        ('Settings', {'fields': ['key', 'value', 'name', 'description']}),
+    ]
+    list_display = ('key', 'value')
+    list_display_links = ('key',)
+    save_on_top = True
+    actions = None
+
+    def has_delete_permission(self, request, obj=None):
+        """Disable 'delete' button
+        """ 
+        return False
+
+    def has_add_permission(self, request, obj=None):
+        """Disable 'add' button
+        """ 
+        return False
 
 admin.site.register(Page, PageAdmin)
+admin.site.register(Settings, SettingsAdmin)
+
+

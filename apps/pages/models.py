@@ -88,3 +88,17 @@ class Page_translation(models.Model):
         verbose_name = 'Translation'
         verbose_name_plural = 'Translations'
         unique_together = ('page', 'lang')
+
+
+class Settings(models.Model):
+    key = models.CharField(unique=True, max_length=500)
+    value = models.CharField(blank=True, null=True, max_length=500)
+    name = models.CharField(max_length=500)
+    description = models.CharField(max_length=500)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        db_table = 'Settings'
+        verbose_name = 'Setting'
+        verbose_name_plural = 'Settings'
