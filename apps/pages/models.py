@@ -9,17 +9,16 @@ class Page(models.Model):
     PTYPE_MENU = 1
     PTYPE_API = 2
     PTYPE_MENU_API = 3
-
     PTYPE = ((PTYPE_INNER, 'inner page'),
              (PTYPE_MENU, 'menu page'),
              (PTYPE_API, 'api page'),
-             (PTYPE_MENU_API, 'api & menu page'),)
+             (PTYPE_MENU_API, 'api & menu page'))
 
-    STATUS_DRAFT = 0;
-    STATUS_PUBLISHED = 1;
-
+    STATUS_DRAFT = 0
+    
+    STATUS_PUBLISHED = 1
     STATUS = ((STATUS_DRAFT, 'draft'),
-              (STATUS_PUBLISHED, 'published'),)
+              (STATUS_PUBLISHED, 'published'))
 
     slug = models.SlugField(unique=True,)
     color = models.CharField(max_length=500, default='#FDA132',
@@ -32,18 +31,24 @@ class Page(models.Model):
     ptype = models.IntegerField(unique=False, choices=PTYPE, default=PTYPE_MENU)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     def photo_thumb(self):
         if self.photo:
             return '<img src="' + self.photo.url + '" height="48"/>'
         else:
             return ''
     photo_thumb.allow_tags = True
-    #~ photo_thumb.short_description = 'Thumbnails'
-    #~ photo_thumb.label = ''
     
     def __unicode__(self):
         return self.slug
+
+    def __setattr__(self, name, value):
+        """Protect const from redefining
+        """
+        if name not in ('PTYPE_INNER', 'PTYPE_MENU', 'PTYPE_API',
+                        'PTYPE_MENU_API', 'PTYPE', 'STATUS_DRAFT',
+                        'STATUS_PUBLISHED', 'STATUS'):
+            self.__dict__[name] = value
 
     class Meta:
         db_table = 'Page'
