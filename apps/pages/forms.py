@@ -22,19 +22,19 @@ class PageForm(ModelForm):
 
 
 class SettingsForm(ModelForm):
-
-    def __init__(self, *args, **kwargs):
-        super(SettingsForm, self).__init__(*args, **kwargs)
-        if self.initial:
-            self.fields['key'].widget.attrs['readonly'] = 'readonly'
+#~ 
+    #~ def __init__(self, *args, **kwargs):
+        #~ super(SettingsForm, self).__init__(*args, **kwargs)
+        #~ if self.initial:
+            #~ self.fields['key'].widget.attrs['readonly'] = 'readonly'
 
     class Meta:
         model = Settings
         exclude = ['updated_at', 'created_at']
 
-    def clean_value(self):
-        new_value = self.cleaned_data['value']
-        match = re.search(SHIELD_SYMBOLS, new_value)
-        if match:
-            raise forms.ValidationError("Don\'t use symbols #=!?* ")
-        return new_value
+    #~ def clean_value(self):
+        #~ new_value = self.cleaned_data['value']
+        #~ match = re.search(SHIELD_SYMBOLS, new_value)
+        #~ if match:
+            #~ raise forms.ValidationError("Don\'t use symbols #=!?* ")
+        #~ return new_value

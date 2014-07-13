@@ -54,10 +54,10 @@ class SettingsAdmin(admin.ModelAdmin):
     model = Settings
     form = SettingsForm
     fieldsets = [
-        ('Settings', {'fields': ['key', 'value', 'name', 'description']}),
+        ('Settings', {'fields': ['phone', 'email', 'skype', 'google_code', 'max_inner_link', 'rest_api']}),
     ]
-    list_display = ('key', 'value')
-    list_display_links = ('key',)
+    list_display = ('phone', 'email', 'skype', 'google_code', 'max_inner_link', 'rest_api')
+    list_display_links = ('phone', 'email', 'skype', 'google_code', 'max_inner_link', 'rest_api')
     save_on_top = True
     actions = None
 
