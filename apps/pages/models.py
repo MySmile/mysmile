@@ -1,7 +1,6 @@
 from django.db import models
 
 from mysmile.settings.base import LANGUAGES
-SORTORDER_STEP = 10
 
 
 class Page(models.Model):
@@ -15,10 +14,10 @@ class Page(models.Model):
              (PTYPE_MENU_API, 'api & menu page'))
 
     STATUS_DRAFT = 0
-    
     STATUS_PUBLISHED = 1
     STATUS = ((STATUS_DRAFT, 'draft'),
               (STATUS_PUBLISHED, 'published'))
+    SORTORDER_STEP = 10
 
     slug = models.SlugField(unique=True,)
     color = models.CharField(max_length=500, default='#FDA132',
@@ -42,27 +41,14 @@ class Page(models.Model):
     def __unicode__(self):
         return self.slug
 
-    def __setattr__(self, name, value):
-        """Protect const from redefining
-        """
-        if name not in ('PTYPE_INNER', 'PTYPE_MENU', 'PTYPE_API',
-                        'PTYPE_MENU_API', 'PTYPE', 'STATUS_DRAFT',
-                        'STATUS_PUBLISHED', 'STATUS'):
-            self.__dict__[name] = value
-
     class Meta:
         db_table = 'Page'
         ordering = ['-ptype', 'sortorder', 'status']
 
 
 class Page_translation(models.Model):
-    ALL_LANGS = []
-    for i in LANGUAGES:
-        ALL_LANGS.append((i[0], i[0]))
-    ALL_LANGS = tuple(ALL_LANGS)
-
     page = models.ForeignKey(Page)
-    lang = models.CharField(max_length=500, choices=ALL_LANGS,
+    lang = models.CharField(max_length=500, choices=LANGUAGES,
                             default=LANGUAGES[0][0])
     menu = models.CharField(max_length=500)
     name = models.CharField(max_length=500, blank=True, null=True)
@@ -107,3 +93,4 @@ class Settings(models.Model):
         db_table = 'Settings'
         verbose_name = 'Setting'
         verbose_name_plural = 'Settings'
+
