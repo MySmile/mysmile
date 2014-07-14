@@ -58,7 +58,7 @@ class SettingsAdmin(admin.ModelAdmin):
         ('Settings', {'fields': ['key', 'value']}),
     ]
     list_display = ('key', 'value')
-    list_display_links = ('key')
+    list_display_links = ('key',)
     save_on_top = True
     actions = None
 

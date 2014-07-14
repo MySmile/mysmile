@@ -22,8 +22,14 @@ class MySmilePageRedirectView(RedirectView):
         slug = Page.objects.filter(status=1, ptype=1).values_list('slug', flat=True).order_by('sortorder').first()
         try:
             lang = kwargs['lang']
-        except KeyError:
-            lang = LANGUAGES[0][0]
+        except KeyError: # adaptive language selection
+            if 'HTTP_ACCEPT_LANGUAGE' in self.request.META:
+                for k in LANGUAGES:
+                    if k[0] in self.request.META['HTTP_ACCEPT_LANGUAGE']:
+                        lang = k[0]
+                        k = 0 # break cycle "for"
+                    else:
+                        lang = LANGUAGES[0][0]
         return super(MySmilePageRedirectView, self).get_redirect_url(lang=lang, slug=slug)
 
 
