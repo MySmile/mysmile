@@ -22,11 +22,13 @@ class PageForm(ModelForm):
 
 
 class SettingsForm(ModelForm):
-#~ 
-    #~ def __init__(self, *args, **kwargs):
-        #~ super(SettingsForm, self).__init__(*args, **kwargs)
-        #~ if self.initial:
-            #~ self.fields['key'].widget.attrs['readonly'] = 'readonly'
+
+    def __init__(self, *args, **kwargs):
+        super(SettingsForm, self).__init__(*args, **kwargs)
+        if self.initial:
+            self.fields['key'].widget.attrs['readonly'] = 'readonly'
+        #~ self.fields['rest_api'].widget = widget=Select
+
 
     class Meta:
         model = Settings
