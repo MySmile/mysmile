@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% load staticfiles %}{% load i18n %}{% load email2img %}
+{% load staticfiles %}{% load i18n %}{% load cache %}
+{% load email2img %}
 
 {% block google_analytics %}
     {% if GOOGLE_ANALITYCS_CODE %}
@@ -7,7 +8,7 @@
     {% endif %}    
 {% endblock %}
 
-{% block logo %}
+{% block logo %} <!-- {% now "jS F Y H:i" %} -->
 	<div id="logo"><a href="/{{ lang }}/{{ nav|first|first }}.html"><img src="{% static "images/logo.png" %}" width="108" height="115" alt="MySmile logo" /></a></div>
 {% endblock %}
 
@@ -49,10 +50,7 @@
 {% endif %}
 {% endblock %}
 
-{% block contact %}
-{% load cache %}
-{% cache 600 contact_tag %}
-
+{% block contact %}{% cache 600 contact_tag %} <!-- {% now "jS F Y H:i" %} -->
 <ul id="contact">
 {% if EMAIL %}
 	<li><img src="{% static 'images/email.png' %}" height="16" width="16" alt="phone" />
@@ -72,8 +70,7 @@
 	</li>
 {% endif %}
 </ul>
-{% endcache %}
-{% endblock %}
+{% endcache %}{% endblock %}
 
 {% block col_right %}
 	{% if col_right or page__photo or youtube %}
