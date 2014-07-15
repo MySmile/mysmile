@@ -14,7 +14,7 @@ INSERT INTO Settings (key, value, name, description, created_at, updated_at) VAL
 
 INSERT INTO Settings (key, value, name, description, created_at, updated_at) VALUES ('KEY_GOOGLE_ANALITYCS_CODE', '', 'Google Analytic code', 'Code uses to connect to Google Analytic service.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-INSERT INTO Settings (key, value, name, description, created_at, updated_at) VALUES ('KEY_MAX_INNERLINK_HISTORY', '4', 'Max number of inner pages', 'Number of pages that can be shown under main menu when user follow links inside page. Generally inner pages used only as a link inside content.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Settings (key, value, name, description, created_at, updated_at) VALUES ('KEY_MAX_INNERLINK_HISTORY', '10', 'Max number of inner pages', 'Number of pages that can be shown under main menu when user follow links inside page. Generally inner pages used only as a link inside content.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO Settings (key, value, name, description, created_at, updated_at) VALUES ('KEY_REST_API', 'True', 'Turn on/off REST Api', 'Turn on/off alternative way of getting pages using REST api. Only a special marked pages can be available for api. For more information please look into page statuses list.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
