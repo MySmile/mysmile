@@ -50,6 +50,9 @@
 {% endblock %}
 
 {% block contact %}
+{% load cache %}
+{% cache 600 contact_tag %}
+
 <ul id="contact">
 {% if EMAIL %}
 	<li><img src="{% static 'images/email.png' %}" height="16" width="16" alt="phone" />
@@ -69,8 +72,8 @@
 	</li>
 {% endif %}
 </ul>
+{% endcache %}
 {% endblock %}
-
 
 {% block col_right %}
 	{% if col_right or page__photo or youtube %}

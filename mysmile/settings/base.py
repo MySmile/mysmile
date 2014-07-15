@@ -66,10 +66,3 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
-#~ 
-#~ CACHES = {
-    #~ 'default': {
-        #~ 'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        #~ 'LOCATION': 'Settings',
-    #~ }
-#~ }
