@@ -96,7 +96,7 @@ class Settings(models.Model):
                {'key': KEY_SKYPE, 'value': 'myskype',
                 'name': 'Skype', 'description': 'Contact skype. It is visible on the top of site page.'},
                {'key': KEY_GOOGLE_ANALITYCS_CODE, 'value': '',
-                'name': 'Google Analytic Code', 'description': 'Code uses to connect to Google Analytic service'},
+                'name': 'Google Analytic code', 'description': 'Code uses to connect to Google Analytic service.'},
                {'key': KEY_MAX_INNERLINK_HISTORY, 'value': 4,
                 'name': 'Max number of inner pages', 'description': 'Number of pages that can be shown under main menu when user follow links inside page. Generally inner pages used only as a link inside content.'},
                {'key': KEY_REST_API, 'value': True,
@@ -111,8 +111,6 @@ class Settings(models.Model):
     
     class Meta:
         db_table = 'Settings'
-        verbose_name = 'Setting'
-        verbose_name_plural = 'Settings'
 
 
 #~ class Settings(models.Model):
