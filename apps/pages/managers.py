@@ -2,8 +2,8 @@ from django.db import models
 from django.http import Http404
 from django.db import IntegrityError
 
-from mysmile.settings.main import LANGUAGES, app_settings
-from apps.pages.models import Page, Page_translation
+from mysmile.settings.main import LANGUAGES
+from apps.pages.models import Page, Page_translation, Settings
 
 
 class PagesManager(models.Manager):
@@ -15,10 +15,12 @@ class PagesManager(models.Manager):
 
             slugs = Page.objects.filter(status=Page.STATUS_PUBLISHED, ptype=Page.PTYPE_MENU).values_list('slug', flat=True).order_by('sortorder')
             menues = Page_translation.objects.filter(lang=lang, page__status=Page.STATUS_PUBLISHED, page__ptype=Page.PTYPE_MENU).values_list('menu', flat=True).order_by('page__sortorder')
+            contact = Settings.objects.filter(key__in = ['KEY_PHONE', 'KEY_EMAIL', 'KEY_SKYPE', 'KEY_GOOGLE_ANALITYCS_CODE']).values('key','value')
 
             c = content[0] if content else {}
+            for item in contact:
+                c.update({item['key']:item['value']})
             cols = ['col_bottom_1', 'col_bottom_2', 'col_bottom_3']  # some processing of the columns...
-
             c['bottom_cols'] = [content[0].pop(item) for item in cols if content[0][item]]
             c['inav'] = self.get_inner_nav(request, c['menu'], slug)
         except IndexError:
@@ -32,17 +34,17 @@ class PagesManager(models.Manager):
         c['lang'], c['slug'] = lang, slug
         c['youtube'] = self.get_youtube_embedded_url(c['youtube']) if c['youtube'] else ''
 
-        c.update(app_settings)
         return c
 
     def get_inner_nav(self, request, menu, slug):
         inner_nav = request.session.get('inner_nav', [])
         if Page.objects.filter(slug=slug, ptype=Page.PTYPE_INNER):
+            max_innerlink_history = int(Settings.objects.filter(key = 'KEY_MAX_INNERLINK_HISTORY').values_list('value', flat=True)[0])
             temp = [slug, menu]
             if not temp in inner_nav:  # work with sessions
                 inner_nav.append([slug, menu])
                 request.session['inner_nav'] = inner_nav  # save data to the session
-                while len(inner_nav) > app_settings['MAX_INNERLINK_HISTORY']:
+                while len(inner_nav) > max_innerlink_history:
                     inner_nav.pop(0)
         return inner_nav
 

@@ -55,10 +55,10 @@ class SettingsAdmin(admin.ModelAdmin):
     form = SettingsForm
     fieldsets = [
         #~ ('Settings', {'fields': ['phone', 'email', 'skype', 'google_code', 'max_inner_link', 'rest_api']}),
-        ('Settings', {'fields': ['key', 'value']}),
+        ('Settings', {'fields': [('name', 'value'), 'description']}),
     ]
-    list_display = ('key', 'value')
-    list_display_links = ('key',)
+    list_display = ('name', 'value')
+    list_display_links = ('name',)
     save_on_top = True
     actions = None
 
@@ -67,10 +67,10 @@ class SettingsAdmin(admin.ModelAdmin):
         """ 
         return False
 
-    #~ def has_add_permission(self, request, obj=None):
-        #~ """Disable 'add' button
-        #~ """ 
-        #~ return False
+    def has_add_permission(self, request, obj=None):
+        """Disable 'add' button
+        """ 
+        return False
 
 admin.site.register(Page, PageAdmin)
 admin.site.register(Settings, SettingsAdmin)

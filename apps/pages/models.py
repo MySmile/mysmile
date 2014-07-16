@@ -111,20 +111,5 @@ class Settings(models.Model):
     
     class Meta:
         db_table = 'Settings'
-
-
-#~ class Settings(models.Model):
-    #~ phone = models.CharField(blank=True, null=True, max_length=500)
-    #~ email = models.CharField(blank=True, null=True, max_length=500)
-    #~ skype = models.CharField(blank=True, null=True, max_length=500)
-    #~ google_code = models.CharField(blank=True, null=True, max_length=500)
-    #~ max_inner_link = models.IntegerField(blank=True, null=True)
-    #~ rest_api = models.IntegerField(choices=((1, 'True'), (0, 'False')), default=1)
-    #~ created_at = models.DateTimeField(auto_now_add=True)
-    #~ updated_at = models.DateTimeField(auto_now=True)
-    #~ 
-    #~ class Meta:
-        #~ db_table = 'Settings'
-        #~ verbose_name = 'Setting'
-        #~ verbose_name_plural = 'Settings'
-
+        verbose_name = 'Settings'
+        verbose_name_plural = 'Settings'

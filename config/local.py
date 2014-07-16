@@ -27,25 +27,6 @@ ALLOWED_HOSTS = ['127.0.0.1']
 ADMINS = (
     ('admin', 'info@mysmile.com.ua'),
 )
-#~ 
-
-"""
-* Empty '' string means some app_setting "off"
-* For PHONE: http://en.wikipedia.org/wiki/Telephone_numbering_plan 
-* Go to the http://www.google.com/analytics/ to get the GOOGLE_ANALITYCS_CODE
-* For inner_type page only <= MAX_INNERLINK_HISTORY
-"""
-
-app_settings = {
-    'PHONE': '000 000 000 00 00', 
-    'EMAIL': 'myemail@email.com',
-    'SKYPE': 'myskype',
-    'GOOGLE_ANALITYCS_CODE': '',
-    'MAX_INNERLINK_HISTORY': 4, 
-    'REST_API': True
-}
-
-
 
 
 

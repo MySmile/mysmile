@@ -7,7 +7,7 @@ from django.db import DatabaseError
 from django.core.exceptions import FieldError
 
 from apps.pages.models import Page, Page_translation
-from mysmile.settings.main import LANGUAGES, app_settings
+from mysmile.settings.main import LANGUAGES
 from apps.api.exceptions import MySmileApiException
 
 
