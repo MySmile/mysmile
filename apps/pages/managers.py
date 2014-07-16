@@ -1,7 +1,6 @@
 from django.db import models, IntegrityError
 from django.http import Http404
 from django.core.cache import cache
-from django.core.cache import get_cache
 from django.core.cache.utils import make_template_fragment_key
 
 from mysmile.settings.main import LANGUAGES
@@ -15,13 +14,16 @@ class PagesManager(models.Manager):
             page_id = Page.objects.filter(slug=slug, status=Page.STATUS_PUBLISHED).values('id')
             content = Page_translation.objects.filter(lang=lang, page__ptype__in = [Page.PTYPE_INNER,Page.PTYPE_MENU], page__status=Page.STATUS_PUBLISHED, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords')
 
-            slugs = Page.objects.filter(status=Page.STATUS_PUBLISHED, ptype=Page.PTYPE_MENU).values_list('slug', flat=True).order_by('sortorder')
-            menues = Page_translation.objects.filter(lang=lang, page__status=Page.STATUS_PUBLISHED, page__ptype=Page.PTYPE_MENU).values_list('menu', flat=True).order_by('page__sortorder')
-
             c = content[0] if content else {}
+            
+            key = make_template_fragment_key('block_nav')
+            if not cache.get(key):
+                slugs = Page.objects.filter(status=Page.STATUS_PUBLISHED, ptype=Page.PTYPE_MENU).values_list('slug', flat=True).order_by('sortorder')
+                menues = Page_translation.objects.filter(lang=lang, page__status=Page.STATUS_PUBLISHED, page__ptype=Page.PTYPE_MENU).values_list('menu', flat=True).order_by('page__sortorder')
+                c['nav'] = list(map(lambda x, y: (x, y), slugs, menues))
+
             key = make_template_fragment_key('block_contact')
             if not cache.get(key):
-                print('CREATE NEW CAHE!')
                 contact = Settings.objects.filter(key__in = ['KEY_PHONE', 'KEY_EMAIL', 'KEY_SKYPE', 'KEY_GOOGLE_ANALITYCS_CODE']).values('key','value')
                 for item in contact:
                     c.update({item['key']:item['value']})
@@ -34,7 +36,6 @@ class PagesManager(models.Manager):
         except IntegrityError: # database error
             pass
 
-        c['nav'] = list(map(lambda x, y: (x, y), slugs, menues))
 
         c['languages'] = LANGUAGES if len(LANGUAGES) > 1 else ''
         c['lang'], c['slug'] = lang, slug
