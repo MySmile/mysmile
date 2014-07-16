@@ -54,8 +54,8 @@ class SettingsAdmin(admin.ModelAdmin):
     model = Settings
     form = SettingsForm
     fieldsets = [
-        #~ ('Settings', {'fields': ['phone', 'email', 'skype', 'google_code', 'max_inner_link', 'rest_api']}),
-        ('Settings', {'fields': [('name', 'value'), 'description']}),
+        #~ ('Settings', {'fields': ['value', 'name', 'description', 'key']}),
+        ('Settings', {'fields': ['value', 'description', 'key']}),
     ]
     list_display = ('name', 'value')
     list_display_links = ('name',)
