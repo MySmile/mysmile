@@ -1,6 +1,8 @@
-from django.db import models
+from django.db import models, IntegrityError
 from django.http import Http404
-from django.db import IntegrityError
+from django.core.cache import cache
+from django.core.cache import get_cache
+from django.core.cache.utils import make_template_fragment_key
 
 from mysmile.settings.main import LANGUAGES
 from apps.pages.models import Page, Page_translation, Settings
@@ -15,11 +17,15 @@ class PagesManager(models.Manager):
 
             slugs = Page.objects.filter(status=Page.STATUS_PUBLISHED, ptype=Page.PTYPE_MENU).values_list('slug', flat=True).order_by('sortorder')
             menues = Page_translation.objects.filter(lang=lang, page__status=Page.STATUS_PUBLISHED, page__ptype=Page.PTYPE_MENU).values_list('menu', flat=True).order_by('page__sortorder')
-            contact = Settings.objects.filter(key__in = ['KEY_PHONE', 'KEY_EMAIL', 'KEY_SKYPE', 'KEY_GOOGLE_ANALITYCS_CODE']).values('key','value')
 
             c = content[0] if content else {}
-            for item in contact:
-                c.update({item['key']:item['value']})
+            key = make_template_fragment_key('block_contact')
+            if not cache.get(key):
+                print('CREATE NEW CAHE!')
+                contact = Settings.objects.filter(key__in = ['KEY_PHONE', 'KEY_EMAIL', 'KEY_SKYPE', 'KEY_GOOGLE_ANALITYCS_CODE']).values('key','value')
+                for item in contact:
+                    c.update({item['key']:item['value']})
+
             cols = ['col_bottom_1', 'col_bottom_2', 'col_bottom_3']  # some processing of the columns...
             c['bottom_cols'] = [content[0].pop(item) for item in cols if content[0][item]]
             c['inav'] = self.get_inner_nav(request, c['menu'], slug)

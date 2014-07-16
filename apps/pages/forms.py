@@ -13,6 +13,8 @@ class Page_translationInlineForm(ModelForm):
         model = Page_translation
         exclude = ['updated_at', 'created_at']
 
+        #~ class Media:
+            #~ js = ('js/anyone.js')
 
 class PageForm(ModelForm):
 

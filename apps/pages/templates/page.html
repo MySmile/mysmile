@@ -50,7 +50,7 @@
 {% endif %}
 {% endblock %}
 
-{% block contact %}{% cache 600 contact_tag %} <!-- {% now "jS F Y H:i" %} -->
+{% block contact %}{% cache 600 block_contact %} <!-- {% now "jS F Y H:i" %} -->
 <ul id="contact">
 {% if KEY_EMAIL %}
 	<li><img src="{% static 'images/email.png' %}" height="16" width="16" alt="phone" />
