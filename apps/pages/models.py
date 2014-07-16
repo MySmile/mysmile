@@ -25,7 +25,7 @@ class Page(models.Model):
                                         a color, and then twice to save')
     # blank=True add "clear image" checkbox into admin page
     photo = models.ImageField(upload_to='images/', null=True, blank=True)
-    sortorder = models.IntegerField(unique=True, default=lambda: Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+SORTORDER_STEP)
+    sortorder = models.IntegerField(unique=True, default=lambda: Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+Page.SORTORDER_STEP)
     status = models.IntegerField(unique=False, choices=STATUS, default=STATUS_DRAFT)
     ptype = models.IntegerField(unique=False, choices=PTYPE, default=PTYPE_MENU)
     created_at = models.DateTimeField(auto_now_add=True)
