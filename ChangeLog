@@ -6,7 +6,9 @@
 + E-mail address was converted to image to protect against spam bots
 * Improved image preview in admin panel
 * Applied class based view (CBV)
-* Updated docs and code refactored
+* Added functionality to edit config parameters throught admin panel
+* Implemented new page types: "api page" and "api & menu page"
+* Updated docs
 
 2014-05-16 Version 0.4.1
 + Added REST_API setting parameter to turn on/off REST API
