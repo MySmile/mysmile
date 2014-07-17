@@ -14,8 +14,8 @@ from apps.api.exceptions import MySmileApiException
 class MySmileApi(View):
 
     def __init__(self, **kwargs):
-            KEY_REST_API = eval(Settings.objects.filter(key='KEY_REST_API').values_list('value', flat=True)[0])
-            if not KEY_REST_API:
+            KEY_REST_API = Settings.objects.filter(key='KEY_REST_API').values_list('value', flat=True)[0]
+            if 'False'==KEY_REST_API:
                 raise MySmileApiException('Forbidden', 403)
                 
     def get(self, request, resource):
