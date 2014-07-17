@@ -22,7 +22,7 @@
     </div>  
 {% endblock %}
 
-{% block nav %}{% cache 600 block_nav %} <!-- {% now "jS F Y H:i" %} -->
+{% block nav %}
 <nav>
 <ul>
 {% for links, menu in nav %}
@@ -34,7 +34,7 @@
 {% endfor %}
 </ul>
 </nav>
-{% endcache %}{% endblock %}
+{% endblock %}
 
 {% block innver_nav %}
 {% if inav|length > 0  %}

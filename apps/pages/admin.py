@@ -1,5 +1,8 @@
 import os
 from django.contrib import admin
+from django.core.cache import cache
+from django.core.cache.utils import make_template_fragment_key
+from django.db.models.signals import post_save
 
 from mysmile.settings.main import MEDIA_URL, STATIC_URL, LANGUAGES
 from apps.pages.models import Page, Page_translation, Settings
@@ -50,6 +53,7 @@ class PageAdmin(admin.ModelAdmin):
     waiting_for_translation.short_description = 'waiting for translation'
     waiting_for_translation.allow_tags = True
 
+
 class SettingsAdmin(admin.ModelAdmin):
     model = Settings
     form = SettingsForm
@@ -72,6 +76,13 @@ class SettingsAdmin(admin.ModelAdmin):
         """ 
         return False
 
+def clear_cach(sender, instance, **kwargs):
+    """Clear cache after save in admin
+    """
+    key = make_template_fragment_key('block_contact')
+    cache.delete(key)
+
+post_save.connect(clear_cach, sender=Settings, dispatch_uid="clear_cach_from_admin")
 admin.site.register(Page, PageAdmin)
 admin.site.register(Settings, SettingsAdmin)
 
