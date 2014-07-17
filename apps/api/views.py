@@ -6,26 +6,23 @@ from django.views.generic.base import View
 from django.db import DatabaseError
 from django.core.exceptions import FieldError
 
-from apps.pages.models import Page, Page_translation
+from apps.pages.models import Page, Page_translation, Settings
 from mysmile.settings.main import LANGUAGES
 from apps.api.exceptions import MySmileApiException
 
 
 class MySmileApi(View):
 
-#    def __init__(self, **kwargs):
-#        if not app_settings['REST_API']:
-#            raise MySmileApiException('Forbidden', 403)
-
+    def __init__(self, **kwargs):
+            KEY_REST_API = eval(Settings.objects.filter(key='KEY_REST_API').values_list('value', flat=True)[0])
+            if not KEY_REST_API:
+                raise MySmileApiException('Forbidden', 403)
+                
     def get(self, request, resource):
         self.lang = request.GET.get('lang', 'en')
         self.slug = request.GET.get('slug', '')
 
         try:
-            # turn off api by configuration
-            if not app_settings['REST_API']:
-                raise MySmileApiException('Forbidden', 403)
-
             if resource == 'content':
                 response_data = self.get_content(request)
             elif resource == 'language':
@@ -51,7 +48,7 @@ class MySmileApi(View):
 
         if self.slug == '':
             # get list of pages
-            content = Page_translation.objects.filter(lang=self.lang, page__status=1, page__ptype=1).order_by('page__sortorder').values_list('page__slug', 'menu')
+            content = Page_translation.objects.filter(lang=self.lang, page__status=Page.STATUS_PUBLISHED, page__ptype__in = [Page.PTYPE_INNER,Page.PTYPE_MENU]).order_by('page__sortorder').values_list('page__slug', 'menu')
 
             if not content:
                 raise MySmileApiException('Not Found', 404)
@@ -60,11 +57,11 @@ class MySmileApi(View):
             return response_data
 
         # get current page by slug
-        page_id = Page.objects.filter(slug=self.slug, status=1).values('id')
+        page_id = Page.objects.filter(slug=self.slug, status=Page.STATUS_PUBLISHED).values('id')
         if not page_id:
             raise MySmileApiException('Not Found', 404)
 
-        content = Page_translation.objects.filter(lang=self.lang, page__status=1, page_id=page_id).values(
+        content = Page_translation.objects.filter(lang=self.lang, page__status=Page.STATUS_PUBLISHED, page_id=page_id).values(
             'page__color', 'page__photo', 'menu', 'name',
             'col_central', 'col_right', 'youtube', 'col_bottom_1',
             'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description',
@@ -91,10 +88,10 @@ class MySmileApi(View):
 
     def get_contact(self):
         response_data = {'code': 200}
-        response_data['data'] = {'email': app_settings['EMAIL'],
-                                 'phone': app_settings['PHONE'],
-                                 'skype': app_settings['SKYPE']
-                                }
+        response_data['data'] = {}
+        contact = Settings.objects.filter(key__in = ['KEY_PHONE', 'KEY_EMAIL', 'KEY_SKYPE']).values('key','value')
+        for item in contact:
+            response_data['data'].update({item['key']:item['value']})
 
         return response_data
 
