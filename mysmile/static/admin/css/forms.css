@@ -108,7 +108,7 @@ form .aligned p.help {
 
 fieldset .field-box {
     float: left;
-    margin-right: 20px;
+    margin: 15px 20px 0 0;
 }
 
 /* WIDE FIELDSETS */
