@@ -8,10 +8,10 @@ class Page(models.Model):
     PTYPE_MENU = 1
     PTYPE_API = 2
     PTYPE_MENU_API = 3
-    PTYPE = ((PTYPE_INNER, 'inner page'),
-             (PTYPE_MENU, 'menu page'),
-             (PTYPE_API, 'api page'),
-             (PTYPE_MENU_API, 'api & menu page'))
+    PTYPE = ((PTYPE_INNER, 'inner page'), # website only
+             (PTYPE_MENU, 'menu page'), # website only
+             (PTYPE_API, 'api page'),  # api only
+             (PTYPE_MENU_API, 'api & menu page'))  # api & website
 
     STATUS_DRAFT = 0
     STATUS_PUBLISHED = 1
@@ -25,9 +25,9 @@ class Page(models.Model):
                                         a color, and then twice to save')
     # blank=True add "clear image" checkbox into admin page
     photo = models.ImageField(upload_to='images/', null=True, blank=True)
-    sortorder = models.IntegerField(unique=True, default=lambda: Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+Page.SORTORDER_STEP)
+    sortorder = models.IntegerField(unique=True, default=lambda: Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+Page.SORTORDER_STEP, verbose_name='Sort order')
     status = models.IntegerField(unique=False, choices=STATUS, default=STATUS_DRAFT)
-    ptype = models.IntegerField(unique=False, choices=PTYPE, default=PTYPE_MENU)
+    ptype = models.IntegerField(unique=False, choices=PTYPE, default=PTYPE_MENU, verbose_name='Page type')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -37,7 +37,13 @@ class Page(models.Model):
         else:
             return ''
     photo_thumb.allow_tags = True
-    
+
+    def __setattr__(self, name, value):
+        if name.isupper():
+            raise AttributeError(name + " is an immutable attribute.")
+        else:
+            self.__dict__[name] = value
+            
     def __unicode__(self):
         return self.slug
 
