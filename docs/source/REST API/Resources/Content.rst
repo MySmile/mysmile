@@ -3,9 +3,11 @@ Content
 
 That resource returns content of current page by slug or list of available contents.
 
+
 .. list-table::
-    :widths: 7 7 12
+    :widths: 40, 40, 120
     :header-rows: 1
+
 
     * - Resource
       - GET [#f1]_ 
