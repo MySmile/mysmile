@@ -1,9 +1,9 @@
 Design configuration
 --------------------
 
+.. tabularcolumns:: |p{3cm}|p{6cm}|p{1.5cm}|p{1.8cm}|p{2cm}|
 .. list-table::
    :header-rows: 1
-   :widths: 100 20 20 20 20
 
    * - Property
      - Description
