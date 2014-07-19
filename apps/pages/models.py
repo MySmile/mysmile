@@ -95,7 +95,7 @@ class Settings(models.Model):
     KEY_MAX_INNERLINK_HISTORY = 'MAX_INNERLINK_HISTORY'
     KEY_REST_API = 'REST_API'
 
-    #~ CONTACT = {KEY_PHONE: 'phone', KEY_EMAIL: 'email', KEY_SKYPE: 'skype'}
+    CONTACT = {KEY_PHONE: 'phone', KEY_EMAIL: 'email', KEY_SKYPE: 'skype'}
 
     DEFAULT = ({'key': KEY_PHONE, 'value': '000 000 000 00 00',
                 'name': 'Phone number', 'description': 'Contact phone number. It is visible on the top of site page.'},

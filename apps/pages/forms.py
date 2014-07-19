@@ -36,10 +36,10 @@ class SettingsForm(ModelForm):
             self.fields['description'].widget.attrs= {'rows':3, 'cols':100, 'readonly': True, 
                                                       'style':'resize:none;'}
 
-        if 'KEY_REST_API' in self.initial['key']:
+        if Settings.KEY_REST_API in self.initial['key']:
             self.fields['value'].widget = forms.Select(choices = ((True,'True'), (False,'False'))) 
                      
-        if 'KEY_MAX_INNERLINK_HISTORY' in self.initial['key']:
+        if Settings.KEY_MAX_INNERLINK_HISTORY in self.initial['key']:
             self.fields['value'].widget = forms.NumberInput() 
                      
 

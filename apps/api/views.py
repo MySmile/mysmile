@@ -14,8 +14,8 @@ from apps.api.exceptions import MySmileApiException
 class MySmileApi(View):
 
     def __init__(self, **kwargs):
-            KEY_REST_API = Settings.objects.filter(key='KEY_REST_API').values_list('value', flat=True)[0]
-            if 'False' == KEY_REST_API:
+            api_on_off = Settings.objects.filter(key=Settings.KEY_REST_API).values_list('value', flat=True)[0]
+            if 'False' == api_on_off:
                 raise MySmileApiException('Forbidden', 403)
                 
     def get(self, request, resource):
@@ -89,9 +89,9 @@ class MySmileApi(View):
     def get_contact(self):
         response_data = {'code': 200}
         response_data['data'] = {}
-        contact = Settings.objects.filter(key__in = ['KEY_PHONE', 'KEY_EMAIL', 'KEY_SKYPE']).values('key','value')
+        contact = Settings.objects.filter(key__in = [Settings.KEY_PHONE, Settings.KEY_EMAIL, Settings.KEY_SKYPE]).values('key','value')
         for item in contact:
-            response_data['data'].update({item['key'].split('_')[-1].lower():item['value']})
+            response_data['data'].update({Settings.CONTACT[item['key']]:item['value']})
         return response_data
 
     def get_language(self):
