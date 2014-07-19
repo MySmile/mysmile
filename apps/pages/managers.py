@@ -16,8 +16,8 @@ class PagesManager(models.Manager):
 
             c = content[0] if content else {}
             
-            slugs = Page.objects.filter(status=Page.STATUS_PUBLISHED, ptype=Page.PTYPE_MENU).values_list('slug', flat=True).order_by('sortorder')
-            menues = Page_translation.objects.filter(lang=lang, page__status=Page.STATUS_PUBLISHED, page__ptype=Page.PTYPE_MENU).values_list('menu', flat=True).order_by('page__sortorder')
+            slugs = Page.objects.filter(status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_MENU,Page.PTYPE_MENU_API]).values_list('slug', flat=True).order_by('sortorder')
+            menues = Page_translation.objects.filter(lang=lang, page__status=Page.STATUS_PUBLISHED, page__ptype__in=[Page.PTYPE_MENU,Page.PTYPE_MENU_API]).values_list('menu', flat=True).order_by('page__sortorder')
             c['nav'] = list(map(lambda x, y: (x, y), slugs, menues))
 
             key = make_template_fragment_key('block_contact')
