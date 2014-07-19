@@ -3,8 +3,8 @@ Language
 
 That resource returns list of available languages.
 
+.. tabularcolumns:: |p{3cm}|p{5cm}|p{7cm}|
 .. list-table::
-    :widths: 15 15 40
     :header-rows: 1
 
     * - Resource
@@ -15,4 +15,6 @@ That resource returns list of available languages.
       - list of supported languages
       - ::
 
-        { code: 200, data: [“ua”,”ru”, “en”] }
+          { code: 200, 
+            data: ["ua","ru", "en"] 
+            }

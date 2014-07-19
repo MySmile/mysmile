@@ -10,3 +10,7 @@ Version number is use one number notation for simplicity it is first number of g
 +------------------+-------+---------+
 
 
+.. note::
+
+   This parameter is not used and is reserved for use in future versions.
+

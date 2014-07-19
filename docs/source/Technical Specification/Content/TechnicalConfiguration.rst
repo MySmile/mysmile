@@ -3,9 +3,8 @@
 Technical configuration
 -----------------------
 
-
+.. tabularcolumns:: |p{3cm}|p{6cm}|p{1.5cm}|p{1.8cm}|p{2cm}|
 .. list-table::
-    :widths: 15 30 15 20 15
     :header-rows: 1
 
     * - Property

@@ -14,7 +14,8 @@ MySmile provides two types of menu:
 +----------------------------+-------------+
 
 
-.. rubric:: Notes
+.. rubric:: Footnotes
+
 .. [#f1]  Click on Logo is always follow to the first page from menu. Therefore changing menu order automatically change link for Logo.
 .. [#f2] "Main page" is recommended page with slug name "index". 
 .. [#f3] The optimal number of the main menu. 

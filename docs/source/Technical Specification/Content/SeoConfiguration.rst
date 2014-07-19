@@ -3,10 +3,7 @@
 SEO configuration
 -----------------
 
- Relevant professional content
-
-`Google recommendation <https://support.google.com/webmasters/answer/35291?hl=en/>`_
-
+Search engine optimization (SEO) is presented configured using parameters listed in the table
 
 .. tabularcolumns:: |p{3cm}|p{6cm}|p{1.5cm}|p{1.8cm}|p{2cm}|
 .. list-table::
@@ -36,6 +33,10 @@ SEO configuration
      - yes [#f1]_ 
      - no
      
-.. rubric:: Notes
+.. rubric:: Footnotes
+
 .. [#f1] If Photo available 
 
+.. seealso::
+
+   `Google recommendation <https://support.google.com/webmasters/answer/35291?hl=en/>`_ for SEO.

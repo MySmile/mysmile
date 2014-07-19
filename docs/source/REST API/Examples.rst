@@ -4,24 +4,27 @@
 Examples
 ========
 
+
+.. tabularcolumns:: |p{2.8cm}|p{12cm}
 .. list-table::
-    :widths: 40 15 25 40
-    :header-rows: 1
 
     * - Request/GET
-      - Response/Code
-      - Response/Header
-      - Response/Body
+      - http://mysmile.com.ua/api/content?v=1&lang=en&format=json
 
-    * - http://mysmile.com.ua/api/content?v=1&lang=en&format=json
+    * - Response/Code
       - 200
+
+    * - Response/Header
       - Content-Type application/json;
+
+    * - Response/Body
       - ::
 
-            {
-                code: 200,
-                data: [{"home":"Home"},
-                        {"about":"About"},
-                        {"contact":"Contact"}
-                        ]
+          {
+            code: 200,
+            data: [{"home":"Home"},
+                   {"about":"About"},
+                   {"contact":"Contact"}
+                  ]
             }
+
