@@ -9,9 +9,9 @@ class Page_translationTestCase(TestCase):
         slug='index',
         color='#FDA132',
         photo='images/photo.png',
-        sortorder=1,
-        status=1,
-        ptype=1,
+        sortorder=10,
+        status=Page.STATUS_PUBLISHED,
+        ptype=Page.PTYPE_MENU,
         updated_at=datetime.datetime.now(),
         created_at=datetime.datetime.now())
         
@@ -27,6 +27,7 @@ class Page_translationTestCase(TestCase):
         meta_description='This is mane page!',
         meta_keywords='Python3, Django',
         photo_alt='',
+        photo_description = '',
         updated_at=datetime.datetime.now(),
         created_at=datetime.datetime.now())
 

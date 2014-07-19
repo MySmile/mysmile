@@ -9,9 +9,9 @@ class PageTestCase(TestCase):
         slug='index',
         color='#FDA132',
         photo='images/photo.png',
-        sortorder=1,
-        status=1,
-        ptype=1,
+        sortorder=10,
+        status=Page.STATUS_PUBLISHED,
+        ptype=Page.PTYPE_MENU,
         updated_at=datetime.datetime.now(),
         created_at=datetime.datetime.now())
         
