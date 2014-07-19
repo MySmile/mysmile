@@ -12,10 +12,9 @@ Technical specification
    Features <features>
    Technology
    Structure schema and design <Design>
+   Database schema <DatabaseSchema>
+   Urls <Urls>
    Menu
    Content/index
-   Url <Url>
-   User configuration <UserConfiguration>
-   Database Schema <DatabaseSchema>
    Admin panel <AdminPanel>
    References

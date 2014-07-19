@@ -5,7 +5,7 @@ Technical configuration
 
 
 .. list-table::
-    :widths: 20 30 15 15 15
+    :widths: 15 30 15 20 15
     :header-rows: 1
 
     * - Property
@@ -21,7 +21,7 @@ Technical configuration
       - no
 
     * - Page type
-      - Menu page, inner page, api page
+      - Menu page, inner page, api page, api & menu page
       - no
       - yes
       - no

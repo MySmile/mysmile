@@ -1,5 +1,12 @@
+.. _SEO_configuration:
+
 SEO configuration
 -----------------
+
+ Relevant professional content
+
+`Google recommendation <https://support.google.com/webmasters/answer/35291?hl=en/>`_
+
 
 .. tabularcolumns:: |p{3cm}|p{6cm}|p{1.5cm}|p{1.8cm}|p{2cm}|
 .. list-table::

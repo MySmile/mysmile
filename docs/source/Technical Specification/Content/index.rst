@@ -9,3 +9,4 @@ Content
    Design configuration <DesignConfiguration>
    Seo configuration <SeoConfiguration>
    Technical configuration <TechnicalConfiguration>
+   User configuration <UserConfiguration>
