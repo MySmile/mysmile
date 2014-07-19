@@ -15,7 +15,7 @@ class MySmileApi(View):
 
     def __init__(self, **kwargs):
             KEY_REST_API = Settings.objects.filter(key='KEY_REST_API').values_list('value', flat=True)[0]
-            if 'False'==KEY_REST_API:
+            if 'False' == KEY_REST_API:
                 raise MySmileApiException('Forbidden', 403)
                 
     def get(self, request, resource):
@@ -48,7 +48,7 @@ class MySmileApi(View):
 
         if self.slug == '':
             # get list of pages
-            content = Page_translation.objects.filter(lang=self.lang, page__status=Page.STATUS_PUBLISHED, page__ptype__in = [Page.PTYPE_INNER,Page.PTYPE_MENU]).order_by('page__sortorder').values_list('page__slug', 'menu')
+            content = Page_translation.objects.filter(lang=self.lang, page__status=Page.STATUS_PUBLISHED, page__ptype__in=[Page.PTYPE_API,Page.PTYPE_MENU_API]).order_by('page__sortorder').values_list('page__slug', 'menu')
 
             if not content:
                 raise MySmileApiException('Not Found', 404)
@@ -57,11 +57,11 @@ class MySmileApi(View):
             return response_data
 
         # get current page by slug
-        page_id = Page.objects.filter(slug=self.slug, status=Page.STATUS_PUBLISHED).values('id')
+        page_id = Page.objects.filter(slug=self.slug, status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_API,Page.PTYPE_MENU_API]).values('id')
         if not page_id:
             raise MySmileApiException('Not Found', 404)
 
-        content = Page_translation.objects.filter(lang=self.lang, page__status=Page.STATUS_PUBLISHED, page_id=page_id).values(
+        content = Page_translation.objects.filter(lang=self.lang, page__status=Page.STATUS_PUBLISHED, page_id=page_id, page__ptype__in=[Page.PTYPE_API,Page.PTYPE_MENU_API]).values(
             'page__color', 'page__photo', 'menu', 'name',
             'col_central', 'col_right', 'youtube', 'col_bottom_1',
             'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description',
