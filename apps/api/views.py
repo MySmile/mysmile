@@ -91,8 +91,7 @@ class MySmileApi(View):
         response_data['data'] = {}
         contact = Settings.objects.filter(key__in = ['KEY_PHONE', 'KEY_EMAIL', 'KEY_SKYPE']).values('key','value')
         for item in contact:
-            response_data['data'].update({item['key']:item['value']})
-
+            response_data['data'].update({item['key'].split('_')[-1].lower():item['value']})
         return response_data
 
     def get_language(self):
