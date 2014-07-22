@@ -3,7 +3,7 @@ from django.http import Http404
 from django.core.cache import cache
 from django.core.cache.utils import make_template_fragment_key
 
-from mysmile.settings.main import LANGUAGES
+from mysmile.settings.main import LANGUAGES, APP_SETTINGS
 from apps.pages.models import Page, Page_translation, Settings
 
 
@@ -22,10 +22,8 @@ class PagesManager(models.Manager):
 
             key = make_template_fragment_key('block_contact')
             if not cache.get(key):
-                contact = Settings.objects.filter(key__in = ['KEY_PHONE', 'KEY_EMAIL', 'KEY_SKYPE', 'KEY_GOOGLE_ANALITYCS_CODE']).values('key','value')
-                for item in contact:
-                    c.update({item['key']:item['value']})
-
+                c.update(APP_SETTINGS)
+                
             cols = ['col_bottom_1', 'col_bottom_2', 'col_bottom_3']  # some processing of the columns...
             c['bottom_cols'] = [content[0].pop(item) for item in cols if content[0][item]]
             c['inav'] = self.get_inner_nav(request, c['menu'], slug)
@@ -34,6 +32,7 @@ class PagesManager(models.Manager):
         except IntegrityError: # database error
             pass
 
+        #~ print('aaps/pages/managers.py: APP_SETTINGS = ', APP_SETTINGS)
 
         c['languages'] = LANGUAGES if len(LANGUAGES) > 1 else ''
         c['lang'], c['slug'] = lang, slug

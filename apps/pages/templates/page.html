@@ -3,7 +3,7 @@
 {% load email2img %}
 
 {% block google_analytics %}
-    {% if KEY_GOOGLE_ANALITYCS_CODE %}
+    {% if GOOGLE_ANALITYCS_CODE %}
         {% include "includes/google_analytics.html" %}
     {% endif %}    
 {% endblock %}
@@ -52,21 +52,21 @@
 
 {% block contact %}{% cache 600 block_contact %} <!-- {% now "jS F Y H:i" %} -->
 <ul id="contact">
-{% if KEY_EMAIL %}
+{% if EMAIL %}
 	<li><img src="{% static 'images/email.png' %}" height="16" width="16" alt="phone" />
-        {% autoescape off %} {{ KEY_EMAIL|email2img }} {% endautoescape %}
+        {% autoescape off %} {{ EMAIL|email2img }} {% endautoescape %}
     </li>
 {% endif %}
-{% if KEY_PHONE %}
+{% if PHONE %}
 	<li>    
 		<img src="{% static 'images/phone.png' %}" height="16" width="16" alt="phone" />
-		{{ KEY_PHONE }}
+		{{ PHONE }}
 	</li>
 {% endif %}
-{% if KEY_SKYPE %}
+{% if SKYPE %}
 	<li>    
 		<img src="{% static 'images/skype.png' %}" height="16" width="16" alt="skype" />
-        {{ KEY_SKYPE }}
+        {{ SKYPE }}
 	</li>
 {% endif %}
 </ul>

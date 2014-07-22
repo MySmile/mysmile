@@ -29,4 +29,23 @@ ADMINS = (
 )
 
 
+#~ from django.conf import settings
 
+
+#~ from apps.pages.settings import *
+
+#~ from apps.pages.models import Settings
+
+#~ settings.APP_SETTINGS = Settings.objects.filter(key__in = ['KEY_PHONE', 'KEY_EMAIL', 'KEY_SKYPE', 'KEY_GOOGLE_ANALITYCS_CODE']).values('key','value')
+
+
+#~ try:
+    #~ 
+#~ app_settings = {
+ #~ 'PHONE': '000 000 000 00 00',
+ #~ 'EMAIL': 'myemail@email.com',
+ #~ 'SKYPE': 'myskype',
+ #~ 'GOOGLE_ANALITYCS_CODE': '',
+ #~ 'MAX_INNERLINK_HISTORY': 4,
+ #~ 'REST_API': True
+#~ }
