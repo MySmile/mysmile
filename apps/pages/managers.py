@@ -43,7 +43,7 @@ class PagesManager(models.Manager):
     def get_inner_nav(self, request, menu, slug):
         inner_nav = request.session.get('inner_nav', [])
         if Page.objects.filter(slug=slug, ptype=Page.PTYPE_INNER):
-            max_innerlink_history = int(Settings.objects.filter(key = 'KEY_MAX_INNERLINK_HISTORY').values_list('value', flat=True)[0])
+            max_innerlink_history = int(APP_SETTINGS['MAX_INNERLINK_HISTORY'])
             temp = [slug, menu]
             if not temp in inner_nav:  # work with sessions
                 inner_nav.append([slug, menu])
