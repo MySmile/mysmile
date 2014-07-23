@@ -82,6 +82,19 @@ def clear_cach(sender, instance, **kwargs):
     key = make_template_fragment_key('block_contact')
     cache.delete(key)
 
+    from mysmile.settings.main import LOCAL_APPS
+    # load apps settings from apps/someapp/settings.py
+    for app in LOCAL_APPS:
+        try:
+            app_module = __import__(app, globals(), locals(), ["settings"])
+            app_settings = getattr(app_module, "settings", None)
+            for setting in dir(app_settings):
+                if setting == setting.upper():
+                    locals()[setting] = getattr(app_settings, setting)
+        except ImportError:
+            pass
+
+
 post_save.connect(clear_cach, sender=Settings, dispatch_uid="clear_cach_from_admin")
 admin.site.register(Page, PageAdmin)
 admin.site.register(Settings, SettingsAdmin)
