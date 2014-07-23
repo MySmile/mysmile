@@ -3,13 +3,23 @@ from django.http import Http404
 from django.core.cache import cache
 from django.core.cache.utils import make_template_fragment_key
 
-from mysmile.settings.main import LANGUAGES, APP_SETTINGS
-from apps.pages.models import Page, Page_translation, Settings
+from mysmile.settings.main import LANGUAGES 
+from apps.pages.models import Page, Page_translation
 
 
 class PagesManager(models.Manager):
 
     def get_content(self, request, lang=None, slug=None):
+        
+        APP_SETTINGS = {
+                    'PHONE': '000 000 000 00 00',
+                    'EMAIL': 'myemail@email.com',
+                    'SKYPE': 'myskype',
+                    'GOOGLE_ANALITYCS_CODE': '',
+                    'MAX_INNERLINK_HISTORY': 4,
+                    'REST_API': True
+                    }
+        
         try:
             page_id = Page.objects.filter(slug=slug, status=Page.STATUS_PUBLISHED).values('id')
             content = Page_translation.objects.filter(lang=lang, page__ptype__in = [Page.PTYPE_INNER,Page.PTYPE_MENU,Page.PTYPE_MENU_API], page__status=Page.STATUS_PUBLISHED, page_id=page_id).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords')

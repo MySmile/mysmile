@@ -6,7 +6,7 @@ from django.views.generic.base import View
 from django.db import DatabaseError
 from django.core.exceptions import FieldError
 
-from apps.pages.models import Page, Page_translation, Settings
+from apps.pages.models import Page, Page_translation
 from mysmile.settings.main import LANGUAGES
 from apps.api.exceptions import MySmileApiException
 
@@ -14,7 +14,7 @@ from apps.api.exceptions import MySmileApiException
 class MySmileApi(View):
 
     def __init__(self, **kwargs):
-            api_on_off = Settings.objects.filter(key=Settings.KEY_REST_API).values_list('value', flat=True)[0]
+            api_on_off = 'True'#Settings.objects.filter(key=Settings.KEY_REST_API).values_list('value', flat=True)[0]
             if 'False' == api_on_off:
                 raise MySmileApiException('Forbidden', 403)
                 
