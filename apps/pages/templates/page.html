@@ -25,11 +25,11 @@
 {% block nav %}
 <nav>
 <ul>
-{% for links, menu in nav %}
-  {% if links == slug %}
-	<li class="active"><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+{% for item in main_menu %}
+  {% if item.page__slug == slug %}
+	<li class="active"><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
   {% else %}
-	<li><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+	<li><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
   {% endif %}
 {% endfor %}
 </ul>
