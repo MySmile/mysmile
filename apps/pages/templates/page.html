@@ -2,8 +2,8 @@
 {% load staticfiles %}{% load i18n %}{% load cache %}
 {% load email2img %}
 
-{% block google_analytics %}
-    {% if GOOGLE_ANALITYCS_CODE %}
+{% block google_analytics %} 
+    {% if GOOGLE_ANALITYCS_CODE %}<!-- {% now "jS F Y H:i" %} -->
         {% include "includes/google_analytics.html" %}
     {% endif %}    
 {% endblock %}

@@ -5,6 +5,7 @@ from django.core.cache.utils import make_template_fragment_key
 
 from mysmile.settings.main import LANGUAGES 
 from apps.pages.models import Page, Page_translation
+from apps.settings.models import Settings
 
 
 class PagesManager(models.Manager):
@@ -32,8 +33,13 @@ class PagesManager(models.Manager):
 
             key = make_template_fragment_key('block_contact')
             if not cache.get(key):
-                c.update(APP_SETTINGS)
-                
+                app_settings = Settings.objects.filter(key__in = ['PHONE', 'EMAIL', 'SKYPE', 'GOOGLE_ANALITYCS_CODE']).values('key','value')
+                print('app_settings = ', app_settings)
+                for item in app_settings:
+                    c.update({item['key']:item['value']})
+                print('c = ', c)
+    
+
             cols = ['col_bottom_1', 'col_bottom_2', 'col_bottom_3']  # some processing of the columns...
             c['bottom_cols'] = [content[0].pop(item) for item in cols if content[0][item]]
             c['inav'] = self.get_inner_nav(request, c['menu'], slug)
@@ -42,7 +48,6 @@ class PagesManager(models.Manager):
         except IntegrityError: # database error
             pass
 
-        #~ print('aaps/pages/managers.py: APP_SETTINGS = ', APP_SETTINGS)
 
         c['languages'] = LANGUAGES if len(LANGUAGES) > 1 else ''
         c['lang'], c['slug'] = lang, slug
@@ -53,7 +58,7 @@ class PagesManager(models.Manager):
     def get_inner_nav(self, request, menu, slug):
         inner_nav = request.session.get('inner_nav', [])
         if Page.objects.filter(slug=slug, ptype=Page.PTYPE_INNER):
-            max_innerlink_history = int(APP_SETTINGS['MAX_INNERLINK_HISTORY'])
+            max_innerlink_history = 10 # FIXME! #int(APP_SETTINGS['MAX_INNERLINK_HISTORY'])
             temp = [slug, menu]
             if not temp in inner_nav:  # work with sessions
                 inner_nav.append([slug, menu])

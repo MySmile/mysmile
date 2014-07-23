@@ -1,8 +1,5 @@
 import os
 from django.contrib import admin
-#~ from django.core.cache import cache
-#~ from django.core.cache.utils import make_template_fragment_key
-#~ from django.db.models.signals import post_save
 
 from mysmile.settings.main import MEDIA_URL, STATIC_URL, LANGUAGES
 from apps.pages.models import Page, Page_translation
