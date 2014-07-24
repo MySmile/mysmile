@@ -5,26 +5,23 @@ from django.core.cache.utils import make_template_fragment_key
 
 from mysmile.settings.main import LANGUAGES 
 from apps.pages.models import Page, Page_translation
-from apps.settings.models import Settings
+from apps.settings.managers import SettingsManager
 
 
 class PagesManager(models.Manager):
 
     def get_content(self, request, lang=None, slug=None):
         c = {'lang': lang, 'slug': slug}
+
         try:
             c = self.get_page(lang, slug)
             c['main_menu'] = self.get_main_menu(lang)
+            sm = SettingsManager()
+            c['inav'] = self.get_additional_dynamic_menu(request, c['main_menu'], slug, int(sm.get('MAX_INNERLINK_HISTORY').get('MAX_INNERLINK_HISTORY')))
 
-            #~ key = make_template_fragment_key('block_contact')
-            #~ if not cache.get(key):
-                #~ app_settings = Settings.objects.filter(key__in = ['PHONE', 'EMAIL', 'SKYPE', 'GOOGLE_ANALITYCS_CODE']).values('key','value')
-                #~ print('app_settings = ', app_settings)
-                #~ for item in app_settings:
-                    #~ c.update({item['key']:item['value']})
-    
+            c.update(sm.get_contact())
+            c.update(sm.get('GOOGLE_ANALITYCS_CODE'))
 
-            #~ c['inav'] = self.get_additional_dynamic_menu(request, c['menu'], slug)
         except IndexError:
             raise Http404
         except IntegrityError: # database error
@@ -40,10 +37,11 @@ class PagesManager(models.Manager):
             return menues
 
 
-    def get_additional_dynamic_menu(self, request, menu, slug):
+    def get_additional_dynamic_menu(self, request, menu, slug, max_innerlink_history):
         inner_nav = request.session.get('inner_nav', [])
         if Page.objects.filter(slug=slug, ptype=Page.PTYPE_INNER):
-            max_innerlink_history = 10 # FIXME! #int(APP_SETTINGS['MAX_INNERLINK_HISTORY'])
+            #~ max_innerlink_history = 10 
+            # FIXME! #int(APP_SETTINGS['MAX_INNERLINK_HISTORY'])
             temp = [slug, menu]
             if not temp in inner_nav:  # work with sessions
                 inner_nav.append([slug, menu])
@@ -52,14 +50,14 @@ class PagesManager(models.Manager):
                     inner_nav.pop(0)
         return inner_nav
 
-    def get_contact(self, request, menu, slug):
-        contact = make_template_fragment_key('block_contact')
-        if not cache.get(key):
-            app_settings = Settings.objects.filter(key__in = ['PHONE', 'EMAIL', 'SKYPE', 'GOOGLE_ANALITYCS_CODE']).values('key','value')
-            print('app_settings = ', app_settings)
-            for item in app_settings:
-                c.update({item['key']:item['value']})
-        return inner_nav
+    #~ def get_contact(self, request, menu, slug):
+        #~ contact = make_template_fragment_key('block_contact')
+        #~ if not cache.get(key):
+            #~ app_settings = Settings.objects.filter(key__in = ['PHONE', 'EMAIL', 'SKYPE', 'GOOGLE_ANALITYCS_CODE']).values('key','value')
+            #~ print('app_settings = ', app_settings)
+            #~ for item in app_settings:
+                #~ c.update({item['key']:item['value']})
+        #~ return inner_nav
 
     def get_page(self, lang, slug):
 

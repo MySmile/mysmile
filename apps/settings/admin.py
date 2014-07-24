@@ -34,6 +34,7 @@ def clear_cach(sender, instance, **kwargs):
     """
     key = make_template_fragment_key('block_contact')
     cache.delete(key)
+    cache.delete('app_settings')
 
 post_save.connect(clear_cach, sender=Settings, dispatch_uid="clear_cach_from_admin")
 admin.site.register(Settings, SettingsAdmin)
