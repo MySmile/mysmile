@@ -5,7 +5,8 @@ from apps.settings.models import Settings
 
 
 class SettingsManager(models.Manager):
-    """Cache setting into app_settings"""
+    """Send all settings into cache with key = app_settings
+    """
     def __init__(self):
         if not cache.get('app_settings'):
             try:
@@ -17,21 +18,23 @@ class SettingsManager(models.Manager):
                 app_settings.update({item['key']:item['value']})
             cache.set('app_settings', app_settings)
 
-    def get(self, key):
-        """ Generic get by Setting key
-        """
-        try:
-            some_setting = {key: cache.get('app_settings')[key]}
-        except KeyError:
-            some_setting = {}
-        return some_setting
+    #~ def get(self, key):
+        #~ """ Generic get by Setting key
+        #~ """
+        #~ try:
+            #~ some_setting = {key: cache.get('app_settings')[key]}
+        #~ except KeyError:
+            #~ some_setting = {}
+        #~ return some_setting
+#~ 
+    #~ def get_contact(self):
+        #~ keys = ['PHONE', 'EMAIL', 'SKYPE']
+        #~ contact = {}
+        #~ for key in keys:
+            #~ contact.update(self.get(key))
+        #~ return contact
 
-    def get_contact(self):
-        keys = ['PHONE', 'EMAIL', 'SKYPE']
-        contact = {}
-        for key in keys:
-            contact.update(self.get(key))
-        return contact
+
 
 
 
