@@ -18,24 +18,30 @@ class SettingsManager(models.Manager):
                 app_settings.update({item['key']:item['value']})
             cache.set('app_settings', app_settings)
 
-    #~ def get(self, key):
-        #~ """ Generic get by Setting key
-        #~ """
-        #~ try:
-            #~ some_setting = {key: cache.get('app_settings')[key]}
-        #~ except KeyError:
-            #~ some_setting = {}
-        #~ return some_setting
-#~ 
-    #~ def get_contact(self):
-        #~ keys = ['PHONE', 'EMAIL', 'SKYPE']
-        #~ contact = {}
-        #~ for key in keys:
-            #~ contact.update(self.get(key))
-        #~ return contact
+    def get(self, key):
+        """ Generic get anyone setting by Setting key. Return {'key': value}.
+        """
+        try:
+            some_setting = {key: cache.get('app_settings')[key]}
+        except KeyError:
+            some_setting = {}
+        return some_setting
 
+    def get_contact(self):
+        keys = ['PHONE', 'EMAIL', 'SKYPE']
+        contact = {}
+        for key in keys:
+            contact.update(self.get(key))
+        return contact
 
-
+    def value(self, key):
+        """ Generic get value setting by Setting key. Return value.
+        """
+        try:
+            some_setting = cache.get('app_settings')[key]
+        except KeyError:
+            some_setting = None
+        return some_setting
 
 
     #~ def get_google_analitycs_code(self):

@@ -14,10 +14,9 @@ class PagesManager(models.Manager):
         c = self.get_page(lang, slug)
         c.update({'lang': lang, 'slug': slug})
         c['languages'] = LANGUAGES if len(LANGUAGES) > 1 else ''
-        if not cache.get('app_settings'):
-            sm = SettingsManager()
+        sm = SettingsManager()
         c.update(cache.get('app_settings'))
-        
+
         c['main_menu'] = self.get_main_menu(lang)
         c['logo_slug'] = c['main_menu'][0]['page__slug']
         c['inav'] = self.get_additional_dynamic_menu(request, slug, c['menu'], c['page__ptype'], int(c['MAX_INNERLINK_HISTORY']))
