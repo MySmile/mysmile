@@ -1,6 +1,5 @@
 from django.template import RequestContext, loader, Template, TemplateDoesNotExist
 from django.views.decorators.csrf import requires_csrf_token
-from django.shortcuts import render_to_response
 from django.views.generic.base import RedirectView, TemplateView
 #logger = logging.getLogger(__name__)  # Get an instance of a logger
 

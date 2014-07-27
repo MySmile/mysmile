@@ -1,15 +1,13 @@
-from django.db import models, IntegrityError
-from django.http import Http404
+from django.db import models
 from django.core.cache import cache
-from django.core.cache.utils import make_template_fragment_key
 
-from mysmile.settings.main import LANGUAGES 
+from mysmile.settings.main import LANGUAGES
 from apps.pages.models import Page, Page_translation
 from apps.settings.managers import SettingsManager
 
 
 class PagesManager(models.Manager):
-    
+
     def get_content(self, request, lang=None, slug=None):
         c = self.get_page(lang, slug)
         c.update({'lang': lang, 'slug': slug})

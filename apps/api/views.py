@@ -1,11 +1,8 @@
-from django.core import serializers
 import json
-from django.http import HttpResponse, HttpResponseNotFound
-from django.utils.datastructures import MultiValueDictKeyError
+from django.http import HttpResponse
 from django.views.generic.base import View
 from django.db import DatabaseError
 from django.core.exceptions import FieldError
-from django.core.cache import cache
 
 from apps.pages.models import Page, Page_translation
 from mysmile.settings.main import LANGUAGES
@@ -19,7 +16,7 @@ class MySmileApi(View):
         api_on_off = SettingsManager().value('REST_API')
         if 'False' == api_on_off:
             raise MySmileApiException('Forbidden', 403)
-                
+
     def get(self, request, resource):
         self.lang = request.GET.get('lang', 'en')
         self.slug = request.GET.get('slug', '')

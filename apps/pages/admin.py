@@ -1,7 +1,6 @@
-import os
 from django.contrib import admin
 
-from mysmile.settings.main import MEDIA_URL, STATIC_URL, LANGUAGES
+from mysmile.settings.main import STATIC_URL, LANGUAGES
 from apps.pages.models import Page, Page_translation
 from apps.pages.forms import Page_translationInlineForm, PageForm
 
@@ -22,7 +21,7 @@ class Page_translationInline(admin.StackedInline):
     search_fields = ['col_central', 'col_right', 'col_bottom_1', 'col_bottom_2',
                      'col_bottom_3']
     max_num = len(LANGUAGES)
-    
+
 
 class PageAdmin(admin.ModelAdmin):
     model = Page
