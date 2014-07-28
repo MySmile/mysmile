@@ -1,6 +1,8 @@
 Content
 =======
 
+All content can be changed via the :ref:`AdminPanel`. 
+
 .. toctree::
    :maxdepth: 2
 
