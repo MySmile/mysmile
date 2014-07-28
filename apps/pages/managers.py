@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.cache import cache
+from django.core import signing
 
 from mysmile.settings.main import LANGUAGES
 from apps.pages.models import Page, Page_translation
@@ -12,7 +13,7 @@ class PagesManager(SettingsManager):
         c = self.get_page(lang, slug)
         c.update({'lang': lang, 'slug': slug})
         c['languages'] = LANGUAGES if len(LANGUAGES) > 1 else ''
-        c.update(cache.get('app_settings'))
+        c.update(signing.loads(cache.get('app_settings')))
 
         c['main_menu'] = self.get_main_menu(lang)
         c['logo_slug'] = c['main_menu'][0]['page__slug']

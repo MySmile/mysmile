@@ -1,5 +1,6 @@
 from django.db import models, IntegrityError
 from django.core.cache import cache
+from django.core import signing
 
 from apps.settings.models import Settings
 
@@ -16,7 +17,7 @@ class SettingsManager(models.Manager):
             app_settings = {}
             for item in data:
                 app_settings.update({item['key']: item['value']})
-            cache.set('app_settings', app_settings)
+            cache.set('app_settings', signing.dumps(app_settings))
 
     def get(self, key):
         """ Generic get anyone setting by Setting key. Return {'key': value}.
