@@ -1,11 +1,3 @@
-
-INSERT INTO Page (slug, color, photo, sortorder, status, ptype, created_at, updated_at) 
-          VALUES ('index', '#fda132', 'images/photo.png', 10, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-
-INSERT INTO Page_translation (page_id, lang, menu, name, col_central, youtube, col_right, col_bottom_1, col_bottom_2, col_bottom_3, meta_title, meta_description, meta_keywords, photo_alt, photo_description, created_at, updated_at) 
-                      VALUES (1, 'en', 'Home', 'Home page', 'Welcome to MySmile!', '', 'Lorem ipsum', 'Lorem ipsum', 'Lorem ipsum', 'Lorem ipsum', 'Home', 'description', 'keywords', 'alt photo', 'photo description', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-
-
 INSERT INTO Settings (key, value, name, description, created_at, updated_at) VALUES ('PHONE', '000 000 000 00 00', 'Phone number', 'Contact phone number. It is visible on the top of site page.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO Settings (key, value, name, description, created_at, updated_at) VALUES ('EMAIL', 'myemail@email.com', 'Email', 'Contact Email. It is visible on the top of site page as an image to protect from spam bot.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
