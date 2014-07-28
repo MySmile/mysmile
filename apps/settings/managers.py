@@ -29,17 +29,16 @@ class SettingsManager(models.Manager):
         return some_setting
 
     def get_contact(self):
-        keys = ['PHONE', 'EMAIL', 'SKYPE']
         contact = {}
-        for key in keys:
-            contact.update(self.get(key))
+        for key, value in Settings.CONTACT.items():
+            contact.update({value: self.value(key)})
         return contact
 
     def value(self, key):
         """ Generic get value setting by Setting key. Return value.
         """
         try:
-            some_setting = signing.loads(cache.get('app_settings'))[key]
+            value = signing.loads(cache.get('app_settings'))[key]
         except KeyError:
-            some_setting = None
-        return some_setting
+            value = None
+        return value
