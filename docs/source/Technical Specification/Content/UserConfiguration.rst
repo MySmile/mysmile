@@ -3,7 +3,7 @@
 User configuration
 ==================
 
-Settings contains info of contact and general technical information. For example:
+Settings contains information of contact and general technical information. For example:
 
 
 .. list-table::

@@ -3,7 +3,7 @@
 SEO configuration
 -----------------
 
-Search engine optimization (SEO) is presented configured using parameters listed in the table
+Search engine optimization (SEO) is presented as configuration parameters. Table bellow describe properties of such options.
 
 .. tabularcolumns:: |p{3cm}|p{6cm}|p{1.5cm}|p{1.8cm}|p{2cm}|
 .. list-table::

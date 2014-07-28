@@ -1,7 +1,7 @@
 Content
 -------
 
-That resource returns content of current page by slug or list of available contents.
+That resource returns content of current page by slug or list of available contents if slug is not set.
 
 .. tabularcolumns:: |p{3cm}|p{1.5cm}|p{10.5cm}|
 .. list-table::
@@ -51,4 +51,4 @@ That resource returns content of current page by slug or list of available conte
 
 .. rubric:: Footnotes
 
-.. [#f1]  For other HTTP methods API response will returned error with 405 code. For more information see :ref:`Errors`  section.
+.. [#f1]  For other HTTP methods API response will returned error with 405 code. For more information please see :ref:`Errors`  section.

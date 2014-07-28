@@ -1,7 +1,7 @@
 Success
 -------
 
-General format is:
+General format of success response is:
 
 ::
 

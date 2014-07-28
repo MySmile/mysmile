@@ -1,7 +1,7 @@
 Response
 ========
 
-Response should contain code and body (accordingly HTTP specification). Body should duplicate HTTP code value.
+Response contains code and body (accordingly HTTP specification). Body has duplicated HTTP code value.
 
 .. toctree::
    :maxdepth: 2

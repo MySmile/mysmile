@@ -1,7 +1,7 @@
 Version monitoring
 ------------------
 
-Version number is use one number notation for simplicity it is first number of general versioning.
+Parameter that shows what version of api is used.
 
 +------------------+-------+---------+
 | parameter name   | value | default |
@@ -12,5 +12,5 @@ Version number is use one number notation for simplicity it is first number of g
 
 .. note::
 
-   This parameter is not used and is reserved for use in future versions.
+   This parameter is not used now. It is reserved for in future need for version migration politics.
 

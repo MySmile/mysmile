@@ -11,10 +11,10 @@ Innovation MySmile features:
 
   * Use newspaper text organize technology like: columns, incuts.
   * REST API helps construct mobile and desktop application
-  * Moreofer REST API client is available, for now it is php client with examples and unitTests
-  * The design is changes via admin panel without any additional program coding.
+  * Moreover REST API client is available, for now it is php client with examples and unitTests
+  * Design can be modified by admin panel without any additional program coding.
   * There are more then 27 unique designers combination! How we get them? Let's look into calculation. Every page consists of the 3 parts: central-column, right-column, bottom-column. Right-column can have 3 columns. And right-column has also 3 components: photo, youtube, text. Additionally every element can or can't be present.
-  * The additional menu creating dynamically for pages that is not in the menu. It works like mix of "cloud of links" and "bread crumbs". So you open links and it's on the menu.
+  * Additional menu is creating dynamically from pages that is present inside of page as a link. It works like mix of "cloud of links" and "bread crumbs". So you open links and it's on the menu.
 
 Development version is available on GitHub: git clone https://github.com/MySmile/MySmile.git.
 

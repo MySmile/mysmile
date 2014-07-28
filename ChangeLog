@@ -1,12 +1,12 @@
-2014-xx-xx Version 0.4.3
+2014-xx-xx Version 0.6.0
 + Implementing soft delete pages
 * Django 1.7 support!
 
-2014-07-xx Version 0.4.2
+2014-07-xx Version 0.5.0
 + E-mail address was converted to image to protect against spam bots
 * Improved image preview in admin panel
 * Applied class based view (CBV)
-* Added functionality to edit config parameters throught admin panel
+* Added functionality to edit config parameters by admin panel
 * Implemented new page types: "api page" and "api & menu page"
 * Updated docs
 

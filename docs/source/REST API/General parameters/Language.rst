@@ -1,7 +1,7 @@
 Language
 --------
 
-Localization of response
+Parameter that sets language of response.
 
 +------------------+-------+---------+
 | parameter name   | value | default |
