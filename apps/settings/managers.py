@@ -23,7 +23,7 @@ class SettingsManager(models.Manager):
         """ Generic get anyone setting by Setting key. Return {'key': value}.
         """
         try:
-            some_setting = {key: cache.get('app_settings')[key]}
+            some_setting = {key: signing.loads(cache.get('app_settings'))[key]}
         except KeyError:
             some_setting = {}
         return some_setting
@@ -38,7 +38,7 @@ class SettingsManager(models.Manager):
         """ Generic get value setting by Setting key. Return value.
         """
         try:
-            some_setting = cache.get('app_settings')[key]
+            some_setting = signing.loads(cache.get('app_settings'))[key]
         except KeyError:
             some_setting = None
         return some_setting
