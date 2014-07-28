@@ -29,10 +29,9 @@ class SettingsManager(models.Manager):
         return some_setting
 
     def get_contact(self):
-        keys = ['PHONE', 'EMAIL', 'SKYPE']
         contact = {}
-        for key in keys:
-            contact.update(self.get(key))
+        for key, value in Settings.CONTACT:
+            contact.update({value: self.get(key)})
         return contact
 
     def value(self, key):
