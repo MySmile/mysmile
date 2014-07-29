@@ -71,7 +71,7 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache',
-        'TIMEOUT': 24*60*60, # in Django 1.7 You can set TIMEOUT to None so that, by default, cache keys never expire
+        'TIMEOUT': 24*60*60*356*100, # in Django 1.7 You can set TIMEOUT to None so that, by default, cache keys never expire
     }
 }
 
