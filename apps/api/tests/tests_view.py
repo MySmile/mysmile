@@ -17,20 +17,20 @@ class MySmileApiTestCase(TestCase):
                         created_at=datetime.datetime.now())
         
         Page_translation.objects.create(id=1,
-        page=some_page,
-        lang='en',
-        menu='Main',
-        col_central='lorem ipsum',
-        col_bottom_1='lorem ipsum',
-        col_bottom_2='lorem ipsum',
-        col_bottom_3='lorem ipsum',
-        meta_title='Welcome!',
-        meta_description='This is mane page!',
-        meta_keywords='Python3, Django',
-        photo_alt='',
-        photo_description = '',
-        updated_at=datetime.datetime.now(),
-        created_at=datetime.datetime.now())
+                        page=some_page,
+                        lang='en',
+                        menu='Main',
+                        col_central='lorem ipsum',
+                        col_bottom_1='lorem ipsum',
+                        col_bottom_2='lorem ipsum',
+                        col_bottom_3='lorem ipsum',
+                        meta_title='Welcome!',
+                        meta_description='This is mane page!',
+                        meta_keywords='Python3, Django',
+                        photo_alt='',
+                        photo_description = '',
+                        updated_at=datetime.datetime.now(),
+                        created_at=datetime.datetime.now())
         self._client = Client()
 
     def test_content_short(self):
