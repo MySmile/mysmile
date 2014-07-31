@@ -1,5 +1,6 @@
-Article parts
+Page parts
 -------------
+
 
 .. tabularcolumns:: |p{3.7cm}|p{6.1cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|
 .. list-table::

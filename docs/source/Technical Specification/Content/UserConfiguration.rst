@@ -3,8 +3,7 @@
 User configuration
 ==================
 
-Settings contains information of contact and general technical information. For example:
-
+Settings contains information of contact and general technical information. All of them can be changed from the :ref:`AdminPanel`.
 
 .. list-table::
    :header-rows: 1
@@ -25,8 +24,13 @@ Settings contains information of contact and general technical information. For 
      - True
 
    * - Max number of inner pages
-     - 10
+     - 10 [#f1]_
 
    * - Google Analytic code
-     -  
+     - 000000 
 
+.. rubric:: Footnotes
+
+.. [#f1] Max number of inner pages's links for the **additional menu**. Number of pages of type **inner page** infinitely.
+
+.. seealso:: :ref:`technical_configuration`.

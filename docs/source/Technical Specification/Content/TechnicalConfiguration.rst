@@ -20,7 +20,7 @@ Technical configuration
       - no
 
     * - Page type
-      - Menu page, inner page, api page, api & menu page
+      - Menu page, inner page, api page, api&menu page
       - no
       - yes
       - no
