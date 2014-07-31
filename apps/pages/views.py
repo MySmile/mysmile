@@ -16,7 +16,7 @@ class MySmilePageRedirectView(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         # get first slug
-        slug = Page.objects.filter(status=1, ptype=1).values_list('slug', flat=True).order_by('sortorder').first()
+        slug = Page.objects.filter(status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_MENU,Page.PTYPE_MENU_API]).values_list('slug', flat=True).order_by('sortorder').first()
         try:
             lang = kwargs['lang']
         except KeyError: # adaptive language selection
