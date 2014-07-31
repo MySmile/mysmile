@@ -11,8 +11,11 @@ help:
 	@egrep "^# [a-z,\",=,_ ]+ - " Makefile	
 
 test:
+	@python3 manage.py test apps.api.tests
 	@python3 manage.py test apps.pages.tests
-	@echo "App 'pages' have tested!"
+	@python3 manage.py test apps.settings.tests
+	@python3 manage.py test apps.sitemap.tests
+	
 	
 # sqlall - Run sqlall command
 sqlall:	

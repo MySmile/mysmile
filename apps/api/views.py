@@ -1,23 +1,22 @@
-from django.core import serializers
 import json
-from django.http import HttpResponse, HttpResponseNotFound
-from django.utils.datastructures import MultiValueDictKeyError
+from django.http import HttpResponse
 from django.views.generic.base import View
 from django.db import DatabaseError
 from django.core.exceptions import FieldError
 
-from apps.pages.models import Page, Page_translation, Settings
+from apps.pages.models import Page, Page_translation
 from mysmile.settings.main import LANGUAGES
 from apps.api.exceptions import MySmileApiException
+from apps.settings.managers import SettingsManager
 
 
 class MySmileApi(View):
 
     def __init__(self, **kwargs):
-            api_on_off = Settings.objects.filter(key=Settings.KEY_REST_API).values_list('value', flat=True)[0]
-            if 'False' == api_on_off:
-                raise MySmileApiException('Forbidden', 403)
-                
+        api_on_off = SettingsManager().value('REST_API')
+        if 'False' == api_on_off:
+            raise MySmileApiException('Forbidden', 403)
+
     def get(self, request, resource):
         self.lang = request.GET.get('lang', 'en')
         self.slug = request.GET.get('slug', '')
@@ -88,10 +87,7 @@ class MySmileApi(View):
 
     def get_contact(self):
         response_data = {'code': 200}
-        response_data['data'] = {}
-        contact = Settings.objects.filter(key__in = [Settings.KEY_PHONE, Settings.KEY_EMAIL, Settings.KEY_SKYPE]).values('key','value')
-        for item in contact:
-            response_data['data'].update({Settings.CONTACT[item['key']]:item['value']})
+        response_data['data'] = SettingsManager().get_contact()
         return response_data
 
     def get_language(self):

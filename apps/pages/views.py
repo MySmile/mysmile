@@ -1,6 +1,5 @@
 from django.template import RequestContext, loader, Template, TemplateDoesNotExist
 from django.views.decorators.csrf import requires_csrf_token
-from django.shortcuts import render_to_response
 from django.views.generic.base import RedirectView, TemplateView
 #logger = logging.getLogger(__name__)  # Get an instance of a logger
 
@@ -17,17 +16,16 @@ class MySmilePageRedirectView(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         # get first slug
-        slug = Page.objects.filter(status=1, ptype=1).values_list('slug', flat=True).order_by('sortorder').first()
+        slug = Page.objects.filter(status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_MENU,Page.PTYPE_MENU_API]).values_list('slug', flat=True).order_by('sortorder').first()
         try:
             lang = kwargs['lang']
         except KeyError: # adaptive language selection
+            lang = LANGUAGES[0][0]
             if 'HTTP_ACCEPT_LANGUAGE' in self.request.META:
                 for k in LANGUAGES:
                     if k[0] in self.request.META['HTTP_ACCEPT_LANGUAGE']:
                         lang = k[0]
-                        k = 0 # break cycle "for"
-                    else:
-                        lang = LANGUAGES[0][0]
+                        k = 0 # break cycle "for"          
         return super(MySmilePageRedirectView, self).get_redirect_url(lang=lang, slug=slug)
 
 

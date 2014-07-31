@@ -1,7 +1,7 @@
 Request
 =======
 
-Format of request is: endpoint + resource + required parameters. General parameters can be omitted because they have default values.
+Request format is: endpoint + resource + required parameters. General parameters can be omitted because they have default values.
 For instance request to get content with slug *home* in *json* format with *en* language:
 
 ``/content?slug=home&v=1&lang=en&format=json``

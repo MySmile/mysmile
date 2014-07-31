@@ -1,7 +1,7 @@
 Failure
 -------
 
-General format is:
+General format of failure response is:
 
 ::
 

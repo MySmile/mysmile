@@ -1,7 +1,7 @@
 Format
 ------
 
-Supported format is `JSON <http://en.wikipedia.org/wiki/JSON>`_. It helps to distinguish different type of formats like `XML <http://en.wikipedia.org/wiki/XML>`_ or `JSONP <http://en.wikipedia.org/wiki/JSONP>`_.
+It sets format of request/response. Currently it is supported `JSON <http://en.wikipedia.org/wiki/JSON>`_ but for future other types will be acceptable `XML <http://en.wikipedia.org/wiki/XML>`_ or `JSONP <http://en.wikipedia.org/wiki/JSONP>`_.
 
 
 +------------------+-------+---------+

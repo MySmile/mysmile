@@ -25,4 +25,4 @@ That resource [#f1]_ returns structured contact information such as phone, email
           }
 
 .. rubric:: Notes
-.. [#f1] Parameters of response configurable through MySmile config file.
+.. [#f1] Parameters of response configurable through MySmile settings table in database (since v 0.5.0 of api sever).

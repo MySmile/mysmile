@@ -1,4 +1,4 @@
 Endpoint
 ========
 
-``http://mysmile.com.ua/api/`` or in future ``http://api.mysmile.com.ua``
+Endpoint of api is ``http://mysmile.com.ua/api/``.

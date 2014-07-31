@@ -11,7 +11,7 @@ Errors
       - Description
       - Example [#f1]_
     * - 403
-      - The request was a valid request, but the server is refusing to respond to it.
+      - Request was a valid one, but server was refusing to respond to it.
       - ::
         
           { code: 403, 

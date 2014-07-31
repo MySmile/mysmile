@@ -10,9 +10,9 @@ REST API
    Configuration
    Endpoint
    Methods
+   General parameters/index
    Request
    Response/index
-   General parameters/index
    Resources/index
    Errors
    Examples

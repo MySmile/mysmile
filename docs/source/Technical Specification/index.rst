@@ -11,7 +11,6 @@ Technical specification
    Objective
    Features <features>
    Technology
-   Structure schema and design <Design>
    Database schema <DatabaseSchema>
    Urls <Urls>
    Menu

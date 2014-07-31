@@ -1,7 +1,7 @@
 General parameters
 ==================
 
-Those parameters should be presented in the every request otherwise default values will be used.
+List bellow show required parameters that have default values. It means that if they are not present in request that default value are going to be used.
 
 .. toctree::
    :maxdepth: 2

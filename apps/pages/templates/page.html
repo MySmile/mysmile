@@ -2,14 +2,14 @@
 {% load staticfiles %}{% load i18n %}{% load cache %}
 {% load email2img %}
 
-{% block google_analytics %}
-    {% if GOOGLE_ANALITYCS_CODE %}
+{% block google_analytics %} 
+    {% if GOOGLE_ANALITYCS_CODE %}<!-- {% now "jS F Y H:i" %} -->
         {% include "includes/google_analytics.html" %}
     {% endif %}    
 {% endblock %}
 
 {% block logo %} <!-- {% now "jS F Y H:i" %} -->
-	<div id="logo"><a href="/{{ lang }}/{{ nav|first|first }}.html"><img src="{% static "images/logo.png" %}" width="108" height="115" alt="MySmile logo" /></a></div>
+	<div id="logo"><a href="/{{ lang }}/{{ logo_slug }}.html"><img src="{% static "images/logo.png" %}" width="108" height="115" alt="MySmile logo" /></a></div>
 {% endblock %}
 
 {% block line_top %} 
@@ -25,11 +25,11 @@
 {% block nav %}
 <nav>
 <ul>
-{% for links, menu in nav %}
-  {% if links == slug %}
-	<li class="active"><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+{% for item in main_menu %}
+  {% if item.page__slug == slug %}
+	<li class="active"><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
   {% else %}
-	<li><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+	<li><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
   {% endif %}
 {% endfor %}
 </ul>
@@ -50,7 +50,7 @@
 {% endif %}
 {% endblock %}
 
-{% block contact %}{% cache 600 block_contact %} <!-- {% now "jS F Y H:i" %} -->
+{% block contact %} <!-- {% now "jS F Y H:i" %} -->
 <ul id="contact">
 {% if EMAIL %}
 	<li><img src="{% static 'images/email.png' %}" height="16" width="16" alt="phone" />
@@ -70,7 +70,7 @@
 	</li>
 {% endif %}
 </ul>
-{% endcache %}{% endblock %}
+{% endblock %}
 
 {% block col_right %}
 	{% if col_right or page__photo or youtube %}
