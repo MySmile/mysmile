@@ -3,6 +3,7 @@ Django settings/local.py for MySmile development project.
 """
 import os
 import datetime
+import tempfile
 
 from .base import *
 from config.local import *
@@ -70,8 +71,10 @@ LOGGING = {
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/django_cache',
-        'TIMEOUT': 24*60*60*356*100, # in Django 1.7 You can set TIMEOUT to None so that, by default, cache keys never expire
+        'LOCATION':  tempfile.mkdtemp(dir=os.path.join(BASE_DIR, '../..',  'tmp/')),
+        
+         #  in Django 1.7 You can set TIMEOUT to None so that, by default, cache keys never expire
+        'TIMEOUT': 24*60*60*356*100,
     }
 }
 
