@@ -49,11 +49,11 @@ def my_custom_404_view(request, template_name='404.html'):
             '<p>The requested URL {{ request_path }} was not found on this server.</p>')
     try:
         slug = request.path.split('/')[-1].split('.html')[0]  # get slug from path request
+        #  Verify the existence of the slug
         slug = Page.objects.filter(slug=slug, status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_MENU,Page.PTYPE_MENU_API]).values_list('slug', flat=True)[0]
     except IndexError:
         pass
-    #  Verify the existence of the slug
-    
+
     langs = Page_translation.objects.filter(page__slug=slug).values_list('lang', flat=True) if slug else ''
     return HttpResponseNotFound(template.render(RequestContext(request, {'request_host': request.get_host, 'request_path': request.path, 'slug': slug, 'langs': langs})))
 
