@@ -1,10 +1,12 @@
 {% extends "admin/base.html" %}
 {% load i18n %}
 
-{% block title %}{{ title }} | {% trans 'MySmile site admin' %}{% endblock %}
+{% block title %}{{ title }} | {% trans 'MySmile site admin' %} {% endblock %}
 
 {% block branding %}
 <h1 id="site-name">{% trans 'MySmile administration' %}</h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
+
+{% block footer %}<div id="footer">{% include 'admin/change_language.html' %}</div>{% endblock %}

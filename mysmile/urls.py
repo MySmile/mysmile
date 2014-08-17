@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     # comment the next line to disable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    (r'^i18n/', include('django.conf.urls.i18n')),
 )
 
 handler404 = 'apps.pages.views.my_custom_404_view'
