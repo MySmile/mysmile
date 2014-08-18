@@ -2,7 +2,7 @@
 + Implementing soft delete pages
 * Django 1.7 support!
 
-2014-08-17 Version 0.5.1
+2014-08-xx Version 0.5.1
 + Added ability to select the language in the admin
 + Added flexible 404 error page
 * Updated docs
