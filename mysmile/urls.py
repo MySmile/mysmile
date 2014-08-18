@@ -8,6 +8,7 @@ from django.views.decorators.cache import never_cache
 from django.contrib import admin
 admin.autodiscover()
 
+
 urlpatterns = patterns('',
     url('', include('apps.pages.urls')),
     url(r'^api/', include('apps.api.urls')),
@@ -21,9 +22,11 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     # comment the next line to disable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    (r'^i18n/', include('django.conf.urls.i18n')),
 )
 
 handler404 = 'apps.pages.views.my_custom_404_view'
+handler500 = 'apps.pages.views.my_custom_500_view'
 
 from mysmile.settings.main import DEBUG, MEDIA_ROOT
 if DEBUG:

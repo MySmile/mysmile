@@ -15,8 +15,8 @@
 {% block line_top %} 
     <div id="line_top" style="background-color: {{ page__color }};">
         <div id="lang">
-        {% for item in languages %}
-        <a href="/{{ item.0 }}/{{ slug }}.html"><img src="{% static 'images/'|add:item.0|add:'.png' %}" width="24" height="24" alt="{{ item.1 }}"></a>
+        {% for lang in LANGUAGES %}
+        <a href="/{{ lang.0 }}/{{ slug }}.html"><img src="{% static 'images/'|add:lang.0|add:'.png' %}" width="24" height="24" alt="{{ lang.1 }}"></a>
         {% endfor %}
         </div>
     </div>  

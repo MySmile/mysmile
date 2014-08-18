@@ -2,6 +2,11 @@
 + Implementing soft delete pages
 * Django 1.7 support!
 
+2014-08-18 Version 0.5.1
++ Added ability to select the language in the admin
++ Added flexible 404 error page
+* Updated docs
+
 2014-07-31 Version 0.5.0
 + E-mail address was converted to image to protect against spam bots
 * Improved image preview in admin panel
