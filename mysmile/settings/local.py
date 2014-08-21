@@ -26,17 +26,8 @@ LOCAL_APPS = (
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APP CONFIGURATION
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '..',  'media/')
-STATIC_ROOT = os.path.join(BASE_DIR, '..', '')
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '..', 'static/'),
-    os.path.join(BASE_DIR,  '..', 'media/'),
-)
-
-TEMPLATE_DIRS = (
-     os.path.join(BASE_DIR, '..', 'templates'),
-)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+STATIC_ROOT = os.path.join(BASE_DIR, '')
 
 
 # A sample logging configuration. The only tangible logging
@@ -70,7 +61,7 @@ LOGGING = {
         'file': {
                'level': 'INFO',
                'class': 'logging.FileHandler',
-               'filename': os.path.join(BASE_DIR,  '../../log/ERRORS/info_'+datetime.datetime.now().strftime('%Y-%m-%d')+'.log'),
+               'filename': os.path.join(BASE_DIR,  '../log/ERRORS/info_'+datetime.datetime.now().strftime('%Y-%m-%d')+'.log'),
                'formatter': 'verbose'
            },        
     },
@@ -90,7 +81,7 @@ LOGGING = {
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION':  tempfile.mkdtemp(dir=os.path.join(BASE_DIR, '../..',  'tmp/')),
+        'LOCATION':  tempfile.mkdtemp(dir=os.path.join(BASE_DIR, '..',  'tmp/')),
         
          #  in Django 1.7 You can set TIMEOUT to None so that, by default, cache keys never expire
         'TIMEOUT': 24*60*60*356*100,

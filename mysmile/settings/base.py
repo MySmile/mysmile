@@ -5,7 +5,7 @@ Django settings/base.py for MySmile project.
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR =  os.path.dirname(os.path.realpath(__file__))
+BASE_DIR =  os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
 
 ########## APP CONFIGURATION
 DJANGO_APPS = (
@@ -64,7 +64,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'media/'),
 )
 
+
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
+    os.path.join(BASE_DIR, 'static/themes/default/'),
 )
 
