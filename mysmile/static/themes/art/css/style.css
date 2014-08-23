@@ -1,0 +1,138 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+
+
+body {
+ background: #f4f1e5;
+ text-align: center;
+ font-family: 'KulminoituvaRegular', helvetica, sans-serif;
+}
+
+#container {
+	width: 800px;
+	margin: auto;
+}
+
+#topBar {
+	height: 30px;
+	background: #efebd9;
+	font-family: Palatino, Times, serif;
+	line-height: 30px;
+}
+
+#topBar a{
+	text-decoration: none;
+	color: #544738;
+}
+
+#topBar a:hover{
+	text-decoration: underline;
+}
+
+
+#work {
+	background-image: url(backgroundPic3.jpg);
+	background-repeat: no-repeat;
+	width: 900px;
+	height: 428px;
+	margin: auto;
+}
+
+#nav {
+	width: 800px;
+	margin: 50px auto;
+	margin-bottom: 0px;
+}
+
+ul, li {
+ margin: 0; padding: 0;
+ overflow: hidden;
+}
+
+ul li {
+ float: left;
+ list-style: none;
+ margin-right: 1em; 
+}
+
+li a {
+ color: #544738;
+ text-decoration: none;
+ float: left;
+ font-size: 25px;
+ padding: 12px;
+}
+
+li a:hover {
+ color: #7eb9be;
+}
+
+/*Fonts*/
+@font-face {
+	font-family: 'KulminoituvaRegular';
+	src: url('kulminoituva-webfont.eot');
+	src: local('‚ò∫'), url('kulminoituva-webfont.woff') format('woff'), url('kulminoituva-webfont.ttf') format('truetype'), url('kulminoituva-webfont.svg#webfontHNAi9IoX') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*Anitmation
+li a:hover {
+-webkit-animation-name: cssAnimation;
+-webkit-animation-duration:1s;
+-webkit-animation-iteration-count: 1;
+-webkit-animation-timing-function: ease
+}
+@-webkit-keyframes cssAnimation {
+from {
+-webkit-transform: rotate(360deg) scale(1) skew(1deg) translate(0px);
+}
+to {
+-webkit-transform: rotate(350deg) scale(1.1) skew(1deg) translate(0px)
+}
+}
+*/
+
+.odd a:hover {
+	-webkit-transition:All .5s ease-in-out;
+	-moz-transition:All .5s ease-in-out;
+	-o-transition:All .5s ease-in-out;
+	-webkit-transform: rotate(-10deg) scale(1.2);
+	-moz-transform: rotate(-10deg) scale(1.2);
+	-o-transform: rotate(-10deg) scale(1.2);
+}
+
+.even a:hover {
+-webkit-transition:All .5s ease-in-out;
+-moz-transition:All .5s ease-in-out;
+-o-transition:All .5s ease-in-out;
+-webkit-transform: rotate(10deg) scale(1.2);
+-moz-transform: rotate(10deg) scale(1.2);
+-o-transform: rotate(10deg) scale(1.2);
+}
+
+#text h1{
+	text-align: left;
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
+#text p{
+	font-family: helvetica, sans-serif;
+	text-align: left;
+	font-size: 12px;
+	margin: 10px 0 50px 10px;
+	line-height: 20px;
+	width: 780px;
+	
+	-moz-column-count: 2;
+	-moz-column-gap: 20px;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 20px;
+	column-count: 3;
+	column-gap: 20px;
+}
+

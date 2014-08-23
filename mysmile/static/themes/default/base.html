@@ -1,0 +1,42 @@
+{% load staticfiles %}<!DOCTYPE html>
+<html lang="{{ lang|lower }}">
+    <head>
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+        {% block apple-touch-icon-precomposed %}{% endblock %}
+        <meta charset="UTF-8">
+        <meta name="description" content="{{ meta_description }}"  />
+        <meta name="keywords" content="{{ meta_keywords }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=2, maximum-scale=5">
+        <meta name="author" content="{{ meta_author }}">
+        <title>{{ meta_title }}</title>
+        {% block css %}{% endblock %}
+        {% block js %}{% endblock %}
+        {% block google_analytics %} {% endblock %}
+    </head>
+<body>
+    <header>
+        {% block logo %}{% endblock %}
+        {% block line_top %}{% endblock %}
+        {% block nav %}{% endblock %} 
+        {% block innver_nav %}{% endblock %}<div class="clear"></div>
+        {% block contact %}{% endblock %}<div class="clear"></div>
+    </header>
+
+    <main>
+        <article>
+            {% block line_left %}{% endblock %}
+            {% block col_right %}{% endblock %}
+            {% block col_central %}{% endblock %}
+            <div class="clear"></div>
+            {% block col_bottoms %}{% endblock %}
+        </article>
+    </main><div class="clear"></div>
+
+    <footer>
+        {% block footer %} {% endblock %}
+    </footer>
+    {% block line_bottom %} {% endblock %}
+    {% block advertisement %} {% endblock %}
+
+</body>
+</html>
