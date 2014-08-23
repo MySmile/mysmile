@@ -16,6 +16,10 @@ Innovation MySmile features:
   * There are more then 27 unique designers combination! How we get them? Let's look into calculation. Every page consists of the 3 parts: central-column, right-column, bottom-column. Right-column can have 3 columns. And right-column has also 3 components: photo, youtube, text. Additionally every element can or can't be present.
   * Additional menu is creating dynamically from pages that is present inside of page as a link. It works like mix of "cloud of links" and "bread crumbs". So you open links and it's on the menu.
 
-Development version is available on GitHub: git clone https://github.com/MySmile/MySmile.git.
+Source code is available on `GitHub <https://github.com/MySmile/MySmile.git/>`_. 
+
+Get the latest version with the command: ``$ git clone --branch=master git@github.com:MySmile/mysmile.git``
+
+See unstable development version: ``$ git clone --branch=dev git@github.com:MySmile/mysmile.git``
 
 Please read this documentation or try `<http://demo.mysmile.com.ua/>`_ for more information.

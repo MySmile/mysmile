@@ -15,7 +15,7 @@ Settings contains information of contact and general technical information. All 
      - myskype
 
    * - Email
-     - myemail@email.com
+     - myemail@email.com [#f1]_
 
    * - Phone number
      - 000 000 000 00 00
@@ -24,13 +24,14 @@ Settings contains information of contact and general technical information. All 
      - True
 
    * - Max number of inner pages
-     - 10 [#f1]_
+     - 10 [#f2]_
 
    * - Google Analytic code
      - 000000 
 
 .. rubric:: Footnotes
 
-.. [#f1] Max number of inner pages's links for the **additional menu**. Number of pages of type **inner page** infinitely.
+.. [#f1] E-mail is automatically converted to the image for protection against spam bots.
+.. [#f2] Max number of inner pages's links for the **additional menu**. Number of pages of type **inner page** infinitely.
 
 .. seealso:: :ref:`technical_configuration`.
