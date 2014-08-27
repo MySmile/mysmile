@@ -9,34 +9,82 @@
         <meta name="viewport" content="width=device-width, initial-scale=2, maximum-scale=5">
         <meta name="author" content="{{ meta_author }}">
         <title>{{ meta_title }}</title>
+        <link rel="stylesheet" href="{% static 'css/pure-min.css' %}">
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="{% static 'css/grids-responsive-old-ie-min.css' %}">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="{% static 'css/grids-responsive-min.css' %}">
+        <!--<![endif]-->
+        
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+        <style>
+            .line_left_color{               
+                background: {{ page__color }}; 
+                background: -moz-linear-gradient(top, {{ page__color }}, #FFF); 
+                background: -webkit-gradient(linear, left top, left bottom, 
+                color-stop(0%,{{ page__color }}), color-stop(100%,#FFF));
+                background: -webkit-linear-gradient(top, {{ page__color }}, #FFF);
+                background: -o-linear-gradient(top, {{ page__color }}, #FFF); 
+                background: -ms-linear-gradient(top, {{ page__color }}, #FFF); 
+                background: linear-gradient(top, {{ page__color }}, #FFF);  
+            }
+            header nav .active { 
+                background-color:  {{ page__color }};
+            } 
+        </style>
+        
         {% block css %}{% endblock %}
         {% block js %}{% endblock %}
         {% block google_analytics %} {% endblock %}
     </head>
 <body>
-    <header>
-        {% block logo %}{% endblock %}
-        {% block line_top %}{% endblock %}
-        {% block nav %}{% endblock %} 
-        {% block innver_nav %}{% endblock %}<div class="clear"></div>
-        {% block contact %}{% endblock %}<div class="clear"></div>
+    <header class="pure-g">
+        <div id="logo" class="pure-u-3-24">{% block logo %}{% endblock %}</div>
+        <div class="pure-u-21-24">
+            <div id="line_top" style="background-color: {{ page__color }};">
+                <div id="flags">{% block flags %}{% endblock %}</div>
+            </div> 
+            <div class="pure-u-1">
+                <div class="pure-u-16-24">
+                    <nav>{% block main_nav %}{% endblock %}</nav>
+                    {% if inav|length > 0  %}
+                        <nav id="inav">{% block additional_nav %}{% endblock %}</nav>
+                    {% endif %}
+                </div>
+                <div id="contact" >{% block contact %}{% endblock %}</div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <article>
-            {% block line_left %}{% endblock %}
-            {% block col_right %}{% endblock %}
-            {% block col_central %}{% endblock %}
-            <div class="clear"></div>
-            {% block col_bottoms %}{% endblock %}
-        </article>
-    </main><div class="clear"></div>
+    <main class="pure-g">
+        <article class="pure-u-1">
+            <div id="line_left" class="line_left_color"></div>
 
-    <footer>
+            {% if col_right or page__photo or youtube %}
+            <aside id="col_right">
+                {% block col_right %}{% endblock %}
+            </aside>
+            {% endif %}
+            {% block col_central %}{% endblock %}
+        </article>
+
+        <div class="clear"></div>    
+            {% if bottom_cols|length > 0  %}
+                <aside id="col_bottom" class="pure-g">
+                    {% block col_bottoms %}{% endblock %}
+                </aside>
+            {% endif %}
+    </main>
+
+    <footer class="pure-g">
         {% block footer %} {% endblock %}
     </footer>
-    {% block line_bottom %} {% endblock %}
-    {% block advertisement %} {% endblock %}
+
+<div id="line_bottom"></div><div class="clear"></div>
+
+{% block advertisement %} {% endblock %}
 
 </body>
 </html>
