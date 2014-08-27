@@ -6,6 +6,6 @@ The development process
    :maxdepth: 2
    :titlesonly:
   
-   Overview
-   Quick install guide <quick_install_guide>
+   pass
+   pass
   
