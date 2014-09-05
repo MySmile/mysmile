@@ -39,7 +39,7 @@
         {% block js %}{% endblock %}
         {% block google_analytics %} {% endblock %}
     </head>
-<body>
+<body class="pure-g" class="pure-u-1">
     <header class="pure-g">
         <div id="logo" class="pure-u-3-24">{% block logo %}{% endblock %}</div>
         <div class="pure-u-21-24">
@@ -78,9 +78,8 @@
             {% endif %}
     </main>
 
-    <footer class="pure-g">
-        {% block footer %} {% endblock %}
-    </footer>
+    
+    {% block footer %} {% endblock %}
 
 <div id="line_bottom"></div><div class="clear"></div>
 
