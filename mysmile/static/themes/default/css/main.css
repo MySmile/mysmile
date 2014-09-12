@@ -7,11 +7,11 @@
 html, body { margin: 0; padding: 0; border: 0; }
 body { max-width: 61.75em; /* 988px / 16px = 61.75em */
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 13px; 
     margin: 0 auto; overflow: hidden; 
     }
 a img { border: 0; }
-h1 { margin: 58px 0 0 145px; font-family: Arial, Helvetica, sans-serif; }
+h1 { margin: 58px 0 0 145px;
+ font-family: Arial, Helvetica, sans-serif; }
 h1 a { text-decoration: none; color: #555555; }
 h2 { text-align: center; }
 
@@ -23,22 +23,22 @@ li { line-height: 1.5; }
 
 .hide { display: none; }
 
-#logo { float: left; background-color: #FFF; }
+#logo { /*float: left;*/ background-color: #FFF; }
 /*
 #logo a { padding: 5px 10px; }
 */
 
 
-header { border-right: 1px solid #999999; padding-bottom:10px; }
+header { border-right: 1px solid #999999; padding-bottom: 0.625em;/*10px;*/ }
 
-#line_top { height: 23px; }
+#line_top { height: 23px; /*z-index:1000;*/}
 
 #flags { float: right; margin-left: 5px; padding:0; }
 #flags img { margin-right: 5px; }
 #flags ul { margin: 0; list-style: none; list-style-position: outside; }
 #flags li { float: left;  font-size: 18px; }
 
-header nav { float: left; font-family: Arial, Helvetica, sans-serif; margin-top: -1px;}
+header nav { /*float: left;*/ font-family: Arial, Helvetica, sans-serif; margin-top: -1px;}
 header nav ul { margin: 0; padding: 0; list-style: none; list-style-position: outside; }
 header nav ul li { float: left;  font-size: 1.5em; padding: 5px; letter-spacing: normal;}
 header nav ul li a { padding: 10px; color: #333333; text-decoration: none; }
@@ -47,14 +47,14 @@ header nav ul .active { border-right: 1px solid #999; border-bottom: 1px solid #
 border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; }
 header nav ul .active:hover { text-decoration: none; }
 
-#inav ul { float: left; width:650px; margin-top:5px; list-style: none; list-style-position: outside; font-family: Arial, Helvetica, sans-serif; }
-#inav ul li { width: auto; float: left; text-align: center;  font-size: 11px; padding-right: 10px; }
+#inav ul { /*float: left;*/ /*width:650px;*/ margin-top:5px; list-style: none; list-style-position: outside; font-family: Arial, Helvetica, sans-serif; }
+#inav ul li { width: auto; /*float: left;*/ text-align: center;  font-size: 11px; padding-right: 10px; }
 #inav ul li a { padding: 0 5px; }
 #inav ul .active a { border-bottom: 2px solid #FB9F31; text-decoration: none; }
 
 
-#contact { float: right;  }
-#contact ul{ margin-top: 0; float: right; list-style: none; padding: 5px 5px 15px 0;}
+#contact { /*float: right;*/  }
+#contact ul{ margin-top: 0; /*float: right;*/ list-style: none; padding: 5px 5px 15px 0;}
 #contact ul li img { padding-right:2px; vertical-align: middle; display: inline; }
 
 

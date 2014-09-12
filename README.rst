@@ -13,9 +13,10 @@ b) PIL library for working with images: https://github.com/python-imaging/Pillow
 Installation
 ============
 
-1. Install dependences: $ pip install -r requirements.pip
 
-2. Unpack archive with MySmile to the project directory
+1. Unpack archive with MySmile to the project directory
+
+2. Install dependences: $ pip install -r requirements.pip
 
 3. In the project directory run a command in the terminal: 
     

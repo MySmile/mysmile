@@ -18,10 +18,6 @@
     {% endif %}    
 {% endblock %}
 
-{% block logo %} <!-- {% now "jS F Y H:i" %} -->
-    <a href="/{{ lang }}/{{ logo_slug }}.html"><img class="pure-img" src="{% static "images/logo.png" %}" width="108" height="115" alt="MySmile logo" /></a>
-{% endblock %}
-
 {% block flags %}
     <ul>
         {% for lang in LANGUAGES %}
