@@ -30,19 +30,19 @@
                 background: -ms-linear-gradient(top, {{ page__color }}, #FFF); 
                 background: linear-gradient(top, {{ page__color }}, #FFF);  
             }
-            header nav .active { 
-                background-color:  {{ page__color }};
-            } 
+            header #mnav .active { background-color:  {{ page__color }}; }
+            header #inav ul .active a { border-bottom: 2px solid {{ page__color }}; } 
         </style>
         
         {% block css %}{% endblock %}
         {% block js %}{% endblock %}
         {% block google_analytics %} {% endblock %}
     </head>
-<body class="pure-g" class="pure-u-1">
-    <header class="pure-g" class="pure-u-1">
+<body class="pure-g">
+    
+    <header class="pure-g">
         
-        <div id="logo" class="pure-u-3-24">    <a href="/{{ lang }}/{{ logo_slug }}.html"><img src="{% static "images/logo.png" %}" width="108" height="115" alt="MySmile logo" /></a> </div>
+        <div id="logo" class="pure-u-3-24"> <a href="/{{ lang }}/{{ logo_slug }}.html"><img class="pure-img" src="{% static "images/logo.png" %}" width="108" height="115" alt="MySmile logo" /></a> </div>
             
         <div class="pure-u-21-24">
                 
@@ -50,13 +50,16 @@
                 <div id="flags">{% block flags %}{% endblock %}</div>
             </div>
 
-            <div class="pure-g">
-                <nav class="pure-u-18-24">{% block main_nav %}{% endblock %}</nav>
+            <div class="pure-u-1-1 pure-g">
+                <div class="pure-u-18-24">
+                    <nav id="mnav" class="pure-u-18-24">{% block main_nav %}{% endblock %}</nav>
                     {% if inav|length > 0  %}
-                        <nav id="inav" class="pure-u-13-24" class="pure-u-1">{% block additional_nav %}{% endblock %}</nav>
+                        <nav id="inav" class="pure-u-18-24">{% block additional_nav %}{% endblock %}</nav>
                     {% endif %}
+                </div>
                 <div id="contact" class="pure-u-6-24">{% block contact %}{% endblock %}</div>
             </div>
+            
         </div>
             
     </header>

@@ -31,29 +31,29 @@ li { line-height: 1.5; }
 
 header { border-right: 1px solid #999999; padding-bottom: 0.625em;/*10px;*/ }
 
-#line_top { height: 23px; /*z-index:1000;*/}
+#line_top { height: 23px; }
 
 #flags { float: right; margin-left: 5px; padding:0; }
 #flags img { margin-right: 5px; }
 #flags ul { margin: 0; list-style: none; list-style-position: outside; }
 #flags li { float: left;  font-size: 18px; }
 
-header nav { /*float: left;*/ font-family: Arial, Helvetica, sans-serif; margin-top: -1px;}
-header nav ul { margin: 0; padding: 0; list-style: none; list-style-position: outside; }
-header nav ul li { float: left;  font-size: 1.5em; padding: 5px; letter-spacing: normal;}
-header nav ul li a { padding: 10px; color: #333333; text-decoration: none; }
-header nav ul li:hover { text-decoration: underline; }
-header nav ul .active { border-right: 1px solid #999; border-bottom: 1px solid #999999; 
+#mnav { font-family: Arial, Helvetica, sans-serif; margin-top: -1px;}
+#mnav ul { margin: 0; padding: 0; list-style: none; list-style-position: outside; }
+#mnav ul li { float: left;  font-size: 1.5em; padding: 5px; letter-spacing: normal;}
+#mnav ul li a { padding: 10px; color: #333333; text-decoration: none; }
+#mnav ul li:hover { text-decoration: underline; }
+#mnav ul .active { border-right: 1px solid #999; border-bottom: 1px solid #999999; 
 border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; }
-header nav ul .active:hover { text-decoration: none; }
+#mnav ul .active:hover { text-decoration: none; }
 
-#inav ul { /*float: left;*/ /*width:650px;*/ margin-top:5px; list-style: none; list-style-position: outside; font-family: Arial, Helvetica, sans-serif; }
-#inav ul li { width: auto; /*float: left;*/ text-align: center;  font-size: 11px; padding-right: 10px; }
+#inav ul {  margin-top:5px; list-style: none; list-style-position: outside; font-family: Arial, Helvetica, sans-serif; }
+#inav ul li { float: left; width: auto;  text-align: center;  font-size: 11px; padding-right: 10px; }
 #inav ul li a { padding: 0 5px; }
-#inav ul .active a { border-bottom: 2px solid #FB9F31; text-decoration: none; }
+#inav ul .active a { text-decoration: none; }
 
 
-#contact { /*float: right;*/  }
+#contact { float: right;  }
 #contact ul{ margin-top: 0; /*float: right;*/ list-style: none; padding: 5px 5px 15px 0;}
 #contact ul li img { padding-right:2px; vertical-align: middle; display: inline; }
 
