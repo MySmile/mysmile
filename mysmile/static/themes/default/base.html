@@ -38,8 +38,8 @@
         {% block js %}{% endblock %}
         {% block google_analytics %} {% endblock %}
     </head>
-<body class="pure-g">
-    
+<body>
+<div id="layout" class="pure-g">
     <header class="pure-g">
         
         <div id="logo" class="pure-u-3-24"> <a href="/{{ lang }}/{{ logo_slug }}.html"><img class="pure-img" src="{% static "images/logo.png" %}" width="108" height="115" alt="MySmile logo" /></a> </div>
@@ -73,23 +73,26 @@
                 {% block col_right %}{% endblock %}
             </aside>
             {% endif %}
+            
             {% block col_central %}{% endblock %}
         </article>
 
-        <div class="clear"></div>    
-            {% if bottom_cols|length > 0  %}
-                <aside id="col_bottom" class="pure-g">
-                    {% block col_bottoms %}{% endblock %}
-                </aside>
-            {% endif %}
+        {% if bottom_cols|length > 0  %}
+        <article id="col_bottom" class="pure-g">
+                {% for col in bottom_cols %}
+                    <aside class="pure-u-1 pure-u-md-1-{{ bottom_cols|length }}"><div>{{ col|safe }}</div></aside>
+                {% endfor %}
+        </article>
+        {% endif %}
     </main>
 
-    
-    {% block footer %} {% endblock %}
+    <footer class="pure-g">
+        {% block footer %} {% endblock %}
+    </footer> 
 
 <div id="line_bottom"></div><div class="clear"></div>
 
 {% block advertisement %} {% endblock %}
-
+</div>
 </body>
 </html>

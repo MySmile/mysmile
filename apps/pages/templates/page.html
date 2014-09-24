@@ -95,21 +95,13 @@ src="{{ youtube }}" frameborder="0" allowfullscreen></iframe>
 {% endblock %} 
 
 
-{% block col_bottoms %}
-    {% for col in bottom_cols %}
-        <div class="pure-u-1-{{ bottom_cols|length }}">{{ col|safe }}</div>
-    {% endfor %}
-{% endblock %}
-
 {% block footer %}
-<footer class="pure-g">
    <ul>
         {% for item in main_menu %}
             <li><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
         {% endfor %}
     </ul>
-    <div id="copyright">&copy; copyright 2012&ndash;{% now "Y" %}</div>
-</footer>                
+    <div id="copyright">&copy; copyright 2012&ndash;{% now "Y" %}</div>               
 {% endblock %}
 
 
