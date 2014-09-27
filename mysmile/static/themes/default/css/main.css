@@ -1,5 +1,3 @@
-@import 'extras.css';
-
 @charset "utf-8";
 
 /* 16 * 0.0625 = 0.0625em */
@@ -12,6 +10,7 @@ h2 { text-align: center; }
 .hide { display: none; }
 
 #layout { max-width: 62.375em; /* 998px / 16px = 62.375em */
+    font-size: 1em;
     font-family: Georgia, "Times New Roman", serif;
     margin: 0 auto; overflow: hidden; 
     }
@@ -25,7 +24,7 @@ header { border-right: 0.0625em solid #999999; padding-bottom: 0.625em; }
 #flags { float: right; margin-left: 0.3125em; padding:0; }
 #flags img { margin-right: 0.3125em; }
 #flags ul { margin: 0; list-style: none; list-style-position: outside; }
-#flags li { float: left;  font-size: 18px; }
+#flags li { float: left; }
 
 #mnav { font-family: Arial, Helvetica, sans-serif;}
 #mnav ul { margin: 0; padding: 0; list-style: none; list-style-position: outside; }
@@ -33,7 +32,7 @@ header { border-right: 0.0625em solid #999999; padding-bottom: 0.625em; }
 #mnav ul li a { padding: 0.0625em; color: #333333; text-decoration: none; }
 #mnav ul li:hover { text-decoration: underline; }
 #mnav ul .active { border-right: 0.0625em solid #999; border-bottom: 0.0625em solid #999999; 
-border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; }
+border-bottom-right-radius: 1.25em; border-bottom-left-radius: 1.25em; }
 #mnav ul .active:hover { text-decoration: none; }
 
 #inav ul {  margin-top:0.3125em; list-style: none; list-style-position: outside; font-family: Arial, Helvetica, sans-serif; }
@@ -42,10 +41,10 @@ border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; }
 #inav ul .active a { text-decoration: none; }
 
 
-#contact { float: right;  }
-#contact ul{ margin-top: 0; /*float: right;*/ list-style: none; padding: 0.3125em 0.3125em 0.9375em 0;}
-#contact ul li img { padding-right:2px; vertical-align: middle; display: inline; }
-#contact ul li { padding: 2px; }
+#contact { float: right; }
+#contact ul{ margin-top: 0; list-style: none; padding: 0.3125em 0.3125em 0.9375em 0;}
+#contact ul li img { padding-right: 0.125em; vertical-align: middle; display: inline; }
+#contact ul li { padding: 0.125em;}
 
 #line_left { height: 23em; width: 0.3125em; float: left; border-top-right-radius: 1.25em; border-bottom-right-radius: 1.25em; padding-right: 0.9375em; padding-top:0; margin-right:0.625em; border-right: 0.0625em solid #999999; border-bottom: 0.0625em solid #999999; }
 
@@ -57,17 +56,13 @@ article p { line-height:150%; text-indent: 0.75em; margin-top: 0; padding: 0 0.6
 
 figure {  padding:0; margin:0;}
 figcaption { color: #888888; font-size: 0.6875em; padding-left:0.625em;}
-#col_right { width: 33.37%; /*21.82em;*/ float:right; margin-left: 0.625em; border-top: 2px solid #999; border-left: 0.0625em solid #999999; border-bottom: 0.0625em solid #999; }
+#col_right { width: 33.37%; float:right; margin-left: 0.625em; border-top: 0.125em solid #999; border-left: 0.0625em solid #999999; border-bottom: 0.0625em solid #999; }
 .col_right_text { padding: 0.625em; }
 .col_central_text { padding: 0.3125em 0.625em 0.625em 0.625em; }
 
 #col_bottom { border-top: 0.1875em solid #999999; border-right: 0.125em solid #999; border-bottom: 0.0625em solid #999999; border-left: 0.125em solid #999; background-color: #E6E6E6;  text-align: justify; }
 
-
-
 #col_bottom aside > div { padding: 0.3125em 0.625em; }
-
-
 
 footer { height: 1.875em;
          font-size: 0.9375em;
@@ -82,8 +77,8 @@ footer a { color: #FFF; text-decoration: none; letter-spacing: normal;}
 footer a:hover { text-decoration: underline; }
 footer div { float: right; padding: 0.3125em 0.0625em; font-weight: bold; }
 
-#line_bottom { height: 2px; margin-top: -4px; background-color: #E6E6E6; }
-#copyright { letter-spacing: normal; }
+#line_bottom { height: 0.125em; margin-top: -0.25em; background-color: #E6E6E6; }
+#copyright { letter-spacing: normal; padding-right: 0.625em;}
 
 #advertisement {} 
 #banner a img{height: initial;}
