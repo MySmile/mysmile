@@ -44,7 +44,7 @@ class PageAdmin(admin.ModelAdmin):
         for item in LANGUAGES:
             if not Page_translation.objects.filter(page_id=model.id, lang=item[0]):
                 flags += '<img src="' + STATIC_URL + \
-                         'images/' + item[0] + '.png" alt= "' + str(item[1]) + '"/>'
+                         'images/flags/' + item[0] + '.png" alt= "' + item[1] + '"/>'
         return flags
     waiting_for_translation.short_description = 'waiting for translation'
     waiting_for_translation.allow_tags = True
