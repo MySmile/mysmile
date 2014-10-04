@@ -28,18 +28,30 @@ header { border-right: 0.0625em solid #999999; padding-bottom: 0.625em; }
 
 #mnav { font-family: Arial, Helvetica, sans-serif;}
 #mnav ul { margin: 0; padding: 0; list-style: none; list-style-position: outside; }
-#mnav ul li { float: left;  font-size: 1.5em; padding: 0.3125em; letter-spacing: normal;}
+#mnav ul li { float: left; padding: 0.3125em; background-color:transparent; letter-spacing: normal;}
 #mnav ul li a { padding: 0.0625em; color: #333333; text-decoration: none; }
 #mnav ul li:hover { text-decoration: underline; }
 #mnav ul .active { border-right: 0.0625em solid #999; border-bottom: 0.0625em solid #999999; 
 border-bottom-right-radius: 1.25em; border-bottom-left-radius: 1.25em; }
 #mnav ul .active:hover { text-decoration: none; }
 
-#inav ul {  margin-top:0.3125em; list-style: none; list-style-position: outside; font-family: Arial, Helvetica, sans-serif; }
-#inav ul li { float: left; width: auto;  text-align: center;  font-size: 0.9375em; padding-right: 0.0625em; }
+
+@media(max-width: 1600px) {
+  #mnav ul li { font-size: 1.5em;}
+}
+
+@media(max-width: 360px) {
+  #mnav ul li { font-size: 1.2em;}
+}
+
+@media(max-width: 320px) {
+  #mnav ul li { font-size: 1em;}
+}
+
+#inav ul { margin: 0; padding: 0; margin-top:0.3125em; list-style: none; list-style-position: outside; font-family: Arial, Helvetica, sans-serif; }
+#inav ul li { float: left; width: auto;  /*text-align: center;*/  font-size: 0.9375em; padding-right: 0.0625em; }
 #inav ul li a { padding: 0 0.3125em; }
 #inav ul .active a { text-decoration: none; }
-
 
 #contact { float: right; }
 #contact ul{ margin-top: 0; list-style: none; padding: 0.3125em 0.3125em 0.9375em 0;}
