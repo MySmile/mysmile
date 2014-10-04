@@ -28,8 +28,8 @@ header { border-right: 0.0625em solid #999999; padding-bottom: 0.625em; }
 
 #mnav { font-family: Arial, Helvetica, sans-serif;}
 #mnav ul { margin: 0; padding: 0; list-style: none; list-style-position: outside; }
-#mnav ul li { float: left; padding: 0.3125em; background-color:transparent; letter-spacing: normal;}
-#mnav ul li a { padding: 0.0625em; color: #333333; text-decoration: none; }
+#mnav ul li { float: left; padding: 0.3125em; letter-spacing: normal;}
+#mnav ul li a { padding: 0.0625em; color: #333333; text-decoration: none; background-color:transparent;}
 #mnav ul li:hover { text-decoration: underline; }
 #mnav ul .active { border-right: 0.0625em solid #999; border-bottom: 0.0625em solid #999999; 
 border-bottom-right-radius: 1.25em; border-bottom-left-radius: 1.25em; }
