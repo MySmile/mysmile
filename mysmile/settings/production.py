@@ -26,8 +26,6 @@ LOCAL_APPS = (
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APP CONFIGURATION
 
-MEDIA_URL = '/mysmile/media/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR,  'media/')
 
 # Enter path to static folder in server. 

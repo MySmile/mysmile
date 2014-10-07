@@ -1,19 +1,18 @@
 @charset "utf-8";
 
 /* 16 * 0.0625 = 0.0625em */
+/* 998px / 16px = 62.375em */
 
 h1 { font-family: Arial, Helvetica, sans-serif; }
 h1 a { text-decoration: none; color: #555555; }
 h2 { text-align: center; }
 
+body { font-family: Georgia, "Times New Roman", serif; font-size: 16px;/*1em;*/ }
+
 .clear { clear:both; }
 .hide { display: none; }
 
-#layout { max-width: 62.375em; /* 998px / 16px = 62.375em */
-    font-size: 1em;
-    font-family: Georgia, "Times New Roman", serif;
-    margin: 0 auto; overflow: hidden; 
-    }
+#layout { max-width: 62.375em; margin: 0 auto; overflow: hidden; }
 
 header { border-right: 0.0625em solid #999999; padding-bottom: 0.625em; }
 
@@ -72,13 +71,13 @@ figcaption { color: #888888; font-size: 0.6875em; padding-left:0.625em;}
 .col_right_text { padding: 0.625em; }
 .col_central_text { padding: 0.3125em 0.625em 0.625em 0.625em; }
 
-#col_bottom { border-top: 0.1875em solid #999999; border-right: 0.125em solid #999; border-bottom: 0.0625em solid #999999; border-left: 0.125em solid #999; background-color: #E6E6E6;  text-align: justify; }
+#col_bottom { border-top: 0.1875em solid #999; border-right: 0.125em solid #999; border-bottom: 0.0625em solid #999; border-left: 0.125em solid #999; background-color: #E6E6E6;  text-align: justify; }
 
 #col_bottom aside > div { padding: 0.3125em 0.625em; }
 
 footer { height: 1.875em;
-         font-size: 0.9375em;
-         letter-spacing: 0.0625em; /* 16 * 0.0625 = 0.0625em */
+         font-size: 0.6875em;
+         letter-spacing: 0.0625em;
          background-color: #999999; 
          color: #FFFFFF;
          }
@@ -94,4 +93,5 @@ footer div { float: right; padding: 0.3125em 0.0625em; font-weight: bold; }
 
 #advertisement {} 
 #banner a img{height: initial;}
-#version { float:right;  margin: 0.3125em 0 0.3125em 0; font-size: 0.0625em; letter-spacing: normal;}
+#version { margin: 0.3125em 0 0.3125em 0; font-size: 0.625em; letter-spacing: normal;}
+#version span{ float:right; padding-right: 0.625em; }
