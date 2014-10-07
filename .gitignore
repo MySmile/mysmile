@@ -1,0 +1,12 @@
+*.pyc
+docs/build/**
+.idea
+
+bin/**
+tmp/*
+!tmp/.gitignore
+
+log/ERRORS/*
+!log/.gitignore
+!log/ERRORS/.gitignore
+
