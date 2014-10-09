@@ -31,7 +31,7 @@
                 background: linear-gradient(top, {{ page__color }}, #FFF);  
             }
             #mnav .active { background-color:  {{ page__color }}; }
-            #inav ul .active a { border-bottom: 2px solid {{ page__color }}; } 
+            #inav .active a { border-bottom: 2px solid {{ page__color }}; } 
         </style>
         
         {% block css %}{% endblock %}
@@ -46,7 +46,7 @@
             
         <div class="pure-u-21-24">
                 
-            <div id="line_top" style="background-color: {{ page__color }};">
+            <div id="line_top" class="pure-u-1" style="background-color: {{ page__color }};">
                 <div id="flags">{% block flags %}{% endblock %}</div>
             </div>
 
@@ -85,7 +85,14 @@
     </main>
 
     <footer class="pure-g">
-        {% block footer %} {% endblock %}
+        <nav id="fnav" class="pure-u-18-24">
+           <ul>
+                {% for item in main_menu %}
+                    <li><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        <div id="copyright" class="pure-u-6-24"><span>&copy; copyright 2012&ndash;{% now "Y" %}</span></div>
     </footer> 
 
 <div id="line_bottom"></div><div class="clear"></div>

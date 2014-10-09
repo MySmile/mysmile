@@ -41,14 +41,5 @@ class PagesManager(SettingsManager):
             raise Http404
 
         page['bottom_cols'] = list(filter(None, [page['col_bottom_1'], page['col_bottom_2'], page['col_bottom_3']]))
-        page['youtube'] = self.get_youtube_embedded_url(page['youtube']) if page['youtube'] else ''
 
         return page
-
-    def get_youtube_embedded_url(self, url):
-        try:
-            code = url.split('=')[-1]
-            embedded_url = 'https://www.youtube.com/embed/' + code + '?feature=player_detailpage'
-        except Exception:
-            embedded_url = False
-        return embedded_url

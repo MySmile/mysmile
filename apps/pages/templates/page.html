@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}{% load i18n %}{% load cache %}
 {% load email2img %}
+{% load embed %}
 
 {% block apple-touch-icon-precomposed %}
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'apple-touch-icon-precomposed.png' %}" />
@@ -81,7 +82,7 @@
                 {% endif %}
                 {% if youtube %}
 <iframe style="box-shadow: 0 15px 15px -13px #333; -moz-box-shadow: 0 15px 15px -13px #333; -webkit-box-shadow: 0 15px 15px -13px #333; width:330px; height:250px;margin:2px;" 
-src="{{ youtube }}" frameborder="0" allowfullscreen></iframe>
+src="{{ youtube|embed }}" frameborder="0" allowfullscreen></iframe>
                 {% endif %}
                 <div class="col_right_text">
                     {{ col_right|safe }}
@@ -93,17 +94,6 @@ src="{{ youtube }}" frameborder="0" allowfullscreen></iframe>
 <h1><a href="#">{{ name }}</a></h1>
 {{ col_central|safe }}
 {% endblock %} 
-
-
-{% block footer %}
-   <ul>
-        {% for item in main_menu %}
-            <li><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
-        {% endfor %}
-    </ul>
-    <div id="copyright">&copy; copyright 2012&ndash;{% now "Y" %}</div>               
-{% endblock %}
-
 
 
 {% block advertisement %}
