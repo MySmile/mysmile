@@ -2,6 +2,10 @@
 + Implementing soft delete pages
 * Django 1.7 support!
 
+2014-10-13 Version 0.5.2
++ Added Responsible Design
+* Refactored code to support themes
+
 2014-08-18 Version 0.5.1
 + Added ability to select the language in the admin
 + Added flexible 404 error page

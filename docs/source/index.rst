@@ -15,6 +15,7 @@ Contents:
    :titlesonly:
    
    Getting started/index
+   The development process/index
    Technical Specification/index
    REST API/index
    glossary

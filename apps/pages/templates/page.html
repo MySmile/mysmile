@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 {% load staticfiles %}{% load i18n %}{% load cache %}
 {% load email2img %}
+{% load embed %}
+
+{% block apple-touch-icon-precomposed %}
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'apple-touch-icon-precomposed.png' %}" />
+{% endblock %}
+
+{% block css %}{% endblock %}
+{% block js %}{% endblock %}
 
 {% block google_analytics %} 
     {% if GOOGLE_ANALITYCS_CODE %}<!-- {% now "jS F Y H:i" %} -->
@@ -8,112 +19,94 @@
     {% endif %}    
 {% endblock %}
 
-{% block logo %} <!-- {% now "jS F Y H:i" %} -->
-	<div id="logo"><a href="/{{ lang }}/{{ logo_slug }}.html"><img src="{% static "images/logo.png" %}" width="108" height="115" alt="MySmile logo" /></a></div>
-{% endblock %}
-
-{% block line_top %} 
-    <div id="line_top" style="background-color: {{ page__color }};">
-        <div id="lang">
+{% block flags %}
+    <ul>
         {% for lang in LANGUAGES %}
-        <a href="/{{ lang.0 }}/{{ slug }}.html"><img src="{% static 'images/'|add:lang.0|add:'.png' %}" width="24" height="24" alt="{{ lang.1 }}"></a>
-        {% endfor %}
-        </div>
-    </div>  
+        <li><a href="/{{ lang.0 }}/{{ slug }}.html"><img class="pure-img" src="{% static 'images/flags/'|add:lang.0|add:'.png' %}" width="24" height="24" alt="{{ lang.1 }}"></a></li>
+        {% endfor %} 
+    </ul>
 {% endblock %}
 
-{% block nav %}
-<nav>
+{% block main_nav %}
+    <ul>
+    {% for item in main_menu %}
+        {% if item.page__slug == slug %}
+            <li class="active"><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
+        {% else %}
+            <li><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block additional_nav %}
 <ul>
-{% for item in main_menu %}
-  {% if item.page__slug == slug %}
-	<li class="active"><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
-  {% else %}
-	<li><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
-  {% endif %}
-{% endfor %}
-</ul>
-</nav>
-{% endblock %}
-
-{% block innver_nav %}
-{% if inav|length > 0  %}
-<ul id = "inav">
 {% for links, menu in inav %}
   {% if links == slug %}
-	<li class="active"><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+    <li class="active"><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
   {% else %}
-	<li><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+    <li><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
   {% endif %}
 {% endfor %}
 </ul>
-{% endif %}
 {% endblock %}
 
 {% block contact %} <!-- {% now "jS F Y H:i" %} -->
-<ul id="contact">
+<ul>
 {% if EMAIL %}
-	<li><img src="{% static 'images/email.png' %}" height="16" width="16" alt="phone" />
+    <li><img class="pure-img" src="{% static 'images/email.png' %}" height="16" width="16" alt="email" />
         {% autoescape off %} {{ EMAIL|email2img }} {% endautoescape %}
     </li>
 {% endif %}
 {% if PHONE %}
-	<li>    
-		<img src="{% static 'images/phone.png' %}" height="16" width="16" alt="phone" />
-		{{ PHONE }}
-	</li>
+    <li>    
+        <img class="pure-img" src="{% static 'images/phone.png' %}" height="16" width="16" alt="phone" />
+        {{ PHONE }}
+    </li>
 {% endif %}
 {% if SKYPE %}
-	<li>    
-		<img src="{% static 'images/skype.png' %}" height="16" width="16" alt="skype" />
+    <li>    
+        <img class="pure-img" src="{% static 'images/skype.png' %}" height="16" width="16" alt="skype" />
         {{ SKYPE }}
-	</li>
+    </li>
 {% endif %}
 </ul>
 {% endblock %}
 
 {% block col_right %}
-	{% if col_right or page__photo or youtube %}
-			<aside id="col_right" >
                 {% if page__photo %}
                     <figure>
-                        <img src="{{ MEDIA_URL }}{{ page__photo }}" width="333" alt="{{ photo_alt }}" />
+                        <img class="pure-img" src="{{ MEDIA_URL }}{{ page__photo }}" width="333" alt="{{ photo_alt }}" />
                         {% if photo_description %}<figcaption>{{ photo_description }}</figcaption>{% endif %}
                     </figure>
                 {% endif %}
                 {% if youtube %}
 <iframe style="box-shadow: 0 15px 15px -13px #333; -moz-box-shadow: 0 15px 15px -13px #333; -webkit-box-shadow: 0 15px 15px -13px #333; width:330px; height:250px;margin:2px;" 
-src="{{ youtube }}" frameborder="0" allowfullscreen></iframe>
+src="{{ youtube|embed }}" frameborder="0" allowfullscreen></iframe>
                 {% endif %}
                 <div class="col_right_text">
                     {{ col_right|safe }}
                 </div>
-			</aside>
-	{% endif %}
-{% endblock %}
 
+{% endblock %}
 
 {% block col_central %}
 <h1><a href="#">{{ name }}</a></h1>
-<div class="col_central_text">{{ col_central|safe }}</div>
+{{ col_central|safe }}
 {% endblock %} 
 
 
-{% block col_bottoms %}
-{% if bottom_cols|length > 0  %}
-	<aside id="col_bottom">
-	{% for col in bottom_cols %}
-    	<div class="col_bottom col_bottom_{{ bottom_cols|length }}">{{ col|safe }}</div>
-	{% endfor %}
-	<div class="clear"></div>
-    </aside>
-{% endif %}
+{% block advertisement %}
+<div id="advertisement" class="pure-g">
+    <div id="banner" class="pure-u-md-18-24"><a href="https://hosting4django.net/aff.php?aff=009"><img class="pure-img" 
+    src="{% static 'images/logohosting.png' %}" alt="A best Django hosting!" 
+    title="A best Django hosting!" width="237" height="41" /></a>
+    </div> 
+    
+    <div id="version" class="pure-u-md-6-24"><span>powered by <a href="http://mysmile.com.ua">MySmile</a></span>
+    </div>
+</div>
 {% endblock %}
 
-{% block footer %}
-       <ul>
-            {% for links, menu in nav %}
-            <li><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
-            {% endfor %}
-        </ul>
-{% endblock %}
+
+

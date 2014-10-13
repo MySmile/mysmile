@@ -28,24 +28,24 @@ Description:
   2. Unpack archive with MySmile to the project directory
 
   3. In the project directory run a command in the terminal: 
-      
-    `python3 manage.py runserver`
-      
-    Now your website is available here:
 	  
-    `<http://127.0.0.1:8000>`_ 
+	`python3 manage.py runserver`
+	  
+	Now your website is available here:
+	  
+	`<http://127.0.0.1:8000>`_ 
 
   4. Change default credentials to admin page:
 
-    4.1. Link to admin page: 
+	4.1. Link to admin page: 
 	
-    `<http://127.0.0.1:8000/admin>`_
+	`<http://127.0.0.1:8000/admin>`_
 	
-    4.2. Log in with default credentials: 
-    
-    `login: test` 
-    
-    `password: test`
+	4.2. Log in with default credentials: 
+	
+	`login: test` 
+	
+	`password: test`
 
   Links
   =====
@@ -55,8 +55,9 @@ Description:
   Development version is available on GitHub: `<https://github.com/MySmile/MySmile.git>`_
 
   Read latest documentation on `<http://mysmile.readthedocs.org/en/latest/>`_
-      
+	  
   **Welcome to MySmile!**
+
 
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Environment :: Web Environment
