@@ -68,7 +68,7 @@ article p { line-height:150%; text-indent: 0.8125em; margin-top: 0.3125em; paddi
 
 figure {  padding:0; margin:0;}
 figcaption { color: #888888; font-size: 0.6875em; padding-right: 0.625em; text-align: right; }
-#col_right { width: 33.37%; float:right; margin-left: 0.625em; border-top: 0.125em solid #999; border-left: 1px solid #999999; border-bottom: 1px solid #999; }
+#col_right { width: 33.37%; float:right; margin-left: 0.625em; border-top: 1px solid #999; border-left: 1px solid #999; border-bottom: 1px solid #999; }
 .col_right_text { padding: 0.3125em 0.625em; text-align: left; }
 .col_central_text { padding: 0.3125em 0.625em 0.625em 0.625em; }
 
