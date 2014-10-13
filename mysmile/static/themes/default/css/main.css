@@ -14,7 +14,7 @@ body, .pure-g [class *= "pure-u"], .pure-g-r [class *= "pure-u"] { font-family: 
 
 #layout { max-width: 62.375em; margin: 0 auto; }
 
-header { width:100%; border-right: 1px solid #999999; }
+header { border-right: 1px solid #999999; }
 
 #logo {}
 
