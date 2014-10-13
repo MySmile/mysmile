@@ -20,9 +20,9 @@ body, .pure-g [class *= "pure-u"], .pure-g-r [class *= "pure-u"] { font-family: 
 .clear { clear:both; }
 .hide { display: none; }
 
-#layout { max-width: 62.375em; margin: 0 auto; overflow: hidden; }
+#layout { max-width: 62.375em; margin: 0 auto; /*overflow: hidden;*/ }
 
-header { width:100%; border-right: 0.0625em solid #999999; }
+header { width:100%; border-right: 1px solid #999999; }
 
 #logo {}
 
@@ -38,7 +38,7 @@ header { width:100%; border-right: 0.0625em solid #999999; }
 #mnav ul li { float: left; padding: 0.5em; letter-spacing: normal;}
 #mnav ul li a { padding: 0.0625em; color: #333333; text-decoration: none; background-color:transparent;}
 #mnav ul li:hover { text-decoration: underline; }
-#mnav ul .active { border-right: 0.0625em solid #999; border-bottom: 0.0625em solid #999999; 
+#mnav ul .active { border-right: 1px solid #999; border-bottom: 1px solid #999999; 
 border-bottom-right-radius: 1.25em; border-bottom-left-radius: 1.25em; }
 #mnav ul .active:hover { text-decoration: none; }
 
@@ -66,9 +66,9 @@ border-bottom-right-radius: 1.25em; border-bottom-left-radius: 1.25em; }
 #contact ul li img { padding-right: 0.125em; vertical-align: middle; display: inline; }
 #contact ul li { padding: 0.125em;}
 
-#line_left { height: 23em; width: 0.3125em; float: left; border-top-right-radius: 1.25em; border-bottom-right-radius: 1.25em; padding-right: 0.9375em; padding-top:0; margin-right:0.625em; border-right: 0.0625em solid #999999; border-bottom: 0.0625em solid #999999; }
+#line_left { height: 23em; width: 5px; float: left; border-top-right-radius: 1.25em; border-bottom-right-radius: 1.25em; padding-right: 15px; padding-top:0; margin-right:10px; border-right: 1px solid #999999; border-bottom: 1px solid #999999; }
 
-main { border-left: 0.0625em solid #999; border-bottom: 0.0625em solid #999999; border-right: 0.0625em solid #999999; }
+main { border-left: 1px solid #999; border-bottom: 1px solid #999999; border-right: 1px solid #999999; }
 
 article { text-align: justify; }
 article h1 { margin: 0; padding: 0; }
@@ -76,7 +76,7 @@ article p { line-height:150%; text-indent: 0.8125em; margin-top: 0.3125em; paddi
 
 figure {  padding:0; margin:0;}
 figcaption { color: #888888; font-size: 0.6875em; padding-right: 0.625em; text-align: right; }
-#col_right { width: 33.37%; float:right; margin-left: 0.625em; border-top: 0.125em solid #999; border-left: 0.0625em solid #999999; border-bottom: 0.0625em solid #999; }
+#col_right { width: 33.37%; float:right; margin-left: 0.625em; border-top: 0.125em solid #999; border-left: 1px solid #999999; border-bottom: 1px solid #999; }
 .col_right_text { padding: 0.3125em 0.625em; text-align: left; }
 .col_central_text { padding: 0.3125em 0.625em 0.625em 0.625em; }
 
@@ -84,26 +84,21 @@ figcaption { color: #888888; font-size: 0.6875em; padding-right: 0.625em; text-a
 
 #col_bottom aside > div { padding: 0.3125em 0.625em; }
 
-footer { width:100%; height: 2.1em; padding-top: 0.421875em; font-size: 0.8125em; background-color: #999999; color: #FFFFFF; }
+footer { width:100%; height: 2.1em;  font-size: 0.8125em; background-color: #999999; color: #FFFFFF; }
          
-#fnav { vertical-align: middle; text-align: center; }         
+#fnav { margin:0; padding:0; vertical-align: middle; }
 #fnav ul { margin: 0 0.3125em; padding: 0; list-style: none; }
 #fnav li { float: left; padding: 0.3125em; }
 #fnav a { color: #FFF; text-decoration: none; letter-spacing: normal;}
 #fnav a:hover { text-decoration: underline; }
 
-/*
-footer div { float: right; padding: 0.3125em 0.0625em; font-weight: bold; }
-*/
-
-#copyright { text-align: right; }
-
+#copyright { vertical-align: middle; text-align: right; }
 #copyright span { letter-spacing: normal; padding-right: 0.625em;}
 
 #line_bottom { height: 0.125em; margin-top: -0.25em; background-color: #E6E6E6; }
 
-#advertisement { width:100% }
+#advertisement { width:100%; padding-top: 0.45em; }
 #banner { float: left; }
 #banner a img{ height: initial; }
-#version { margin: 0.3125em 0 0.3125em 0; font-size: 0.75em; letter-spacing: normal;}
+#version { font-size: 0.75em; letter-spacing: normal; }
 #version span { float:right; padding-right: 0.625em; }

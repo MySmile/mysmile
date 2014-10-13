@@ -85,14 +85,14 @@
     </main>
 
     <footer class="pure-g">
-        <nav id="fnav" class="pure-u-18-24">
+        <nav id="fnav" class="pure-u-md-18-24">
            <ul>
                 {% for item in main_menu %}
                     <li><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
                 {% endfor %}
             </ul>
         </nav>
-        <div id="copyright" class="pure-u-6-24"><span>&copy; copyright 2012&ndash;{% now "Y" %}</span></div>
+        <div id="copyright" class="pure-u-md-6-24"><span>&copy; copyright 2012&ndash;{% now "Y" %}</span></div>
     </footer> 
 
 <div id="line_bottom"></div><div class="clear"></div>
