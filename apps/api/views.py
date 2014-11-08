@@ -3,9 +3,9 @@ from django.http import HttpResponse
 from django.views.generic.base import View
 from django.db import DatabaseError
 from django.core.exceptions import FieldError
+from django.conf import settings
 
 from apps.pages.models import Page, Page_translation
-from mysmile.settings.main import LANGUAGES
 from apps.api.exceptions import MySmileApiException
 from apps.settings.managers import SettingsManager
 
@@ -92,7 +92,7 @@ class MySmileApi(View):
 
     def get_language(self):
         response_data = {'code': 200}
-        response_data['data'] = [item[0] for item in LANGUAGES]
+        response_data['data'] = [item[0] for item in settings.LANGUAGES]
 
         return response_data
 

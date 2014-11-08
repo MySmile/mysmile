@@ -1,6 +1,7 @@
 from django.contrib import admin
+from django.conf import settings
 
-from mysmile.settings.main import STATIC_URL, LANGUAGES
+#from mysmile.settings.main import STATIC_URL, LANGUAGES
 from apps.pages.models import Page, Page_translation
 from apps.pages.forms import Page_translationInlineForm, PageForm
 
@@ -20,7 +21,7 @@ class Page_translationInline(admin.StackedInline):
     ]
     search_fields = ['col_central', 'col_right', 'col_bottom_1', 'col_bottom_2',
                      'col_bottom_3']
-    max_num = len(LANGUAGES)
+    max_num = len(settings.LANGUAGES)
 
 
 class PageAdmin(admin.ModelAdmin):
@@ -41,9 +42,9 @@ class PageAdmin(admin.ModelAdmin):
 
     def waiting_for_translation(self, model):
         flags = ''
-        for item in LANGUAGES:
+        for item in settings.LANGUAGES:
             if not Page_translation.objects.filter(page_id=model.id, lang=item[0]):
-                flags += '<img src="' + STATIC_URL + \
+                flags += '<img src="' + settings.STATIC_URL + \
                          'images/flags/' + item[0] + '.png" alt= "' + item[1] + '"/>'
         return flags
     waiting_for_translation.short_description = 'waiting for translation'

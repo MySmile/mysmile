@@ -28,10 +28,9 @@ urlpatterns = patterns('',
 handler404 = 'apps.pages.views.my_custom_404_view'
 handler500 = 'apps.pages.views.my_custom_500_view'
 
-from mysmile.settings.main import DEBUG, MEDIA_ROOT
-if DEBUG:
+if settings.DEBUG:
     urlpatterns += patterns('django.views.static',
-        (r'media/(?P<path>.*)', 'serve', {'document_root': MEDIA_ROOT}),
+        (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
         url(r'^static/(?P<path>.*)$', never_cache(serve_static)),
     )
 

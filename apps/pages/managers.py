@@ -2,14 +2,13 @@ from django.db import models
 from django.core.cache import cache
 from django.core import signing
 from django.http import Http404
-#~ from django.db.models import Q
 
 from apps.pages.models import Page, Page_translation
 from apps.settings.managers import SettingsManager
 
 
 class PagesManager(SettingsManager):
-            
+
     def get_content(self, request, lang=None, slug=None):
         c = self.get_page(lang, slug)
         c.update({'lang': lang, 'slug': slug})

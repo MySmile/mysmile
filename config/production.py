@@ -4,6 +4,7 @@ from mysmile.settings.base import BASE_DIR
 
 
 DEBUG = False
+TEMPLATE_DEBUG = DEBUG
 
 SECRET_KEY = '=)1+x0_f%6t&$4gftv-^^w20kr)+1ut8js0@0(gt6cx8z6kxlc'
 
@@ -16,8 +17,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db/mysmile.sqlite3'),
         #~ 'USER': '',
         #~ 'PASSWORD': '',
-        #~ 'HOST': '', 
-        #~ 'PORT': '', 
+        #~ 'HOST': '',
+        #~ 'PORT': '',
     }
 }
 

@@ -3,6 +3,7 @@
 Django settings/base.py for MySmile project.
 """
 import os
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR =  os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
@@ -24,7 +25,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware', 
+    'django.middleware.locale.LocaleMiddleware',
 )
 
 ROOT_URLCONF = 'mysmile.urls'
@@ -69,3 +70,52 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'static/themes/default'),
 )
 
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True, #the default configuration is completely overridden
+    'formatters': {
+         'verbose': {
+             'format': '%(levelname)s %(asctime)s %(module)s.%(filename)s, line: %(lineno)d  \n%(pathname)s\n  %(message)s\n',
+             'datefmt' : "%d/%b/%Y %H:%M:%S"
+         },
+         'simple': {
+             'format': '%(levelname)s %(message)s'
+         },
+     },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue'
+        },
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        },
+
+    },
+    'handlers': {
+        'file': {
+               'level': 'ERROR',
+               'class': 'logging.FileHandler',
+               'formatter': 'verbose',
+               'filters': ['require_debug_true'],
+               'filename': os.path.join(BASE_DIR,  '../log/ERRORS/'+datetime.datetime.now().strftime('%d-%m-%Y')+'_errors.log'),
+           },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'filters': ['require_debug_false']
+        }
+    },
+
+    'loggers': {
+        'log2file': {
+            'handlers': ['file'],
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+    },
+}

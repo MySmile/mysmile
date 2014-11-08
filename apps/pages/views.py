@@ -1,10 +1,13 @@
-from django.http import HttpResponseNotFound 
+from django.http import HttpResponseNotFound
 from django.template import RequestContext, loader, Template, TemplateDoesNotExist
 from django.views.decorators.csrf import requires_csrf_token
 from django.views.generic.base import RedirectView, TemplateView
-#logger = logging.getLogger(__name__)  # Get an instance of a logger
+from django.conf import settings
 
-from mysmile.settings.main import LANGUAGES
+import logging
+logger = logging.getLogger(__name__)  # Get an instance of a logger
+
+#from mysmile.settings.main import LANGUAGES
 from apps.pages.managers import PagesManager
 from apps.pages.models import Page, Page_translation
 
@@ -23,10 +26,10 @@ class MySmilePageRedirectView(RedirectView):
         except KeyError: # adaptive language selection
             lang = LANGUAGES[0][0]
             if 'HTTP_ACCEPT_LANGUAGE' in self.request.META:
-                for k in LANGUAGES:
+                for k in settings.LANGUAGES:
                     if k[0] in self.request.META['HTTP_ACCEPT_LANGUAGE']:
                         lang = k[0]
-                        k = 0 # break cycle "for"          
+                        k = 0 # break cycle "for"
         return super(MySmilePageRedirectView, self).get_redirect_url(lang=lang, slug=slug)
 
 
