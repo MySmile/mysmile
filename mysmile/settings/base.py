@@ -6,7 +6,7 @@ import os
 import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR =  os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
+BASE_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
 
 ########## APP CONFIGURATION
 DJANGO_APPS = (

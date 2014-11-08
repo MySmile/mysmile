@@ -1,5 +1,10 @@
 2014-xx-xx Version 0.6.0
 + Implementing soft delete pages
+
+2014-12-xx Version 0.5.3
++ Add new setting for support themes from admin
+* Cleaned code with best practices
+* Updated docs
 * Django 1.7 support!
 
 2014-10-13 Version 0.5.2

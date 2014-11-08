@@ -12,10 +12,11 @@ from apps.settings.managers import SettingsManager
 
 class MySmileApi(View):
 
-    def __init__(self, **kwargs):
+    def dispatch(self, request, *args, **kwargs):
         api_on_off = SettingsManager().value('REST_API')
         if 'False' == api_on_off:
             raise MySmileApiException('Forbidden', 403)
+        return super(MySmileApi, self).dispatch(request, *args, **kwargs)
 
     def get(self, request, resource):
         self.lang = request.GET.get('lang', 'en')
@@ -40,7 +41,7 @@ class MySmileApi(View):
             # @FIXME save exception details to log
             response_data = {'code': 500, 'msg': 'Internal Server Error'}
 
-        return HttpResponse(json.dumps(response_data), mimetype="application/json", status=response_data['code'])
+        return HttpResponse(json.dumps(response_data), content_type="application/json", status=response_data['code'])
 
     def get_content(self, request):
         response_data = {'code': 200, 'data': {}}
@@ -99,14 +100,14 @@ class MySmileApi(View):
     def post(self, request, resource):
         response_data = {'code': 502, 'msg': 'Method Not Allowed'}
 
-        return HttpResponse(json.dumps(response_data), mimetype="application/json", status=502)
+        return HttpResponse(json.dumps(response_data), content_type="application/json", status=502)
 
     def put(self, request, resource):
         response_data = {'code': 502, 'msg': 'Method Not Allowed'}
 
-        return HttpResponse(json.dumps(response_data), mimetype="application/json", status=502)
+        return HttpResponse(json.dumps(response_data), content_type="application/json", status=502)
 
     def delete(self, request, resource):
         response_data = {'code': 502, 'msg': 'Method Not Allowed'}
 
-        return HttpResponse(json.dumps(response_data), mimetype="application/json", status=502)
+        return HttpResponse(json.dumps(response_data), content_type="application/json", status=502)
