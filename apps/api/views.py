@@ -13,7 +13,7 @@ from apps.settings.managers import SettingsManager
 class MySmileApi(View):
 
     def dispatch(self, request, *args, **kwargs):
-        api_on_off = SettingsManager().value('REST_API')
+        api_on_off = SettingsManager.create().value('REST_API')
         if 'False' == api_on_off:
             raise MySmileApiException('Forbidden', 403)
         return super(MySmileApi, self).dispatch(request, *args, **kwargs)

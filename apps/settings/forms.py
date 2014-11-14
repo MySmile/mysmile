@@ -3,8 +3,8 @@ from django.forms import ModelForm
 
 from apps.settings.models import Settings
 
-#import re
-#SHIELD_SYMBOLS = r'[#=!?*]'
+# import re
+# SHIELD_SYMBOLS = r'[#=!?*]'
 
 
 class SettingsForm(ModelForm):

@@ -21,7 +21,7 @@ LOCAL_APPS = (
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
-########## END APP CONFIGURATION
+# END APP CONFIGURATION
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 STATIC_ROOT = os.path.join(BASE_DIR, '')
@@ -30,6 +30,6 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': tempfile.mkdtemp(dir=os.path.join(BASE_DIR, '..', 'tmp/')),
-        'TIMEOUT': 0,
+        'TIMEOUT': None,
     }
 }

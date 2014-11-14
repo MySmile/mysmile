@@ -24,7 +24,7 @@ class MySmilePageRedirectView(RedirectView):
         try:
             lang = kwargs['lang']
         except KeyError: # adaptive language selection
-            lang = LANGUAGES[0][0]
+            lang = settings.LANGUAGES[0][0]
             if 'HTTP_ACCEPT_LANGUAGE' in self.request.META:
                 for k in settings.LANGUAGES:
                     if k[0] in self.request.META['HTTP_ACCEPT_LANGUAGE']:

@@ -33,6 +33,6 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': tempfile.mkdtemp(dir=os.path.join(BASE_DIR, '..', 'tmp/')),
-        'TIMEOUT': 0,
+        'TIMEOUT': None,
     }
 }

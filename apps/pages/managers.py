@@ -8,6 +8,9 @@ from apps.settings.managers import SettingsManager
 
 
 class PagesManager(SettingsManager):
+    
+    def __init__(self):
+        SettingsManager.__init__(self)
 
     def get_content(self, request, lang=None, slug=None):
         c = self.get_page(lang, slug)

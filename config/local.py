@@ -15,10 +15,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db/mysmile.sqlite3'),
-        #~ 'USER': '',
-        #~ 'PASSWORD': '',
-        #~ 'HOST': '',
-        #~ 'PORT': '',
+        # 'USER': '',
+        # 'PASSWORD': '',
+        # 'HOST': '',
+        # 'PORT': '',
     }
 }
 

@@ -7,17 +7,18 @@ from apps.settings.models import Settings
 
 class SettingsManager(models.Manager):
     """Send all settings into cache with key = app_settings
-    """
+    """    
     def __init__(self):
         if not cache.get('app_settings'):
             try:
                 data = Settings.objects.all().values('key', 'value')
+                app_settings = {}
+                for item in data:
+                    app_settings.update({item['key']: item['value']})
+                cache.set('app_settings', signing.dumps(app_settings))
+                ee = signing.loads(cache.get('app_settings'))
             except IntegrityError:
                 pass
-            app_settings = {}
-            for item in data:
-                app_settings.update({item['key']: item['value']})
-            cache.set('app_settings', signing.dumps(app_settings))
 
     def get(self, key):
         """ Generic get anyone setting by Setting key. Return {'key': value}.

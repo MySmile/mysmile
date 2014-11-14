@@ -11,7 +11,6 @@ class SettingsAdmin(admin.ModelAdmin):
     model = Settings
     form = SettingsForm
     fieldsets = [
-        #~ ('Settings', {'fields': ['value', 'name', 'description', 'key']}),
         ('Settings', {'fields': ['value', 'description', 'key']}),
     ]
     list_display = ('name', 'value')
