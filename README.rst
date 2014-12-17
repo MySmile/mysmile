@@ -16,7 +16,7 @@ Installation
 
 1. Unpack archive with MySmile to the project directory
 
-2. Install dependences: $ pip install -r requirements.pip
+2. Install dependences: $ pip3 install -r config/requirements/local.txt
 
 3. In the project directory run a command in the terminal: 
     
