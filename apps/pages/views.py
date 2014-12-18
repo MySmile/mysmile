@@ -3,13 +3,15 @@ from django.template import RequestContext, loader, Template, TemplateDoesNotExi
 from django.views.decorators.csrf import requires_csrf_token
 from django.views.generic.base import RedirectView, TemplateView
 from django.conf import settings
+from django.core.cache import cache
+from django.core import signing
+
 
 import logging
 logger = logging.getLogger(__name__)  # Get an instance of a logger
 
-#from mysmile.settings.main import LANGUAGES
-from apps.pages.managers import PagesManager
 from apps.pages.models import Page, Page_translation
+from apps.preferences.managers import PreferencesManager
 
 
 class MySmilePageRedirectView(RedirectView):
@@ -37,9 +39,25 @@ class MySmilePageView(TemplateView):
     template_name = ''
     def get_context_data(self, **kwargs):
         context = super(MySmilePageView, self).get_context_data(**kwargs)
-        w = PagesManager()
-        context.update(w.get_content(self.request, kwargs['lang'], kwargs['slug']))
+        c = Page.objects.get_content(kwargs['lang'], kwargs['slug'])
+        p = PreferencesManager()
+        c.update(signing.loads(cache.get('app_settings')))
+
+        c['inav'] = self.get_additional_dynamic_menu(self.request, kwargs['slug'], c['menu'], c['page__ptype'], int(c['MAX_INNERLINK_HISTORY']))
+
+        context.update(c)
         return context
+
+    def get_additional_dynamic_menu(self, request, slug, menu, ptype, max_innerlink_history):
+        inner_nav = request.session.get('inner_nav', [])
+        if ptype == Page.PTYPE_INNER:
+            if not [slug, menu] in inner_nav:  # work with sessions
+                inner_nav.append([slug, menu]) # add to dynamic menu
+                request.session['inner_nav'] = inner_nav  # save data to the session
+                while len(inner_nav) > max_innerlink_history:
+                    inner_nav.pop(0)
+        return inner_nav
+
 
 
 @requires_csrf_token

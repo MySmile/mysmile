@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Settings(models.Model):
+class Preferences(models.Model):
     KEY_PHONE = 'PHONE'
     KEY_EMAIL = 'EMAIL'
     KEY_SKYPE = 'SKYPE'
@@ -38,7 +38,7 @@ class Settings(models.Model):
             self.__dict__[name] = value
 
     class Meta:
-        db_table = 'Settings'
-        verbose_name = 'Settings'
-        verbose_name_plural = 'Settings'
+        db_table = 'Preferences'
+        verbose_name = 'Preference'
+        verbose_name_plural = 'Preferences'
 

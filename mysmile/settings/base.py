@@ -6,7 +6,8 @@ import os
 import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
+BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+
 
 # APP CONFIGURATION
 DJANGO_APPS = (
@@ -58,13 +59,6 @@ LANGUAGES = (
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/'),
-    os.path.join(BASE_DIR, 'static/themes/default/'),
-    os.path.join(BASE_DIR, 'media/'),
-)
-
-
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
     os.path.join(BASE_DIR, 'static/themes/default'),
@@ -98,7 +92,7 @@ LOGGING = {
                'class': 'logging.FileHandler',
                'formatter': 'verbose',
                'filters': ['require_debug_true'],
-               'filename': os.path.join(BASE_DIR,  '../log/ERRORS/'+datetime.datetime.now().strftime('%d-%m-%Y')+'_errors.log'),
+               'filename': os.path.join(BASE_DIR,  '../log/'+datetime.datetime.now().strftime('%d-%m-%Y')+'_errors.log'),
            },
         'mail_admins': {
             'level': 'ERROR',
