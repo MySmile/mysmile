@@ -1,7 +1,7 @@
 *.pyc
 docs/build/**
 bin/**
-mysmile/mysmile/static/tmp/*
+mysmile/static/tmp/*/*
 log/*
 
 .idea

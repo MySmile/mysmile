@@ -1,6 +1,9 @@
+import shutil
+import os
 from django.db import models, IntegrityError
 from django.core.cache import cache
 from django.core import signing
+from django.conf import settings
 
 from apps.preferences.models import Preferences
 
@@ -9,7 +12,11 @@ class PreferencesManager(models.Manager):
     """Send all settings into cache with key = app_settings
     """    
     def __init__(self):
-        if not cache.get('app_settings'):
+        if not cache.get('app_settings'): 
+            # flush tmp dir
+            path_to_cache = os.path.join(settings.STATIC_ROOT, 'tmp/')
+            for item in os.listdir(path_to_cache):
+                shutil.rmtree(os.path.join(path_to_cache, item), ignore_errors=True) 
             try:
                 data = Preferences.objects.all().values('key', 'value')
                 app_settings = {}
