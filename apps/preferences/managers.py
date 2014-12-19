@@ -23,7 +23,6 @@ class PreferencesManager(models.Manager):
                 for item in data:
                     app_settings.update({item['key']: item['value']})
                 cache.set('app_settings', signing.dumps(app_settings))
-                # ee = signing.loads(cache.get('app_settings'))
             except IntegrityError:
                 pass
 

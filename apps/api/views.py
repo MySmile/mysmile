@@ -10,10 +10,13 @@ from apps.api.exceptions import MySmileApiException
 from apps.preferences.managers import PreferencesManager
 
 
+import logging
+logger = logging.getLogger(__name__)
+
 class MySmileApi(View):
 
     def dispatch(self, request, *args, **kwargs):
-        api_on_off = PreferencesManager.create().value('REST_API')
+        api_on_off = PreferencesManager().value('REST_API')
         if 'False' == api_on_off:
             raise MySmileApiException('Forbidden', 403)
         return super(MySmileApi, self).dispatch(request, *args, **kwargs)
@@ -37,7 +40,8 @@ class MySmileApi(View):
         except MySmileApiException as inst:
             response_data = {'code': inst.code, 'msg': inst.msg}
 
-        except (DatabaseError, FieldError, KeyError, Exception):
+        except (DatabaseError, FieldError, KeyError, Exception) as err:
+            logger.error(err)
             # @FIXME save exception details to log
             response_data = {'code': 500, 'msg': 'Internal Server Error'}
 
@@ -88,7 +92,7 @@ class MySmileApi(View):
 
     def get_contact(self):
         response_data = {'code': 200}
-        response_data['data'] = SettingsManager().get_contact()
+        response_data['data'] = PreferencesManager().get_contact()
         return response_data
 
     def get_language(self):

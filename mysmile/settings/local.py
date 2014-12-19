@@ -28,7 +28,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATICFILES_DIRS = (
     os.path.join(STATIC_ROOT, 'themes/default/'),
-    os.path.join(STATIC_ROOT, 'media/'),
+    # os.path.join(STATIC_ROOT, 'admin/'),
+    # os.path.join(STATIC_ROOT, 'fonts/'),
+    # os.path.join(STATIC_ROOT, 'media/'),
+    os.path.join(STATIC_ROOT, 'third-party-components/'),
 )
 
 
@@ -39,3 +42,4 @@ CACHES = {
         'TIMEOUT': None,
     }
 }
+

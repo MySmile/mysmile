@@ -6,8 +6,8 @@ Changelog
   - Implementing soft delete pages
   - Add new setting for support themes from admin
 
-**2014-12-xx Version 0.5.3**
-  - Cleaned code with best practices
+**2014-12-22 Version 0.5.3**
+  - Improved code performance
   - Updated docs
   - Django 1.7 support!
 

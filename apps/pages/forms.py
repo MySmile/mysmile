@@ -14,6 +14,10 @@ class Page_translationInlineForm(ModelForm):
 
 class PageForm(ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super(PageForm, self).__init__(*args, **kwargs)
+        self.fields['color'].widget.attrs = {'class': "color {hash:true,caps:false}"}
+
     class Meta:
         model = Page
         exclude = ['updated_at', 'created_at']

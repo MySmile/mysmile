@@ -1,22 +1,12 @@
 from django.db import models
+from django.http import Http404
 
 from mysmile.settings.base import LANGUAGES
-# from apps.pages.managers import PagesManager
-
-
-
 
 
 class PagesManager(models.Manager):
-
-    # def __init__(self):
-        # SettingsManager.__init__(self)
-
     def get_content(self, lang=None, slug=None):
         c = self.get_page(lang, slug)
-        # c.update({'lang': lang, 'slug': slug})
-        # c.update(signing.loads(cache.get('app_settings')))
-
         c['main_menu'] = self.get_main_menu(lang)
         return c
 
@@ -32,8 +22,6 @@ class PagesManager(models.Manager):
 
         page['bottom_cols'] = list(filter(None, [page['col_bottom_1'], page['col_bottom_2'], page['col_bottom_3']]))
         return page
-
-
 
 
 class Page(models.Model):

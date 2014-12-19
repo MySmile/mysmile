@@ -9,9 +9,9 @@
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
 {% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
-<link rel="stylesheet" type="text/css" href="/static/admin/js/jquery-miniColors-master/jquery.minicolors.css" />
-<script type="text/javascript" src="/static/admin/js/jquery-miniColors-master/jquery.1.8.3.min.js"></script>
-<script type="text/javascript" src="/static/admin/js/jquery-miniColors-master/jquery.minicolors.js"></script>
+
+<script type="text/javascript" src="{% static 'jscolor/jscolor.js' %}"></script>
+
 </head>
 {% load i18n %}
 <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
@@ -75,10 +75,5 @@
     {% block footer %}<div id="footer"></div>{% endblock %}
 </div>
 <!-- END Container -->
-<script type="text/javascript">
-    jQuery(document).ready(function(){
-        jQuery(".field-color input").minicolors();
-    });
-</script>
 </body>
 </html>

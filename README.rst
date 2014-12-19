@@ -6,7 +6,7 @@ MySmile is the lightweight open-source CMS based on Django. It helps to create w
 Dependences
 ===========
 
-a) Django 1.6.x: http://djangoproject.com, https://github.com/django/django
+a) Django 1.7.x: http://djangoproject.com, https://github.com/django/django
 b) PIL library for working with images: https://github.com/python-imaging/Pillow
 
 

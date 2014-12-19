@@ -43,13 +43,14 @@ class MySmilePageView(TemplateView):
         p = PreferencesManager()
         c.update(signing.loads(cache.get('app_settings')))
 
-        c['inav'] = self.get_additional_dynamic_menu(self.request, kwargs['slug'], c['menu'], c['page__ptype'], int(c['MAX_INNERLINK_HISTORY']))
+        c['inav'] = self.get_additional_dynamic_menu(self.request, kwargs['slug'], c['menu'], c['page__ptype'])
 
         context.update(c)
         return context
 
-    def get_additional_dynamic_menu(self, request, slug, menu, ptype, max_innerlink_history):
+    def get_additional_dynamic_menu(self, request, slug, menu, ptype):
         inner_nav = request.session.get('inner_nav', [])
+        max_innerlink_history = int(signing.loads(cache.get('app_settings'))['MAX_INNERLINK_HISTORY'])
         if ptype == Page.PTYPE_INNER:
             if not [slug, menu] in inner_nav:  # work with sessions
                 inner_nav.append([slug, menu]) # add to dynamic menu
