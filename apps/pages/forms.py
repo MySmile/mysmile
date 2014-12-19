@@ -21,3 +21,7 @@ class PageForm(ModelForm):
     class Meta:
         model = Page
         exclude = ['updated_at', 'created_at']
+        
+    class Media:
+        js = ('jscolor/jscolor.js',)
+	
