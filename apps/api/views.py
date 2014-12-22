@@ -7,7 +7,7 @@ from django.conf import settings
 
 from apps.pages.models import Page, Page_translation
 from apps.api.exceptions import MySmileApiException
-from apps.preferences.managers import PreferencesManager
+from apps.preferences.models import Preferences
 
 
 import logging
@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 class MySmileApi(View):
 
     def dispatch(self, request, *args, **kwargs):
-        api_on_off = PreferencesManager().value('REST_API')
+        api_on_off = Preferences.objects.filter(key='REST_API').values('value')
         if 'False' == api_on_off:
             raise MySmileApiException('Forbidden', 403)
         return super(MySmileApi, self).dispatch(request, *args, **kwargs)
@@ -92,7 +92,7 @@ class MySmileApi(View):
 
     def get_contact(self):
         response_data = {'code': 200}
-        response_data['data'] = PreferencesManager().get_contact()
+        response_data['data'] = Preferences.objects.get_contact()
         return response_data
 
     def get_language(self):

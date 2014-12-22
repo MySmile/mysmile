@@ -11,10 +11,10 @@ import logging
 logger = logging.getLogger(__name__)  # Get an instance of a logger
 
 from apps.pages.models import Page, Page_translation
-from apps.preferences.managers import PreferencesManager
+from apps.preferences.models import Preferences
 
 
-class MySmilePageRedirectView(RedirectView):
+class PageRedirectView(RedirectView):
 
     permanent = False
     query_string = True
@@ -32,25 +32,22 @@ class MySmilePageRedirectView(RedirectView):
                     if k[0] in self.request.META['HTTP_ACCEPT_LANGUAGE']:
                         lang = k[0]
                         k = 0 # break cycle "for"
-        return super(MySmilePageRedirectView, self).get_redirect_url(lang=lang, slug=slug)
+        return super(PageRedirectView, self).get_redirect_url(lang=lang, slug=slug)
 
 
-class MySmilePageView(TemplateView):
-    template_name = ''
+class PageView(TemplateView):
+    template_name='page.html'
+
     def get_context_data(self, **kwargs):
-        context = super(MySmilePageView, self).get_context_data(**kwargs)
+        context = super(PageView, self).get_context_data(**kwargs)
         c = Page.objects.get_content(kwargs['lang'], kwargs['slug'])
-        p = PreferencesManager()
-        c.update(signing.loads(cache.get('app_settings')))
-
-        c['inav'] = self.get_additional_dynamic_menu(self.request, kwargs['slug'], c['menu'], c['page__ptype'])
-
+        c.update(Preferences.objects.get_all())
+        c['inav'] = self.get_additional_dynamic_menu(self.request, kwargs['slug'], c['menu'], c['page__ptype'], int(c['MAX_INNERLINK_HISTORY']))
         context.update(c)
         return context
 
-    def get_additional_dynamic_menu(self, request, slug, menu, ptype):
+    def get_additional_dynamic_menu(self, request, slug, menu, ptype, max_innerlink_history):
         inner_nav = request.session.get('inner_nav', [])
-        max_innerlink_history = int(signing.loads(cache.get('app_settings'))['MAX_INNERLINK_HISTORY'])
         if ptype == Page.PTYPE_INNER:
             if not [slug, menu] in inner_nav:  # work with sessions
                 inner_nav.append([slug, menu]) # add to dynamic menu
@@ -58,33 +55,3 @@ class MySmilePageView(TemplateView):
                 while len(inner_nav) > max_innerlink_history:
                     inner_nav.pop(0)
         return inner_nav
-
-
-
-@requires_csrf_token
-def my_custom_404_view(request, template_name='404.html'):
-    try:
-        template = loader.get_template(template_name)
-    except TemplateDoesNotExist:
-        template = Template(
-            '<h1>Not Found</h1>'
-            '<p>The requested URL {{ request_path }} was not found on this server.</p>')
-    try:
-        slug = request.path.split('/')[-1].split('.html')[0]  # get slug from path request
-        #  Verify the existence of the slug
-        slug = Page.objects.filter(slug=slug, status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_MENU,Page.PTYPE_MENU_API]).values_list('slug', flat=True)[0]
-    except IndexError:
-        pass
-
-    langs = Page_translation.objects.filter(page__slug=slug).values_list('lang', flat=True) if slug else ''
-    return HttpResponseNotFound(template.render(RequestContext(request, {'request_host': request.get_host, 'request_path': request.path, 'slug': slug, 'langs': langs})))
-
-@requires_csrf_token
-def my_custom_500_view(request, template_name='500.html'):
-    try:
-        template = loader.get_template(template_name)
-    except TemplateDoesNotExist:
-        template = Template(
-            '<h1>Not Found</h1>'
-            '<p>The requested URL {{ request_path }} was not found on this server.</p>')
-    return HttpResponseNotFound(template.render(RequestContext(request, {'request_path': request.path,})))

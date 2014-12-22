@@ -1,6 +1,22 @@
 from django.db import models
 
 
+class PreferencesManager(models.Manager):
+    def get_all(self):
+        p = Preferences.objects.all().values('key', 'value')
+        c = {}
+        for item in p:
+            c[item['key']] = item['value']
+        return c
+
+    def get_contact(self):
+        p = Preferences.objects.filter(key__in=['PHONE', 'EMAIL', 'SKYPE']).values('key', 'value')
+        c = {}
+        for item in p:
+            c[item['key'].lower()] = item['value']
+        return c
+
+
 class Preferences(models.Model):
     KEY_PHONE = 'PHONE'
     KEY_EMAIL = 'EMAIL'
@@ -30,7 +46,9 @@ class Preferences(models.Model):
     description = models.CharField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-        
+    objects = PreferencesManager()
+
+
     def __setattr__(self, name, value):
         if name.isupper():
             raise AttributeError(name + " is an immutable attribute.")

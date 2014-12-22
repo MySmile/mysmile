@@ -25,8 +25,8 @@ urlpatterns = patterns('',
     (r'^i18n/', include('django.conf.urls.i18n')),
 )
 
-handler404 = 'apps.pages.views.my_custom_404_view'
-handler500 = 'apps.pages.views.my_custom_500_view'
+handler404 = 'apps.preferences.views.e404'
+handler500 = 'apps.preferences.views.e500'
 
 if settings.DEBUG:
     urlpatterns += patterns('django.views.static',

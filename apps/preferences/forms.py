@@ -14,8 +14,6 @@ class PreferencesForm(ModelForm):
         if self.initial:
             self.fields['key'].label = ''
             self.fields['key'].widget.attrs = {'readonly': 'readonly', 'style': 'display: none;'}
-            #~ self.fields['name'].widget.attrs['readonly'] = 'readonly'
-            #~ self.fields['description'].label = ''
             self.fields['description'].widget = forms.Textarea()
             self.fields['description'].widget.attrs = {'rows': 3, 'cols': 100, 'readonly': True,
                                                       'style': 'resize: none;'}
