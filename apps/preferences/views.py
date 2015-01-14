@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponseNotFound
 from django.template import RequestContext, loader, Template, TemplateDoesNotExist
+from django.views.decorators.csrf import requires_csrf_token
+
 from apps.pages.models import Page, Page_translation
 
 # Create your views here.
-
-
 
 
 @requires_csrf_token

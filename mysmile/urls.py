@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     url('', include('apps.sitemap.urls')),
     #(r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", mimetype="text/plain")),
     (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nHost: demo.mysmile.com.ua\nSitemap: \
-  http://demo.mysmile.com.ua/Sitemap.xml", mimetype="text/plain")),
+  http://demo.mysmile.com.ua/Sitemap.xml", content_type="text/plain")),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -34,4 +34,8 @@ if settings.DEBUG:
         url(r'^static/(?P<path>.*)$', never_cache(serve_static)),
     )
 
-
+if settings.DEBUG_TOOLBAR_PATCH_SETTINGS:
+    import debug_toolbar
+    urlpatterns += patterns('',
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    )

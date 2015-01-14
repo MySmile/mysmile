@@ -43,8 +43,10 @@
 <body>
 <div id="layout">
     <header class="pure-g">
-        
-        <div id="logo" class="pure-u-3-24"> <a href="/{{ lang }}/{{ main_menu.0.page__slug }}.html"><img class="pure-img" src="{% static "images/logo.png" %}" width="108" height="115" alt="MySmile logo" /></a> </div>
+        <div id="logo" class="pure-u-3-24">
+            {% block logo %}
+            {% endblock %}
+        </div>
             
         <div class="pure-u-21-24">
                 
@@ -73,8 +75,7 @@
                 {% block col_right %}{% endblock %}
             </aside>
             {% endif %}
-            
-            {% block col_central %}{% endblock %}
+            <div id="col_central_text">{% block col_central %}{% endblock %}</div>
         </article>
 
         {% if bottom_cols  %}

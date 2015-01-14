@@ -5,6 +5,7 @@ from mysmile.settings.base import BASE_DIR
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
+#DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 SECRET_KEY = '=)1+x0_f%6t&$4gftv-^^w20kr)+1ut8js0@0(gt6cx8z6kxlc'
 
@@ -22,8 +23,8 @@ DATABASES = {
     }
 }
 
-
-ALLOWED_HOSTS = ['demo.mysmile.com.ua'] # like demo.mysmile.com.ua
+# like ['demomysmile.com.ua', 'www.demo.mysmile.com.ua']
+ALLOWED_HOSTS = ['demo.mysmile.com.ua', 'www.demo.mysmile.com.ua']
 
 ADMINS = (
     ('admin', 'AdminEmail@email.com'),

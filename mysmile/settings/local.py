@@ -9,8 +9,17 @@ from .base import *
 from config.local import *
 
 
-# apps
-THIRD_PARTY_APPS = ()
+APP_MIDDLEWARE_CLASSES = (
+    'apps.preferences.middlewares.ExceptionLoggingMiddleware',
+)
+
+THIRD_PARTY_MIDDLEWARE_CLASSES = (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    )
+
+MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + APP_MIDDLEWARE_CLASSES + 
+THIRD_PARTY_MIDDLEWARE_CLASSES
+
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
@@ -18,6 +27,10 @@ LOCAL_APPS = (
     'apps.pages',
     'apps.preferences',
     'apps.sitemap',
+)
+
+# another apps
+THIRD_PARTY_APPS = ('debug_toolbar',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -35,6 +48,9 @@ STATICFILES_DIRS = (
     os.path.join(STATIC_ROOT, 'third-party-components/'),
 )
 
+# prepare tmp dir for cache
+if not os.path.exists(os.path.join(STATIC_ROOT, 'tmp/')):
+    os.makedirs(os.path.join(STATIC_ROOT, 'tmp/'))
 
 CACHES = {
     'default': {

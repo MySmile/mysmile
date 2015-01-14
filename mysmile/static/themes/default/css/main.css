@@ -1,3 +1,5 @@
+@import 'extras.css';
+
 @charset "utf-8";
 
 /* 16 * 0.0625 = 0.0625em */
@@ -6,6 +8,7 @@
 h1 { font-family: Arial, Helvetica, sans-serif; font-size: 1.4em;}
 h1 a { text-decoration: none; color: #555555; }
 h2 { text-align: center; }
+ul { margin: 0 5px; padding: 0; list-style: none; }
 
 body, .pure-g [class *= "pure-u"], .pure-g-r [class *= "pure-u"] { font-family: Georgia, "Times New Roman", serif; }
 
@@ -90,5 +93,5 @@ footer { width:100%; height: 2.1em;  font-size: 0.8125em; background-color: #999
 #advertisement { width:100%; padding-top: 0.45em; }
 #banner { float: left; }
 #banner a img{ height: initial; }
-#version { font-size: 0.75em; letter-spacing: normal; }
+#version { float:right; font-size: 0.75em; letter-spacing: normal; }
 #version span { float:right; padding-right: 0.625em; }

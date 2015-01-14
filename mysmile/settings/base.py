@@ -18,18 +18,13 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
 )
 
-MIDDLEWARE_CLASSES = (
+DJANGO_MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    
-    'apps.preferences.middlewares.ExceptionLoggingMiddleware',
 )
 
 ROOT_URLCONF = 'mysmile.urls'
@@ -129,3 +124,9 @@ LOGGING = {
 }
 
 CSRF_FAILURE_VIEW = 'apps.preferences.views.csrf_failure'
+
+# This is only used if CommonMiddleware is installed
+PREPEND_WWW = True
+
+# This is only used if CommonMiddleware is installed
+APPEND_SLASH = True
