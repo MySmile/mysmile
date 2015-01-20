@@ -1,8 +1,8 @@
 # run - Run local server
 run:
-	@echo "-----------------------------------------------------------------------"
-	@echo "python3 manage.py runserver --nostatic --setting=mysmile.settings.local"
-	@echo "======================================================================="
+	@echo "------------------------------------------------------------------------"
+	@echo "python3 manage.py runserver --nostatic --setting=mysmile.settings.local "
+	@echo "========================================================================"
 	@python3 manage.py runserver --nostatic --setting=mysmile.settings.local
 
 

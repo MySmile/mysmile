@@ -17,8 +17,7 @@ THIRD_PARTY_MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
 
-MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + APP_MIDDLEWARE_CLASSES + 
-THIRD_PARTY_MIDDLEWARE_CLASSES
+MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + APP_MIDDLEWARE_CLASSES + THIRD_PARTY_MIDDLEWARE_CLASSES
 
 
 # Apps specific for this project go here.
@@ -42,9 +41,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATICFILES_DIRS = (
     os.path.join(STATIC_ROOT, 'themes/default/'),
-    # os.path.join(STATIC_ROOT, 'admin/'),
-    # os.path.join(STATIC_ROOT, 'fonts/'),
-    # os.path.join(STATIC_ROOT, 'media/'),
     os.path.join(STATIC_ROOT, 'third-party-components/'),
 )
 
@@ -63,6 +59,7 @@ CACHES = {
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = False
 CACHE_MIDDLEWARE_SECONDS = 60*60*24
 CACHE_MIDDLEWARE_KEY_PREFIX = 'mysmile'
+
 
 # flush tmp dir after restart server
 path_to_cache = os.path.join(STATIC_ROOT, 'tmp/')

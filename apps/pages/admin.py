@@ -41,6 +41,9 @@ class PageAdmin(admin.ModelAdmin):
         return model.updated_at.strftime('%d %B %Y, %H:%M')
 
     def waiting_for_translation(self, model):
+        """ @TODO: Hide "waiting_for_translation" columns if flags == ''
+            hint: overload function get_list_display
+        """
         flags = ''
         for item in settings.LANGUAGES:
             if not Page_translation.objects.filter(page_id=model.id, lang=item[0]):

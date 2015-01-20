@@ -17,8 +17,7 @@ THIRD_PARTY_MIDDLEWARE_CLASSES = (
 #    'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
 
-MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + APP_MIDDLEWARE_CLASSES + 
-THIRD_PARTY_MIDDLEWARE_CLASSES
+MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + APP_MIDDLEWARE_CLASSES + THIRD_PARTY_MIDDLEWARE_CLASSES
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
@@ -54,3 +53,10 @@ CACHES = {
         'TIMEOUT': None,
     }
 }
+
+
+# This is only used if CommonMiddleware is installed
+PREPEND_WWW = True
+
+# This is only used if CommonMiddleware is installed
+APPEND_SLASH = True

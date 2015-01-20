@@ -124,9 +124,3 @@ LOGGING = {
 }
 
 CSRF_FAILURE_VIEW = 'apps.preferences.views.csrf_failure'
-
-# This is only used if CommonMiddleware is installed
-PREPEND_WWW = True
-
-# This is only used if CommonMiddleware is installed
-APPEND_SLASH = True
