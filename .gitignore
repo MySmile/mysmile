@@ -1,8 +1,11 @@
 *.pyc
-docs/build/**
 bin/**
-mysmile/static/tmp/*/*
+tmp
 log/*
 
+mysmile/static/tmp
+docs/build/**
+mysmile/db
+
+
 .idea
-.idea/**

@@ -2,12 +2,12 @@
 Changelog
 *********
 
-**2014-xx-xx Version 0.6.0**
+**2015-02-xx Version 0.6.0**
   - Implementing soft delete pages
-  - Add new setting for support themes from admin
+  - Added setting for themes in admin panel
 
 **2014-12-22 Version 0.5.3**
-  - Improved code performance
+  - Improved performance
   - Updated docs
   - Django 1.7 support!
 
@@ -16,7 +16,7 @@ Changelog
   - Refactored code to support themes
 
 **2014-08-18 Version 0.5.1**
-  - Added ability to select the language in the admin
+  - Added ability to select the language in the admin panel
   - Added flexible 404 error page
   - Updated docs
 

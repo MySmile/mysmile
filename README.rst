@@ -1,10 +1,15 @@
-About
-=====
+.. image:: https://raw.githubusercontent.com/MySmile/mysmile/master/mysmile/static/themes/default/images/mysmilelogo.png
+    :target: http://mysmile.com.ua
+
+
+===========================
+Lightweight CMS for Django
+===========================
 
 MySmile is the lightweight open-source CMS based on Django. It helps to create websites with configurable design and minimum cost. 
 
-Dependences
-===========
+Dependencies
+============
 
 a) Django 1.7.x: http://djangoproject.com, https://github.com/django/django
 b) PIL library for working with images: https://github.com/python-imaging/Pillow
@@ -38,14 +43,10 @@ Installation
   
   `password: test`
 
-Links
-=====
+Documentation
+=============
 
-Demo version is avalible on `<http://demo.mysmile.com.ua>`_
-
-Development version is available on GitHub: `<https://github.com/MySmile/MySmile.git>`_
-
-Read latest documentation on `<http://mysmile.readthedocs.org/en/latest/>`_
+The latest documentation is available here `<http://mysmile.readthedocs.org/en/latest/>`_
     
 **Welcome to MySmile!**
 
