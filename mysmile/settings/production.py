@@ -29,7 +29,8 @@ LOCAL_APPS = (
 
 # another apps
 THIRD_PARTY_APPS = (#'debug_toolbar',
-)
+	                 'compressor',
+	                 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -60,3 +61,15 @@ PREPEND_WWW = True
 
 # This is only used if CommonMiddleware is installed
 APPEND_SLASH = True
+
+# compressor settings
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ENABLED = True
+
+COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']

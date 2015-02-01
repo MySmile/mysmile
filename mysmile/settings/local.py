@@ -26,11 +26,12 @@ LOCAL_APPS = (
     'apps.pages',
     'apps.preferences',
     'apps.sitemap',
-)
+    )
 
 # another apps
 THIRD_PARTY_APPS = ('debug_toolbar',
-)
+                    'compressor',
+                    )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -65,3 +66,16 @@ CACHE_MIDDLEWARE_KEY_PREFIX = 'mysmile'
 path_to_cache = os.path.join(STATIC_ROOT, 'tmp/')
 for item in os.listdir(path_to_cache):
     shutil.rmtree(os.path.join(path_to_cache, item), ignore_errors=True)
+    
+
+# compressor settings
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ENABLED = True
+
+COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']

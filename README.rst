@@ -1,3 +1,7 @@
+.. image:: https://badge.fury.io/py/mysmile.svg
+    :target: http://badge.fury.io/py/mysmile
+    
+
 ===========================
 Lightweight CMS for Django
 ===========================

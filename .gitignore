@@ -4,6 +4,8 @@ tmp
 log/*
 
 mysmile/static/tmp
+mysmile/static/CACHE/**
+
 docs/build/**
 mysmile/db
 

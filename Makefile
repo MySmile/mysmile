@@ -13,7 +13,7 @@ help:
 test:
 	@python3 manage.py test apps.api.tests
 	@python3 manage.py test apps.pages.tests
-	@python3 manage.py test apps.settings.tests
+	@python3 manage.py test apps.preferences.tests
 	@python3 manage.py test apps.sitemap.tests
 	
 	

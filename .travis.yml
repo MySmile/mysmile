@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.4"
+  # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
+  # maintainers to fix their pypy-dev package.
+  #- "pypy"
+# command to install dependencies
+install:
+  - pip install -r config/requirements/local.txt
+  - pip install coveralls
+# command to run tests
+script:
+  - make test
+  - coverage run --source=sfchat manage.py test
+after_success:
+  coveralls

@@ -4,6 +4,7 @@ from django.db import models
 class PreferencesManager(models.Manager):
     def get_all(self):
         p = Preferences.objects.all().values('key', 'value')
+        print('p ----- ', p)
         c = {}
         for item in p:
             c[item['key']] = item['value']

@@ -124,3 +124,4 @@ LOGGING = {
 }
 
 CSRF_FAILURE_VIEW = 'apps.preferences.views.csrf_failure'
+
