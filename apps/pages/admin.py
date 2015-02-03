@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.conf import settings
 
-#from mysmile.settings.main import STATIC_URL, LANGUAGES
 from apps.pages.models import Page, Page_translation
 from apps.pages.forms import Page_translationInlineForm, PageForm
 

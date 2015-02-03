@@ -6,7 +6,6 @@ from django.views.decorators.cache import never_cache
 
 # comment the next two lines to disable the admin:
 from django.contrib import admin
-admin.autodiscover()
 
 
 urlpatterns = patterns('',
@@ -25,8 +24,11 @@ urlpatterns = patterns('',
     (r'^i18n/', include('django.conf.urls.i18n')),
 )
 
+
 handler404 = 'apps.preferences.views.e404'
 handler500 = 'apps.preferences.views.e500'
+
+from django.conf.urls.static import static
 
 if settings.DEBUG:
     urlpatterns += patterns('django.views.static',
@@ -39,3 +41,6 @@ if settings.DEBUG_TOOLBAR_PATCH_SETTINGS:
     urlpatterns += patterns('',
         url(r'^__debug__/', include(debug_toolbar.urls)),
     )
+
+
+

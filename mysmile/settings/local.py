@@ -43,7 +43,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = (
     os.path.join(STATIC_ROOT, 'themes/default/'),
     os.path.join(STATIC_ROOT, 'third-party-components/'),
+    #os.path.join(STATIC_ROOT, 'admin/'),
 )
+
 
 # prepare tmp dir for cache
 if not os.path.exists(os.path.join(STATIC_ROOT, 'tmp/')):
@@ -76,6 +78,6 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = False
 
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']

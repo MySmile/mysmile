@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url
-# from django.views.decorators.cache import cache_page
+#from django.views.decorators.cache import cache_page
 
 from apps.pages.views import PageView, PageRedirectView
 
