@@ -3,6 +3,15 @@ from django.http import Http404
 
 from mysmile.settings.base import LANGUAGES
 
+class ImageField(models.ImageField):
+
+    def save_form_data(self, instance, data):
+        if data is not None:
+            file = getattr(instance, self.attname)
+            if file != data:
+                file.delete(save=False)
+        super(ImageField, self).save_form_data(instance, data)
+
 
 class PagesManager(models.Manager):
     def get_content(self, lang=None, slug=None):
@@ -45,7 +54,7 @@ class Page(models.Model):
                              help_text='Click once with the mouse to select \
                                         a color, and then twice to save')
     # blank=True add "clear image" checkbox into admin page
-    photo = models.ImageField(upload_to='images/', null=True, blank=True)
+    photo = ImageField(upload_to='images/', null=True, blank=True)
     sortorder = models.IntegerField(unique=True, default=lambda: Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+Page.SORTORDER_STEP, verbose_name='Sort order')
     status = models.IntegerField(unique=False, choices=STATUS, default=STATUS_DRAFT)
     ptype = models.IntegerField(unique=False, choices=PTYPE, default=PTYPE_MENU, verbose_name='Page type')
