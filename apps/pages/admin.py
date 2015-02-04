@@ -24,15 +24,10 @@ class Page_translationInline(admin.StackedInline):
 
 
 class PageAdmin(admin.ModelAdmin):
-    model = Page
-    form = PageForm
     fieldsets = [
         ('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder', 'color', ('photo', 'photo_thumb')]}),
     ]
     inlines = [Page_translationInline]
-    list_display = ('slug', 'status', 'ptype', 'sortorder',
-                    'photo_thumb', 'waiting_for_translation', 'date_update')
-    list_display_links = ('slug',)
     save_on_top = True
     readonly_fields = ('photo_thumb',)
 
@@ -40,18 +35,34 @@ class PageAdmin(admin.ModelAdmin):
         return model.updated_at.strftime('%d %B %Y, %H:%M')
 
     def waiting_for_translation(self, model):
-        """ @TODO: Hide "waiting_for_translation" columns if flags == ''
-            hint: overload function get_list_display
+        """ Flag doesn't display if translation prepared
         """
         flags = ''
         for item in settings.LANGUAGES:
-            if not Page_translation.objects.filter(page_id=model.id, lang=item[0]):
+            if not Page_translation.objects.filter(page_id=model.id , lang=item[0]):
                 flags += '<img src="' + settings.STATIC_URL + \
                          'images/flags/' + item[0] + '.png" alt= "' + item[1] + '"/>'
         return flags
     waiting_for_translation.short_description = 'waiting for translation'
     waiting_for_translation.allow_tags = True
 
+
+    def get_list_display(self, request):
+        """
+        Hide empty colums "photo_thumb" and "waiting_for_translation"
+        """
+        pages = Page.objects.all().count()
+        pages_translation = Page_translation.objects.all().count()
+        pages_blankphoto = Page.objects.filter(photo='').count()
+
+        self.list_display = ('slug', 'status', 'ptype', 'sortorder',)
+
+        if pages_blankphoto < pages: # at least one photo exist
+            self.list_display += ('photo_thumb', )
+        if pages*len(settings.LANGUAGES) != pages_translation:
+            self.list_display += ('waiting_for_translation',)
+
+        return self.list_display + ('date_update',)
 
 admin.site.register(Page, PageAdmin)
 
