@@ -48,26 +48,26 @@ STATICFILES_DIRS = (
 
 
 # prepare tmp dir for cache
-if not os.path.exists(os.path.join(STATIC_ROOT, 'tmp/')):
-    os.makedirs(os.path.join(STATIC_ROOT, 'tmp/'))
+#if not os.path.exists(os.path.join(STATIC_ROOT, 'tmp/')):
+#    os.makedirs(os.path.join(STATIC_ROOT, 'tmp/'))
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': tempfile.mkdtemp(dir=os.path.join(STATIC_ROOT, 'tmp/')),
-        'TIMEOUT': None,
-    }
-}
+#CACHES = {
+#    'default': {
+#        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#        'LOCATION': tempfile.mkdtemp(dir=os.path.join(STATIC_ROOT, 'tmp/')),
+#        'TIMEOUT': None,
+#    }
+#}
 
-CACHE_MIDDLEWARE_ANONYMOUS_ONLY = False
-CACHE_MIDDLEWARE_SECONDS = 60*60*24
-CACHE_MIDDLEWARE_KEY_PREFIX = 'mysmile'
+#CACHE_MIDDLEWARE_ANONYMOUS_ONLY = False
+#CACHE_MIDDLEWARE_SECONDS = 60*60*24
+#CACHE_MIDDLEWARE_KEY_PREFIX = 'mysmile'
 
 
 # flush tmp dir after restart server
-path_to_cache = os.path.join(STATIC_ROOT, 'tmp/')
-for item in os.listdir(path_to_cache):
-    shutil.rmtree(os.path.join(path_to_cache, item), ignore_errors=True)
+#path_to_cache = os.path.join(STATIC_ROOT, 'tmp/')
+#for item in os.listdir(path_to_cache):
+#    shutil.rmtree(os.path.join(path_to_cache, item), ignore_errors=True)
     
 
 # compressor settings
