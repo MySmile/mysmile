@@ -24,9 +24,6 @@ class Page_translationInline(admin.StackedInline):
 
 
 class PageAdmin(admin.ModelAdmin):
-    fieldsets = [
-        ('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder', 'color', ('photo', 'photo_thumb')]}),
-    ]
     inlines = [Page_translationInline]
     save_on_top = True
     readonly_fields = ('photo_thumb',)
@@ -63,6 +60,20 @@ class PageAdmin(admin.ModelAdmin):
             self.list_display += ('waiting_for_translation',)
 
         return self.list_display + ('date_update',)
+
+
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = super(PageAdmin, self).get_fieldsets(request, obj)
+        photo = Page.objects.filter(id=obj.id).values_list('photo',flat=True)[0]
+        if photo:
+            fieldsets = [('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder',
+                                                  'color', ('photo', 'photo_thumb')]}),]
+        else:
+            fieldsets = [('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder',
+                                                  'color', ('photo',)]}),]
+        return fieldsets
+
+
 
 admin.site.register(Page, PageAdmin)
 
