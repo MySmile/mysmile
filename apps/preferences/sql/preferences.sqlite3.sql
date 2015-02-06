@@ -1,5 +1,5 @@
 
-INSERT INTO Preferences (key, value, name, description, created_at, updated_at)
+INSERT INTO preferences (key, value, name, description, created_at, updated_at)
 VALUES  ('PHONE', '000 000 000 00 00', 'Phone number', 'Contact phone number. It is visible on the top of site page.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP), 
         ('EMAIL', 'myemail@email.com', 'Email', 'Contact Email. It is visible on the top of site page as an image to protect from spam bot.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP), 
 ('SKYPE', 'myskype', 'Skype', 'Contact skype. It is visible on the top of site page.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP), 
