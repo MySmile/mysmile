@@ -25,7 +25,7 @@ Installation
 
 1. Unpack archive with MySmile to the project directory
 
-2. Install dependences: $ pip3 install -r config/requirements/local.txt
+2. Install dependencies: $ pip3 install -r config/requirements/local.txt
 
 3. In the project directory run a command in the terminal: 
     
@@ -37,11 +37,11 @@ Installation
 
 4. Change default credentials to admin page:
 
-  4.1. Link to admin page: 
+4.1. Link to admin page:
       
   `<http://127.0.0.1:8000/admin>`_
       
-  4.2. Log in with default credentials: 
+4.2. Log in with default credentials:
   
   `login: test` 
   

@@ -6,8 +6,10 @@ Changelog
   - Implementing soft delete pages
   - Added setting for themes in admin panel
 
-**2015-02-xx Version 0.5.3**
-  - Improved performance
+**2015-02-09 Version 0.5.3**
+  - Added compressor for css and js
+  - Integrated Travis CI and Coveralls
+  - Fixed delete images from server through admin panel
   - Updated docs
   - Django 1.7 support!
 

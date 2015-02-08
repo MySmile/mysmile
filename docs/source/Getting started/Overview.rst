@@ -3,7 +3,7 @@ Overview
 
 MySmile is the lightweight open-source CMS based on Django. It helps to create websites with configurable design and minimum cost. MySmile is best choose for:
 
-  * Small websites aimed on static content with limited dynamic. For example such: "Personal site", "Startup business", "Advertising new Project/Product".
+  * Small websites aimed on static content with limited dynamic. For example such: "Startup business", "Personal site", "Conference".
   * Some prototypes/ideas that now looks tiny but has enormous potential to grow. Because MySmile use Django framework it breaks all barriers for implementation your new features.
   * Freshmen Python developers for studying and experimenting.
 
