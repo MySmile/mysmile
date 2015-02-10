@@ -11,19 +11,10 @@ Contents:
 
 .. toctree::
    :numbered:
-   :maxdepth: 5
+   :maxdepth: 2
    :titlesonly:
    
    Getting started/index
-   The development process/index
    Technical Specification/index
    REST API/index
    glossary
-
-.. Indices and tables
-.. ==================
-
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
-

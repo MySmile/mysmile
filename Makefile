@@ -1,8 +1,8 @@
 # run - Run local server
 run:
-	@echo "-----------------------------------------------------------------------"
-	@echo "python3 manage.py runserver --nostatic --setting=mysmile.settings.local"
-	@echo "======================================================================="
+	@echo "------------------------------------------------------------------------"
+	@echo "python3 manage.py runserver --nostatic --setting=mysmile.settings.local "
+	@echo "========================================================================"
 	@python3 manage.py runserver --nostatic --setting=mysmile.settings.local
 
 
@@ -13,8 +13,8 @@ help:
 test:
 	@python3 manage.py test apps.api.tests
 	@python3 manage.py test apps.pages.tests
-	@python3 manage.py test apps.settings.tests
-	@python3 manage.py test apps.sitemap.tests
+#	@python3 manage.py test apps.preferences.tests
+#	@python3 manage.py test apps.sitemap.tests
 	
 	
 # sqlall - Run sqlall command

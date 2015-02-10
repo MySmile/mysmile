@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: MySmile
-Version: 0.5.1
+Version: 0.5.3
 Author: Andrii Pryz
 Author-email: info@mysmile com ua
 Home-page: http://mysmile.com.ua
@@ -16,14 +16,14 @@ Description:
   Dependences
   ===========
 
-  a) Django 1.6.x: http://djangoproject.com, https://github.com/django/django
+  a) Django 1.7.x: http://djangoproject.com, https://github.com/django/django
   b) PIL library for working with images: https://github.com/python-imaging/Pillow
 
 
   Installation
   ============
 
-  1. Install dependences: $ pip install -r requirements.pip
+  1. Install dependences: $ pip3 install -r config/requirements/local.txt
 
   2. Unpack archive with MySmile to the project directory
 

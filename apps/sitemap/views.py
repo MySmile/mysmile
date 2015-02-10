@@ -17,4 +17,4 @@ def SitemapXML(request):
         modified = item['updated_at'].strftime('%Y-%m-%d')
         xml += createNode(url, modified)
     xml += '</urlset>'
-    return HttpResponse(xml, mimetype="text/xml")
+    return HttpResponse(xml, content_type="text/xml")
