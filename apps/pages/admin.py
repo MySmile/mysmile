@@ -24,6 +24,7 @@ class Page_translationInline(admin.StackedInline):
 
 
 class PageAdmin(admin.ModelAdmin):
+    form = PageForm
     inlines = [Page_translationInline]
     save_on_top = True
     readonly_fields = ('photo_thumb',)

@@ -14,7 +14,7 @@ APP_MIDDLEWARE_CLASSES = (
 )
 
 THIRD_PARTY_MIDDLEWARE_CLASSES = (
-#    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
 
 MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + APP_MIDDLEWARE_CLASSES + THIRD_PARTY_MIDDLEWARE_CLASSES
@@ -28,9 +28,9 @@ LOCAL_APPS = (
 )
 
 # another apps
-THIRD_PARTY_APPS = (#'debug_toolbar',
-	                 'compressor',
-	                 )
+THIRD_PARTY_APPS = ('debug_toolbar',
+	                'compressor',
+	                )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -39,22 +39,35 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Enter path to static folder in server.
-# For example, STATIC_ROOT = '/home/you_server_account/domains/you_domain_name/public_html/static/'
 STATIC_ROOT = ''
 
+STATICFILES_DIRS = (
+    os.path.join(STATIC_ROOT, 'themes/default/'),
+    os.path.join(STATIC_ROOT, 'third-party-components/'),
+    #os.path.join(STATIC_ROOT, 'admin/'),
+)
 
-# prepare tmp dir for cache
+
+#prepare tmp dir for cache
 if not os.path.exists(os.path.join(STATIC_ROOT, 'tmp/')):
-    os.makedirs(os.path.join(STATIC_ROOT, 'tmp/'))
+   os.makedirs(os.path.join(STATIC_ROOT, 'tmp/'))
+
+#flush tmp dir after restart server
+path_to_cache = os.path.join(STATIC_ROOT, 'tmp/')
+for item in os.listdir(path_to_cache):
+   shutil.rmtree(os.path.join(path_to_cache, item), ignore_errors=True)
 
 CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': tempfile.mkdtemp(dir=os.path.join(BASE_DIR, '..', 'tmp/')),
-        'TIMEOUT': None,
-    }
+   'default': {
+       'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+       'LOCATION': tempfile.mkdtemp(dir=os.path.join(STATIC_ROOT, 'tmp/')),
+       'TIMEOUT': None,
+   }
 }
 
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = False
+CACHE_MIDDLEWARE_SECONDS = 60*60*24
+CACHE_MIDDLEWARE_KEY_PREFIX = 'mysmile'
 
 # This is only used if CommonMiddleware is installed
 PREPEND_WWW = True
