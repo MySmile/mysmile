@@ -6,7 +6,7 @@ Technology
 +================+=====================+
 | Language       | Python 3.x          |
 +----------------+---------------------+
-| Framework      | Django 1.6.x        |
+| Framework      | Django 1.7.x        |
 +----------------+---------------------+
 | Database       | SQLite 3            |
 +----------------+---------------------+
@@ -14,8 +14,10 @@ Technology
 |                | CSS3 cross browser  |
 +----------------+---------------------+
 
+Also used third-party components:
 
-
+  1. JSColor: colorpicker in admin `<http://jscolor.com/>`_
+  
 
 
 

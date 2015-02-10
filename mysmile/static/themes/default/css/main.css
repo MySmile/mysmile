@@ -6,6 +6,7 @@
 h1 { font-family: Arial, Helvetica, sans-serif; font-size: 1.4em;}
 h1 a { text-decoration: none; color: #555555; }
 h2 { text-align: center; }
+ul { margin: 0 5px; padding: 0; list-style: none; }
 
 body, .pure-g [class *= "pure-u"], .pure-g-r [class *= "pure-u"] { font-family: Georgia, "Times New Roman", serif; }
 
@@ -50,7 +51,6 @@ border-bottom-right-radius: 1.25em; border-bottom-left-radius: 1.25em; }
 #inav ul { margin: 0; padding: 0; margin-top:0.3125em; list-style: none; list-style-position: outside; font-family: Arial, Helvetica, sans-serif; }
 #inav ul li { float: left; width: auto; font-size: 0.9375em; padding-right: 0.0625em; }
 #inav ul li a { padding: 0 0.3125em; text-decoration: none; }
-#inav ul li:hover { text-decoration: underline; }
 #inav ul .active a { text-decoration: none; }
 
 #contact { float: right; font-size: 0.8125em; }
@@ -60,7 +60,7 @@ border-bottom-right-radius: 1.25em; border-bottom-left-radius: 1.25em; }
 
 #line_left { height: 23em; width: 5px; float: left; border-top-right-radius: 1.25em; border-bottom-right-radius: 1.25em; padding-right: 15px; padding-top:0; margin-right:10px; border-right: 1px solid #999999; border-bottom: 1px solid #999999; }
 
-main { border-left: 1px solid #999; border-bottom: 1px solid #999999; border-right: 1px solid #999999; }
+main { overflow:hidden; border-left: 1px solid #999; border-bottom: 1px solid #999999; border-right: 1px solid #999999; }
 
 article { text-align: justify; }
 article h1 { margin: 0; padding: 0; }
@@ -72,7 +72,7 @@ figcaption { color: #888888; font-size: 0.6875em; padding-right: 0.625em; text-a
 .col_right_text { padding: 0.3125em 0.625em; text-align: left; }
 .col_central_text { padding: 0.3125em 0.625em 0.625em 0.625em; }
 
-#col_bottom { border-top: 2px solid #999; border-right: 1px solid #999; border-bottom: 1px solid #999; border-left: 1px solid #999; background-color: #E6E6E6;  text-align: justify; }
+#col_bottom { width:100%; border-top: 2px solid #999; border-right: 1px solid #999; border-bottom: 1px solid #999; border-left: 1px solid #999; background-color: #E6E6E6;  text-align: justify; }
 #col_bottom aside > div { padding: 0.3125em 0.625em; }
 
 footer { width:100%; height: 2.1em;  font-size: 0.8125em; background-color: #999999; color: #FFFFFF; }
@@ -91,5 +91,5 @@ footer { width:100%; height: 2.1em;  font-size: 0.8125em; background-color: #999
 #advertisement { width:100%; padding-top: 0.45em; }
 #banner { float: left; }
 #banner a img{ height: initial; }
-#version { font-size: 0.75em; letter-spacing: normal; }
+#version { float:right; font-size: 0.75em; letter-spacing: normal; }
 #version span { float:right; padding-right: 0.625em; }

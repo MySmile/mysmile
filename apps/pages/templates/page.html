@@ -12,13 +12,19 @@
 
 {% block css %}{% endblock %}
 {% block js %}{% endblock %}
-
+	
 {% block google_analytics %} 
     {% if GOOGLE_ANALITYCS_CODE %}<!-- {% now "jS F Y H:i" %} -->
         {% include "includes/google_analytics.html" %}
     {% endif %}    
 {% endblock %}
 
+
+{% block logo %}
+        <a href="/{{ lang }}/{{ main_menu.0.page__slug }}.html"><img 
+class="pure-img" src="{% static "images/logo.png" %}" width="108" height="115" alt="MySmile logo" /></a>
+{% endblock %}
+       
 {% block flags %}
     <ul>
         {% for lang in LANGUAGES %}
@@ -51,7 +57,7 @@
 </ul>
 {% endblock %}
 
-{% block contact %} <!-- {% now "jS F Y H:i" %} -->
+{% block contact %}
 <ul>
 {% if EMAIL %}
     <li><img class="pure-img" src="{% static 'images/email.png' %}" height="16" width="16" alt="email" />
@@ -97,13 +103,9 @@ src="{{ youtube|embed }}" frameborder="0" allowfullscreen></iframe>
 
 
 {% block advertisement %}
-<div id="advertisement" class="pure-g">
-    <div id="banner" class="pure-u-md-18-24"><a href="https://hosting4django.net/aff.php?aff=009"><img class="pure-img" 
-    src="{% static 'images/logohosting.png' %}" alt="A best Django hosting!" 
-    title="A best Django hosting!" width="237" height="41" /></a>
-    </div> 
+<div id="advertisement">
     
-    <div id="version" class="pure-u-md-6-24"><span>powered by <a href="http://mysmile.com.ua">MySmile</a></span>
+    <div id="version"><span>powered by <a href="http://mysmile.com.ua">MySmile</a></span>
     </div>
 </div>
 {% endblock %}

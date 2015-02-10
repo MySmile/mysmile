@@ -3,19 +3,23 @@ from django.http import HttpResponse
 from django.views.generic.base import View
 from django.db import DatabaseError
 from django.core.exceptions import FieldError
+from django.conf import settings
 
 from apps.pages.models import Page, Page_translation
-from mysmile.settings.main import LANGUAGES
 from apps.api.exceptions import MySmileApiException
-from apps.settings.managers import SettingsManager
+from apps.preferences.models import Preferences
 
+
+import logging
+logger = logging.getLogger(__name__)
 
 class MySmileApi(View):
 
-    def __init__(self, **kwargs):
-        api_on_off = SettingsManager().value('REST_API')
+    def dispatch(self, request, *args, **kwargs):
+        api_on_off = Preferences.objects.filter(key='REST_API').values('value')
         if 'False' == api_on_off:
             raise MySmileApiException('Forbidden', 403)
+        return super(MySmileApi, self).dispatch(request, *args, **kwargs)
 
     def get(self, request, resource):
         self.lang = request.GET.get('lang', 'en')
@@ -36,11 +40,12 @@ class MySmileApi(View):
         except MySmileApiException as inst:
             response_data = {'code': inst.code, 'msg': inst.msg}
 
-        except (DatabaseError, FieldError, KeyError, Exception):
+        except (DatabaseError, FieldError, KeyError, Exception) as err:
+            logger.error(err)
             # @FIXME save exception details to log
             response_data = {'code': 500, 'msg': 'Internal Server Error'}
 
-        return HttpResponse(json.dumps(response_data), mimetype="application/json", status=response_data['code'])
+        return HttpResponse(json.dumps(response_data), content_type="application/json", status=response_data['code'])
 
     def get_content(self, request):
         response_data = {'code': 200, 'data': {}}
@@ -87,26 +92,26 @@ class MySmileApi(View):
 
     def get_contact(self):
         response_data = {'code': 200}
-        response_data['data'] = SettingsManager().get_contact()
+        response_data['data'] = Preferences.objects.get_contact()
         return response_data
 
     def get_language(self):
         response_data = {'code': 200}
-        response_data['data'] = [item[0] for item in LANGUAGES]
+        response_data['data'] = [item[0] for item in settings.LANGUAGES]
 
         return response_data
 
     def post(self, request, resource):
         response_data = {'code': 502, 'msg': 'Method Not Allowed'}
 
-        return HttpResponse(json.dumps(response_data), mimetype="application/json", status=502)
+        return HttpResponse(json.dumps(response_data), content_type="application/json", status=502)
 
     def put(self, request, resource):
         response_data = {'code': 502, 'msg': 'Method Not Allowed'}
 
-        return HttpResponse(json.dumps(response_data), mimetype="application/json", status=502)
+        return HttpResponse(json.dumps(response_data), content_type="application/json", status=502)
 
     def delete(self, request, resource):
         response_data = {'code': 502, 'msg': 'Method Not Allowed'}
 
-        return HttpResponse(json.dumps(response_data), mimetype="application/json", status=502)
+        return HttpResponse(json.dumps(response_data), content_type="application/json", status=502)

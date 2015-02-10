@@ -21,7 +21,8 @@
 <p>Please try {% if langs %}
                   <ul>
                   {% for item in langs %}
-                  <li><img src="{% static 'images/'|add:item|add:'.png' %}" alt="{{ item }}" width="24" height="24" /> <a href="/{{ item }}/{{ slug }}.html">http://{{ request_host }}/{{ item }}/{{ slug }}.html</a></li>
+                  <li><img src="{% static 'images/flags/'|add:item|add:'.png' %}" alt="{{ item }}" width="24" 
+height="24" /> <a href="/{{ item }}/{{ slug }}.html">http://{{ request_host }}/{{ item }}/{{ slug }}.html</a></li>
                   {% endfor %}
                   </ul>
               {% else %}

@@ -2,89 +2,82 @@
 Django settings/local.py for MySmile development project.
 """
 import os
-import datetime
+import shutil
 import tempfile
 
 from .base import *
 from config.local import *
 
 
-TEMPLATE_DEBUG = DEBUG
+APP_MIDDLEWARE_CLASSES = (
+    'apps.preferences.middlewares.ExceptionLoggingMiddleware',
+)
 
-# apps
-THIRD_PARTY_APPS = ()
+THIRD_PARTY_MIDDLEWARE_CLASSES = (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    )
+
+MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + APP_MIDDLEWARE_CLASSES + THIRD_PARTY_MIDDLEWARE_CLASSES
+
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'apps.api',
     'apps.pages',
-    'apps.settings',
+    'apps.preferences',
     'apps.sitemap',
-)
+    )
+
+# another apps
+THIRD_PARTY_APPS = ('debug_toolbar',
+                    'compressor',
+                    )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
-########## END APP CONFIGURATION
+# END APP CONFIGURATION
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-STATIC_ROOT = os.path.join(BASE_DIR, '')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+STATICFILES_DIRS = (
+    os.path.join(STATIC_ROOT, 'themes/default/'),
+    os.path.join(STATIC_ROOT, 'third-party-components/'),
+    #os.path.join(STATIC_ROOT, 'admin/'),
+)
 
 
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-         'verbose': {
-             'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-             'datefmt' : "%d/%b/%Y %H:%M:%S"
-         },
-         'simple': {
-             'format': '%(levelname)s %(message)s'
-         },
-     },
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-        #~ 'mail_admins': {
-            #~ 'level': 'DEBUG',
-            #~ 'filters': ['require_debug_false'],
-            #~ 'class': 'django.utils.log.AdminEmailHandler'
-        #~ },
-        'file': {
-               'level': 'INFO',
-               'class': 'logging.FileHandler',
-               'filename': os.path.join(BASE_DIR,  '../log/ERRORS/info_'+datetime.datetime.now().strftime('%Y-%m-%d')+'.log'),
-               'formatter': 'verbose'
-           },        
-    },
-    'loggers': {
-        #~ 'django.request': {
-            #~ 'handlers': ['mail_admins'],
-            #~ 'level': 'DEBUG',
-            #~ 'propagate': True,
-        #~ },
-        'django.request': {
-        'handlers': ['file'],
-        'level': 'ERROR',
-        },
-    }
-}
+#prepare tmp dir for cache
+if not os.path.exists(os.path.join(STATIC_ROOT, 'tmp/')):
+   os.makedirs(os.path.join(STATIC_ROOT, 'tmp/'))
+
+#flush tmp dir after restart server
+path_to_cache = os.path.join(STATIC_ROOT, 'tmp/')
+for item in os.listdir(path_to_cache):
+   shutil.rmtree(os.path.join(path_to_cache, item), ignore_errors=True)
+   
 
 CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION':  tempfile.mkdtemp(dir=os.path.join(BASE_DIR, '..',  'tmp/')),
-        
-         #  in Django 1.7 You can set TIMEOUT to None so that, by default, cache keys never expire
-        'TIMEOUT': 24*60*60*356*100,
-    }
+   'default': {
+       'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+       'LOCATION': tempfile.mkdtemp(dir=os.path.join(STATIC_ROOT, 'tmp/')),
+       'TIMEOUT': None,
+   }
 }
 
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = False
+CACHE_MIDDLEWARE_SECONDS = 60*60*24
+CACHE_MIDDLEWARE_KEY_PREFIX = 'mysmile'
+
+
+# compressor settings
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ENABLED = False
+
+COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
