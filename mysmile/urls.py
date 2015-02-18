@@ -41,6 +41,3 @@ if settings.DEBUG_TOOLBAR_PATCH_SETTINGS:
     urlpatterns += patterns('',
         url(r'^__debug__/', include(debug_toolbar.urls)),
     )
-
-
-

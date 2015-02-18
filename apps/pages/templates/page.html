@@ -27,9 +27,11 @@ class="pure-img" src="{% static "images/logo.png" %}" width="108" height="115" a
        
 {% block flags %}
     <ul>
-        {% for lang in LANGUAGES %}
-        <li><a href="/{{ lang.0 }}/{{ slug }}.html"><img class="pure-img" src="{% static 'images/flags/'|add:lang.0|add:'.png' %}" width="24" height="24" alt="{{ lang.1 }}"></a></li>
-        {% endfor %} 
+        {% if LANGUAGES|length > 1 %}
+            {% for lang in LANGUAGES  %}
+            <li><a href="/{{ lang.0 }}/{{ slug }}.html"><img class="pure-img" src="{% static 'images/flags/'|add:lang.0|add:'.png' %}" width="24" height="24" alt="{{ lang.1 }}"></a></li>
+            {% endfor %}
+        {% endif %}
     </ul>
 {% endblock %}
 

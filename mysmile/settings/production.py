@@ -39,7 +39,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Enter path to static folder in server.
-STATIC_ROOT = ''
+STATIC_ROOT = None
 
 STATICFILES_DIRS = (
     os.path.join(STATIC_ROOT, 'themes/default/'),
