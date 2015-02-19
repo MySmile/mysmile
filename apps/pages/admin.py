@@ -65,17 +65,17 @@ class PageAdmin(admin.ModelAdmin):
 
     def get_fieldsets(self, request, obj=None):
         fieldsets = super(PageAdmin, self).get_fieldsets(request, obj)
-        photo = Page.objects.filter(id=obj.id).values_list('photo',flat=True)[0]
-        if photo:
-            fieldsets = [('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder',
-                                                  'color', ('photo', 'photo_thumb')]}),]
-        else:
-            fieldsets = [('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder',
-                                                  'color', ('photo',)]}),]
+        if obj:
+            photo = Page.objects.filter(id=obj.id).values_list('photo',flat=True)[0]
+            if photo:
+                fieldsets = [('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder',
+                                                      'color', ('photo', 'photo_thumb')]}),]
+            else:
+                fieldsets = [('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder',
+                                                      'color', ('photo',)]}),]
         return fieldsets
 
 
 
 admin.site.register(Page, PageAdmin)
-
 

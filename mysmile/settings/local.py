@@ -10,7 +10,7 @@ from config.local import *
 
 
 APP_MIDDLEWARE_CLASSES = (
-    'apps.preferences.middlewares.ExceptionLoggingMiddleware',
+    'apps.utils.middlewares.ExceptionLoggingMiddleware',
 )
 
 THIRD_PARTY_MIDDLEWARE_CLASSES = (
@@ -26,6 +26,7 @@ LOCAL_APPS = (
     'apps.pages',
     'apps.preferences',
     'apps.sitemap',
+    'apps.utils',
     )
 
 # another apps

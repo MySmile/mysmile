@@ -3,5 +3,5 @@ from django.apps import AppConfig
 
 class ApiConfig(AppConfig):
     name = 'apps.api'
-    verbose_name = "Api"
+    verbose_name = 'Api'
     label = 'api'

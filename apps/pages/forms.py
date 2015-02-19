@@ -24,4 +24,16 @@ class PageForm(ModelForm):
             #'all': ('zzzZZZzzz.css',)
         #}
 
-
+    # def clean_photo(self):
+    #     new_photo = self.cleaned_data['photo']
+    #     self.
+    #     if new_photo != self.old_photo:
+    #         from PIL import Image
+    #         path = new_photo
+    #         image = Image.open(path)
+    #         image.save(path,quality=20,optimize=True)
+    #         print('PHOTO UPDATE')
+    #     else:
+    #         print('NOT_NOT-NOT')
+    #
+    #     return new_photo

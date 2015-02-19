@@ -1,11 +1,7 @@
 from django.db import models
 from django.http import Http404
-# from django.db import connections, transaction
-# from django.db.models.signals import post_save
-# from django.conf import settings
 
 from mysmile.settings.base import LANGUAGES
-
 
 class ImageField(models.ImageField):
 
@@ -74,6 +70,16 @@ class Page(models.Model):
             return ''
     photo_thumb.allow_tags = True
 
+    def save(self, *args, **kwargs):
+        old_path = self.photo.path if self.photo else None # save old photo
+        super(Page, self).save(*args, **kwargs) # Call the "real" save() method.
+        if self.photo and (self.photo.path != old_path):
+            path = self.photo.path
+            from PIL import Image
+            image = Image.open(path)
+            image.save(path, quality=20, optimize=True)
+
+
     def __setattr__(self, name, value):
         if name.isupper():
             raise AttributeError(name + " is an immutable attribute.")
@@ -121,18 +127,3 @@ class Page_translation(models.Model):
         verbose_name = 'Translation'
         verbose_name_plural = 'Translations'
         unique_together = ('page', 'lang')
-
-#
-# # post_save signals for clear cache
-# def clear_cache(sender, instance, **kwargs):
-#     print('Cache before clearing')
-#     cursor = connections['default'].cursor()
-#     cache_table = settings.CACHES['default']['LOCATION']
-#     cursor.execute(' '.join(['DELETE FROM ', cache_table]))
-#     transaction.commit_unless_managed(using='default')
-#     print('AFTER before clearing.......')
-#
-# # register the signal
-# post_save.connect(clear_cache, sender=Page, dispatch_uid="clear_cache_after_changes")
-# post_save.connect(clear_cache, sender=Page_translation, dispatch_uid="clear_cache_after_changes")
-#
