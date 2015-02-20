@@ -69,7 +69,12 @@ class Page(models.Model):
 
     def photo_thumb(self):
         if self.photo:
-            return '<img src="' + self.photo.url + '" height="48"/>'
+            description =  ''.join(['<img src="', self.photo.url, '" height="32"/> ',
+                                     str(round(self.photo.size/1024,2)), 'K, '
+                                    'WxH: ', str(self.photo.width), 'x',
+                                    str(self.photo.height),'px'])
+
+            return description
         else:
             return ''
     photo_thumb.allow_tags = True
