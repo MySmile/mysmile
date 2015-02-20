@@ -1,7 +1,11 @@
+from PIL import Image
+
 from django.db import models
 from django.http import Http404
 
 from mysmile.settings.base import LANGUAGES
+from apps.preferences.models import Preferences
+
 
 class ImageField(models.ImageField):
 
@@ -75,9 +79,9 @@ class Page(models.Model):
         super(Page, self).save(*args, **kwargs) # Call the "real" save() method.
         if self.photo and (self.photo.path != old_path):
             path = self.photo.path
-            from PIL import Image
+            quality = int(Preferences.objects.filter(key='IMAGE_QUALITY').values_list('value', flat=True)[0])
             image = Image.open(path)
-            image.save(path, quality=20, optimize=True)
+            image.save(path, quality=quality, optimize=True)
 
 
     def __setattr__(self, name, value):
