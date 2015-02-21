@@ -28,7 +28,6 @@ urlpatterns = patterns('',
 handler404 = 'apps.preferences.views.e404'
 handler500 = 'apps.preferences.views.e500'
 
-from django.conf.urls.static import static
 
 if settings.DEBUG:
     urlpatterns += patterns('django.views.static',

@@ -38,11 +38,8 @@ THIRD_PARTY_APPS = ('debug_toolbar',
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # END APP CONFIGURATION
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/'),
-
     os.path.join(BASE_DIR, 'static/themes/default/'),
     os.path.join(BASE_DIR, 'static/fonts/'),
     os.path.join(BASE_DIR, 'static/third-party-components/'),
@@ -55,10 +52,6 @@ CACHES = {
     }
 }
 
-#CACHE_MIDDLEWARE_ANONYMOUS_ONLY = False
-CACHE_MIDDLEWARE_SECONDS = 60*60*24
-#CACHE_MIDDLEWARE_KEY_PREFIX = 'mysmile'
-
 # compressor settings
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -66,9 +59,5 @@ STATICFILES_FINDERS = (
     # other finders..
     'compressor.finders.CompressorFinder',
 )
-
-COMPRESS_ROOT = os.path.join(BASE_DIR, 'static/')
-
-COMPRESS_ENABLED = True
 
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
