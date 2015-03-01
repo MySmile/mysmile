@@ -9,4 +9,10 @@
 
 {% block nav-global %}{% endblock %}
 
-{% block footer %}<div id="footer">{% include 'admin/change_language.html' %}</div>{% endblock %}
+{% block footer %}
+    <div id="footer">
+        {% if LANGUAGES|length > 1 %}
+            {% include 'admin/change_language.html' %}
+        {% endif %}
+    </div>
+{% endblock %}

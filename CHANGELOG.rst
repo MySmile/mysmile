@@ -2,10 +2,12 @@
 Changelog
 *********
 
-**2015-xx-xx Version 0.6.0**
-  - Implementing soft delete pages
-  - Added setting for themes in admin panel
-
+**2015-03-01 Version 0.6.0**
+  - Added global setting quality uploaded pictures
+  - Added info for photo thumb into admin
+  - Hide language flag if only one is provided
+  - Cache full pages. It's auto renewal when detect changes through admin panel 
+  
 **2015-02-09 Version 0.5.3**
   - Added compressor for css and js
   - Integrated Travis CI and Coveralls

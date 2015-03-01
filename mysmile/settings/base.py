@@ -51,7 +51,7 @@ USE_TZ = True
 LANGUAGES = (
     ('en', 'English'),
     #~ ('pl', 'Polski'),
-    ('ua', 'Українська'),
+    ('uk', 'Українська'),
     ('ru', 'Русский'),
 )
 
