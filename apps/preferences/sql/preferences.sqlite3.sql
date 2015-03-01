@@ -12,4 +12,7 @@ user follow links inside page. Generally inner pages used only as a link inside 
 CURRENT_TIMESTAMP),
 (6, 'REST_API', 'True', 'Turn on/off REST Api', 'Turn on/off alternative way of getting pages using REST api. Only a 
 special marked pages can be available for api. For more information please look into page statuses list.', 
+CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(7, 'IMAGE_QUALITY', '70', 'Image quality', 'Global setting quality uploaded pictures. The picture quality 
+is directly proportional to the size of the file. A value of 100 corresponds to the maximum quality.', 
 CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);

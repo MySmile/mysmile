@@ -7,7 +7,6 @@ from apps.pages.models import Page, Page_translation
 
 class ApiTestCase(TestCase):
     def setUp(self):
-        # app_settings = PreferencesManager()
         some_page = Page.objects.create(id=1,
                         slug='index',
                         color='#FDA132',

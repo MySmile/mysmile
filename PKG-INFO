@@ -1,62 +1,62 @@
 Metadata-Version: 1.1
 Name: MySmile
-Version: 0.5.3
+Version: 0.6.0
 Author: Andrii Pryz
 Author-email: info@mysmile com ua
 Home-page: http://mysmile.com.ua
 Summary: MySmile is the lightweight open-source CMS based on latest Django version. 
 License: BSD
 Download-URL: UNKNOWN
-Description: 
-  About
-  =====
 
-  MySmile is the lightweight open-source CMS based on Django. It helps to create websites with configurable design and minimum cost. 
+Description: About
+             =====
 
-  Dependences
-  ===========
+             MySmile is the lightweight open-source CMS based on Django. It helps to create websites with configurable design and minimum cost.
 
-  a) Django 1.7.x: http://djangoproject.com, https://github.com/django/django
-  b) PIL library for working with images: https://github.com/python-imaging/Pillow
+             Dependences
+             ===========
+
+             a) Django 1.7.x: http://djangoproject.com, https://github.com/django/django
+             b) PIL library for working with images: https://github.com/python-imaging/Pillow
 
 
-  Installation
-  ============
+             Installation
+             ============
 
-  1. Install dependences: $ pip3 install -r config/requirements/local.txt
+             1. Install dependences: $ pip3 install -r config/requirements/local.txt
 
-  2. Unpack archive with MySmile to the project directory
+             2. Unpack archive with MySmile to the project directory
 
-  3. In the project directory run a command in the terminal: 
-	  
-	`python3 manage.py runserver`
-	  
-	Now your website is available here:
-	  
-	`<http://127.0.0.1:8000>`_ 
+             3. In the project directory run a command in the terminal:
 
-  4. Change default credentials to admin page:
+             `python3 manage.py runserver`
 
-	4.1. Link to admin page: 
-	
-	`<http://127.0.0.1:8000/admin>`_
-	
-	4.2. Log in with default credentials: 
-	
-	`login: test` 
-	
-	`password: test`
+             Now your website is available here:
 
-  Links
-  =====
+             `<http://127.0.0.1:8000>`_
 
-  Demo version is avalible on `<http://demo.mysmile.com.ua>`_
+             4. Change default credentials to admin page:
 
-  Development version is available on GitHub: `<https://github.com/MySmile/MySmile.git>`_
+             4.1. Link to admin page:
 
-  Read latest documentation on `<http://mysmile.readthedocs.org/en/latest/>`_
-	  
-  **Welcome to MySmile!**
+             `<http://127.0.0.1:8000/admin>`_
+
+             4.2. Log in with default credentials:
+
+             `login: test`
+
+             `password: test`
+
+             Links
+             =====
+
+             Demo version is avalible on `<http://demo.mysmile.com.ua>`_
+
+             Development version is available on GitHub: `<https://github.com/MySmile/MySmile.git>`_
+
+             Read latest documentation on `<http://mysmile.readthedocs.org/en/latest/>`_
+
+             **Welcome to MySmile!**
 
 
 Classifier: Development Status :: 5 - Production/Stable

@@ -1,7 +1,11 @@
+from PIL import Image
+
 from django.db import models
 from django.http import Http404
 
 from mysmile.settings.base import LANGUAGES
+from apps.preferences.models import Preferences
+
 
 class ImageField(models.ImageField):
 
@@ -65,10 +69,25 @@ class Page(models.Model):
 
     def photo_thumb(self):
         if self.photo:
-            return '<img src="' + self.photo.url + '" height="48"/>'
+            description =  ''.join(['<img src="', self.photo.url, '" height="32"/> ',
+                                     str(round(self.photo.size/1024,2)), 'K, '
+                                    'WxH: ', str(self.photo.width), 'x',
+                                    str(self.photo.height),'px'])
+
+            return description
         else:
             return ''
     photo_thumb.allow_tags = True
+
+    def save(self, *args, **kwargs):
+        old_path = self.photo.path if self.photo else None # save old photo
+        super(Page, self).save(*args, **kwargs) # Call the "real" save() method.
+        if self.photo and (self.photo.path != old_path):
+            path = self.photo.path
+            quality = int(Preferences.objects.filter(key='IMAGE_QUALITY').values_list('value', flat=True)[0])
+            image = Image.open(path)
+            image.save(path, quality=quality, optimize=True)
+
 
     def __setattr__(self, name, value):
         if name.isupper():
@@ -117,7 +136,3 @@ class Page_translation(models.Model):
         verbose_name = 'Translation'
         verbose_name_plural = 'Translations'
         unique_together = ('page', 'lang')
-
-
-
-

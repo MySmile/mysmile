@@ -8,8 +8,6 @@ logger = logging.getLogger(__name__)  # Get an instance of a logger
 
 from apps.pages.models import Page, Page_translation
 
-# Create your views here.
-
 
 @requires_csrf_token
 def e404(request, template_name='404.html'):

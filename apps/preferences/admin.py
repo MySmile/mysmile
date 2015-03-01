@@ -1,7 +1,4 @@
 from django.contrib import admin
-from django.db.models.signals import post_save
-from django.core.cache import cache
-from django.core.cache.utils import make_template_fragment_key
 
 from apps.preferences.models import Preferences
 from apps.preferences.forms import PreferencesForm
@@ -28,12 +25,4 @@ class PreferencesAdmin(admin.ModelAdmin):
         """ 
         return False
 
-def clear_cach(sender, instance, **kwargs):
-    """Clear cache after save in admin
-    """
-    key = make_template_fragment_key('block_contact')
-    cache.delete(key)
-    cache.delete('app_settings')
-
-post_save.connect(clear_cach, sender=Preferences, dispatch_uid="clear_cach_from_admin")
 admin.site.register(Preferences, PreferencesAdmin)

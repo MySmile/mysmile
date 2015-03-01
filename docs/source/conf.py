@@ -44,7 +44,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'MySmile'
-copyright = u'2014, Andrii Pryz'
+copyright = u'2015, MySmile team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -220,7 +220,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   ('index', 'MySmile.tex', u'MySmile documentation',
-   u'Andrii Pryz', 'manual'),
+   u'MySmile team', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -251,7 +251,7 @@ latex_logo = '_static/logo.png'
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'mysmile', u'MySmile documentation',
-     [u'Andrii Pryz'], 1)
+     [u'MySmile team'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -265,7 +265,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'MySmile', u'MySmile documentation',
-   u'Andrii Pryz', 'MySmile', 'It helps to create websites with configurable design and minimum cost',
+   u'MySmile team', 'MySmile', 'It helps to create websites with configurable design and minimum cost',
    'Miscellaneous'),
 ]
 

@@ -24,6 +24,7 @@ class Preferences(models.Model):
     KEY_GOOGLE_ANALITYCS_CODE = 'GOOGLE_ANALITYCS_CODE'
     KEY_MAX_INNERLINK_HISTORY = 'MAX_INNERLINK_HISTORY'
     KEY_REST_API = 'REST_API'
+    KEY_IMAGE_QUALITY = 'IMAGE_QUALITY'
 
     CONTACT = {KEY_PHONE: 'phone', KEY_EMAIL: 'email', KEY_SKYPE: 'skype'}
 
@@ -38,7 +39,9 @@ class Preferences(models.Model):
                {'key': KEY_MAX_INNERLINK_HISTORY, 'value': 4,
                 'name': 'Max number of inner pages', 'description': 'Number of pages that can be shown under main menu when user follow links inside page. Generally inner pages used only as a link inside content.'},
                {'key': KEY_REST_API, 'value': True,
-                'name': 'Turn on/off REST Api', 'description': 'Turn on/off alternative way of getting pages using REST api. Only a special marked pages can be available for api. For more information please look into page statuses list.'})
+                'name': 'Turn on/off REST Api', 'description': 'Turn on/off alternative way of getting pages using REST api. Only a special marked pages can be available for api. For more information please look into page statuses list.'},
+               {'key': KEY_IMAGE_QUALITY, 'value': 100,
+                'name': 'Image quality', 'description': 'Global setting quality uploaded pictures. The picture quality is directly proportional to the size of the file. A value of 100 corresponds to the maximum quality.'})
 
     key = models.CharField(unique=True, max_length=500)
     value = models.CharField(blank=True, null=True, max_length=500)

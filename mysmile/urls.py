@@ -28,7 +28,6 @@ urlpatterns = patterns('',
 handler404 = 'apps.preferences.views.e404'
 handler500 = 'apps.preferences.views.e500'
 
-from django.conf.urls.static import static
 
 if settings.DEBUG:
     urlpatterns += patterns('django.views.static',
@@ -41,6 +40,3 @@ if settings.DEBUG_TOOLBAR_PATCH_SETTINGS:
     urlpatterns += patterns('',
         url(r'^__debug__/', include(debug_toolbar.urls)),
     )
-
-
-
