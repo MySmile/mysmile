@@ -1,6 +1,7 @@
 # secret settings
 import os
 from mysmile.settings.base import BASE_DIR
+from config.mysmile import *
 
 
 DEBUG = False
@@ -46,7 +47,10 @@ ADMINS = (
 )
 
 # This is only used if CommonMiddleware is installed
-PREPEND_WWW = True
+PREPEND_WWW = False
 
 # This is only used if CommonMiddleware is installed
 APPEND_SLASH = True
+
+# To fix the django.fcgi url problem
+FORCE_SCRIPT_NAME = ''

@@ -92,7 +92,7 @@ LOGGING = {
                'level': 'INFO',
                'class': 'logging.handlers.RotatingFileHandler',
                'formatter': 'verbose',
-               'filters': ['require_debug_true'],
+               'filters': ['require_debug_false'],
                'filename': os.path.join(BASE_DIR,  '../log/'+datetime.datetime.now().strftime('%Y-%m-%d')+'_INFO.log'),
                'maxBytes': 1024*1024*5, # 5 MB
                'backupCount': 5
@@ -101,7 +101,7 @@ LOGGING = {
                'level': 'ERROR',
                'class': 'logging.handlers.RotatingFileHandler',
                'formatter': 'verbose',
-               'filters': ['require_debug_true'],
+               'filters': ['require_debug_false'],
                'filename': os.path.join(BASE_DIR,  '../log/'+datetime.datetime.now().strftime('%Y-%m-%d')+'_ERROR.log'),
                'maxBytes': 1024*1024*5, # 5 MB
                'backupCount': 5
@@ -114,13 +114,18 @@ LOGGING = {
     },
 
     'loggers': {
-        '': {
-            'handlers': ['file_info', 'file_error'],
+        'info': {
+            'handlers': ['file_info',],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'error': {
+            'handlers': ['file_error'],
             'level': 'DEBUG',
             'propagate': False,
         },
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['mail_admins', 'file_error'],
             'level': 'ERROR',
             'propagate': False,
         },

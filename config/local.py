@@ -1,9 +1,9 @@
 # secret settings
 import os
 from mysmile.settings.base import BASE_DIR
+from config.mysmile import *
 
-
-DEBUG = True
+DEBUG = False
 
 COMPRESS_ENABLED = True
 

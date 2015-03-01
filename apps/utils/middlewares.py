@@ -1,6 +1,11 @@
+from django.http import HttpResponsePermanentRedirect
+from django.conf import settings
+
 import logging
+logger = logging.getLogger(__name__)
+
 
 class ExceptionLoggingMiddleware(object):
 
     def process_exception(self, request, exception):
-        logging.exception('Exception handling request for ' + request.path)
+        logger.error('Exception handling request for ' + request.path)

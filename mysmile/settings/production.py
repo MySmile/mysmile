@@ -6,11 +6,12 @@ import shutil
 import tempfile
 
 from .base import *
-from config.local import *
+from config.production import *
 
 
 APP_MIDDLEWARE_CLASSES = (
     'apps.utils.middlewares.ExceptionLoggingMiddleware',
+    'apps.utils.middlewares.NoWwwMiddleware',
 )
 
 THIRD_PARTY_MIDDLEWARE_CLASSES = (
