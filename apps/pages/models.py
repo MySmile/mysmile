@@ -16,6 +16,9 @@ class ImageField(models.ImageField):
                 file.delete(save=False)
         super(ImageField, self).save_form_data(instance, data)
 
+def create_default_sortorder():
+    return Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+Page.SORTORDER_STEP
+
 
 class PagesManager(models.Manager):
     def get_content(self, lang=None, slug=None):
@@ -59,7 +62,7 @@ class Page(models.Model):
                                         a color, and then twice to save')
     # blank=True add "clear image" checkbox into admin page
     photo = ImageField(upload_to='images/', null=True, blank=True)
-    sortorder = models.IntegerField(unique=True, default=lambda: Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+Page.SORTORDER_STEP, verbose_name='Sort order')
+    sortorder = models.IntegerField(unique=True, default=create_default_sortorder, verbose_name='Sort order')
     status = models.IntegerField(unique=False, choices=STATUS, default=STATUS_DRAFT)
     ptype = models.IntegerField(unique=False, choices=PTYPE, default=PTYPE_MENU, verbose_name='Page type')
     created_at = models.DateTimeField(auto_now_add=True)

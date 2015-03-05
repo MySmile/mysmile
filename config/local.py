@@ -42,3 +42,4 @@ CACHE_MIDDLEWARE_SECONDS = 60*60*24
 ADMINS = (
     ('admin', 'info@mysmile.com.ua'),
 )
+
