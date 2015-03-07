@@ -11,6 +11,7 @@ from config.production import *
 
 APP_MIDDLEWARE_CLASSES = (
     'apps.utils.middlewares.ExceptionLoggingMiddleware',
+    'apps.utils.middlewares.AdminLocaleOneLangMiddleware',
 )
 
 THIRD_PARTY_MIDDLEWARE_CLASSES = (

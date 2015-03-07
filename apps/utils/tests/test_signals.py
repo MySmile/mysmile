@@ -35,5 +35,5 @@ class SignalsTestCase(TestCase):
                         created_at=datetime.datetime.now())
         self._client = Client()
 
-     def test_clear_photo_file(self):
-        pass
+    def test_clear_photo_file(self):
+		pass
