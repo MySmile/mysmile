@@ -14,4 +14,4 @@ Technical specification
    Menu
    Content/index
    Admin panel <AdminPanel>
-   References
+   UsefulLinks
