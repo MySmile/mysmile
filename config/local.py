@@ -4,7 +4,7 @@ from mysmile.settings.base import BASE_DIR
 
 DEBUG = True
 
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = False
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
@@ -29,15 +29,15 @@ DATABASES = {
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
+# Enter path to media folder
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-# Enter path to static folder in server.
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# Enter path to static folder
+STATIC_ROOT = ''
 
-COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_ROOT = os.path.join(BASE_DIR, 'static/')
 
-CACHE_MIDDLEWARE_SECONDS = 60*60*24
-
+CACHE_MIDDLEWARE_SECONDS = 5 #60*60*24
 
 ADMINS = (
     ('admin', 'info@mysmile.com.ua'),

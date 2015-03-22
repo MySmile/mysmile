@@ -63,7 +63,7 @@ MEDIA_URL = '/media/'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
-    os.path.join(BASE_DIR, 'static/themes/default'),
+    os.path.join(BASE_DIR, '../apps/pages/templates/themes'),
 )
 
 LOGGING = {
