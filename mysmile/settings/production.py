@@ -7,6 +7,7 @@ import tempfile
 
 from .base import *
 from config.production import *
+from config.mysmile import *
 
 
 APP_MIDDLEWARE_CLASSES = (

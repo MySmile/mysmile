@@ -7,6 +7,7 @@ import tempfile
 
 from .base import *
 from config.local import *
+from config.mysmile import *
 
 
 APP_MIDDLEWARE_CLASSES = (
@@ -64,4 +65,3 @@ STATICFILES_FINDERS = (
 
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
 
-from config.mysmile import *

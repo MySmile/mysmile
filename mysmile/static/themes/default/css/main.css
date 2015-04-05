@@ -16,6 +16,7 @@ aside {
 
 /* Navbar styles
 -------------------------------------------------- */
+
 .navbar-default {
     background-color: #FFE9CE;
     border-color: #FFD7A7;
@@ -30,6 +31,9 @@ aside {
     background-color: #FFD7A7;
 }
 
+.navbar-translate li {
+    float: left;
+}
 
 .navbar-translate>li>a {
     padding-bottom: 10px;
