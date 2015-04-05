@@ -36,7 +36,7 @@ class PageRedirectView(RedirectView):
 
 
 class PageView(TemplateView):
-    template_name='page.html'
+    template_name='default/page.html'
 
     def get_context_data(self, **kwargs):
         context = super(PageView, self).get_context_data(**kwargs)

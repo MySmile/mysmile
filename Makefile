@@ -11,11 +11,8 @@ help:
 	@egrep "^# [a-z,\",=,_ ]+ - " Makefile	
 
 test:
-	@python3 manage.py test apps.api.tests
-	@python3 manage.py test apps.pages.tests
-	@python3 manage.py test apps.preferences.tests
-#	@python3 manage.py test apps.sitemap.tests
-	
+	@python3 manage.py test --pattern="test_*.py" --settings=mysmile.settings.test
+
 	
 # sqlall - Run sqlall command
 sqlall:	

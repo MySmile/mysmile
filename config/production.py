@@ -1,8 +1,6 @@
-# secret settings
+# secret production settings
 import os
 from mysmile.settings.base import BASE_DIR
-from config.mysmile import *
-
 
 DEBUG = False
 
@@ -28,7 +26,6 @@ DATABASES = {
     }
 }
 
-
 ALLOWED_HOSTS = ['demo.mysmile.com.ua', 'www.demo.mysmile.com.ua']
 
 # Enter path to media folder on server.
@@ -40,7 +37,6 @@ STATIC_ROOT = ''
 COMPRESS_ROOT = STATIC_ROOT
 
 CACHE_MIDDLEWARE_SECONDS = 60*60*24
-
 
 ADMINS = (
     ('admin', 'info@mysmile.com.ua'),

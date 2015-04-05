@@ -1,11 +1,10 @@
-# secret settings
+# secret local settings
 import os
 from mysmile.settings.base import BASE_DIR
-from config.mysmile import *
 
 DEBUG = True
 
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = False
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
@@ -27,19 +26,24 @@ DATABASES = {
     }
 }
 
-
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
+# Enter path to media folder
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-# Enter path to static folder in server.
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# Enter path to static folder
+STATIC_ROOT = ''
 
-COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_ROOT = os.path.join(BASE_DIR, 'static/')
 
-CACHE_MIDDLEWARE_SECONDS = 60*60*24
-
+CACHE_MIDDLEWARE_SECONDS = 5 #60*60*24
 
 ADMINS = (
     ('admin', 'info@mysmile.com.ua'),
 )
+
+# This is only used if CommonMiddleware is installed
+PREPEND_WWW = False
+
+# This is only used if CommonMiddleware is installed
+APPEND_SLASH = True

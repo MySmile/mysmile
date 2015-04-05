@@ -4,7 +4,15 @@
 {% block title %}{{ title }} | {% trans 'MySmile site admin' %} {% endblock %}
 
 {% block branding %}
-<h1 id="site-name">{% trans 'MySmile administration' %}</h1>
+<h1 id="site-name">
+    {% if user.is_authenticated %}
+        {% trans 'MySmile v'|add:MYSMILE_VERSION|add:' administration' %}
+    {% else %}
+        {% trans 'MySmile administration' %}
+    {% endif %}
+
+
+</h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}

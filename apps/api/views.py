@@ -42,7 +42,7 @@ class MySmileApi(View):
 
         except (DatabaseError, FieldError, KeyError, Exception) as err:
             logger.error(err)
-            # @FIXME save exception details to log
+            # @FIXME: save exception details to log
             response_data = {'code': 500, 'msg': 'Internal Server Error'}
 
         return HttpResponse(json.dumps(response_data), content_type="application/json", status=response_data['code'])

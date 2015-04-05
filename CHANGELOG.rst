@@ -1,6 +1,12 @@
 *********
 Changelog
 *********
+**2015-04-05 Version 0.6.1**
+  - Added new design theme based on Bootstrap 3
+  - Renamed old design as a classic theme
+  - Added version number on the admin panel
+  - Bug fixed images are removed after page was deleted
+  - Bug fixed change language in admin panel
 
 **2015-03-01 Version 0.6.0**
   - Added global setting quality for uploaded images

@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+/* 16 * 0.0625 = 0.0625em */
+/* 998px / 16px = 62.375em */
+
+h1 { font-family: Arial, Helvetica, sans-serif; font-size: 1.4em;}
+h1 a { text-decoration: none; color: #555555; }
+h2 { text-align: center; }
+ul { margin: 0 5px; padding: 0; list-style: none; }
+
+body, .pure-g [class *= "pure-u"], .pure-g-r [class *= "pure-u"] { font-family: Georgia, "Times New Roman", serif; }
+
+.clear { clear:both; }
+.hide { display: none; }
+
+#layout { max-width: 62.375em; margin: 0 auto; }
+
+header { border-right: 1px solid #999999; }
+
+#logo {}
+
+#line_top { height: 1.7em; }
+
+#flags { float: right; margin-left: 0.3125em; padding:0; }
+#flags img { margin-right: 0.3125em; }
+#flags ul { margin: 0; list-style: none; list-style-position: outside; }
+#flags li { float: left; }
+
+#mnav { font-family: Arial, Helvetica, sans-serif; }
+#mnav ul { margin: 0; padding: 0; list-style: none; list-style-position: outside; }
+#mnav ul li { float: left; padding: 0.5em; letter-spacing: normal;}
+#mnav ul li a { padding: 0.0625em; color: #333333; text-decoration: none; background-color:transparent;}
+#mnav ul li:hover { text-decoration: underline; }
+#mnav ul .active { border-right: 1px solid #999; border-bottom: 1px solid #999999; 
+border-bottom-right-radius: 1.25em; border-bottom-left-radius: 1.25em; }
+#mnav ul .active:hover { text-decoration: none; }
+
+
+@media(max-width: 1600px) {
+  #mnav ul li { font-size: 1.5em;}
+}
+
+@media(max-width: 360px) {
+  #mnav ul li { font-size: 1.2em;}
+}
+
+@media(max-width: 320px) {
+  #mnav ul li { font-size: 1em;}
+}
+
+#inav ul { margin: 0; padding: 0; margin-top:0.3125em; list-style: none; list-style-position: outside; font-family: Arial, Helvetica, sans-serif; }
+#inav ul li { float: left; width: auto; font-size: 0.9375em; padding-right: 0.0625em; }
+#inav ul li a { padding: 0 0.3125em; text-decoration: none; }
+#inav ul .active a { text-decoration: none; }
+
+#contact { float: right; font-size: 0.8125em; }
+#contact ul{ margin-top: 0; list-style: none; padding: 0.3125em 0.3125em 0.9375em 0;}
+#contact ul li img { padding-right: 0.125em; vertical-align: middle; display: inline; }
+#contact ul li { padding: 0.125em;}
+
+#line_left { height: 23em; width: 5px; float: left; border-top-right-radius: 1.25em; border-bottom-right-radius: 1.25em; padding-right: 15px; padding-top:0; margin-right:10px; border-right: 1px solid #999999; border-bottom: 1px solid #999999; }
+
+main { overflow:hidden; border-left: 1px solid #999; border-bottom: 1px solid #999999; border-right: 1px solid #999999; }
+
+article { text-align: justify; }
+article h1 { margin: 0; padding: 0; }
+article p { line-height:150%; text-indent: 0.8125em; margin-top: 0.3125em; padding: 0 0.625em;}
+
+figure {  padding:0; margin:0;}
+figcaption { color: #888888; font-size: 0.6875em; padding-right: 0.625em; text-align: right; }
+#col_right { width: 33.37%; float:right; margin-left: 0.625em; border-top: 1px solid #999; border-left: 1px solid #999; border-bottom: 1px solid #999; }
+.col_right_text { padding: 0.3125em 0.625em; text-align: left; }
+.col_central_text { padding: 0.3125em 0.625em 0.625em 0.625em; }
+
+#col_bottom { width:100%; border-top: 2px solid #999; border-right: 1px solid #999; border-bottom: 1px solid #999; border-left: 1px solid #999; background-color: #E6E6E6;  text-align: justify; }
+#col_bottom aside > div { padding: 0.3125em 0.625em; }
+
+footer { width:100%; height: 2.1em;  font-size: 0.8125em; background-color: #999999; color: #FFFFFF; }
+         
+#fnav { margin:0; padding:0; vertical-align: middle; }
+#fnav ul { margin: 0 0.3125em; padding: 0; list-style: none; }
+#fnav li { float: left; padding: 0.3125em; }
+#fnav a { color: #FFF; text-decoration: none; letter-spacing: normal;}
+#fnav a:hover { text-decoration: underline; }
+
+#copyright { vertical-align: middle; text-align: right; }
+#copyright span { letter-spacing: normal; padding-right: 0.625em;}
+
+#line_bottom { height: 0.125em; margin-top: -0.25em; background-color: #E6E6E6; }
+
+#advertisement { width:100%; padding-top: 0.45em; }
+#banner { float: left; }
+#banner a img{ height: initial; }
+#version { float:right; font-size: 0.75em; letter-spacing: normal; }
+#version span { float:right; padding-right: 0.625em; }
