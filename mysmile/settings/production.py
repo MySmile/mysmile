@@ -1,10 +1,6 @@
 """
 Django settings/production.py for MySmile deploy project.
 """
-import os
-import shutil
-import tempfile
-
 from .base import *
 from config.production import *
 from config.mysmile import *
@@ -20,7 +16,6 @@ THIRD_PARTY_MIDDLEWARE_CLASSES = (
     )
 
 MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + APP_MIDDLEWARE_CLASSES + THIRD_PARTY_MIDDLEWARE_CLASSES
-
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
@@ -40,11 +35,11 @@ THIRD_PARTY_APPS = ('debug_toolbar',
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # END APP CONFIGURATION
 
-
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/themes/default/'),
     os.path.join(BASE_DIR, 'static/fonts/'),
+    os.path.join(BASE_DIR, 'static/themes/'),
     os.path.join(BASE_DIR, 'static/third-party-components/'),
+    os.path.join(BASE_DIR, 'static/vendor/'),
 )
 
 CACHES = {

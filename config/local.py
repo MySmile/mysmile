@@ -1,4 +1,4 @@
-# secret settings
+# secret local settings
 import os
 from mysmile.settings.base import BASE_DIR
 
@@ -26,7 +26,6 @@ DATABASES = {
     }
 }
 
-
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Enter path to media folder
@@ -43,3 +42,8 @@ ADMINS = (
     ('admin', 'info@mysmile.com.ua'),
 )
 
+# This is only used if CommonMiddleware is installed
+PREPEND_WWW = False
+
+# This is only used if CommonMiddleware is installed
+APPEND_SLASH = True

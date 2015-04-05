@@ -1,10 +1,6 @@
 """
 Django settings/local.py for MySmile development project.
 """
-import os
-import shutil
-import tempfile
-
 from .base import *
 from config.local import *
 from config.mysmile import *
@@ -20,7 +16,6 @@ THIRD_PARTY_MIDDLEWARE_CLASSES = (
     )
 
 MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + APP_MIDDLEWARE_CLASSES + THIRD_PARTY_MIDDLEWARE_CLASSES
-
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
@@ -39,7 +34,6 @@ THIRD_PARTY_APPS = ('debug_toolbar',
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # END APP CONFIGURATION
-
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/fonts/'),
@@ -64,4 +58,3 @@ STATICFILES_FINDERS = (
 )
 
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
-
