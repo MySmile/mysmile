@@ -53,55 +53,57 @@
           </div><!-- /.container -->
         </nav> 
        
-        
-        <div class="container">
-            <!-- navbar-inline -->
-            <div class="pull-right">
-                {% block additional_nav %}
-                {% endblock %}
-            </div><!-- /.pull-right -->  
-            
-            <!-- page content -->  
-            <div class="page-header">
-                {% block col_central_header %}
-                {% endblock %}
-            </div>
-            
-            <!-- right column -->
-            {% if page__photo or youtube or col_right %}
+        <div class="page-container">
+            <div class="container">
+                <!-- navbar-inline -->
+                <div class="pull-right">
+                    {% block additional_nav %}
+                    {% endblock %}
+                </div><!-- /.pull-right -->
 
-            <aside class="pull-right well">
-                {% block col_right %}
+                <!-- page content -->
+                <div class="page-header">
+                    {% block col_central_header %}
+                    {% endblock %}
+                </div>
+
+                <!-- right column -->
+                {% if page__photo or youtube or col_right %}
+
+                <aside class="pull-right well">
+                    {% block col_right %}
+                    {% endblock %}
+                </aside>
+                {% endif %}
+
+                {% block col_central %}
                 {% endblock %}
-            </aside>
+            </div><!-- /container -->
+
+            {% if bottom_cols  %}
+            <div class="container">
+              <!-- bottom columns -->
+              <div class="row">
+                {% if bottom_cols|length == 3 %}
+                  {% for col in bottom_cols %}
+                    <div class="col-md-4">{{ col|safe }}</div>
+                  {% endfor %}
+
+                {% elif bottom_cols|length == 2 %}
+                  {% for col in bottom_cols %}
+                    <div class="col-md-6">{{ col|safe }}</div>
+                  {% endfor %}
+
+                {% else %}
+                  {% for col in bottom_cols %}
+                    <div class="col-md-12">{{ col|safe }}</div>
+                  {% endfor %}
+                {% endif %}
+              </div>
+            </div> <!-- /container -->
             {% endif %}
+        </div><!-- /page-container -->
 
-            {% block col_central %}
-            {% endblock %}
-
-        </div><!-- /container -->
-        {% if bottom_cols  %}
-        <div class="container">
-          <!-- bottom columns -->
-          <div class="row">
-            {% if bottom_cols|length == 3 %}
-              {% for col in bottom_cols %}
-                <div class="col-md-4">{{ col|safe }}</div>
-              {% endfor %}
-
-            {% elif bottom_cols|length == 2 %}
-              {% for col in bottom_cols %}
-                <div class="col-md-6">{{ col|safe }}</div>
-              {% endfor %}
-
-            {% else %}
-              {% for col in bottom_cols %}
-                <div class="col-md-12">{{ col|safe }}</div>
-              {% endfor %}
-            {% endif %}
-          </div>
-        </div> <!-- /container -->
-        {% endif %}
 
         <footer class="footer">
             <div class="container">

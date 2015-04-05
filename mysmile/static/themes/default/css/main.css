@@ -41,6 +41,12 @@ aside {
 
 /* Sticky footer styles
 -------------------------------------------------- */
+.page-container {
+    padding-bottom: 110px; /* related with height of the footer */
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
     position: relative;
     min-height: 100%;
