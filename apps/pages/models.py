@@ -82,6 +82,8 @@ class Page(models.Model):
             return ''
     photo_thumb.allow_tags = True
 
+
+
     def save(self, *args, **kwargs):
         old_path = self.photo.path if self.photo else None # save old photo
         super(Page, self).save(*args, **kwargs) # Call the "real" save() method.

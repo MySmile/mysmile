@@ -1,10 +1,10 @@
 Metadata-Version: 1.1
 Name: MySmile
-Version: 0.6.0
+Version: 0.6.2
 Author: Andrii Pryz
 Author-email: info@mysmile com ua
 Home-page: http://mysmile.com.ua
-Summary: MySmile is the lightweight open-source CMS based on latest Django version. 
+Summary: MySmile is the lightweight open-source CMS based on Django. 
 License: BSD
 Download-URL: UNKNOWN
 
@@ -16,7 +16,7 @@ Description: About
              Dependences
              ===========
 
-             a) Django 1.7.x: http://djangoproject.com, https://github.com/django/django
+             a) Django 1.8.x: http://djangoproject.com, https://github.com/django/django
              b) PIL library for working with images: https://github.com/python-imaging/Pillow
 
 
@@ -49,6 +49,7 @@ Description: About
 
              Links
              =====
+             Site of project  on `<http://mysmile.com.ua>`_
 
              Demo version is avalible on `<http://demo.mysmile.com.ua>`_
 
