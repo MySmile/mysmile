@@ -10,7 +10,7 @@ from django.core import signing
 import logging
 logger = logging.getLogger(__name__)  # Get an instance of a logger
 
-from apps.pages.models import Page, Page_translation
+from apps.pages.models import Page
 from apps.preferences.models import Preferences
 
 

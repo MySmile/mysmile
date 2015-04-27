@@ -8,15 +8,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link rel="shortcut icon" href="{% static 'default/favicon.ico' %}" />
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'default/apple-touch-icon-precomposed.png' %}" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'default/apple-touch-icon-precomposed.png' %}" />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'default/apple-touch-icon-precomposed.png' %}" />
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'default/apple-touch-icon-precomposed.png' %}" />
+        <link rel="shortcut icon" href="{% static 'themes/default/favicon.ico' %}" />
+        {% block apple-touch-icon-precomposed %}
+        {% endblock %}
 
         {% compress css %}
-        <link href="{% static 'bootstrap-3.3.2-dist/css/bootstrap.min.css' %}" rel="stylesheet">
-        <link href="{% static 'default/css/main.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'themes/default/css/main.css' %}" rel="stylesheet">
         {% endcompress %}
 
         {% block css %}{% endblock %}
@@ -121,8 +119,8 @@
         <!-- Bootstrap core JavaScript
         ================================================== -->
         {% compress js %}
-        <script src="{% static 'jquery-1.11.2.min.js' %}"></script>
-        <script src="{% static 'bootstrap-3.3.2-dist/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'vendor/jquery-1.11.2.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap-3.3.2-dist/js/bootstrap.min.js' %}"></script>
         {% endcompress %}
     </body>
 <!-- page cached at {% now "jS F Y H:i" %} -->
