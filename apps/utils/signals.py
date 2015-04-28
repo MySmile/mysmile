@@ -23,30 +23,32 @@ def clear_cache(sender, instance=None, created=False, **kwargs):
         cursor.execute(' '.join(['DELETE FROM ', cache_table]))
         transaction.commit_unless_managed(using='default')
 
+
 def clear_photo_file(sender, instance, **kwargs):
     file = getattr(instance, 'photo')
     if file and os.path.exists(file.path):
         os.remove(file.path)
+
 
 @receiver(post_save)
 def email2img(sender, instance, created, **kwargs):
     """ protect email via image
     """
     if created and not isinstance(sender, LogEntry):
-        email = Preferences.objects.filter(key='EMAIL').values_list('value', flat=True)[0]
+        email = Preferences.objects.filter(key='EMAIL').values_list('value', flat=True)
         if email:
             color_mode = "RGBA"
             background_color = (0, 0, 0, 0)  # full transparent
             fontfile = os.path.join(settings.STATIC_ROOT, 'fonts/TimesNewRomanCE.ttf')
             fontsize = 16
-            textcolor = (119,119,119)
+            textcolor = (119 , 119, 119)
             try:
                 font = ImageFont.truetype(fontfile, fontsize)
                 width, height = font.getsize(email)
                 # add fontsize%10 for fix some visual bug
                 im = Image.new(color_mode, (width, height + fontsize % 10), background_color)
                 draw = ImageDraw.Draw(im)
-                draw.text((0, 0), email, textcolor, font=font)
+                draw.text((0, 0), email[0], textcolor, font=font)
                 img_full_path = settings.STATIC_ROOT + 'themes/default/images/email2img.png'
                 im.save(img_full_path)
             except Exception as err:

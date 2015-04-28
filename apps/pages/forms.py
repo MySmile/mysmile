@@ -8,6 +8,7 @@ class Page_translationInlineForm(ModelForm):
         model = Page_translation
         exclude = ['updated_at', 'created_at']
 
+
 class PageForm(ModelForm):
 
     def __init__(self, *args, **kwargs):

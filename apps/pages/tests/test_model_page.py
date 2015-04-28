@@ -17,7 +17,7 @@ class PageTestCase(TestCase):
         
         Page.objects.create(id=2,
         slug='contacts',
-        color= '#DDD',
+        color='#DDD',
         photo='',
         sortorder=2,
         status=0,

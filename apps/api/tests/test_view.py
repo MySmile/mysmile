@@ -29,7 +29,7 @@ class ApiTestCase(TestCase):
                         meta_description='This is mane page!',
                         meta_keywords='Python3, Django',
                         photo_alt='',
-                        photo_description = '',
+                        photo_description='',
                         updated_at=datetime.datetime.now(),
                         created_at=datetime.datetime.now())
         self._client = Client()

@@ -51,7 +51,6 @@ class Preferences(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = PreferencesManager()
 
-
     def __setattr__(self, name, value):
         if name.isupper():
             raise AttributeError(name + " is an immutable attribute.")

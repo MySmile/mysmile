@@ -13,6 +13,7 @@ from apps.preferences.models import Preferences
 import logging
 logger = logging.getLogger(__name__)
 
+
 class MySmileApi(View):
 
     def dispatch(self, request, *args, **kwargs):
@@ -52,7 +53,7 @@ class MySmileApi(View):
 
         if self.slug == '':
             # get list of pages
-            content = Page_translation.objects.filter(lang=self.lang, page__status=Page.STATUS_PUBLISHED, page__ptype__in=[Page.PTYPE_API,Page.PTYPE_MENU_API]).order_by('page__sortorder').values_list('page__slug', 'menu')
+            content = Page_translation.objects.filter(lang=self.lang, page__status=Page.STATUS_PUBLISHED, page__ptype__in=[Page.PTYPE_API, Page.PTYPE_MENU_API]).order_by('page__sortorder').values_list('page__slug', 'menu')
 
             if not content:
                 raise MySmileApiException('Not Found', 404)
@@ -61,11 +62,11 @@ class MySmileApi(View):
             return response_data
 
         # get current page by slug
-        page_id = Page.objects.filter(slug=self.slug, status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_API,Page.PTYPE_MENU_API]).values('id')
+        page_id = Page.objects.filter(slug=self.slug, status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_API, Page.PTYPE_MENU_API]).values('id')
         if not page_id:
             raise MySmileApiException('Not Found', 404)
 
-        content = Page_translation.objects.filter(lang=self.lang, page__status=Page.STATUS_PUBLISHED, page_id=page_id, page__ptype__in=[Page.PTYPE_API,Page.PTYPE_MENU_API]).values(
+        content = Page_translation.objects.filter(lang=self.lang, page__status=Page.STATUS_PUBLISHED, page_id=page_id, page__ptype__in=[Page.PTYPE_API, Page.PTYPE_MENU_API]).values(
             'page__color', 'page__photo', 'menu', 'name',
             'col_central', 'col_right', 'youtube', 'col_bottom_1',
             'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description',
@@ -86,7 +87,7 @@ class MySmileApi(View):
         response_data['data']['photo'] = {'src': request.build_absolute_uri('/static/' + content['page__photo']),
                                           'alt': content['photo_alt'],
                                           'description': content['photo_description']
-                                         }
+                                          }
 
         return response_data
 
