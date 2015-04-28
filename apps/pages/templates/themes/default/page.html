@@ -63,19 +63,19 @@
 {% block contact %}
 <ul class="list-unstyled">
 {% if EMAIL %}
-    <li class="text-muted"><img class="pure-img" src="{% static 'themes/default/images/email.png' %}" height="16" width="16" alt="email" />
+    <li class="text-muted"><img src="{% static 'themes/default/images/email.png' %}" height="16" width="16" alt="email" />
         {% autoescape off %} {{ EMAIL|emailprotect }} {% endautoescape %}
     </li>
 {% endif %}
 {% if PHONE %}
     <li class="text-muted">
-        <img class="pure-img" src="{% static 'themes/default/images/phone.png' %}" height="16" width="16" alt="phone" />
+        <img src="{% static 'themes/default/images/phone.png' %}" height="16" width="16" alt="phone" />
         {{ PHONE }}
     </li>
 {% endif %}
 {% if SKYPE %}
     <li class="text-muted">
-        <img class="pure-img" src="{% static 'themes/default/images/skype.png' %}" height="16" width="16" alt="skype" />
+        <img src="{% static 'themes/default/images/skype.png' %}" height="16" width="16" alt="skype" />
         {{ SKYPE }}
     </li>
 {% endif %}
@@ -86,7 +86,7 @@
 {% block col_right %}
                 {% if page__photo %}
                     <figure>
-                        <img class="pure-img" src="{{ MEDIA_URL }}{{ page__photo }}" width="333" alt="{{ photo_alt }}" />
+                        <img class="img-responsive" src="{{ MEDIA_URL }}{{ page__photo }}" width="333" alt="{{ photo_alt }}" />
                         {% if photo_description %}<figcaption>{{ photo_description }}</figcaption>{% endif %}
                     </figure>
                 {% endif %}
