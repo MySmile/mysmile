@@ -3,7 +3,7 @@ run:
 	@echo "------------------------------------------------------------------------"
 	@echo "python3 manage.py runserver --nostatic --setting=mysmile.settings.local "
 	@echo "========================================================================"
-	@python3 manage.py runserver --nostatic --setting=mysmile.settings.local
+	@python3 -W ignore manage.py runserver --nostatic --setting=mysmile.settings.local
 
 
 # help  - Display callable targets.

@@ -18,11 +18,13 @@ logger = logging.getLogger(__name__)
 def clear_cache(sender, instance=None, created=False, **kwargs):
     list_of_models = ('Page', 'Page_translation', 'Preferences')
     if sender.__name__ in list_of_models:
-        cursor = connections['default'].cursor()
         cache_table = settings.CACHES['default']['LOCATION']
-        cursor.execute(' '.join(['DELETE FROM ', cache_table]))
-        transaction.commit_unless_managed(using='default')
-
+        try:
+            with transaction.atomic():
+                cursor = connections['default'].cursor()
+                cursor.execute(' '.join(['DELETE FROM ', cache_table]))
+        except Exception as err:
+            logger.error(str(err))
 
 def clear_photo_file(sender, instance, **kwargs):
     file = getattr(instance, 'photo')
@@ -44,7 +46,7 @@ def email2img(sender, instance, created, **kwargs):
             textcolor = (119 , 119, 119)
             try:
                 font = ImageFont.truetype(fontfile, fontsize)
-                width, height = font.getsize(email)
+                width, height = font.getsize(email[0])
                 # add fontsize%10 for fix some visual bug
                 im = Image.new(color_mode, (width, height + fontsize % 10), background_color)
                 draw = ImageDraw.Draw(im)
@@ -52,7 +54,7 @@ def email2img(sender, instance, created, **kwargs):
                 img_full_path = settings.STATIC_ROOT + 'themes/default/images/email2img.png'
                 im.save(img_full_path)
             except Exception as err:
-                logger.error(str(err))
+                logger.error(err)
 
 pre_delete.connect(clear_photo_file, sender=Page, dispatch_uid="clear_photo_file")
 post_save.connect(email2img, sender=Preferences, dispatch_uid="email2img")

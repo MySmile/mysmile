@@ -26,3 +26,5 @@ class PreferencesTestCase(TestCase):
         self.assertTrue('MAX_INNERLINK_HISTORY' in p_keys)
         self.assertTrue('REST_API' in p_keys)
         self.assertTrue('IMAGE_QUALITY' in p_keys)
+
+
