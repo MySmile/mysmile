@@ -17,7 +17,8 @@ Description: About
              ===========
 
              a) Django 1.8.x: http://djangoproject.com, https://github.com/django/django
-             b) PIL library for working with images: https://github.com/python-imaging/Pillow
+             b) Pillow for working with images: https://github.com/python-imaging/Pillow
+             c) Sphinx for generate docs in various format
 
 
              Installation

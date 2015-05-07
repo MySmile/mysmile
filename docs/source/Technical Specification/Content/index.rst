@@ -11,4 +11,4 @@ All content can be changed via the :ref:`AdminPanel`.
    Design configuration <DesignConfiguration>
    Seo configuration <SeoConfiguration>
    Technical configuration <TechnicalConfiguration>
-   User configuration <UserConfiguration>
+   Preferences <Preferences>
