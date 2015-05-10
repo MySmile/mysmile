@@ -26,6 +26,7 @@ def clear_cache(sender, instance=None, created=False, **kwargs):
         except Exception as err:
             logger.error(str(err))
 
+
 def clear_photo_file(sender, instance, **kwargs):
     file = getattr(instance, 'photo')
     if file and os.path.exists(file.path):
@@ -43,7 +44,7 @@ def email2img(sender, instance, created, **kwargs):
             background_color = (0, 0, 0, 0)  # full transparent
             fontfile = os.path.join(settings.STATIC_ROOT, 'fonts/TimesNewRomanCE.ttf')
             fontsize = 16
-            textcolor = (119 , 119, 119)
+            textcolor = (119, 119, 119)
             try:
                 font = ImageFont.truetype(fontfile, fontsize)
                 width, height = font.getsize(email[0])
@@ -58,5 +59,3 @@ def email2img(sender, instance, created, **kwargs):
 
 pre_delete.connect(clear_photo_file, sender=Page, dispatch_uid="clear_photo_file")
 post_save.connect(email2img, sender=Preferences, dispatch_uid="email2img")
-
-
