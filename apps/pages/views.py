@@ -10,7 +10,7 @@ from django.core import signing
 import logging
 logger = logging.getLogger(__name__)  # Get an instance of a logger
 
-from apps.pages.models import Page, Page_translation
+from apps.pages.models import Page
 from apps.preferences.models import Preferences
 
 
@@ -22,21 +22,21 @@ class PageRedirectView(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         # get first slug
-        slug = Page.objects.filter(status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_MENU,Page.PTYPE_MENU_API]).values_list('slug', flat=True).order_by('sortorder').first()
+        slug = Page.objects.filter(status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_MENU, Page.PTYPE_MENU_API]).values_list('slug', flat=True).order_by('sortorder').first()
         try:
             lang = kwargs['lang']
-        except KeyError: # adaptive language selection
+        except KeyError:  # adaptive language selection
             lang = settings.LANGUAGES[0][0]
             if 'HTTP_ACCEPT_LANGUAGE' in self.request.META:
                 for k in settings.LANGUAGES:
                     if k[0] in self.request.META['HTTP_ACCEPT_LANGUAGE']:
                         lang = k[0]
-                        k = 0 # break cycle "for"
+                        k = 0  # break cycle "for"
         return super(PageRedirectView, self).get_redirect_url(lang=lang, slug=slug)
 
 
 class PageView(TemplateView):
-    template_name='default/page.html'
+    template_name = 'default/page.html'
 
     def get_context_data(self, **kwargs):
         context = super(PageView, self).get_context_data(**kwargs)

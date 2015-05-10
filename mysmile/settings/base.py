@@ -2,7 +2,7 @@
 """
 Django settings/base.py for MySmile project.
 """
-import os
+import os, sys
 import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -50,7 +50,7 @@ USE_TZ = True
 
 LANGUAGES = (
     ('en', 'English'),
-    ('uk', 'Українська'),
+    ('ua', 'Українська'),
     ('ru', 'Русский'),
 )
 
@@ -87,47 +87,40 @@ LOGGING = {
 
     },
     'handlers': {
-        'file_info': {
-               'level': 'INFO',
+        'console':{
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout
+        },
+        'file': {
+               'level': 'DEBUG',
                'class': 'logging.handlers.RotatingFileHandler',
                'formatter': 'verbose',
-               'filters': ['require_debug_false'],
-               'filename': os.path.join(BASE_DIR,  '../log/'+datetime.datetime.now().strftime('%Y-%m-%d')+'_INFO.log'),
-               'maxBytes': 1024*1024*5, # 5 MB
-               'backupCount': 5
-           },
-        'file_error': {
-               'level': 'ERROR',
-               'class': 'logging.handlers.RotatingFileHandler',
-               'formatter': 'verbose',
-               'filters': ['require_debug_false'],
-               'filename': os.path.join(BASE_DIR,  '../log/'+datetime.datetime.now().strftime('%Y-%m-%d')+'_ERROR.log'),
+               'filters': ['require_debug_true'],
+               'filename': os.path.join(BASE_DIR,  '../log/'+datetime.datetime.now().strftime('%Y-%m-%d')+'.log'),
                'maxBytes': 1024*1024*5, # 5 MB
                'backupCount': 5
            },
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
-            'filters': ['require_debug_false']
+            'filters': ['require_debug_true']
         }
     },
 
     'loggers': {
-        'info': {
-            'handlers': ['file_info',],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'error': {
-            'handlers': ['file_error'],
-            'level': 'DEBUG',
-            'propagate': False,
+        '': {
+            'handlers': ['file',],
+            # 'level': 'DEBUG',
+            'propagate': True,
         },
         'django.request': {
-            'handlers': ['mail_admins', 'file_error'],
+            'handlers': ['mail_admins', 'file'],
             'level': 'ERROR',
             'propagate': False,
         },
+
+
     },
 }
 

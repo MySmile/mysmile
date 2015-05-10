@@ -37,9 +37,9 @@ class PageAdmin(admin.ModelAdmin):
         """
         flags = ''
         for item in settings.LANGUAGES:
-            if not Page_translation.objects.filter(page_id=model.id , lang=item[0]):
-                flags += '<img src="' + settings.STATIC_URL + \
-                         'images/flags/' + item[0] + '.png" alt= "' + item[1] + '"/>'
+            if not Page_translation.objects.filter(page_id=model.id, lang=item[0]):
+                flags += """<img src="/static/default/images/flags/""" + \
+                         item[0] + """.png" alt= " """ + item[1] + """ "/>"""
         return flags
     waiting_for_translation.short_description = 'waiting for translation'
     waiting_for_translation.allow_tags = True
@@ -55,26 +55,24 @@ class PageAdmin(admin.ModelAdmin):
 
         self.list_display = ('slug', 'status', 'ptype', 'sortorder',)
 
-        if pages_blankphoto < pages: # at least one photo exist
+        if pages_blankphoto < pages:  # at least one photo exist
             self.list_display += ('photo_thumb', )
         if pages*len(settings.LANGUAGES) != pages_translation:
             self.list_display += ('waiting_for_translation',)
 
         return self.list_display + ('date_update',)
 
-
     def get_fieldsets(self, request, obj=None):
         fieldsets = super(PageAdmin, self).get_fieldsets(request, obj)
         if obj:
-            photo = Page.objects.filter(id=obj.id).values_list('photo',flat=True)[0]
+            photo = Page.objects.filter(id=obj.id).values_list('photo', flat=True)[0]
             if photo:
                 fieldsets = [('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder',
-                                                      'color', ('photo', 'photo_thumb')]}),]
+                                                      'color', ('photo', 'photo_thumb')]}), ]
             else:
                 fieldsets = [('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder',
-                                                      'color', ('photo',)]}),]
+                                                      'color', ('photo',)]}), ]
         return fieldsets
-
 
 
 admin.site.register(Page, PageAdmin)

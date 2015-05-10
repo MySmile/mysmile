@@ -18,7 +18,7 @@ class PreferencesTestCase(TestCase):
     def test_keys_true(self):
         p_keys = PreferencesManager().get_all().keys()
 
-        self.assertTrue(len(p_keys)==7)
+        self.assertTrue(len(p_keys) == 7)
         self.assertTrue('PHONE' in p_keys)
         self.assertTrue('EMAIL' in p_keys)
         self.assertTrue('SKYPE' in p_keys)
@@ -26,3 +26,5 @@ class PreferencesTestCase(TestCase):
         self.assertTrue('MAX_INNERLINK_HISTORY' in p_keys)
         self.assertTrue('REST_API' in p_keys)
         self.assertTrue('IMAGE_QUALITY' in p_keys)
+
+

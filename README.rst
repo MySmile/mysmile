@@ -13,23 +13,24 @@ MySmile is the lightweight open-source CMS based on Django. It helps to create w
 
 * The official home page is `<http://mysmile.com.ua>`_
 * Demo site is `<http://demo.mysmile.com.ua>`_
+* The documentation is available here `<http://http://mysmile.com.ua/en/documentation.html>`_
 
 Dependencies
 ============
-a) Django 1.7.x: http://djangoproject.com, https://github.com/django/django
-b) PIL library for working with images: https://github.com/python-imaging/Pillow
-
+a) Django 1.8.x: http://djangoproject.com, https://github.com/django/django
+b) Pillow for working with images: https://github.com/python-imaging/Pillow
+c) Sphinx for generate docs in various format
 
 Installation
 ============
 
 1. Unpack archive with MySmile to the project directory
 
-2. Install dependencies: $ pip3 install -r config/requirements/local.txt
+2. Install with command: `$ make install`
 
 3. In the project directory run a command in the terminal: 
     
-  `python3 manage.py runserver`
+  `$ python3 manage.py runserver`
     
   Now your website is available here:
 	
@@ -47,6 +48,4 @@ Installation
   
   `password: test`
 
-Documentation
-=============
-The latest documentation is available here `<http://mysmile.readthedocs.org/en/latest/>`_
+

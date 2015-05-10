@@ -27,10 +27,9 @@ class Page_translationTestCase(TestCase):
         meta_description='This is mane page!',
         meta_keywords='Python3, Django',
         photo_alt='',
-        photo_description = '',
+        photo_description='',
         updated_at=datetime.datetime.now(),
         created_at=datetime.datetime.now())
-
 
     def test_page_translation_create(self):
         first_page_translation = Page_translation.objects.get(id=1)

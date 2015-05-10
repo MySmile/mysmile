@@ -35,17 +35,11 @@ THIRD_PARTY_APPS = ('debug_toolbar',
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # END APP CONFIGURATION
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/fonts/'),
-    os.path.join(BASE_DIR, 'static/themes/'),
-    os.path.join(BASE_DIR, 'static/third-party-components/'),
-    os.path.join(BASE_DIR, 'static/vendor/'),
-)
-
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
         'LOCATION': 'mysmile_cache_table',
+        # 'TIMEOUT': None,
     }
 }
 

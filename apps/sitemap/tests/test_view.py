@@ -29,7 +29,7 @@ class SitemapTestView(TestCase):
         meta_description='This is mane page!',
         meta_keywords='Python3, Django',
         photo_alt='',
-        photo_description = '',
+        photo_description='',
         updated_at=datetime.datetime.now(),
         created_at=datetime.datetime.now())
 
@@ -40,4 +40,4 @@ class SitemapTestView(TestCase):
         self.assertEqual(self.response.status_code, 200)
 
     def test_item_index(self):
-      self.assertIn(b'index.html', self.response.content)
+        self.assertIn(b'index.html', self.response.content)

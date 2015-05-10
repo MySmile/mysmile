@@ -11,6 +11,7 @@ class ExceptionLoggingMiddleware(object):
     def process_exception(self, request, exception):
         logger.error('Exception handling request for ' + request.path)
 
+
 class AdminLocaleOneLangMiddleware:
     """ Autochange locale in admin if len(settings.LANGUAGES) == 1
     """

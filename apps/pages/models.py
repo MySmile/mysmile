@@ -16,6 +16,7 @@ class ImageField(models.ImageField):
                 file.delete(save=False)
         super(ImageField, self).save_form_data(instance, data)
 
+
 def create_default_sortorder():
     return Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+Page.SORTORDER_STEP
 
@@ -32,7 +33,7 @@ class PagesManager(models.Manager):
 
     def get_page(self, lang, slug):
         try:
-            page = Page_translation.objects.filter(lang=lang, page__ptype__in = [Page.PTYPE_INNER,Page.PTYPE_MENU,Page.PTYPE_MENU_API], page__status=Page.STATUS_PUBLISHED, page__slug=slug).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords', 'page__ptype')[0]
+            page = Page_translation.objects.filter(lang=lang, page__ptype__in=[Page.PTYPE_INNER, Page.PTYPE_MENU, Page.PTYPE_MENU_API], page__status=Page.STATUS_PUBLISHED, page__slug=slug).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords', 'page__ptype')[0]
         except IndexError:
             raise Http404
 
@@ -45,9 +46,9 @@ class Page(models.Model):
     PTYPE_MENU = 1
     PTYPE_API = 2
     PTYPE_MENU_API = 3
-    PTYPE = ((PTYPE_INNER, 'inner page'), # website only
-             (PTYPE_MENU, 'menu page'), # website only
-             (PTYPE_API, 'api page'),  # api only
+    PTYPE = ((PTYPE_INNER, 'inner page'),  # website only
+             (PTYPE_MENU, 'menu page'),  # website only
+             (PTYPE_API, 'api page'),   # api only
              (PTYPE_MENU_API, 'api & menu page'))  # api & website
 
     STATUS_DRAFT = 0
@@ -72,25 +73,25 @@ class Page(models.Model):
 
     def photo_thumb(self):
         if self.photo:
-            description =  ''.join(['<img src="', self.photo.url, '" height="32"/> ',
-                                     str(round(self.photo.size/1024,2)), 'K, '
+            description = ''.join(['<img src="', self.photo.url, '" height="32"/> ',
+                                     str(round(self.photo.size/1024, 2)), 'K, '
                                     'WxH: ', str(self.photo.width), 'x',
-                                    str(self.photo.height),'px'])
+                                    str(self.photo.height), 'px'])
 
             return description
         else:
             return ''
     photo_thumb.allow_tags = True
 
+
     def save(self, *args, **kwargs):
-        old_path = self.photo.path if self.photo else None # save old photo
-        super(Page, self).save(*args, **kwargs) # Call the "real" save() method.
+        old_path = self.photo.path if self.photo else None  # save old photo
+        super(Page, self).save(*args, **kwargs)  # Call the "real" save() method.
         if self.photo and (self.photo.path != old_path):
             path = self.photo.path
             quality = int(Preferences.objects.filter(key='IMAGE_QUALITY').values_list('value', flat=True)[0])
             image = Image.open(path)
             image.save(path, quality=quality, optimize=True)
-
 
     def __setattr__(self, name, value):
         if name.isupper():

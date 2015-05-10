@@ -1,6 +1,14 @@
 *********
 Changelog
 *********
+**2015-05-10 Version 0.6.2**
+  - Fixed language flags in the admin panel
+  - Updated settings
+  - Refactored email spam protection
+  - Updated code with PEP8 style
+  - Made images responsive
+  - Django 1.8 support!
+
 **2015-04-05 Version 0.6.1**
   - Added new design theme based on Bootstrap 3
   - Renamed old design as a classic theme

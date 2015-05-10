@@ -25,9 +25,8 @@ class PreferencesForm(ModelForm):
             self.fields['value'].widget = forms.NumberInput()
 
         if Preferences.KEY_IMAGE_QUALITY in self.initial['key']:
-            choices = tuple((str(i),str(i)) for i in range(100,0,-10))
+            choices = tuple((str(i), str(i)) for i in range(100, 0, -10))
             self.fields['value'].widget = forms.Select(choices=choices)
-
 
 
     class Meta:

@@ -1,6 +1,6 @@
 {% extends "default/base.html" %}
 {% load staticfiles %}{% load i18n %}{% load cache %}
-{% load email2img %}
+{% load emailprotect %}
 {% load embed %}
 
 {% block apple-touch-icon-precomposed %}
@@ -63,7 +63,7 @@ class="pure-img" src="{% static 'default/images/logo.png' %}" width="108" height
 <ul>
 {% if EMAIL %}
     <li><img class="pure-img" src="{% static 'default/images/email.png' %}" height="16" width="16" alt="email" />
-        {% autoescape off %} {{ EMAIL|email2img }} {% endautoescape %}
+        {% autoescape off %} {{ EMAIL|emailprotect }} {% endautoescape %}
     </li>
 {% endif %}
 {% if PHONE %}
