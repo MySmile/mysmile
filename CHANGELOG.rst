@@ -1,6 +1,9 @@
 *********
 Changelog
 *********
+**2015-07-xx Version 0.7.0**
+  - Remove duplication DB queries
+
 **2015-05-10 Version 0.6.2**
   - Fixed language flags in the admin panel
   - Updated settings
