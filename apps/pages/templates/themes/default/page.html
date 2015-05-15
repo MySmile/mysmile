@@ -21,17 +21,17 @@
 
 
 {% block logo %}
-    <a class="navbar-brand" href="/{{ lang }}/{{ main_menu.0.page__slug }}.html"><img alt="Demo Logo" src="{% static 'themes/default/images/logo-sm.png' %}" height="50" width="47"></a>
+    <a class="navbar-brand" href="/{{ lang }}/{{ main_menu.0.slug }}.html"><img alt="Demo Logo" src="{% static 'themes/default/images/logo-sm.png' %}" height="50" width="47"></a>
 {% endblock %}
 
 
 {% block main_nav %}
     <ul class="nav navbar-nav">
     {% for item in main_menu %}
-        {% if item.page__slug == slug %}
-            <li class="active"><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }} <span class="sr-only">(current)</span></a></li>
+        {% if item.slug == slug %}
+            <li class="active"><a href="/{{ lang }}/{{ item.slug }}.html">{{ item.menu }} <span class="sr-only">(current)</span></a></li>
         {% else %}
-            <li><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
+            <li><a href="/{{ lang }}/{{ item.slug }}.html">{{ item.menu }}</a></li>
         {% endif %}
     {% endfor %}
     </ul>
