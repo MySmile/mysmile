@@ -27,7 +27,10 @@ def clear_cache(sender, instance=None, created=False, **kwargs):
             logger.error(str(err))
 
     if sender.__name__=='Preferences':
-        settings.MYSMILE_THEME = Preferences.objects.filter(key='THEME').values_list('value', flat=True)[0]
+        try:
+            settings.MYSMILE_THEME = Preferences.objects.filter(key='THEME').values_list('value', flat=True)[0]
+        except Exception as err:
+            settings.MYSMILE_THEME = 'modern'
 
 
 def clear_photo_file(sender, instance, **kwargs):
