@@ -23,6 +23,7 @@ LOCAL_APPS = (
     'apps.pages',
     'apps.preferences',
     'apps.sitemap',
+    'apps.update',
     'apps.utils',
     )
 

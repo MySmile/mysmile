@@ -36,7 +36,6 @@ class PageRedirectView(RedirectView):
 
 
 class PageView(TemplateView):
-    print('--------->>', settings.MYSMILE_THEME)
     template_name = settings.MYSMILE_THEME + '/page.html'
 
     def get_context_data(self, **kwargs):
