@@ -14,8 +14,10 @@ urlpatterns = patterns('',
 
     url('', include('apps.sitemap.urls')),
     #(r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", mimetype="text/plain")),
-    (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nHost: demo.mysmile.com.ua\nSitemap: \
-  http://demo.mysmile.com.ua/Sitemap.xml", content_type="text/plain")),
+    (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nHost: " + \
+                                              settings.ALLOWED_HOSTS[0] +
+                                              "\nSitemap: http://" + settings.ALLOWED_HOSTS[0] + \
+                                              "/Sitemap.xml", content_type="text/plain")),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
