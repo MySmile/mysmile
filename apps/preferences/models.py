@@ -25,6 +25,7 @@ class Preferences(models.Model):
     KEY_MAX_INNERLINK_HISTORY = 'MAX_INNERLINK_HISTORY'
     KEY_REST_API = 'REST_API'
     KEY_IMAGE_QUALITY = 'IMAGE_QUALITY'
+    KEY_THEME = 'THEME'
 
     CONTACT = {KEY_PHONE: 'phone', KEY_EMAIL: 'email', KEY_SKYPE: 'skype'}
 
@@ -41,7 +42,9 @@ class Preferences(models.Model):
                {'key': KEY_REST_API, 'value': True,
                 'name': 'Turn on/off REST Api', 'description': 'Turn on/off alternative way of getting pages using REST api. Only a special marked pages can be available for api. For more information please look into page statuses list.'},
                {'key': KEY_IMAGE_QUALITY, 'value': 100,
-                'name': 'Image quality', 'description': 'Global setting quality uploaded pictures. The picture quality is directly proportional to the size of the file. A value of 100 corresponds to the maximum quality.'})
+                'name': 'Image quality', 'description': 'Global setting quality uploaded pictures. The picture quality is directly proportional to the size of the file. A value of 100 corresponds to the maximum quality.'},
+               {'key': KEY_THEME, 'value': 'classic',
+                'name': 'Theme switcher', 'description': 'Choose a theme for switch'},)
 
     key = models.CharField(unique=True, max_length=500)
     value = models.CharField(blank=True, null=True, max_length=500)

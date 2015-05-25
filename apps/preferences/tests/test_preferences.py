@@ -5,7 +5,7 @@ from apps.preferences.models import PreferencesManager
 
 
 class PreferencesTestCase(TestCase):
-    fixtures = ['test_preferences.json']
+    fixtures = ['preferences.json']
 
     def setUp(self):
         pass

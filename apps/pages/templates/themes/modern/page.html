@@ -1,13 +1,13 @@
-{% extends "default/base.html" %}
+{% extends MYSMILE_THEME|add:"/base.html" %}
 {% load staticfiles %}{% load i18n %}{% load cache %}
 {% load emailprotect %}
 {% load embed %}
 
 {% block apple-touch-icon-precomposed %}
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'themes/default/images/apple-touch-icon-precomposed.png' %}" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'themes/default/images/apple-touch-icon-precomposed.png' %}" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'themes/default/images/apple-touch-icon-precomposed.png' %}" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'themes/default/images/apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
 {% endblock %}
 
 {% block css %}{% endblock %}
@@ -15,13 +15,13 @@
 	
 {% block google_analytics %} 
     {% if GOOGLE_ANALITYCS_CODE %}
-        {% include "default/includes/google_analytics.html" %}
+        {% include MYSMILE_THEME|add:"/includes/google_analytics.html" %}
     {% endif %}    
 {% endblock %}
 
 
 {% block logo %}
-    <a class="navbar-brand" href="/{{ lang }}/{{ main_menu.0.slug }}.html"><img alt="Demo Logo" src="{% static 'themes/default/images/logo-sm.png' %}" height="50" width="47"></a>
+    <a class="navbar-brand" href="/{{ lang }}/{{ main_menu.0.page__slug }}.html"><img alt="Demo Logo" src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/logo-sm.png' %}" height="50" width="47"></a>
 {% endblock %}
 
 
@@ -29,9 +29,9 @@
     <ul class="nav navbar-nav">
     {% for item in main_menu %}
         {% if item.slug == slug %}
-            <li class="active"><a href="/{{ lang }}/{{ item.slug }}.html">{{ item.menu }} <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }} <span class="sr-only">(current)</span></a></li>
         {% else %}
-            <li><a href="/{{ lang }}/{{ item.slug }}.html">{{ item.menu }}</a></li>
+            <li><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
         {% endif %}
     {% endfor %}
     </ul>
@@ -53,7 +53,7 @@
     <ul class="nav navbar-nav navbar-right navbar-translate">
         {% if LANGUAGES|length > 1 %}
             {% for lang in LANGUAGES  %}
-            <li><a href="/{{ lang.0 }}/{{ slug }}.html"><img class="pure-img" src="{% static 'themes/default/images/flags/'|add:lang.0|add:'.png' %}" width="24" height="24" alt="{{ lang.1 }}"></a></li>
+            <li><a href="/{{ lang.0 }}/{{ slug }}.html"><img class="pure-img" src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/flags/'|add:lang.0|add:'.png' %}" width="24" height="24" alt="{{ lang.1 }}"></a></li>
             {% endfor %}
         {% endif %}
     </ul>
@@ -63,19 +63,19 @@
 {% block contact %}
 <ul class="list-unstyled">
 {% if EMAIL %}
-    <li class="text-muted"><img src="{% static 'themes/default/images/email.png' %}" height="16" width="16" alt="email" />
+    <li class="text-muted"><img src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/email.png' %}" height="16" width="16" alt="email" />
         {% autoescape off %} {{ EMAIL|emailprotect }} {% endautoescape %}
     </li>
 {% endif %}
 {% if PHONE %}
     <li class="text-muted">
-        <img src="{% static 'themes/default/images/phone.png' %}" height="16" width="16" alt="phone" />
+        <img src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/phone.png' %}" height="16" width="16" alt="phone" />
         {{ PHONE }}
     </li>
 {% endif %}
 {% if SKYPE %}
     <li class="text-muted">
-        <img src="{% static 'themes/default/images/skype.png' %}" height="16" width="16" alt="skype" />
+        <img src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/skype.png' %}" height="16" width="16" alt="skype" />
         {{ SKYPE }}
     </li>
 {% endif %}

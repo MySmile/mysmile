@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
+import os
+from django.core.management import call_command
 from django.db import models, migrations
+
+from mysmile.settings.base import BASE_DIR
 
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-    ]
+    def load_migration(apps, schema_editor):
+            path_to_fixture = os.path.join(
+                BASE_DIR, '../apps/preferences/fixtures/preferences.json')
+            call_command('loaddata', path_to_fixture)
+
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
@@ -28,4 +34,5 @@ class Migration(migrations.Migration):
             },
             bases=(models.Model,),
         ),
-    ]
+            migrations.RunPython(load_migration)
+            ]

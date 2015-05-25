@@ -6,11 +6,9 @@ DEBUG = True
 
 COMPRESS_ENABLED = False
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = True
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 SECRET_KEY = '=)1+x0_f%6t&$4gftv-^^w20kr)+1ut8js0@0(gt6cx8z6kxlc'
-
-TEMPLATE_DEBUG = DEBUG
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -37,7 +35,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 COMPRESS_ROOT = os.path.join(BASE_DIR, 'static/')
 
-CACHE_MIDDLEWARE_SECONDS = 5 #60*60*24
+CACHE_MIDDLEWARE_SECONDS = 60*60 #60*60*24
 
 ADMINS = (
     ('admin', 'info@mysmile.com.ua'),

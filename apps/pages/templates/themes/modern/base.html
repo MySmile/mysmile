@@ -8,13 +8,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link rel="shortcut icon" href="{% static 'themes/default/favicon.ico' %}" />
+        <link rel="shortcut icon" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/favicon.ico' %}" />
         {% block apple-touch-icon-precomposed %}
         {% endblock %}
 
         {% compress css %}
         <link href="{% static 'vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css' %}" rel="stylesheet">
-        <link href="{% static 'themes/default/css/main.css' %}" rel="stylesheet">
+        <link href="{% static 'themes/'|add:MYSMILE_THEME|add:'/css/main.css' %}" rel="stylesheet">
         {% endcompress %}
 
         {% block css %}{% endblock %}

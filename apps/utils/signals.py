@@ -26,6 +26,9 @@ def clear_cache(sender, instance=None, created=False, **kwargs):
         except Exception as err:
             logger.error(str(err))
 
+    if sender.__name__=='Preferences':
+        settings.MYSMILE_THEME = Preferences.objects.filter(key='THEME').values_list('value', flat=True)[0]
+
 
 def clear_photo_file(sender, instance, **kwargs):
     file = getattr(instance, 'photo')
@@ -33,11 +36,11 @@ def clear_photo_file(sender, instance, **kwargs):
         os.remove(file.path)
 
 
-@receiver(post_save)
-def email2img(sender, instance, created, **kwargs):
+def email2img(sender, instance, created=False, **kwargs):
     """ protect email via image
     """
-    if created and not isinstance(sender, LogEntry):
+
+    if created == False and not isinstance(sender, LogEntry):
         email = Preferences.objects.filter(key='EMAIL').values_list('value', flat=True)
         if email:
             color_mode = "RGBA"
@@ -52,10 +55,15 @@ def email2img(sender, instance, created, **kwargs):
                 im = Image.new(color_mode, (width, height + fontsize % 10), background_color)
                 draw = ImageDraw.Draw(im)
                 draw.text((0, 0), email[0], textcolor, font=font)
-                img_full_path = settings.STATIC_ROOT + 'themes/default/images/email2img.png'
+                img_full_path = settings.STATIC_ROOT + 'themes/'+ \
+                                settings.MYSMILE_THEME +'/images/email2img.png'
                 im.save(img_full_path)
             except Exception as err:
                 logger.error(err)
+
+
+
+
 
 pre_delete.connect(clear_photo_file, sender=Page, dispatch_uid="clear_photo_file")
 post_save.connect(email2img, sender=Preferences, dispatch_uid="email2img")

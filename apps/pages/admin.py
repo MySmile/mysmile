@@ -38,8 +38,9 @@ class PageAdmin(admin.ModelAdmin):
         flags = ''
         for item in settings.LANGUAGES:
             if not Page_translation.objects.filter(page_id=model.id, lang=item[0]):
-                flags += """<img src="/static/default/images/flags/""" + \
-                         item[0] + """.png" alt= " """ + item[1] + """ "/>"""
+                flags += """<img src="/static/themes/""" + settings.MYSMILE_THEME + \
+                         """/images/flags/""" + item[0] + """.png" alt= " """ + \
+                         item[1] + """ "/>"""
         return flags
     waiting_for_translation.short_description = 'waiting for translation'
     waiting_for_translation.allow_tags = True

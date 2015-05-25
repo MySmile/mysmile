@@ -1,8 +1,8 @@
-{% extends "default/base.html" %}
+{% extends MYSMILE_THEME|add:"/base.html" %}
 {% load staticfiles %}{% load i18n %}
 
 {% block logo %}
-	<div id="logo"><a href="/"><img src="{% static 'themes/default/images/logo-lg.png' %}" width="108" height="115" alt="MySmile logo" /></a></div>
+	<div id="logo"><a href="/"><img src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/logo-lg.png' %}" width="108" height="115" alt="MySmile logo" /></a></div>
 {% endblock %}
 
 {% block line_top %} 
@@ -21,7 +21,7 @@
 <p>Please try {% if langs %}
                   <ul>
                   {% for item in langs %}
-                  <li><img src="{% static 'themes/default/images/flags/'|add:item|add:'.png' %}" alt="{{ item }}" width="24"
+                  <li><img src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/flags/'|add:item|add:'.png' %}" alt="{{ item }}" width="24"
 height="24" /> <a href="/{{ item }}/{{ slug }}.html">http://{{ request_host }}/{{ item }}/{{ slug }}.html</a></li>
                   {% endfor %}
                   </ul>

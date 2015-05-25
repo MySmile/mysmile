@@ -28,6 +28,10 @@ class PreferencesForm(ModelForm):
             choices = tuple((str(i), str(i)) for i in range(100, 0, -10))
             self.fields['value'].widget = forms.Select(choices=choices)
 
+        if Preferences.KEY_THEME in self.initial['key']:
+            choices =( ('modern', 'modern'), ('classic', 'classic'))
+            self.fields['value'].widget = forms.Select(choices=choices)
+
 
     class Meta:
         model = Preferences

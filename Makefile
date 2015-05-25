@@ -14,9 +14,13 @@ help:
 install:
 	@cd ./config/requirements && pip3 install -r local.txt
 
+# test - run tests
 test:
 	@python3 manage.py test --pattern="test_*.py" --settings=mysmile.settings.test
 
+# checkdeploy - check deploy. Use it on server
+checkdeploy:
+	python3 manage.py check --deploy --settings=mysmile.settings.production
 	
 # sqlall - Run sqlall command
 sqlall:	

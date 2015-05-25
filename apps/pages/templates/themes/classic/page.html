@@ -1,13 +1,13 @@
-{% extends "default/base.html" %}
+{% extends MYSMILE_THEME|add:"/base.html" %}
 {% load staticfiles %}{% load i18n %}{% load cache %}
 {% load emailprotect %}
 {% load embed %}
 
 {% block apple-touch-icon-precomposed %}
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'apple-touch-icon-precomposed.png' %}" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'apple-touch-icon-precomposed.png' %}" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'apple-touch-icon-precomposed.png' %}" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
 {% endblock %}
 
 {% block css %}{% endblock %}
@@ -15,21 +15,21 @@
 	
 {% block google_analytics %} 
     {% if GOOGLE_ANALITYCS_CODE %}
-        {% include "default/includes/google_analytics.html" %}
+        {% include MYSMILE_THEME|add:"/includes/google_analytics.html" %}
     {% endif %}    
 {% endblock %}
 
 
 {% block logo %}
         <a href="/{{ lang }}/{{ main_menu.0.page__slug }}.html"><img 
-class="pure-img" src="{% static 'default/images/logo.png' %}" width="108" height="115" alt="MySmile logo" /></a>
+class="pure-img" src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/logo.png' %}" width="108" height="115" alt="MySmile logo" /></a>
 {% endblock %}
        
 {% block flags %}
     <ul>
         {% if LANGUAGES|length > 1 %}
             {% for lang in LANGUAGES  %}
-            <li><a href="/{{ lang.0 }}/{{ slug }}.html"><img class="pure-img" src="{% static 'default/images/flags/'|add:lang.0|add:'.png' %}" width="24" height="24" alt="{{ lang.1 }}"></a></li>
+            <li><a href="/{{ lang.0 }}/{{ slug }}.html"><img class="pure-img" src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/flags/'|add:lang.0|add:'.png' %}" width="24" height="24" alt="{{ lang.1 }}"></a></li>
             {% endfor %}
         {% endif %}
     </ul>
@@ -62,19 +62,19 @@ class="pure-img" src="{% static 'default/images/logo.png' %}" width="108" height
 {% block contact %}
 <ul>
 {% if EMAIL %}
-    <li><img class="pure-img" src="{% static 'default/images/email.png' %}" height="16" width="16" alt="email" />
+    <li><img class="pure-img" src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/email.png' %}" height="16" width="16" alt="email" />
         {% autoescape off %} {{ EMAIL|emailprotect }} {% endautoescape %}
     </li>
 {% endif %}
 {% if PHONE %}
     <li>    
-        <img class="pure-img" src="{% static 'default/images/phone.png' %}" height="16" width="16" alt="phone" />
+        <img class="pure-img" src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/phone.png' %}" height="16" width="16" alt="phone" />
         {{ PHONE }}
     </li>
 {% endif %}
 {% if SKYPE %}
     <li>    
-        <img class="pure-img" src="{% static 'default/images/skype.png' %}" height="16" width="16" alt="skype" />
+        <img class="pure-img" src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/skype.png' %}" height="16" width="16" alt="skype" />
         {{ SKYPE }}
     </li>
 {% endif %}

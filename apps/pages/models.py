@@ -29,7 +29,7 @@ class PagesManager(models.Manager):
         return c
 
     def get_main_menu(self, lang):
-        main_menu = Page_translation.objects.filter(lang=lang, page__status=Page.STATUS_PUBLISHED, page__ptype__in=[Page.PTYPE_MENU,Page.PTYPE_MENU_API]).annotate(slug=F('page__slug')).values('slug', 'menu').order_by('page__sortorder')
+        main_menu = Page_translation.objects.filter(lang=lang, page__status=Page.STATUS_PUBLISHED, page__ptype__in=[Page.PTYPE_MENU,Page.PTYPE_MENU_API]).values('page__slug', 'menu').order_by('page__sortorder')
         return main_menu
 
     def get_page(self, lang, slug):
