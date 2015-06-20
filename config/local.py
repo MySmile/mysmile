@@ -32,17 +32,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # Enter path to static folder
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-
 COMPRESS_ROOT = os.path.join(BASE_DIR, 'static/')
-
-CACHE_MIDDLEWARE_SECONDS = 60*60 #60*60*24
 
 ADMINS = (
     ('admin', 'info@mysmile.com.ua'),
 )
 
-# This is only used if CommonMiddleware is installed
-PREPEND_WWW = False
 
-# This is only used if CommonMiddleware is installed
-APPEND_SLASH = True

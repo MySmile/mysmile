@@ -43,6 +43,8 @@ CACHES = {
     }
 }
 
+CACHE_MIDDLEWARE_SECONDS = 60*60 #60*60*24
+
 # compressor settings
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
