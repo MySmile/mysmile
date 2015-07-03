@@ -8,7 +8,12 @@ Master:
 
   .. image:: https://coveralls.io/repos/MySmile/mysmile/badge.svg?branch=master
     :target: https://coveralls.io/r/MySmile/mysmile?branch=master
+
+  .. image:: https://readthedocs.org/projects/mysmile/badge/?version=latest
+    :target: https://readthedocs.org/projects/mysmile/?badge=latest
+    :alt: Documentation Status
     :align: left
+
 Dev:
   .. image:: https://travis-ci.org/MySmile/mysmile.svg?branch=dev
     :target: https://travis-ci.org/MySmile/mysmile?branch=dev

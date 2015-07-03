@@ -6,7 +6,6 @@ from django.conf import settings
 from django.core.cache import cache
 from django.core import signing
 
-
 import logging
 logger = logging.getLogger(__name__)  # Get an instance of a logger
 
@@ -36,13 +35,17 @@ class PageRedirectView(RedirectView):
 
 
 class PageView(TemplateView):
-    template_name = settings.MYSMILE_THEME + '/page.html'
+
+    def get_template_names(self):
+        return settings.MYSMILE_THEME + '/page.html'
 
     def get_context_data(self, **kwargs):
         context = super(PageView, self).get_context_data(**kwargs)
         c = Page.objects.get_content(kwargs['lang'], kwargs['slug'])
         c.update(Preferences.objects.get_all())
         c['inav'] = self.get_additional_dynamic_menu(self.request, kwargs['slug'], c['menu'], c['page__ptype'], int(c['MAX_INNERLINK_HISTORY']))
+
+        c['MYSMILE_THEME'] = settings.MYSMILE_THEME
         context.update(c)
         return context
 
@@ -55,3 +58,5 @@ class PageView(TemplateView):
                 while len(inner_nav) > max_innerlink_history:
                     inner_nav.pop(0)
         return inner_nav
+
+

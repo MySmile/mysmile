@@ -24,13 +24,16 @@ def clear_cache(sender, instance=None, created=False, **kwargs):
                 cursor = connections['default'].cursor()
                 cursor.execute(' '.join(['DELETE FROM ', cache_table]))
         except Exception as err:
-            logger.error(str(err))
+            logger.error(err)
 
     if sender.__name__=='Preferences':
         try:
             settings.MYSMILE_THEME = Preferences.objects.filter(key='THEME').values_list('value', flat=True)[0]
+
         except Exception as err:
             settings.MYSMILE_THEME = 'modern'
+            logger.error(err)
+
 
 
 def clear_photo_file(sender, instance, **kwargs):
