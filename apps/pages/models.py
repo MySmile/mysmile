@@ -43,8 +43,8 @@ class PagesManager(models.Manager):
             raise Http404
 
         if page:
-            page['bottom_cols'] = list(filter(None, [page['col_bottom_1'], page['col_bottom_2'], page['col_bottom_3']]))
-            return page
+            page[0]['bottom_cols'] = list(filter(None, [page[0]['col_bottom_1'], page[0]['col_bottom_2'], page[0]['col_bottom_3']]))
+            return page[0]
         else:
             raise Http404
 
