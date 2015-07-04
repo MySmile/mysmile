@@ -43,7 +43,7 @@ class Preferences(models.Model):
                 'name': 'Turn on/off REST Api', 'description': 'Turn on/off alternative way of getting pages using REST api. Only a special marked pages can be available for api. For more information please look into page statuses list.'},
                {'key': KEY_IMAGE_QUALITY, 'value': 100,
                 'name': 'Image quality', 'description': 'Global setting quality uploaded pictures. The picture quality is directly proportional to the size of the file. A value of 100 corresponds to the maximum quality.'},
-               {'key': KEY_THEME, 'value': 'classic',
+               {'key': KEY_THEME, 'value': 'modern',
                 'name': 'Theme switcher', 'description': 'Choose a theme for switch'},)
 
     key = models.CharField(unique=True, max_length=500)

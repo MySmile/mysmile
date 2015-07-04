@@ -1,5 +1,7 @@
+import os
 from django import forms
 from django.forms import ModelForm
+from django.conf import settings
 
 from apps.preferences.models import Preferences
 
@@ -29,7 +31,10 @@ class PreferencesForm(ModelForm):
             self.fields['value'].widget = forms.Select(choices=choices)
 
         if Preferences.KEY_THEME in self.initial['key']:
-            choices =( ('modern', 'modern'), ('classic', 'classic'))
+            path_of_themes = os.path.join(settings.BASE_DIR, '../apps/pages/templates/themes/')
+            choices = ((name, name) for name in os.listdir(path_of_themes)
+                       if os.path.isdir(os.path.join(path_of_themes, name)))
+
             self.fields['value'].widget = forms.Select(choices=choices)
 
 
