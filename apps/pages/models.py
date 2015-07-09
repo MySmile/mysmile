@@ -38,7 +38,7 @@ class PagesManager(models.Manager):
     def get_page(self, lang, slug):
         try:
             page = Page_translation.objects.filter(lang=lang, page__ptype__in=[Page.PTYPE_INNER, Page.PTYPE_MENU, Page.PTYPE_MENU_API], page__status=Page.STATUS_PUBLISHED, page__slug=slug).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords', 'page__ptype')
-        except Exeption as err:
+        except Exception as err:
             logger.error(err)
             raise Http404
 

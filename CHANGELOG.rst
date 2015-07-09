@@ -1,8 +1,12 @@
 *********
 Changelog
 *********
+
 **2015-07-xx Version 0.7.0**
   - Remove duplication DB queries
+  - Add switcher for themes in admin panel
+  - Add MySmile version notification in admin panel
+  - Updated docs
 
 **2015-05-10 Version 0.6.2**
   - Fixed language flags in the admin panel

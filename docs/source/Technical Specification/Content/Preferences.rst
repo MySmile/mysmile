@@ -1,7 +1,7 @@
 .. _Preferences:
 
 Preferences
-===========
+-----------
 
 Preferences contains information of contact and general technical information. All of them can be changed from the 
 :ref:`AdminPanel`.

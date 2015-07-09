@@ -5,7 +5,7 @@ Technology
    :header-rows: 1
 
    * - Project’s part
-     - Project’s part
+     - Technology
 
    * - Language
      - Python 3.x
@@ -17,16 +17,19 @@ Technology
      - SQLite 3
 
    * - Frontend
-     - HTML5 cross browser, CSS3 cross browser
+     - HTML, CSS, JS framework like Bootstrap or Pure CSS 
 
    * - Documentation
      - `Sphinx <http://sphinx-doc.org/>`_
 
 Also used third-party components:
 
-  1. JSColor: colorpicker in admin `<http://jscolor.com/>`_
-  
+#. `JSColor <http://jscolor.com/>`_  as colorpicker in admin 
+#. `Bootstrap <http://getbootstrap.com/>`_, `Pure CSS <http://purecss.io/>`_ into :ref:`themes <Themes>`.
 
+.. todo::
+
+   #. How to use MySql instead of SQLite? Describe this.
 
 
 

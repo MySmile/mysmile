@@ -13,6 +13,6 @@ Technical specification
    Urls <Urls>
    Menu
    Content/index
-   Themes
+   Themes/index
    Admin panel <AdminPanel>
    UsefulLinks

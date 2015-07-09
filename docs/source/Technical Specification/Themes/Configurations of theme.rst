@@ -1,5 +1,5 @@
-Design configuration
---------------------
+Configurations of theme
+-----------------------
 
 .. tabularcolumns:: |p{3cm}|p{6cm}|p{1.5cm}|p{1.8cm}|p{2cm}|
 .. list-table::
@@ -16,3 +16,7 @@ Design configuration
      - no
      - yes
      - no
+
+.. note::
+
+   Property *Color* use in :ref:`classic <Available_themes>` theme only
