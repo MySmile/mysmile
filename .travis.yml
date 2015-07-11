@@ -6,6 +6,7 @@ python:
   #- "pypy"
 # command to install dependencies
 install:
+  - bower install
   - pip install -r config/requirements/local.txt
   - pip install coveralls
 # command to run tests
