@@ -6,6 +6,9 @@ python:
   #- "pypy"
 # command to install dependencies
 install:
+
+  - npm install -g bower
+  - apt-get install nodejs-legacy
   - bower install
   - pip install -r config/requirements/local.txt
   - pip install coveralls
