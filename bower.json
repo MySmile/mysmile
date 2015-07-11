@@ -1,0 +1,8 @@
+{
+  "name": "mysmile",
+  "version": "0.7.0",
+  "dependencies": {
+    "bootstrap": "3.3.2",
+    "pure": "0.6.0"
+  }
+} 

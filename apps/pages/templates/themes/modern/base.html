@@ -13,7 +13,7 @@
         {% endblock %}
 
         {% compress css %}
-        <link href="{% static 'vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'themes/'|add:MYSMILE_THEME|add:'/css/main.css' %}" rel="stylesheet">
         {% endcompress %}
 
@@ -119,8 +119,8 @@
         <!-- Bootstrap core JavaScript
         ================================================== -->
         {% compress js %}
-        <script src="{% static 'vendor/jquery-1.11.2.min.js' %}"></script>
-        <script src="{% static 'vendor/bootstrap-3.3.2-dist/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
         {% endcompress %}
     </body>
 <!-- page cached at {% now "jS F Y H:i" %} -->

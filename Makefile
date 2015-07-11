@@ -1,8 +1,8 @@
 # run - Run local server
 run:
-	@echo "------------------------------------------------------------------------"
-	@echo "python3 manage.py runserver --setting=mysmile.settings.local "
-	@echo "========================================================================"
+	@echo "--------------------------------------------------------------"
+	@echo " python3 manage.py runserver --setting=mysmile.settings.local "
+	@echo "=============================================================="
 	@python3 -W ignore manage.py runserver --setting=mysmile.settings.local
 
 
@@ -12,6 +12,7 @@ help:
 
 # install - install locally
 install:
+	@bower install
 	@cd ./config/requirements && pip3 install -r local.txt
 
 # test - run tests
