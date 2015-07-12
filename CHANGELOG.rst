@@ -3,9 +3,10 @@ Changelog
 *********
 
 **2015-07-xx Version 0.7.0**
-  - Remove duplication DB queries
-  - Add switcher for themes in admin panel
-  - Add MySmile version notification in admin panel
+  - Optimized DB queries
+  - Added theme switcher in the admin panel
+  - Added MySmile version notification in the admin panel
+  - Integrated Bower
   - Updated docs
 
 **2015-05-10 Version 0.6.2**

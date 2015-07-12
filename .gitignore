@@ -6,10 +6,7 @@ log/*
 mysmile/static/CACHE/**
 
 docs/build/**
-mysmile/db/**
 mysmile/static/vendor/**
 !mysmile/static/jscolor
-
-
 
 .idea

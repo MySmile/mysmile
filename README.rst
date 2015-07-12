@@ -5,20 +5,28 @@ Lightweight CMS for Django
 Master:
   .. image:: https://travis-ci.org/MySmile/mysmile.svg?branch=master
     :target: https://travis-ci.org/MySmile/mysmile?branch=master
+    :alt: Build
 
   .. image:: https://coveralls.io/repos/MySmile/mysmile/badge.svg?branch=master
     :target: https://coveralls.io/r/MySmile/mysmile?branch=master
+    :alt: Test coverage
+
+  .. image:: https://badge.fury.io/py/mysmile.svg
+    :target: http://badge.fury.io/py/mysmile
+    :alt: Pypi
 
   .. image:: https://readthedocs.org/projects/mysmile/badge/?version=latest
     :target: https://readthedocs.org/projects/mysmile/?badge=latest
-    :alt: Documentation Status
-    :align: left
+    :alt: Documentation
 
 Dev:
   .. image:: https://travis-ci.org/MySmile/mysmile.svg?branch=dev
     :target: https://travis-ci.org/MySmile/mysmile?branch=dev
+    :alt: Build
+
   .. image:: https://coveralls.io/repos/MySmile/mysmile/badge.svg?branch=dev
     :target: https://coveralls.io/r/MySmile/mysmile?branch=dev
+    :alt: Test coverage
 
 MySmile is the lightweight open-source CMS based on Django. It helps to create websites with configurable design and minimum cost. 
 
@@ -59,5 +67,3 @@ Installation
   `login: test` 
   
   `password: test`
-
-

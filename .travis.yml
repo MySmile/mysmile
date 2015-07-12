@@ -5,10 +5,6 @@ python:
   # maintainers to fix their pypy-dev package.
   #- "pypy"
 # command to install dependencies
-before_script:
-  - npm install -g grunt-cli
-  - npm install -g bower
-  - bower install
 install:
   - pip install -r config/requirements/local.txt
   - pip install coveralls

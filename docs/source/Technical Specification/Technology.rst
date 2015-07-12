@@ -29,7 +29,7 @@ Also used third-party components:
 
 .. todo::
 
-   #. How to use MySql instead of SQLite? Describe this.
+   #. How to use MySql instead of SQLite. Add description.
 
 
 

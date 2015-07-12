@@ -17,7 +17,7 @@ Glossary
         .. seealso:: :ref:`technical_configuration`.
 
     api & menu page
-        Api & menu page is a similar as combination of **api page** and **menu page**.
+        Api & menu page is an combination of **api page** and **menu page**.
         
         .. seealso:: :ref:`technical_configuration`.
 
