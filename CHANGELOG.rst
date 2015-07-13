@@ -2,7 +2,7 @@
 Changelog
 *********
 
-**2015-07-xx Version 0.7.0**
+**2015-07-13 Version 0.7.0**
   - Optimized DB queries
   - Added theme switcher in the admin panel
   - Added MySmile version notification in the admin panel

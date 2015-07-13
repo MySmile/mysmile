@@ -39,9 +39,9 @@ clean:
 	find . -name "__pycache__" -print0 | xargs -0 rm -rf
 	@echo "Clean!"
 
-# syncdb - Run syncdb command
-syncdb:
-	python3 manage.py syncdb
+# migrate - Run syncdb command
+migrate:
+	python3 manage.py migrate
 
 # makemessages - Create locale
 makemessages:
