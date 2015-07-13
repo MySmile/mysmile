@@ -1,7 +1,11 @@
 from PIL import Image
 
 from django.db import models
+from django.db.models import F
 from django.http import Http404
+
+import logging
+logger = logging.getLogger(__name__)  # Get an instance of a logger
 
 from mysmile.settings.base import LANGUAGES
 from apps.preferences.models import Preferences
@@ -24,7 +28,7 @@ def create_default_sortorder():
 class PagesManager(models.Manager):
     def get_content(self, lang=None, slug=None):
         c = self.get_page(lang, slug)
-        c['main_menu'] = self.get_main_menu(lang)
+        c['main_menu'] = list(self.get_main_menu(lang))
         return c
 
     def get_main_menu(self, lang):
@@ -33,12 +37,16 @@ class PagesManager(models.Manager):
 
     def get_page(self, lang, slug):
         try:
-            page = Page_translation.objects.filter(lang=lang, page__ptype__in=[Page.PTYPE_INNER, Page.PTYPE_MENU, Page.PTYPE_MENU_API], page__status=Page.STATUS_PUBLISHED, page__slug=slug).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords', 'page__ptype')[0]
-        except IndexError:
+            page = Page_translation.objects.filter(lang=lang, page__ptype__in=[Page.PTYPE_INNER, Page.PTYPE_MENU, Page.PTYPE_MENU_API], page__status=Page.STATUS_PUBLISHED, page__slug=slug).values('page__color', 'page__photo', 'menu', 'name', 'col_central', 'col_right', 'youtube', 'col_bottom_1', 'col_bottom_2', 'col_bottom_3', 'photo_alt', 'photo_description', 'meta_title', 'meta_description', 'meta_keywords', 'page__ptype')
+        except Exception as err:
+            logger.error(err)
             raise Http404
 
-        page['bottom_cols'] = list(filter(None, [page['col_bottom_1'], page['col_bottom_2'], page['col_bottom_3']]))
-        return page
+        if page:
+            page[0]['bottom_cols'] = list(filter(None, [page[0]['col_bottom_1'], page[0]['col_bottom_2'], page[0]['col_bottom_3']]))
+            return page[0]
+        else:
+            raise Http404
 
 
 class Page(models.Model):

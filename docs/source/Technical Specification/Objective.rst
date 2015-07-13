@@ -1,7 +1,7 @@
 Objective
 =========
 
-MySmile is the lightweight open-source CMS based on Django. Project focus on context, usability and SEO. It is aimed particularly to small site that provides information about one person or business. It is something similar to Blog and Homepage. Information of such site does not change so often as in Blog but more then on Homepage. In other side MySmile can be extended for the way as you want.
+MySmile is the lightweight open-source CMS based on Django. Project focus on context, usability and SEO. It is aimed particularly to small site that provides information about person or business. It is something similar to Blog and Homepage. Information of such site does not change so often as in Blog but more then on Homepage. In other side MySmile can be extended for the way as you want.
 
 MySmile includes:
   * Admin panel for content managing

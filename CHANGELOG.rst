@@ -1,6 +1,14 @@
 *********
 Changelog
 *********
+
+**2015-07-13 Version 0.7.0**
+  - Optimized DB queries
+  - Added theme switcher in the admin panel
+  - Added MySmile version notification in the admin panel
+  - Integrated Bower
+  - Updated docs
+
 **2015-05-10 Version 0.6.2**
   - Fixed language flags in the admin panel
   - Updated settings

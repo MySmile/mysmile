@@ -8,7 +8,7 @@ from apps.preferences.models import PreferencesManager
 
 
 class SignalsTestCase(TestCase):
-    fixtures = ['test_preferences.json']
+    fixtures = ['preferences.json']
 
     def setUp(self):
         pass
@@ -16,7 +16,6 @@ class SignalsTestCase(TestCase):
     def test_email2img(self):
         p = PreferencesManager().get_all()
         email = p.get('EMAIL')
-
         color_mode = "RGBA"
         background_color = (0, 0, 0, 0)  # full transparent
         fontfile = os.path.join(settings.STATIC_ROOT, 'fonts/TimesNewRomanCE.ttf')

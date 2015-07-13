@@ -3,6 +3,6 @@
 Urls
 ====
 
-URL --- friendly like `<http://domain/language/slug.html>`_. Slug is unique. Valid characters of the alphabet in upper lower case, and the hyphen (not underscore!). 
+URL is user friendly based on unique slug. Valid characters for slug are alpha numeric and hyphen to join words.
 
-For instance: `<http://mysmile.com.ua/en/index.html>`_
+For instance: `<http://mysmile.com.ua/en/about-company.html>`_

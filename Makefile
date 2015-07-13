@@ -1,9 +1,9 @@
 # run - Run local server
 run:
-	@echo "------------------------------------------------------------------------"
-	@echo "python3 manage.py runserver --nostatic --setting=mysmile.settings.local "
-	@echo "========================================================================"
-	@python3 -W ignore manage.py runserver --nostatic --setting=mysmile.settings.local
+	@echo "--------------------------------------------------------------"
+	@echo " python3 manage.py runserver --setting=mysmile.settings.local "
+	@echo "=============================================================="
+	@python3 -W ignore manage.py runserver --setting=mysmile.settings.local
 
 
 # help - Display callable targets.
@@ -12,11 +12,16 @@ help:
 
 # install - install locally
 install:
+	@bower install
 	@cd ./config/requirements && pip3 install -r local.txt
 
+# test - run tests
 test:
 	@python3 manage.py test --pattern="test_*.py" --settings=mysmile.settings.test
 
+# checkdeploy - check deploy. Use it on server
+checkdeploy:
+	python3 manage.py check --deploy --settings=mysmile.settings.production
 	
 # sqlall - Run sqlall command
 sqlall:	
@@ -34,9 +39,9 @@ clean:
 	find . -name "__pycache__" -print0 | xargs -0 rm -rf
 	@echo "Clean!"
 
-# syncdb - Run syncdb command
-syncdb:
-	python3 manage.py syncdb
+# migrate - Run syncdb command
+migrate:
+	python3 manage.py migrate
 
 # makemessages - Create locale
 makemessages:

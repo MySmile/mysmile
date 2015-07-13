@@ -6,7 +6,7 @@ import os, sys
 import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # APP CONFIGURATION
 DJANGO_APPS = (
@@ -19,18 +19,19 @@ DJANGO_APPS = (
 )
 
 DJANGO_MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 )
 
-    
 ROOT_URLCONF = 'mysmile.urls'
 
 WSGI_APPLICATION = 'mysmile.wsgi.application'
@@ -60,10 +61,38 @@ LANGUAGES = (
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-    os.path.join(BASE_DIR, '../apps/pages/templates/themes'),
-)
+CSRF_FAILURE_VIEW = 'apps.preferences.views.csrf_failure'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, '../apps/pages/templates/themes'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                # Insert your TEMPLATE_CONTEXT_PROCESSORS here
+                'apps.utils.context_processors.mysmile_version',
+                'apps.utils.context_processors.mysmile_theme',
+                # or use this list if you haven't customized them:
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+
+                # 'django.template.context_processors.debug',
+                # 'django.template.context_processors.request',
+                # 'django.contrib.auth.context_processors.auth',
+                # 'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 LOGGING = {
     'version': 1,
@@ -123,6 +152,3 @@ LOGGING = {
 
     },
 }
-
-CSRF_FAILURE_VIEW = 'apps.preferences.views.csrf_failure'
-

@@ -3,11 +3,10 @@ bin/**
 tmp
 log/*
 
-mysmile/static/tmp
 mysmile/static/CACHE/**
 
 docs/build/**
-mysmile/db
-
+mysmile/static/vendor/**
+!mysmile/static/jscolor
 
 .idea

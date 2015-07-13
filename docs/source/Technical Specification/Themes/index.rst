@@ -1,7 +1,14 @@
+.. _Themes:
+
 Themes
 ======
 
-From versions 0.6.x new themes are added manually. For details, see  ``apps/pages/templates/themes`` and 
-``mysmile/static/themes``  
+.. toctree::
+   :maxdepth: 2
+   :titlesonly:
 
-In future will be added to the control themes from the admin panel.
+   Available themes
+   Configurations of theme
+   How to add a new theme
+   How to create a new theme
+   

@@ -23,6 +23,7 @@ LOCAL_APPS = (
     'apps.pages',
     'apps.preferences',
     'apps.sitemap',
+    'apps.update',
     'apps.utils',
     )
 
@@ -42,6 +43,8 @@ CACHES = {
         # 'TIMEOUT': None,
     }
 }
+
+CACHE_MIDDLEWARE_SECONDS = 60*60 #60*60*24
 
 # compressor settings
 STATICFILES_FINDERS = (

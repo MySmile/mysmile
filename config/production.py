@@ -10,8 +10,6 @@ DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 SECRET_KEY = ''
 
-TEMPLATE_DEBUG = DEBUG
-
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
@@ -26,6 +24,7 @@ DATABASES = {
     }
 }
 
+# for example: ALLOWED_HOSTS = ['mysite.com', 'www.mysite.com']
 ALLOWED_HOSTS = ['demo.mysmile.com.ua', 'www.demo.mysmile.com.ua']
 
 # Enter path to media folder on server.
@@ -35,8 +34,6 @@ MEDIA_ROOT = ''
 STATIC_ROOT = ''
 
 COMPRESS_ROOT = STATIC_ROOT
-
-CACHE_MIDDLEWARE_SECONDS = 60*60*24
 
 ADMINS = (
     ('admin', 'info@mysmile.com.ua'),

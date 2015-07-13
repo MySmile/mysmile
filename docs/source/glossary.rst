@@ -9,7 +9,7 @@ Glossary
     additional menu
         Additional menu is a dynamic navigation that is generated from inner pages after lasts were visited. Configuration key "MAX_INNERLINK_HISTORY" set a max number of such pages in menu.
         
-        .. seealso:: :ref:`UserConfiguration`.
+        .. seealso:: :ref:`Preferences`.
 
     api page
         Api page is specify pages that are available only from REST API.
@@ -17,7 +17,7 @@ Glossary
         .. seealso:: :ref:`technical_configuration`.
 
     api & menu page
-        Api & menu page is a similar as combination of **api page** and **menu page**.
+        Api & menu page is an combination of **api page** and **menu page**.
         
         .. seealso:: :ref:`technical_configuration`.
 

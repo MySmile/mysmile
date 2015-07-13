@@ -1,0 +1,124 @@
+{% extends MYSMILE_THEME|add:"/base.html" %}
+{% load staticfiles %}{% load i18n %}{% load cache %}
+{% load emailprotect %}
+{% load embed %}
+
+{% block apple-touch-icon-precomposed %}
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/apple-touch-icon-precomposed.png' %}" />
+{% endblock %}
+
+{% block css %}{% endblock %}
+{% block js %}{% endblock %}
+	
+{% block google_analytics %} 
+    {% if GOOGLE_ANALITYCS_CODE %}
+        {% include "includes/google_analytics.html" %}
+    {% endif %}    
+{% endblock %}
+
+
+{% block logo %}
+    <a class="navbar-brand" href="/{{ lang }}/{{ main_menu.0.page__slug }}.html"><img alt="Demo Logo" src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/logo-sm.png' %}" height="50" width="47"></a>
+{% endblock %}
+
+
+{% block main_nav %}
+    <ul class="nav navbar-nav">
+    {% for item in main_menu %}
+        {% if item.slug == slug %}
+            <li class="active"><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }} <span class="sr-only">(current)</span></a></li>
+        {% else %}
+            <li><a href="/{{ lang }}/{{ item.page__slug }}.html">{{ item.menu }}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block additional_nav %}
+<ul class="list-inline">
+{% for links, menu in inav %}
+  {% if links == slug %}
+    <li class="active"><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+  {% else %}
+    <li><a href="/{{ lang }}/{{ links }}.html">{{ menu }}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% endblock %}
+
+{% block flags %}
+    <ul class="nav navbar-nav navbar-right navbar-translate">
+        {% if LANGUAGES|length > 1 %}
+            {% for lang in LANGUAGES  %}
+            <li><a href="/{{ lang.0 }}/{{ slug }}.html"><img class="pure-img" src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/flags/'|add:lang.0|add:'.png' %}" width="24" height="24" alt="{{ lang.1 }}"></a></li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+{% endblock %}
+
+
+{% block contact %}
+<ul class="list-unstyled">
+{% if EMAIL %}
+    <li class="text-muted"><img src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/email.png' %}" height="16" width="16" alt="email" />
+        {% autoescape off %} {{ EMAIL|emailprotect }} {% endautoescape %}
+    </li>
+{% endif %}
+{% if PHONE %}
+    <li class="text-muted">
+        <img src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/phone.png' %}" height="16" width="16" alt="phone" />
+        {{ PHONE }}
+    </li>
+{% endif %}
+{% if SKYPE %}
+    <li class="text-muted">
+        <img src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/skype.png' %}" height="16" width="16" alt="skype" />
+        {{ SKYPE }}
+    </li>
+{% endif %}
+</ul>
+{% endblock %}
+
+
+{% block col_right %}
+                {% if page__photo %}
+                    <figure>
+                        <img class="img-responsive" src="{{ MEDIA_URL }}{{ page__photo }}" width="333" alt="{{ photo_alt }}" />
+                        {% if photo_description %}<figcaption>{{ photo_description }}</figcaption>{% endif %}
+                    </figure>
+                {% endif %}
+
+                {% if youtube %}
+<iframe style="box-shadow: 0 15px 15px -13px #333; -moz-box-shadow: 0 15px 15px -13px #333; -webkit-box-shadow: 0 15px 15px -13px #333; width:330px; height:250px;margin:2px;" 
+src="{{ youtube|embed }}" frameborder="0" allowfullscreen></iframe>
+                {% endif %}
+                {% if col_right %}
+                    <div>
+                        {{ col_right|safe }}
+                    </div>
+                {% endif %}
+
+{% endblock %}
+
+{% block col_central_header %}
+<h1>{{ name }}</h1>
+{% endblock %}
+
+{% block col_central %}
+{{ col_central|safe }}
+{% endblock %} 
+
+
+{% block advertisement %}
+<div id="advertisement">
+    
+    <div id="version"><span>powered by <a href="http://mysmile.com.ua">MySmile</a></span>
+    </div>
+</div>
+{% endblock %}
+
+
+

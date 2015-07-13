@@ -1,11 +1,12 @@
 .. _Preferences:
 
 Preferences
-===========
+-----------
 
 Preferences contains information of contact and general technical information. All of them can be changed from the 
 :ref:`AdminPanel`.
 
+.. tabularcolumns:: |p{4cm}|p{3.5cm}|p{9cm}|
 .. list-table::
    :header-rows: 1
 
@@ -40,7 +41,11 @@ Preferences contains information of contact and general technical information. A
    * - Image quality
      - 70 
      - Global setting quality uploaded pictures. The picture quality is directly proportional to the size of the file. A value of 100 corresponds to the maximum quality.
-     
+
+   * - Theme
+     - modern
+     - Choose a theme for switch 
+  
 .. rubric:: Footnotes
 
 .. [#f1] E-mail is automatically converted to the image for protection against spam bots.
