@@ -2,6 +2,11 @@
 Changelog
 *********
 
+
+**2015-09-## Version 0.8.0**
+  - 
+  -
+
 **2015-07-13 Version 0.7.0**
   - Optimized DB queries
   - Added theme switcher in the admin panel
