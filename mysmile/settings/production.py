@@ -7,6 +7,7 @@ from config.mysmile import *
 
 
 APP_MIDDLEWARE_CLASSES = (
+    'apps.api.middlewares.VersionSwitchMiddleware',
     'apps.utils.middlewares.ExceptionLoggingMiddleware',
     'apps.utils.middlewares.AdminLocaleOneLangMiddleware',
 )
@@ -15,8 +16,9 @@ THIRD_PARTY_MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
 
-MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + APP_MIDDLEWARE_CLASSES + THIRD_PARTY_MIDDLEWARE_CLASSES
-
+MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + \
+                     APP_MIDDLEWARE_CLASSES + \
+                     THIRD_PARTY_MIDDLEWARE_CLASSES
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'apps.api',
@@ -30,6 +32,7 @@ LOCAL_APPS = (
 # another apps
 THIRD_PARTY_APPS = ('debug_toolbar',
                     'compressor',
+                    'rest_framework',
                     )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -63,7 +66,7 @@ X_FRAME_OPTIONS = 'DENY'
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
-CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_HTTPONLY = True
+#CSRF_COOKIE_SECURE = True
+#CSRF_COOKIE_HTTPONLY = True
 #SECURE_SSL_REDIRECT = True
 #SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTOCOL", "https")

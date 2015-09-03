@@ -34,6 +34,7 @@ urlpatterns = patterns('',
                                               "/Sitemap.xml", content_type="text/plain")),
 
     url('', include('apps.update.urls')),
+    url(r'^api/', include('apps.api.urls', namespace='api')),
 
     url(r'^admin/', include(admin.site.urls)),
     (r'^i18n/', include('django.conf.urls.i18n')),
@@ -55,5 +56,6 @@ if settings.DEBUG_TOOLBAR_PATCH_SETTINGS:
     urlpatterns += patterns('',
         url(r'^__debug__/', include(debug_toolbar.urls)),
     )
+
 
 

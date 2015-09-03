@@ -52,7 +52,7 @@ USE_TZ = True
 LANGUAGES = (
     ('en', 'English'),
     ('ua', 'Українська'),
-    ('ru', 'Русский'),
+    ('pl', 'Polski'),
 )
 
 # Static files (CSS, JavaScript, Images)
@@ -93,6 +93,16 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
+
+    'EXCEPTION_HANDLER': 'apps.api.v1.utils.custom_exception_handler'
+}
 
 LOGGING = {
     'version': 1,

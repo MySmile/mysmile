@@ -7,7 +7,7 @@ from django.http import Http404
 import logging
 logger = logging.getLogger(__name__)  # Get an instance of a logger
 
-from mysmile.settings.base import LANGUAGES
+from django.conf import settings
 from apps.preferences.models import Preferences
 
 
@@ -117,8 +117,8 @@ class Page(models.Model):
 
 class Page_translation(models.Model):
     page = models.ForeignKey(Page)
-    lang = models.CharField(max_length=500, choices=LANGUAGES,
-                            default=LANGUAGES[0][0])
+    lang = models.CharField(max_length=500, choices=settings.LANGUAGES,
+                            default=settings.LANGUAGES[0][0])
     menu = models.CharField(max_length=500)
     name = models.CharField(max_length=500, blank=True, null=True)
     col_central = models.TextField(blank=False, null=False)
