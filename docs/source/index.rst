@@ -16,5 +16,6 @@ Contents:
    
    Getting started/index
    Technical Specification/index
+   Themes/index
    REST API/index
    glossary

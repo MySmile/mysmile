@@ -14,7 +14,8 @@ That resource returns list of available languages.
     * - /language
       - list of supported languages
       - ::
-
-          { code: 200, 
+      
+          { 
+            code: 200, 
             data: ["ua","ru", "en"] 
-            }
+          }
