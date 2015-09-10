@@ -22,7 +22,7 @@ MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + \
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    'apps.api.v1',
+    'apps.api',
     'apps.pages',
     'apps.preferences',
     'apps.sitemap',

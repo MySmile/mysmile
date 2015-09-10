@@ -44,6 +44,7 @@ urlpatterns = patterns('',
 handler404 = 'apps.preferences.views.e404'
 handler500 = 'apps.preferences.views.e500'
 
+admin.site.site_header = 'MySmile administration'
 
 if settings.DEBUG:
     urlpatterns += patterns('django.views.static',

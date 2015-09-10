@@ -31,7 +31,7 @@ class PreferencesForm(ModelForm):
             self.fields['value'].widget = forms.Select(choices=choices)
 
         if Preferences.KEY_THEME in self.initial['key']:
-            path_of_themes = os.path.join(settings.BASE_DIR, '../apps/pages/templates/themes/')
+            path_of_themes = os.path.join(settings.BASE_DIR, 'apps/pages/templates/themes/')
             choices = ((name, name) for name in os.listdir(path_of_themes)
                        if os.path.isdir(os.path.join(path_of_themes, name)))
 
