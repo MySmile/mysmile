@@ -28,8 +28,8 @@ Dev:
     :target: https://coveralls.io/r/MySmile/mysmile?branch=dev
     :alt: Test coverage
 
-  .. image:: https://readthedocs.org/projects/mysmile/badge/?version=latest
-    :target: https://readthedocs.org/projects/mysmile/?badge=latest
+  .. image:: https://readthedocs.org/projects/mysmile/badge/?version=dev
+    :target: https://readthedocs.org/projects/mysmile/?badge=dev
     :alt: Documentation    
     
 MySmile is the lightweight open-source CMS based on Django. It helps to create websites with configurable design and minimum cost. 
