@@ -3,6 +3,7 @@ from PIL import Image
 from django.db import models
 from django.db.models import F
 from django.http import Http404
+from django.core.urlresolvers import reverse
 
 import logging
 logger = logging.getLogger(__name__)  # Get an instance of a logger
@@ -148,3 +149,6 @@ class Page_translation(models.Model):
         verbose_name = 'Translation'
         verbose_name_plural = 'Translations'
         unique_together = ('page', 'lang')
+
+    def get_absolute_url(self):
+        return reverse('page', kwargs={'lang': self.lang, 'slug': self.page.slug})

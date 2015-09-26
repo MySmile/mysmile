@@ -28,6 +28,7 @@ class PageAdmin(admin.ModelAdmin):
     inlines = [Page_translationInline]
     save_on_top = True
     readonly_fields = ('photo_thumb',)
+    view_on_site = True
 
     def date_update(self, model):
         return model.updated_at.strftime('%d %B %Y, %H:%M')
