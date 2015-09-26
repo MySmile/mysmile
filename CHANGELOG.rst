@@ -5,7 +5,7 @@ Changelog
 
 **2015-09-## Version 0.8.0**
   - Refactor MySmile api on Django Rest Framework 3 
-  -
+  - Add "view on site" button in admin
 
 **2015-07-13 Version 0.7.0**
   - Optimized DB queries
