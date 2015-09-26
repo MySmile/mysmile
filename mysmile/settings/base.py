@@ -52,8 +52,8 @@ USE_L10N = True
 USE_TZ = True
 
 LANGUAGES = (
+    ('uk', 'Українська'),
     ('en', 'English'),
-    ('ua', 'Українська'),
     ('pl', 'Polski'),
 )
 
