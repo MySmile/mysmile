@@ -35,21 +35,21 @@ class ApiTestCase(TestCase):
         self._client = Client()
 
     def test_content_short(self):
-        response = self._client.get('/api/content')
+        response = self._client.get('/api/v1/content')
         self.assertEqual(response.status_code, 200)
 
     def test_content_slug(self):
-        response = self._client.get('/api/content?slug=index')
+        response = self._client.get('/api/v1/content?slug=index')
         self.assertEqual(response.status_code, 200)
 
     def test_content_slug_lang(self):
-        response = self._client.get('/api/content?slug=index&lang=en')
+        response = self._client.get('/api/v1/content?slug=index&lang=en')
         self.assertEqual(response.status_code, 200)
 
     def test_language(self):
-        response = self._client.get('/api/language')
+        response = self._client.get('/api/v1/language')
         self.assertEqual(response.status_code, 200)
 
     def test_contact(self):
-        response = self._client.get('/api/contact')
+        response = self._client.get('/api/v1/contact')
         self.assertEqual(response.status_code, 200)

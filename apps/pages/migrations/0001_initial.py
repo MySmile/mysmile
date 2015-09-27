@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(unique=True)),
                 ('color', models.CharField(help_text='Click once with the mouse to select                                         a color, and then twice to save', max_length=500, default='#FDA132')),
                 ('photo', apps.pages.models.ImageField(upload_to='images/', null=True, blank=True)),
-                ('sortorder', models.IntegerField(unique=True, verbose_name='Sort order', default=apps.pages.models.create_default_sortorder)),
+                ('sortorder', models.IntegerField(unique=True, verbose_name='Sort order', default=lambda: Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+Page.SORTORDER_STEP)),
                 ('status', models.IntegerField(choices=[(0, 'draft'), (1, 'published')], default=0)),
                 ('ptype', models.IntegerField(choices=[(0, 'inner page'), (1, 'menu page'), (2, 'api page'), (3, 'api & menu page')], verbose_name='Page type', default=1)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
