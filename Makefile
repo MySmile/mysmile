@@ -6,9 +6,7 @@ run:
 	@python3 -W ignore manage.py runserver --setting=mysmile.settings.local
 
 
-# help - Display callable targets.
-help:
-	@egrep "^# [a-z,\",=,_ ]+ - " Makefile	
+
 
 # install - install locally
 install:
@@ -19,18 +17,17 @@ install:
 test:
 	@python3 manage.py test --pattern="test_*.py" --settings=mysmile.settings.test
 
+# onetest - run one test
+onetest:
+	@python manage.py test apps.preferences.tests.test_preferences.PreferencesTestCase --settings=mysmile.settings.local
+
+
+
+
 # checkdeploy - check deploy. Use it on server
 checkdeploy:
 	python3 manage.py check --deploy --settings=mysmile.settings.production
-	
-# sqlall - Run sqlall command
-sqlall:	
-	@python3 manage.py sqlall $(app)
 
-# stop - Stop local server
-stop:
-	@killall python3
-	@echo "Server stopped!"
 
 # clean - Clean all temporary files
 clean:
@@ -45,11 +42,16 @@ migrate:
 
 # makemessages - Create locale
 makemessages:
-	@cd pages && django-admin.py makemessages -l uk -a 
+	@cd apps/pages && django-admin.py makemessages --locale=uk
+	@cd ../..
+	@cd apps/preferences && django-admin.py makemessages --locale=uk
 
 # compilemessages - Compile locale 
 compilemessages:
-	@cd pages && django-admin.py compilemessages	
+	@cd apps/pages && django-admin.py compilemessages
+	@cd ../..
+	@cd apps/preferences && django-admin.py compilemessages
+
 	
 # style - Check PEP8 and others
 PEP8IGNORE=E22,E23,E24,E302,E401
@@ -62,4 +64,6 @@ style:
 	@echo
 	-pep8 --ignore=$(PEP8IGNORE) .
 
-
+# help - Display callable targets.
+help:
+	@egrep "^# [a-z,\",=,_ ]+ - " Makefile

@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models import F
 from django.http import Http404
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 
 import logging
 logger = logging.getLogger(__name__)  # Get an instance of a logger
@@ -51,28 +52,29 @@ class Page(models.Model):
     PTYPE_MENU = 1
     PTYPE_API = 2
     PTYPE_MENU_API = 3
-    PTYPE = ((PTYPE_INNER, 'inner page'),  # website only
-             (PTYPE_MENU, 'menu page'),  # website only
-             (PTYPE_API, 'api page'),   # api only
-             (PTYPE_MENU_API, 'api & menu page'))  # api & website
+    PTYPE = ((PTYPE_INNER, _('inner page')),  # website only
+             (PTYPE_MENU, _('menu page')),  # website only
+             (PTYPE_API, _('API page')),   # API only
+             (PTYPE_MENU_API, _('API & menu page')))  # API & website
 
     STATUS_DRAFT = 0
     STATUS_PUBLISHED = 1
-    STATUS = ((STATUS_DRAFT, 'draft'),
-              (STATUS_PUBLISHED, 'published'))
+    STATUS = ((STATUS_DRAFT, _('draft')),
+              (STATUS_PUBLISHED, _('published')))
     SORTORDER_STEP = 10
 
-    slug = models.SlugField(unique=True,)
+    slug = models.SlugField(unique=True, verbose_name=_('slug'))
     color = models.CharField(max_length=500, default='#FDA132',
-                             help_text='Click once with the mouse to select \
-                                        a color, and then twice to save')
+                             help_text=_('Click once with the mouse to select \
+                                        a color, and then twice to save'),
+                             verbose_name=_('color'))
     # blank=True add "clear image" checkbox into admin page
-    photo = ImageField(upload_to='images/', null=True, blank=True)
+    photo = ImageField(upload_to='images/', null=True, blank=True, verbose_name=_('photo'))
     sortorder = models.IntegerField(unique=True,
                                     default=lambda: Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+Page.SORTORDER_STEP,
-                                    verbose_name='Sort order')
-    status = models.IntegerField(unique=False, choices=STATUS, default=STATUS_DRAFT)
-    ptype = models.IntegerField(unique=False, choices=PTYPE, default=PTYPE_MENU, verbose_name='Page type')
+                                    verbose_name=_('Sort order'))
+    status = models.IntegerField(unique=False, choices=STATUS, default=STATUS_DRAFT, verbose_name=_('status'))
+    ptype = models.IntegerField(unique=False, choices=PTYPE, default=PTYPE_MENU, verbose_name=_('page type'))
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -112,7 +114,8 @@ class Page(models.Model):
     class Meta:
         db_table = 'Page'
         ordering = ['-ptype', 'sortorder', 'status']
-
+        verbose_name = _('Page')
+        verbose_name_plural = _('Pages')
 
 class Page_translation(models.Model):
     page = models.ForeignKey(Page)
@@ -144,8 +147,8 @@ class Page_translation(models.Model):
     class Meta:
         db_table = 'Page_translation'
         ordering = ['lang']
-        verbose_name = 'Translation'
-        verbose_name_plural = 'Translations'
+        verbose_name = _('Translation')
+        verbose_name_plural = _('Translations')
         unique_together = ('page', 'lang')
 
     def get_absolute_url(self):

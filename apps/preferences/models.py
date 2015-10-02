@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 
 class PreferencesManager(models.Manager):
@@ -46,10 +47,10 @@ class Preferences(models.Model):
                {'key': KEY_THEME, 'value': 'modern',
                 'name': 'Theme switcher', 'description': 'Choose a theme for switch'},)
 
-    key = models.CharField(unique=True, max_length=500)
-    value = models.CharField(blank=True, null=True, max_length=500)
-    name = models.CharField(max_length=500)
-    description = models.CharField(max_length=500)
+    key = models.CharField(unique=True, max_length=500, verbose_name=_('key'))
+    value = models.CharField(blank=True, null=True, max_length=500, verbose_name=_('value'))
+    name = models.CharField(max_length=500, verbose_name=_('name'))
+    description = models.CharField(max_length=500, verbose_name=_('description'))
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = PreferencesManager()
@@ -62,6 +63,6 @@ class Preferences(models.Model):
 
     class Meta:
         db_table = 'Preferences'
-        verbose_name = 'Preference'
-        verbose_name_plural = 'Preferences'
+        verbose_name = _('Preference')
+        verbose_name_plural = _('Preferences')
 
