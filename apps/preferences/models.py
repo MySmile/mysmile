@@ -27,6 +27,7 @@ class Preferences(models.Model):
     KEY_REST_API = 'REST_API'
     KEY_IMAGE_QUALITY = 'IMAGE_QUALITY'
     KEY_THEME = 'THEME'
+    KEY_IMAGE_AUTOSCALE = 'IMAGE_AUTOSCALE'
 
     CONTACT = {KEY_PHONE: 'phone', KEY_EMAIL: 'email', KEY_SKYPE: 'skype'}
 
@@ -45,7 +46,9 @@ class Preferences(models.Model):
                {'key': KEY_IMAGE_QUALITY, 'value': 100,
                 'name': 'Image quality', 'description': 'Global setting quality uploaded pictures. The picture quality is directly proportional to the size of the file. A value of 100 corresponds to the maximum quality.'},
                {'key': KEY_THEME, 'value': 'modern',
-                'name': 'Theme switcher', 'description': 'Choose a theme for switch'},)
+                'name': 'Theme switcher', 'description': 'Choose a theme for switch'},
+               {'key': KEY_IMAGE_AUTOSCALE, 'value': True,
+                'name': 'Image autoscale', 'description': 'Global setting for autoscale uploaded pictures if its width>333px. Pictures will be scaled to width=333px.'},)
 
     key = models.CharField(unique=True, max_length=500, verbose_name=_('key'))
     value = models.CharField(blank=True, null=True, max_length=500, verbose_name=_('value'))

@@ -1,3 +1,4 @@
+import PIL
 from PIL import Image
 
 from django.db import models
@@ -101,6 +102,16 @@ class Page(models.Model):
             quality = int(Preferences.objects.filter(key='IMAGE_QUALITY').values_list('value', flat=True)[0])
             image = Image.open(path)
             image.save(path, quality=quality, optimize=True)
+
+        autoscale = Preferences.objects.filter(key='IMAGE_AUTOSCALE').values_list('value', flat=True)[0]
+        if autoscale:
+            image = Image.open(path)
+            if image.width > 333: # 333px in right. TODO: create constan like MYSMILE_IMAGE_WIDTH = 333
+                wpercent = (333/float(image.size[0]))
+                hsize = int((float(image.size[1])*float(wpercent)))
+                image = image.resize((333, hsize), PIL.Image.ANTIALIAS)
+                image.save(path)
+
 
     def __setattr__(self, name, value):
         if name.isupper():

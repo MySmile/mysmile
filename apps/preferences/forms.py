@@ -22,6 +22,8 @@ class PreferencesForm(ModelForm):
 
         if Preferences.KEY_REST_API in self.initial['key']:
             self.fields['value'].widget = forms.Select(choices=((True, 'True'), (False, 'False')))
+        if Preferences.KEY_IMAGE_AUTOSCALE in self.initial['key']:
+            self.fields['value'].widget = forms.Select(choices=((True, 'True'), (False, 'False')))
 
         if Preferences.KEY_MAX_INNERLINK_HISTORY in self.initial['key']:
             self.fields['value'].widget = forms.NumberInput()
