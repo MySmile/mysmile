@@ -6,8 +6,6 @@ run:
 	@python3 -W ignore manage.py runserver --setting=mysmile.settings.local
 
 
-
-
 # install - install locally
 install:
 	@bower install
@@ -21,30 +19,29 @@ test:
 onetest:
 	@python manage.py test apps.preferences.tests.test_preferences.PreferencesTestCase --settings=mysmile.settings.local
 
-
-
+# DEPLOY
+# clean - Clean all temporary files
+clean:
+	@find . -name "*.pyc" -print0 | xargs -0 rm -rf
+	@find . -name "*.*~" -print0 | xargs -0 rm -rf
+	@find . -name "__pycache__" -print0 | xargs -0 rm -rf
+	@echo "Clean all temporary files ---> OK!"
 
 # checkdeploy - check deploy. Use it on server
 checkdeploy:
 	python3 manage.py check --deploy --settings=mysmile.settings.production
 
 
-# clean - Clean all temporary files
-clean:
-	find . -name "*.pyc" -print0 | xargs -0 rm -rf
-	find . -name "*.*~" -print0 | xargs -0 rm -rf
-	find . -name "__pycache__" -print0 | xargs -0 rm -rf
-	@echo "Clean!"
-
 # migrate - Run syncdb command
 migrate:
 	python3 manage.py migrate
 
+# LOCALE
 # makemessages - Create locale
 makemessages:
-	@cd apps/pages && django-admin.py makemessages --locale=uk
+	@cd apps/pages && django-admin.py makemessages --locale=$(lang)
 	@cd ../..
-	@cd apps/preferences && django-admin.py makemessages --locale=uk
+	@cd apps/preferences && django-admin.py makemessages --locale=$(lang)
 
 # compilemessages - Compile locale 
 compilemessages:
