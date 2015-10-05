@@ -75,6 +75,7 @@ class PageAdmin(admin.ModelAdmin):
             else:
                 fieldsets = [('Settings', {'fields': ['slug', 'status', 'ptype', 'sortorder',
                                                       'color', ('photo',)]}), ]
+
         return fieldsets
 
 

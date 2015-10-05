@@ -62,7 +62,7 @@ class Page(models.Model):
     slug = models.SlugField(unique=True, verbose_name=_('slug'))
     color = models.CharField(max_length=500, default='#FDA132',
                              help_text=_('Click once with the mouse to select \
-                                        a color, and then twice to save'),
+                                        a color, and then twice to save. TEMPORARY DISABLED IN NON-CLASSIC THEMES!'),
                              verbose_name=_('color'))
     # blank=True add "clear image" checkbox into admin page
     photo = ImageField(upload_to='images/', null=True, blank=True, verbose_name=_('photo'))
