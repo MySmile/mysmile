@@ -5,7 +5,7 @@ run:
 	@echo "=============================================================="
 	@python3 -W ignore manage.py runserver --setting=mysmile.settings.local
 
-
+# DEVELOPMENT
 # install - install locally
 install:
 	@bower install
@@ -18,6 +18,10 @@ test:
 # onetest - run one test
 onetest:
 	@python manage.py test apps.preferences.tests.test_preferences.PreferencesTestCase --settings=mysmile.settings.local
+
+# fixture
+fixture:
+	python3 manage.py dumpdata --setting=mysmile.settings.local --format=json preferences  --output=preferences.json
 
 # DEPLOY
 # clean - Clean all temporary files
@@ -43,7 +47,7 @@ makemessages:
 	@cd ../..
 	@cd apps/preferences && django-admin.py makemessages --locale=$(lang)
 
-# compilemessages - Compile locale 
+# compilemessages - run 'make makemessages lang=pl' to compile polish locale
 compilemessages:
 	@cd apps/pages && django-admin.py compilemessages
 	@cd ../..
