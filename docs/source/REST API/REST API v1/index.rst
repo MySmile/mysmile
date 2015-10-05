@@ -1,7 +1,7 @@
 REST API v1
 ***********
 
-This is version based of Django and don't use 
+This is version API based of Django and don't recommended for use. See :ref:`restapi2` instead of it.
 
 .. toctree::
    :maxdepth: 2

@@ -31,7 +31,7 @@ Preferences contains information of contact and general technical information. A
      -  
      
    * - Max number of inner pages [#f2]_
-     - 10
+     - 3
      - Number of pages that can be shown under main menu when user follow links inside page.
      
    * - Google Analytic code
@@ -41,6 +41,10 @@ Preferences contains information of contact and general technical information. A
    * - Image quality
      - 70 
      - Global setting quality uploaded pictures. The picture quality is directly proportional to the size of the file. A value of 100 corresponds to the maximum quality.
+     
+   * - Image autoscale
+     - True 
+     - Global setting for autoscale uploaded pictures if its *width>333px*. Pictures will be scaled to *width=333px*.
 
    * - Theme
      - modern

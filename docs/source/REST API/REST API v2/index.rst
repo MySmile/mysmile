@@ -1,3 +1,5 @@
+.. _restapi2:
+
 REST API v2
 ***********
 

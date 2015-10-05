@@ -13,5 +13,5 @@ Technical specification
    Urls <Urls>
    Menu
    Content/index
-   Admin panel <AdminPanel>
+   Admin panel/index
    UsefulLinks

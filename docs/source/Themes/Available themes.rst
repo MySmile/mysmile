@@ -3,7 +3,8 @@
 Available themes
 ================
 
-Two fully responsive themes out of the box:
+Two fully responsive themes out of the box. 
+
 
 **Classic** based on `Pure CSS <http://purecss.io/>`_ 
 
