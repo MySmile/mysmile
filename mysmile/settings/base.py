@@ -54,7 +54,7 @@ USE_TZ = True
 LANGUAGES = (
     ('uk', 'Українська'),
     ('en', 'English'),
-    ('pl', 'Polski'),
+#    ('pl', 'Polski'),
 )
 
 # Static files (CSS, JavaScript, Images)
