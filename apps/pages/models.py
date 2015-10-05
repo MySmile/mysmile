@@ -1,8 +1,4 @@
-import PIL
-from PIL import Image
-
 from django.db import models
-from django.db.models import F
 from django.http import Http404
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
@@ -11,7 +7,6 @@ import logging
 logger = logging.getLogger(__name__)  # Get an instance of a logger
 
 from django.conf import settings
-from apps.preferences.models import Preferences
 
 
 class ImageField(models.ImageField):
@@ -83,35 +78,17 @@ class Page(models.Model):
 
     def photo_thumb(self):
         if self.photo:
-            description = ''.join(['<img src="', self.photo.url, '" height="32"/> ',
+            try:
+                description = ''.join(['<img src="', self.photo.url, '" height="32"/> ',
                                      str(round(self.photo.size/1024, 2)), 'K, '
                                     'WxH: ', str(self.photo.width), 'x',
                                     str(self.photo.height), 'px'])
-
+            except FileNotFoundError:
+                return ''
             return description
         else:
             return ''
     photo_thumb.allow_tags = True
-
-
-    def save(self, *args, **kwargs):
-        old_path = self.photo.path if self.photo else None  # save old photo
-        super(Page, self).save(*args, **kwargs)  # Call the "real" save() method.
-        if self.photo and (self.photo.path != old_path):
-            path = self.photo.path
-            quality = int(Preferences.objects.filter(key='IMAGE_QUALITY').values_list('value', flat=True)[0])
-            image = Image.open(path)
-            image.save(path, quality=quality, optimize=True)
-
-        autoscale = Preferences.objects.filter(key='IMAGE_AUTOSCALE').values_list('value', flat=True)[0]
-        if autoscale:
-            image = Image.open(path)
-            if image.width > 333: # 333px in right. TODO: create constan like MYSMILE_IMAGE_WIDTH = 333
-                wpercent = (333/float(image.size[0]))
-                hsize = int((float(image.size[1])*float(wpercent)))
-                image = image.resize((333, hsize), PIL.Image.ANTIALIAS)
-                image.save(path)
-
 
     def __setattr__(self, name, value):
         if name.isupper():

@@ -72,8 +72,29 @@ def email2img(sender, instance, created=False, **kwargs):
                 logger.error(err)
 
 
+def image_tuning(sender, instance, created=False, **kwargs):
+    """ Implement preferences: IMAGE_QUALITY and IMAGE_AUTOSCALE
+    """
+    try:
+        path = instance.photo.path
+        if os.path.isfile(path):
+            quality = int(Preferences.objects.filter(key='IMAGE_QUALITY').values_list('value', flat=True)[0])
+            image = Image.open(path)
+            image.save(path, quality=quality, optimize=True)
 
+        autoscale = Preferences.objects.filter(key='IMAGE_AUTOSCALE').values_list('value', flat=True)[0]
+        if os.path.isfile(path) and autoscale:
+            image = Image.open(path)
+            if image.width > 333: # 333px in right. TODO: create constan like MYSMILE_IMAGE_WIDTH = 333
+                wpercent = (333/float(image.size[0]))
+                hsize = int((float(image.size[1])*float(wpercent)))
+                image = image.resize((333, hsize), PIL.Image.ANTIALIAS)
+                image.save(path)
+    except Exception as err:
+        logger.error(err)
 
-
+# group by sender
 pre_delete.connect(clear_photo_file, sender=Page, dispatch_uid="clear_photo_file")
+post_save.connect(image_tuning, sender=Page, dispatch_uid="image_tuning")
+
 post_save.connect(email2img, sender=Preferences, dispatch_uid="email2img")
