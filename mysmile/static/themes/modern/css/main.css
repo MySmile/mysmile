@@ -5,6 +5,11 @@ aside {
     width: 33.37%;
 }
 
+aside img{
+    display: block;
+    margin: 0 auto;
+}
+
 
 /* Page header styles
 -------------------------------------------------- */
