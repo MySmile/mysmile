@@ -28,3 +28,6 @@ class PreferencesTestCase(TestCase):
         self.assertTrue('IMAGE_QUALITY' in p_keys)
         self.assertTrue('IMAGE_AUTOSCALE' in p_keys)
         self.assertTrue('THEME' in p_keys)
+
+    def test_REST_API_switch(self):
+        pass

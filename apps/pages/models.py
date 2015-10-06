@@ -113,8 +113,8 @@ class Page_translation(models.Model):
     name = models.CharField(max_length=500, blank=True, null=True)
     col_central = models.TextField(blank=False, null=False)
     youtube = models.CharField(max_length=500, blank=True, null=True,
-                               help_text='Link to youtube video. \
-                               Max length url =  2048 characters')
+                               help_text=_('Link to youtube video. \
+                               Max length url =  2048 characters'))
     col_right = models.TextField(blank=True, null=True)
     col_bottom_1 = models.TextField(blank=True, null=True)
     col_bottom_2 = models.TextField(blank=True, null=True)
