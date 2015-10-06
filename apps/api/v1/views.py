@@ -46,7 +46,8 @@ class MySmileApi(View):
             # @FIXME: save exception details to log
             response_data = {'code': 500, 'msg': 'Internal Server Error'}
 
-        return HttpResponse(json.dumps(response_data), content_type="application/json", status=response_data['code'])
+        return HttpResponse(json.dumps(response_data), content_type="application/json",
+                            status=response_data['code'])
 
     def get_content(self, request):
         response_data = {'code': 200, 'data': {}}

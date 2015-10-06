@@ -102,8 +102,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
     ],
-
-    'EXCEPTION_HANDLER': 'apps.api.v1.utils.custom_exception_handler'
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning'
 }
 
 LOGGING = {
