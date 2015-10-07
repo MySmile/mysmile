@@ -1,0 +1,23 @@
+{% extends MYSMILE_THEME|add:"/base.html" %}
+{% load staticfiles %}{% load i18n %}
+
+{% block logo %}
+	<div id="logo"><a href="/"><img src="{% static 'themes/'|add:MYSMILE_THEME|add:'/images/logo-lg.png' %}" width="108" height="115" alt="MySmile logo" /></a></div>
+{% endblock %}
+
+{% block line_top %} 
+    <div id="line_top" style="background-color: #FDA132;">
+    </div>  
+{% endblock %}
+
+{% block col_central %}
+<h1>Problem</h1>
+<p>It is impossible handle your request.</p>
+
+<h1>Reason</h1>
+<p>Error 403. Forbidden.</p>
+
+<h1>Solution</h1>
+<p>Please try your attempt later!</p>
+{% endblock %} 
+

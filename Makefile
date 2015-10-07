@@ -19,9 +19,29 @@ test:
 onetest:
 	@python manage.py test apps.preferences.tests.test_preferences.PreferencesTestCase --settings=mysmile.settings.local
 
-# fixture
+# create fixture
 fixture:
 	python3 manage.py dumpdata --setting=mysmile.settings.local --format=json preferences  --output=preferences.json
+
+# startapp - Use: make startapp app=newappname
+startapp:
+	mkdir ./apps/$(app)
+	python3 manage.py startapp $(app) ./apps/$(app)
+
+# syncdb - Run syncdb
+syncdb:
+	python3 manage.py syncdb --settings=mysmile.settings.local
+
+# migrate - Run makemigrations & migrate command simultaneously
+migrate:
+	python3 manage.py makemigrations --settings=mysmile.settings.local
+	python3 manage.py migrate --settings=mysmile.settings.local
+
+# newdb - Create new empty database
+newdb:
+	make syncdb
+	make migrate
+	python manage.py createcachetable
 
 # DEPLOY
 # clean - Clean all temporary files
@@ -34,11 +54,6 @@ clean:
 # checkdeploy - check deploy. Use it on server
 checkdeploy:
 	python3 manage.py check --deploy --settings=mysmile.settings.production
-
-
-# migrate - Run syncdb command
-migrate:
-	python3 manage.py migrate
 
 # LOCALE
 # makemessages - Create locale

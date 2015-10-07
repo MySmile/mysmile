@@ -13,3 +13,7 @@ try:
     MYSMILE_REST_API = 'True' in Preferences.objects.filter(key='REST_API').values_list('value', flat=True)
 except Exception as err:
     MYSMILE_REST_API = False
+
+# Fail login settings
+MYSMILE_ADMIN_LOGIN_ATTEMPTS = 5
+MYSMILE_ADMIN_LOGIN_TIMEOUT = 15 # minutes

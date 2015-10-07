@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-from apps.update.views import CheckUpdate
+from apps.admin.update.views import CheckUpdate
 
 
 urlpatterns = patterns('',

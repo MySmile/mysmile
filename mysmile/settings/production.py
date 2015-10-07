@@ -60,6 +60,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'mysmile/static/')]
 
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
 
+# see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+TIME_ZONE = 'Europe/Berlin'
+
 # production only
 # python3 manage.py check --deploy
 #SESSION_COOKIE_SECURE = True

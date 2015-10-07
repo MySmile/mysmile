@@ -11,7 +11,7 @@ urlpatterns = patterns('',
 
     url('', include('apps.sitemap.urls')),
 
-    url('', include('apps.update.urls')),
+    url('', include('apps.admin.urls')),
     url(r'^api/', include('apps.api.urls', namespace='api')),
 
     url(r'^admin/', include(admin.site.urls)),
