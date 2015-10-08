@@ -12,9 +12,10 @@ APP_MIDDLEWARE_CLASSES = (
     'apps.utils.middlewares.AdminLocaleOneLangMiddleware',
 )
 
+
 THIRD_PARTY_MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    )
+    ) if DEBUG==True else ()
 
 MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + \
                      APP_MIDDLEWARE_CLASSES + \

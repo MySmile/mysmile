@@ -29,7 +29,7 @@ def clear_cache(sender, instance=None, created=False, **kwargs):
     if sender.__name__=='Preferences':
         try:
             settings.MYSMILE_THEME = Preferences.objects.filter(key='THEME').values_list('value', flat=True)[0]
-        except Exception as err:
+        except (IndexError, Exception) as err:
             settings.MYSMILE_THEME = 'modern'
             logger.error(err)
 

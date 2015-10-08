@@ -6,12 +6,9 @@ DEBUG = False
 
 COMPRESS_ENABLED = True
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
+DEBUG_TOOLBAR_PATCH_SETTINGS = DEBUG
 
 SECRET_KEY = ''
-
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
     'default': {

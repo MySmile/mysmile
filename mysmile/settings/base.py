@@ -174,3 +174,5 @@ LOGGING = {
 
     },
 }
+
+USE_ETAGS = True

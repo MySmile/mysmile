@@ -2,6 +2,7 @@ from django.db import models
 from django.http import Http404
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils import timezone
 
 import logging
 logger = logging.getLogger(__name__)  # Get an instance of a logger
@@ -19,7 +20,9 @@ class ImageField(models.ImageField):
         super(ImageField, self).save_form_data(instance, data)
 
 def create_default_sortorder():
-    return Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']+Page.SORTORDER_STEP
+    default_sortorder = Page.objects.all().aggregate(models.Max('sortorder'))['sortorder__max']
+    default_sortorder = default_sortorder + Page.SORTORDER_STEP if default_sortorder else Page.SORTORDER_STEP
+    return default_sortorder
 
 class PagesManager(models.Manager):
     def get_content(self, lang=None, slug=None):
@@ -62,7 +65,7 @@ class Page(models.Model):
     SORTORDER_STEP = 10
 
     slug = models.SlugField(unique=True, verbose_name=_('slug'))
-    color = models.CharField(max_length=500, default='#FDA132',
+    color = models.CharField(max_length=255, default='#FDA132',
                              help_text=_('Click once with the mouse to select \
                                         a color, and then twice to save. TEMPORARY DISABLED IN NON-CLASSIC THEMES!'),
                              verbose_name=_('color'))
@@ -107,12 +110,12 @@ class Page(models.Model):
 
 class Page_translation(models.Model):
     page = models.ForeignKey(Page)
-    lang = models.CharField(max_length=500, choices=settings.LANGUAGES,
+    lang = models.CharField(max_length=255, choices=settings.LANGUAGES,
                             default=settings.LANGUAGES[0][0])
-    menu = models.CharField(max_length=500)
-    name = models.CharField(max_length=500, blank=True, null=True)
+    menu = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, blank=True, null=True)
     col_central = models.TextField(blank=False, null=False)
-    youtube = models.CharField(max_length=500, blank=True, null=True,
+    youtube = models.CharField(max_length=255, blank=True, null=True,
                                help_text=_('Link to youtube video. \
                                Max length url =  2048 characters'))
     col_right = models.TextField(blank=True, null=True)
@@ -120,11 +123,11 @@ class Page_translation(models.Model):
     col_bottom_2 = models.TextField(blank=True, null=True)
     col_bottom_3 = models.TextField(blank=True, null=True)
 
-    meta_title = models.CharField(max_length=500)
-    meta_description = models.CharField(max_length=500)
-    meta_keywords = models.CharField(max_length=500)
-    photo_alt = models.CharField(max_length=500, blank=True, null=True)
-    photo_description = models.CharField(max_length=500, blank=True, null=True)
+    meta_title = models.CharField(max_length=255)
+    meta_description = models.CharField(max_length=255)
+    meta_keywords = models.CharField(max_length=255)
+    photo_alt = models.CharField(max_length=255, blank=True, null=True)
+    photo_description = models.CharField(max_length=255, blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

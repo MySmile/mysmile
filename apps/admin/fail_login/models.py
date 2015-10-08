@@ -1,3 +1,4 @@
+import datetime
 from datetime import timedelta
 
 from django.db import models
@@ -16,13 +17,19 @@ class FailLogin(models.Model):
     """
     # ip = models.IPAddressField(default='0.0.0.0', verbose_name=_('IP'))
     user = models.ForeignKey(User, editable = False, verbose_name=_('User'))
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'FailLogin'
         verbose_name = _('Fail login')
         verbose_name_plural = _('Fail logins')
 
+    # def save(self, *args, **kwargs):
+    #     # update timestamps
+    #     if not self.id:
+    #         self.created_at = timezone.localtime(timezone.now())
+    #     # self.modified = datetime.datetime.today()
+    #     return super(FailLogin, self).save(*args, **kwargs)
 
 def fl_logged_in(sender, user, request, **kwargs):
     messages.add_message(request, messages.INFO, 'You last login was at '+ str(user.last_login))

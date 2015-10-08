@@ -1,5 +1,6 @@
 # run - Run local server
 run:
+	@make clean
 	@echo "--------------------------------------------------------------"
 	@echo " python3 manage.py runserver --setting=mysmile.settings.local "
 	@echo "=============================================================="
@@ -17,7 +18,7 @@ test:
 
 # onetest - run one test
 onetest:
-	@python manage.py test apps.preferences.tests.test_preferences.PreferencesTestCase --settings=mysmile.settings.local
+	@python3 manage.py test apps.pages.tests.test_model_page.PageTestCase --settings=mysmile.settings.local
 
 # create fixture
 fixture:
@@ -30,7 +31,7 @@ startapp:
 
 # syncdb - Run syncdb
 syncdb:
-	python3 manage.py syncdb --settings=mysmile.settings.local
+	python3 manage.py syncdb --noinput --settings=mysmile.settings.local
 
 # migrate - Run makemigrations & migrate command simultaneously
 migrate:
@@ -40,8 +41,10 @@ migrate:
 # newdb - Create new empty database
 newdb:
 	make syncdb
-	make migrate
+	echo "from django.contrib.auth.models import User; User.objects.create_superuser('test', 'myemail@domen.com', 'test')" | python3 manage.py shell
 	python manage.py createcachetable
+	make migrate
+	python3 manage.py loaddata preferences.json --settings=mysmile.settings.local
 
 # DEPLOY
 # clean - Clean all temporary files

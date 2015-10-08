@@ -6,12 +6,9 @@ DEBUG = True
 
 COMPRESS_ENABLED = False
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = True
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 SECRET_KEY = '=)1+x0_f%6t&$4gftv-^^w20kr)+1ut8js0@0(gt6cx8z6kxlc'
-
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -23,6 +20,19 @@ DATABASES = {
         # 'PORT': '',
     }
 }
+
+# uncomment for use MySql
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'mysmile',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
+
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 

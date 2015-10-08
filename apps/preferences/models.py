@@ -50,10 +50,10 @@ class Preferences(models.Model):
                {'key': KEY_IMAGE_AUTOSCALE, 'value': True,
                 'name': 'Image autoscale', 'description': 'Global setting for autoscale uploaded pictures if its width>333px. Pictures will be scaled to width=333px.'},)
 
-    key = models.CharField(unique=True, max_length=500, verbose_name=_('key'))
-    value = models.CharField(blank=True, null=True, max_length=500, verbose_name=_('value'))
-    name = models.CharField(max_length=500, verbose_name=_('name'))
-    description = models.CharField(max_length=500, verbose_name=_('description'))
+    key = models.CharField(unique=True, max_length=255, verbose_name=_('key'))
+    value = models.CharField(blank=True, null=True, max_length=255, verbose_name=_('value'))
+    name = models.CharField(max_length=255, verbose_name=_('name'))
+    description = models.CharField(max_length=255, verbose_name=_('description'))
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = PreferencesManager()
