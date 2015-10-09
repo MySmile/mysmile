@@ -8,29 +8,25 @@ Frequently Asked Questions
 
 Yes. To do this, do the following:
 
-#. Run :command:`$ pip3 install pymysql==0.6.7`
-#. Add into *manage.py* lines ::
-  import pymysql
-  pymysql.install_as_MySQLdb()
+#. Run ``$ pip3 install pymysql==0.6.7``
+#. Add into *manage.py* this lines befor line ``if __name__ == "__main__":``::
 
-befor line ::
-  if __name__ == "__main__":
-  
+    import pymysql
+    pymysql.install_as_MySQLdb()
+
 #. Set Django DATABASES settings in *config/local.py* like ::
-  DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysmile',
-        'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
-  }
 
+     DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.mysql',
+           'NAME': 'mysmile',
+           'USER': 'root',
+           'PASSWORD': 'password',
+           'HOST': '127.0.0.1',
+           'PORT': '3306',
+       }
+     }
 #. Create database *mysmile*
+#. Run command ``$ make newdb``
+#. Run local server ``$ make run``
 
-#. Run command :command:`$ make newdb`
-
-#. Run local server  :command:`$ make run`
-  

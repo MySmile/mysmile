@@ -19,4 +19,4 @@ Three steps to contribute:
 
 Please make sure that your code follows `PEP 8 <https://www.python.org/dev/peps/pep-0008/>`_ and covered by unit tests.
 
-If you whant to help please check the `list of open issues <https://github.com/MySmile/mysmile/issues>`_.
+If you want to help please check the `list of open issues <https://github.com/MySmile/mysmile/issues>`_.

@@ -31,12 +31,15 @@ Dev:
   .. image:: https://readthedocs.org/projects/mysmile/badge/?version=dev
     :target: https://readthedocs.org/projects/mysmile/?badge=dev
     :alt: Documentation    
-    
+
+About
+=====
+
 MySmile is the lightweight open-source CMS based on Django. It helps to create websites with configurable design and minimum cost. 
 
 * The official `project site <http://mysmile.com.ua>`_
-* Try `Demo version <http://demo.mysmile.com.ua>`_
-* `Documentation <http://http://mysmile.com.ua/en/documentation.html>`_
+* Try `demo version <http://demo.mysmile.com.ua>`_
+* Read `documentation <http://http://mysmile.com.ua/en/documentation.html>`_
 * `Source code <https://github.com/MySmile/MySmile>`_ on GitHub
 
 Dependencies
@@ -51,11 +54,11 @@ Installation
 
 1. Unpack archive with MySmile to the project directory
 
-2. Install with command: `$ make install`
+2. Install with command: ``$ make install``
 
 3. In the project directory run a command in the terminal:
     
-  `$ python3 manage.py runserver`
+  ``$ python3 manage.py runserver``
     
   Now your website is available here:
 	
