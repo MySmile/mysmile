@@ -8,5 +8,6 @@ mysmile/static/CACHE/**
 docs/build/**
 mysmile/static/vendor/**
 !mysmile/static/jscolor
+apps/**/migrations/**
 
 .idea
