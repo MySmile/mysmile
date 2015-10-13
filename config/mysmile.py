@@ -1,5 +1,4 @@
 # MySmile settings
-from django.conf import settings
 from apps.preferences.models import Preferences
 
 MYSMILE_VERSION = '0.7.1'

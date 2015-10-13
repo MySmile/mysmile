@@ -30,7 +30,6 @@ if settings.DEBUG:
         url(r'^static/(?P<path>.*)$', never_cache(serve_static)),
     )
 
-if settings.DEBUG_TOOLBAR_PATCH_SETTINGS:
     import debug_toolbar
     urlpatterns += patterns('',
         url(r'^__debug__/', include(debug_toolbar.urls)),
