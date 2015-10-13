@@ -26,7 +26,8 @@ LOCAL_APPS = (
     'apps.pages',
     'apps.preferences',
     'apps.sitemap',
-    'apps.update',
+    'apps.admin.update',
+    'apps.admin.fail_login',
     'apps.utils',
     )
 
@@ -60,9 +61,6 @@ STATICFILES_FINDERS = (
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'mysmile/static/')]
 
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
-
-# see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-TIME_ZONE = 'Europe/Berlin'
 
 # production only
 # python3 manage.py check --deploy

@@ -60,6 +60,3 @@ STATICFILES_FINDERS = (
 )
 
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
-
-# see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-TIME_ZONE = 'Europe/Kiev'
