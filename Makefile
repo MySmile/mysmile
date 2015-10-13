@@ -18,7 +18,7 @@ test:
 
 # onetest - run one test
 onetest:
-	@python3 manage.py test apps.pages.tests.test_model_page.PageTestCase --settings=mysmile.settings.local
+	@python3 manage.py test apps.admin.fail_login.tests.test_fail_login.FailLoginTest --settings=mysmile.settings.local
 
 # create fixture
 fixture:
@@ -52,7 +52,7 @@ clean:
 	@find . -name "*.pyc" -print0 | xargs -0 rm -rf
 	@find . -name "*.*~" -print0 | xargs -0 rm -rf
 	@find . -name "__pycache__" -print0 | xargs -0 rm -rf
-	@echo "Clean all temporary files ---> OK!"
+	@echo "CLEAN!"
 
 # checkdeploy - check deploy. Use it on server
 checkdeploy:
