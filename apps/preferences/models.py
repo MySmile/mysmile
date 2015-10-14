@@ -66,6 +66,7 @@ class Preferences(models.Model):
 
     class Meta:
         db_table = 'Preferences'
+        ordering = ['name']
         verbose_name = _('Preference')
         verbose_name_plural = _('Preferences')
 
