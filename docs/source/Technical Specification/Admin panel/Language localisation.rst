@@ -4,10 +4,7 @@ Language localisation
 ---------------------
 
 Add another language with option **LANGUAGES** in *mysmile/settings/base.py*. For example, this language will be 
-Polish. Create directory *pl* into directories:
-
-* apps/pages/locale 
-* apps/preferences/locale
+Polish. Create directory *pl* into directory *mysmile/locale/* 
 
 Run command::
 
@@ -15,6 +12,6 @@ Run command::
 
 Open and translate files *locale/pl/LC_MESSAGES/django.po*, then run:::
   
-  $ make compilemessages
+  $ make compilemessages lang=pl
 
    

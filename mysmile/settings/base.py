@@ -177,3 +177,6 @@ LOGGING = {
 }
 
 USE_ETAGS = True
+
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'mysmile/locale/'),
+                )

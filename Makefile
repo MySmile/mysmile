@@ -25,7 +25,7 @@ onetest:
 fixture:
 	python3 manage.py dumpdata --setting=mysmile.settings.local --format=json preferences  --output=preferences.json
 
-# startapp - Use: make startapp app=newappname
+# startapp - Use: $ make startapp app=newappname
 startapp:
 	mkdir ./apps/$(app)
 	python3 manage.py startapp $(app) ./apps/$(app)
@@ -39,7 +39,7 @@ migrate:
 	python3 manage.py makemigrations --settings=mysmile.settings.local
 	python3 manage.py migrate --settings=mysmile.settings.local
 
-# newdb - Create new empty database
+# newdb - Create new empty database with one page
 newdb:
 	make syncdb
 	echo "from django.contrib.auth.models import User; User.objects.create_superuser('test', 'myemail@domen.com', 'test')" | python3 manage.py shell
@@ -61,18 +61,14 @@ checkdeploy:
 	python3 manage.py check --deploy --settings=mysmile.settings.production
 
 # LOCALE
-# makemessages - Create locale
+# makemessages - Create locale. Use: $ make makemessages lang=uk
 makemessages:
-	@cd apps/pages && django-admin.py makemessages --locale=$(lang)
-	@cd ../..
-	@cd apps/preferences && django-admin.py makemessages --locale=$(lang)
+	@echo "Strings are extracting from all apps..."
+	@python3 manage.py  makemessages --locale=$(lang) --settings=mysmile.settings.local
 
 # compilemessages - run 'make makemessages lang=pl' to compile polish locale
 compilemessages:
-	@cd apps/pages && django-admin.py compilemessages
-	@cd ../..
-	@cd apps/preferences && django-admin.py compilemessages
-
+	@python3 manage.py  compilemessages --locale=$(lang) --settings=mysmile.settings.local
 	
 # style - Check PEP8 and others
 PEP8IGNORE=E22,E23,E24,E302,E401

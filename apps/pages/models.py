@@ -111,23 +111,23 @@ class Page(models.Model):
 class Page_translation(models.Model):
     page = models.ForeignKey(Page)
     lang = models.CharField(max_length=255, choices=settings.LANGUAGES,
-                            default=settings.LANGUAGES[0][0])
-    menu = models.CharField(max_length=255)
-    name = models.CharField(max_length=255, blank=True, null=True)
-    col_central = models.TextField(blank=False, null=False)
+                            default=settings.LANGUAGES[0][0], verbose_name=_('lang'))
+    menu = models.CharField(max_length=255, verbose_name=_('menu'))
+    name = models.CharField(max_length=255, blank=True, null=True, verbose_name=_('name'))
+    col_central = models.TextField(blank=False, null=False, verbose_name=_('central column'))
     youtube = models.CharField(max_length=255, blank=True, null=True,
                                help_text=_('Link to youtube video. \
-                               Max length url =  2048 characters'))
-    col_right = models.TextField(blank=True, null=True)
-    col_bottom_1 = models.TextField(blank=True, null=True)
-    col_bottom_2 = models.TextField(blank=True, null=True)
-    col_bottom_3 = models.TextField(blank=True, null=True)
+                               Max length url =  2048 characters'), verbose_name=_('youtube'))
+    col_right = models.TextField(blank=True, null=True, verbose_name=_('right column'))
+    col_bottom_1 = models.TextField(blank=True, null=True, verbose_name=_('bottom column 1'))
+    col_bottom_2 = models.TextField(blank=True, null=True, verbose_name=_('bottom column 2'))
+    col_bottom_3 = models.TextField(blank=True, null=True, verbose_name=_('bottom column 3'))
 
-    meta_title = models.CharField(max_length=255)
-    meta_description = models.CharField(max_length=255)
-    meta_keywords = models.CharField(max_length=255)
-    photo_alt = models.CharField(max_length=255, blank=True, null=True)
-    photo_description = models.CharField(max_length=255, blank=True, null=True)
+    meta_title = models.CharField(max_length=255, verbose_name=_('meta title'))
+    meta_description = models.CharField(max_length=255, verbose_name=_('meta description'))
+    meta_keywords = models.CharField(max_length=255, verbose_name=_('meta keywords'))
+    photo_alt = models.CharField(max_length=255, blank=True, null=True, verbose_name=_('photo alt'))
+    photo_description = models.CharField(max_length=255, blank=True, null=True, verbose_name=_('photo description'))
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

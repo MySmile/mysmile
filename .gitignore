@@ -1,6 +1,5 @@
 *.pyc
 bin/**
-tmp
 log/*
 
 mysmile/static/CACHE/**

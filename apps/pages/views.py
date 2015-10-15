@@ -22,7 +22,6 @@ class PageRedirectView(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         # get first slug
         slug = Page.objects.filter(status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_MENU, Page.PTYPE_MENU_API]).values_list('slug', flat=True).order_by('sortorder').first()
-        print('----->>', slug)
         try:
             lang = kwargs['lang']
         except KeyError:  # adaptive language selection
