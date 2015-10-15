@@ -112,7 +112,10 @@ WSGI_APPLICATION = 'mysmile.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'mysmile/db/test_mysmile.sqlite3'),
+        'NAME': '',
+        'TEST': {
+            'NAME': os.path.join(BASE_DIR, 'mysmile/db/test_mysmile.sqlite3'),
+        },
     }
 }
 
