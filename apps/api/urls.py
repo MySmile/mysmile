@@ -1,10 +1,7 @@
-from django.conf.urls import patterns, url
-from apps.api.views import MySmileApi
-from django.views.decorators.csrf import csrf_exempt
-
+from django.conf.urls import url, patterns, include
 
 urlpatterns = patterns('',
-    url(r'^(?P<resource>[a-z,0-9]+)$', csrf_exempt(MySmileApi.as_view())),
+    url(r'', include('apps.api.v1.urls', namespace='default')),
+    # url(r'^v2/', include('apps.api.v2.urls', namespace='v2')),
 )
-
 

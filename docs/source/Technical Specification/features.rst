@@ -23,6 +23,7 @@ SEO features:
 * Meta tags
 * Alt attribute for images
 
+
 .. seealso::
 
    :ref:`SEO_configuration` 

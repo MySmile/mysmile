@@ -86,7 +86,7 @@
 {% block col_right %}
                 {% if page__photo %}
                     <figure>
-                        <img class="img-responsive" src="{{ MEDIA_URL }}{{ page__photo }}" width="333" alt="{{ photo_alt }}" />
+                        <img class="img-responsive" src="{{ MEDIA_URL }}{{ page__photo }}" alt="{{ photo_alt }}" />
                         {% if photo_description %}<figcaption>{{ photo_description }}</figcaption>{% endif %}
                     </figure>
                 {% endif %}

@@ -7,6 +7,7 @@ from config.mysmile import *
 
 
 APP_MIDDLEWARE_CLASSES = (
+    'apps.api.middlewares.VersionSwitchMiddleware',
     'apps.utils.middlewares.ExceptionLoggingMiddleware',
     'apps.utils.middlewares.AdminLocaleOneLangMiddleware',
 )
@@ -15,7 +16,9 @@ THIRD_PARTY_MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
 
-MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + APP_MIDDLEWARE_CLASSES + THIRD_PARTY_MIDDLEWARE_CLASSES
+MIDDLEWARE_CLASSES = DJANGO_MIDDLEWARE_CLASSES + \
+                     APP_MIDDLEWARE_CLASSES + \
+                     THIRD_PARTY_MIDDLEWARE_CLASSES
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
@@ -23,13 +26,15 @@ LOCAL_APPS = (
     'apps.pages',
     'apps.preferences',
     'apps.sitemap',
-    'apps.update',
+    'apps.admin.update',
+    'apps.admin.fail_login',
     'apps.utils',
     )
 
 # another apps
 THIRD_PARTY_APPS = ('debug_toolbar',
                     'compressor',
+                    'rest_framework',
                     )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -44,7 +49,7 @@ CACHES = {
     }
 }
 
-CACHE_MIDDLEWARE_SECONDS = 60*60 #60*60*24
+CACHE_MIDDLEWARE_SECONDS = 5 #60*60*24
 
 # compressor settings
 STATICFILES_FINDERS = (

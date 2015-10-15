@@ -1,6 +1,5 @@
 *.pyc
 bin/**
-tmp
 log/*
 
 mysmile/static/CACHE/**
@@ -8,5 +7,7 @@ mysmile/static/CACHE/**
 docs/build/**
 mysmile/static/vendor/**
 !mysmile/static/jscolor
+apps/**/migrations/**
+#mysmile/db/mysmile.sqlite3
 
 .idea

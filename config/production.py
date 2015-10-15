@@ -6,17 +6,14 @@ DEBUG = False
 
 COMPRESS_ENABLED = True
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
+DEBUG_TOOLBAR_PATCH_SETTINGS = DEBUG
 
 SECRET_KEY = ''
-
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db/mysmile.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'mysmile/db/mysmile.sqlite3'),
         # 'USER': '',
         # 'PASSWORD': '',
         # 'HOST': '',
@@ -35,9 +32,28 @@ STATIC_ROOT = ''
 
 COMPRESS_ROOT = STATIC_ROOT
 
+
 ADMINS = (
-    ('admin', 'info@mysmile.com.ua'),
+    ('admin', 'support@mysmile.com.ua'),
 )
+
+MANAGERS = (
+    ('admin', 'support@mysmile.com.ua'),
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+SERVER_EMAIL = 'mail@mysite.com'
+DEFAULT_FROM_EMAIL = SERVER_EMAIL
+EMAIL_SUBJECT_PREFIX = 'something like [MYSITE]'
+EMAIL_HOST = 'adress of IMAP server'
+EMAIL_HOST_USER = 'mail@mysite.com'
+EMAIL_HOST_PASSWORD = 'password to email'
+
+EMAIL_USE_SSL = True
+EMAIL_PORT = 465
+# or
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
 
 # This is only used if CommonMiddleware is installed
 PREPEND_WWW = False

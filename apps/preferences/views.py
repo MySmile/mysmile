@@ -39,7 +39,7 @@ def e500(request, template_name='500.html'):
             '<p>The requested URL {{ request_path }} was not found on this server.</p>')
     return HttpResponseNotFound(template.render(RequestContext(request, {'request_path': request.path, })))
 
-
+# like  e403
 def csrf_failure(request, reason=""):
     template_name = '403.html'
     try:

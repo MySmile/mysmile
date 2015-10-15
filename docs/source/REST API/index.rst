@@ -3,17 +3,8 @@ REST API
 ********
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :titlesonly:
 
-   Objective
-   Configuration
-   Endpoint
-   Methods
-   General parameters/index
-   Request
-   Response/index
-   Resources/index
-   Errors
-   Examples
-   Useful links <Useful_links>
+   REST API v1/index
+..    REST API v2/index

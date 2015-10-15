@@ -15,8 +15,8 @@ Master:
     :target: http://badge.fury.io/py/mysmile
     :alt: Pypi
 
-  .. image:: https://readthedocs.org/projects/mysmile/badge/?version=latest
-    :target: https://readthedocs.org/projects/mysmile/?badge=latest
+  .. image:: https://readthedocs.org/projects/mysmile/badge/?version=stable
+    :target: https://readthedocs.org/projects/mysmile/?badge=stable
     :alt: Documentation
 
 Dev:
@@ -28,29 +28,37 @@ Dev:
     :target: https://coveralls.io/r/MySmile/mysmile?branch=dev
     :alt: Test coverage
 
+  .. image:: https://readthedocs.org/projects/mysmile/badge/?version=dev
+    :target: https://readthedocs.org/projects/mysmile/?badge=dev
+    :alt: Documentation    
+
+About
+=====
+
 MySmile is the lightweight open-source CMS based on Django. It helps to create websites with configurable design and minimum cost. 
 
-* Source code on `<https://github.com/MySmile/MySmile>`_
-* The official home page is `<http://mysmile.com.ua>`_
-* Demo site is `<http://demo.mysmile.com.ua>`_
-* The documentation is available here `<http://http://mysmile.com.ua/en/documentation.html>`_
+* The official `project site <http://mysmile.com.ua>`_
+* Try `demo version <http://demo.mysmile.com.ua>`_
+* Read `documentation <http://http://mysmile.com.ua/en/documentation.html>`_
+* `Source code <https://github.com/MySmile/MySmile>`_ on GitHub
 
 Dependencies
 ============
-a) Django 1.8.x: http://djangoproject.com, https://github.com/django/django
-b) Pillow for working with images: https://github.com/python-imaging/Pillow
-c) Sphinx for generate docs in various format
+
+a) `Django 1.8 <http://djangoproject.com>`_
+b) `Pillow <https://python-pillow.github.io/>`_ for working with images
+c) `Sphinx <http://sphinx-doc.org/>`_ for generate docs in various format
 
 Installation
 ============
 
 1. Unpack archive with MySmile to the project directory
 
-2. Install with command: `$ make install`
+2. Install with command: ``$ make install``
 
-3. In the project directory run a command in the terminal: 
+3. In the project directory run a command in the terminal:
     
-  `$ python3 manage.py runserver`
+  ``$ python3 manage.py runserver``
     
   Now your website is available here:
 	
@@ -64,6 +72,5 @@ Installation
       
 4.2. Log in with default credentials:
   
-  `login: test` 
-  
-  `password: test`
+  * login: *test*
+  * password: *test*

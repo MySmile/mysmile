@@ -6,7 +6,8 @@ import os, sys
 import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '..')
+
 
 # APP CONFIGURATION
 DJANGO_APPS = (
@@ -19,6 +20,7 @@ DJANGO_APPS = (
 )
 
 DJANGO_MIDDLEWARE_CLASSES = (
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -41,18 +43,17 @@ WSGI_APPLICATION = 'mysmile.wsgi.application'
 
 LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'UTC'
-
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+TIME_ZONE = 'UTC'
 
 LANGUAGES = (
+    ('uk', 'Українська'),
     ('en', 'English'),
-    ('ua', 'Українська'),
-    ('ru', 'Русский'),
+#    ('pl', 'Polski'),
 )
 
 # Static files (CSS, JavaScript, Images)
@@ -67,8 +68,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, '../apps/pages/templates/themes'),
+            os.path.join(BASE_DIR, 'mysmile/templates'),
+            os.path.join(BASE_DIR, 'apps/pages/templates/themes'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -94,12 +95,24 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning'
+}
+
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False, #the default configuration is completely overridden
+    # True if the default configuration is completely overridden
+    'disable_existing_loggers': False,
     'formatters': {
          'verbose': {
-             'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+             'format' :
+                 '%(asctime)s: %(name)s, line %(lineno)d: '
+                 '%(levelname)s: %(message)s ',
              'datefmt' : "%d/%b/%Y %H:%M:%S"
          },
          'simple': {
@@ -116,39 +129,54 @@ LOGGING = {
 
     },
     'handlers': {
-        'console':{
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'stream': sys.stdout
-        },
         'file': {
                'level': 'DEBUG',
                'class': 'logging.handlers.RotatingFileHandler',
                'formatter': 'verbose',
-               'filters': ['require_debug_true'],
-               'filename': os.path.join(BASE_DIR,  '../log/'+datetime.datetime.now().strftime('%Y-%m-%d')+'.log'),
-               'maxBytes': 1024*1024*5, # 5 MB
+               'filename': os.path.join(BASE_DIR,  'log/'+datetime.datetime.now().strftime('%Y-%m-%d')+'.log'),
+               'maxBytes': 1024*1024*5, # 5Mb
                'backupCount': 5
            },
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
-            'filters': ['require_debug_true']
+            'filters': ['require_debug_false']
+        },
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'null': {
+            "class": 'django.utils.log.NullHandler',
         }
     },
-
     'loggers': {
-        '': {
-            'handlers': ['file',],
-            # 'level': 'DEBUG',
+        'django.request': {
+            'handlers': ['mail_admins', 'console'],
+            'level': 'ERROR',
             'propagate': True,
         },
-        'django.request': {
-            'handlers': ['mail_admins', 'file'],
-            'level': 'ERROR',
+        'django': {
+            'handlers': ['null', ],
+        },
+        'django.db.backends': {
+            'handlers': ['null', ],
             'propagate': False,
         },
-
+        'py.warnings': {
+            'handlers': ['null', ],
+        },
+        '': {
+            'handlers': ['console', 'file'],
+            'level': "DEBUG",
+        },
 
     },
 }
+
+USE_ETAGS = True
+
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'mysmile/locale/'),
+                )
