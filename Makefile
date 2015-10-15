@@ -11,6 +11,7 @@ run:
 install:
 	@bower install
 	@cd ./config/requirements && pip3 install -r local.txt
+	@make newdb
 
 # test - run tests
 test:
@@ -45,6 +46,7 @@ newdb:
 	python manage.py createcachetable
 	make migrate
 	python3 manage.py loaddata preferences.json --settings=mysmile.settings.local
+	python3 manage.py loaddata onepage.json --settings=mysmile.settings.local
 
 # DEPLOY
 # clean - Clean all temporary files
