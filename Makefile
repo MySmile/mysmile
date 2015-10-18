@@ -37,8 +37,15 @@ syncdb:
 # migrate - Run makemigrations & migrate command simultaneously
 migrate:
 	python3 manage.py makemigrations --settings=mysmile.settings.local
-	python3 manage.py migrate --settings=mysmile.settings.local
+	python3 manage.py migrate --fake-initial --settings=mysmile.settings.local
 
+# # onemigrate - Run makemigrations & migrate for one apps or table 
+# onemigrate:
+# 	python3 manage.py makemigrations --settings=mysmile.settings.local
+# 	python3 manage.py migrate preferences --settings=mysmile.settings.local
+
+	
+	
 # newdb - Create new empty database with one page
 newdb:
 	make syncdb

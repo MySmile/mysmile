@@ -6,7 +6,7 @@ Changelog
   - New MySmile API v2 based on Django Rest Framework 3
   - Updated docs
 
-**2015-10-16 Version 0.7.1**
+**2015-10-15 Version 0.7.1**
   - Added IMAGE_AUTOSCALE preference to admin panel
   - Protected admin login page from brute-force attack
   - Added "view on site" button to admin panel

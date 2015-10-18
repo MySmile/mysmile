@@ -39,7 +39,7 @@ MySmile is the lightweight open-source CMS based on Django. It helps to create w
 
 * The official `project site <http://mysmile.com.ua>`_
 * Try `demo version <http://demo.mysmile.com.ua>`_
-* Read `documentation <http://http://mysmile.com.ua/en/documentation.html>`_
+* Read `documentation <http://mysmile.com.ua/en/documentation.html>`_
 * `Source code <https://github.com/MySmile/MySmile>`_ on GitHub
 
 Dependencies

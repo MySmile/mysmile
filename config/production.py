@@ -21,8 +21,8 @@ DATABASES = {
     }
 }
 
-# for example: ALLOWED_HOSTS = ['mysite.com', 'www.mysite.com']
-ALLOWED_HOSTS = ['demo.mysmile.com.ua', 'www.demo.mysmile.com.ua']
+# for example: ALLOWED_HOSTS = ['mysite.com']
+ALLOWED_HOSTS = ['demo.mysmile.com.ua']
 
 # Enter path to media folder on server.
 MEDIA_ROOT = ''
