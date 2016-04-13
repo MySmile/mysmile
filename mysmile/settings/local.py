@@ -60,3 +60,5 @@ STATICFILES_FINDERS = (
 )
 
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
+
+AUTHENTICATION_BACKENDS = ('apps.admin.fail_login.backends.FailLoginModelBackend',)#,'django.contrib.auth.backends.ModelBackend',)
