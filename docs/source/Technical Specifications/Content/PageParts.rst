@@ -19,7 +19,7 @@ Page parts
      - no
      
    * - Name
-     - It is title of article. If it is not set "Menu" is used instead.
+     - It is the title of the article. If it is not set "Menu" is used instead.
      - yes
      - no
      - no 
@@ -37,7 +37,7 @@ Page parts
      - no   
 
    * - Right Column: Multimedia
-     - Photo or video that available in the Right Column
+     - Photo or video that are available in the Right Column
      - no
      - no
      - no     

@@ -1,7 +1,7 @@
 Features
 ============
 
-Fundamental features:
+Thera are the following fundamental features:
 
 * Internationalization and localization
 * Google Analytics is connected
@@ -14,7 +14,7 @@ Fundamental features:
 * Unlimited number of pages
 
 
-SEO features:
+The following are SEO features:
 
 * HTML5 semantic
 * Sitemap.xml

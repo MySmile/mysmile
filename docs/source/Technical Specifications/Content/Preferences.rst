@@ -3,7 +3,7 @@
 Preferences
 -----------
 
-Preferences contains information of contact and general technical information. All of them can be changed from the 
+This preferences contains information on contact and general technological details. All of them can be changed from the
 :ref:`AdminPanel`.
 
 .. tabularcolumns:: |p{4cm}|p{3.5cm}|p{9cm}|
@@ -32,7 +32,7 @@ Preferences contains information of contact and general technical information. A
      
    * - Max number of inner pages [#f2]_
      - 3
-     - Number of pages that can be shown under main menu when user follow links inside page.
+     - Number of pages that can be shown under main menu when users follow links inside page.
      
    * - Google Analytic code
      - 000000 
@@ -40,15 +40,15 @@ Preferences contains information of contact and general technical information. A
      
    * - Image quality
      - 70 
-     - Global setting quality uploaded pictures. The picture quality is directly proportional to the size of the file. A value of 100 corresponds to the maximum quality.
+     - Global setting for the quality of the uploaded pictures. The picture quality is in the direct proportion to the size of the file. A value of 100 corresponds to the maximum quality.
      
    * - Image autoscale
      - True 
-     - Global setting for autoscale uploaded pictures if its *width>333px*. Pictures will be scaled to *width=333px*.
+     - Global setting for autoscaling of the uploaded pictures if its *width>333px*. Pictures will be scaled to *width=333px*.
 
    * - Theme
      - modern
-     - Choose a theme for switch 
+     - Choose a theme for the switch
   
 .. rubric:: Footnotes
 

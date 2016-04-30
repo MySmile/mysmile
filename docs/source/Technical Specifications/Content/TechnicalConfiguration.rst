@@ -26,13 +26,13 @@ Technical configuration
       - no
 
     * - Date of creation
-      - Date of creation page
+      - The date of page creation
       - no
       - yes
       - no
 
     * - Date of modification
-      - Date of last modification page
+      - The date of page last modification
       - no
       - yes
       - no

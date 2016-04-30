@@ -7,5 +7,5 @@ Getting started
    :titlesonly:
   
    Overview
-   Quick install guide <quick_install_guide>
+   Quick installation guide <quick_install_guide>
   

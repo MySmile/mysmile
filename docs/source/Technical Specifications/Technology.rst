@@ -14,7 +14,7 @@ Technology
      - Django 1.8.x
 
    * - Database
-     - SQLite 3
+     - SQLite 3 [#f1]_
 
    * - Frontend
      - HTML, CSS, JS framework like Bootstrap or Pure CSS 
@@ -27,9 +27,9 @@ Also used third-party components:
 #. `JSColor <http://jscolor.com/>`_  as colorpicker in admin 
 #. `Bootstrap <http://getbootstrap.com/>`_, `Pure CSS <http://purecss.io/>`_ into :ref:`themes <Themes>`.
 
-.. todo::
+.. rubric:: Footnotes
 
-   #. How to use MySql instead of SQLite. Add description.
+.. [#f1] Optionally, you can use MySql, see :ref:`faq`.
 
 
 

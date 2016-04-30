@@ -3,7 +3,7 @@
 Overview
 --------
 
-Multilingual admin panel is available http://127.0.0.1:8000/admin/
+Multilingual admin panel is available at http://127.0.0.1:8000/admin/
 
   * Username: *test*
   * Password: *test*
