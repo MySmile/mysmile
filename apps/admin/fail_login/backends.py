@@ -8,6 +8,7 @@ from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from smtplib import SMTPRecipientsRefused
 
 from apps.admin.fail_login.models import FailLogin
 
@@ -19,7 +20,7 @@ class FailLoginModelBackend(ModelBackend):
     def authenticate(self, username=None, password=None, **kwargs):
         # fail_login injection to django authenticate
         count_fl = self.login_failed(username)
-        if count_fl < settings.MYSMILE_ADMIN_LOGIN_ATTEMPTS:
+        if count_fl < settings.MYSMILE_ADMIN_FAIL_LOGIN_ATTEMPTS:
             # code below is django authenticate(self, username=None, password=None, **kwargs): ----
             UserModel = get_user_model()
             if username is None:
@@ -40,28 +41,32 @@ class FailLoginModelBackend(ModelBackend):
         try:
             user = User.objects.get(username=username)
 
-            # delete records, older then MYSMILE_ADMIN_LOGIN_TIMEOUT
-            time = datetime.datetime.now() - timedelta(minutes=settings.MYSMILE_ADMIN_LOGIN_TIMEOUT)
+            # delete records, older then MYSMILE_ADMIN_FAIL_LOGIN_TIMEOUT
+            time = datetime.datetime.now() - timedelta(minutes=settings.MYSMILE_ADMIN_FAIL_LOGIN_TIMEOUT)
             FailLogin.objects.filter(created_at__lte=time).delete()
 
             count_fl = FailLogin.objects.filter(user=user).count()
-            if count_fl < settings.MYSMILE_ADMIN_LOGIN_ATTEMPTS:
+            if count_fl < settings.MYSMILE_ADMIN_FAIL_LOGIN_ATTEMPTS:
                 FailLogin(user=user).save()
                 count_fl += 1
                 # Send a one-time email to admin and user about temporary locked account
-                if count_fl == settings.MYSMILE_ADMIN_LOGIN_ATTEMPTS:
+                if count_fl == settings.MYSMILE_ADMIN_FAIL_LOGIN_ATTEMPTS:
                     # try:
                     subject = '[MySmile] account temporary locked'
                     message = 'You account temporarily locked from '+time.strftime('%Y-%m-%d %H:%M:%S')+' to '+\
-                              (time+timedelta(minutes=settings.MYSMILE_ADMIN_LOGIN_TIMEOUT)).strftime('%Y-%m-%d %H:%M:%S')
-                    send_mail(subject, message, settings.SERVER_EMAIL, settings.SERVER_EMAIL, fail_silently=False)
+                              (time+timedelta(minutes=settings.MYSMILE_ADMIN_FAIL_LOGIN_TIMEOUT)).strftime('%Y-%m-%d %H:%M:%S')
+                    try:
+                        send_mail(subject, message, settings.SERVER_EMAIL, [settings.ADMINS[0][1]], fail_silently=False)
+                    except SMTPRecipientsRefused as ex:
+                        logger.error(ex)
 
                     user_email = User.objects.filter(username=username).values_list('email', flat=True)
-                    print('user_email----------------------: ', user_email)
-                    if user_email:
-                        send_mail(subject, message, settings.SERVER_EMAIL, user_email, fail_silently=False)
-                    # except Exception as ex:
-                    #     logger.error(ex)
+                    try:
+                        if user_email:
+                            send_mail(subject, message, settings.SERVER_EMAIL, user_email, fail_silently=False)
+                    except SMTPRecipientsRefused as ex:
+                        logger.error(ex)
+
             else:
                 raise PermissionDenied # 403 error
         except ObjectDoesNotExist: # username aren't exist
