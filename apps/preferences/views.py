@@ -20,7 +20,9 @@ def e404(request, template_name='404.html'):
     try:
         slug = request.path.split('/')[-1].split('.html')[0]  # get slug from path request
         #  Verify the existence of the slug
-        slug = Page.objects.filter(slug=slug, status=Page.STATUS_PUBLISHED, ptype__in=[Page.PTYPE_MENU, Page.PTYPE_MENU_API]).values_list('slug', flat=True)[0]
+        slug = Page.objects.filter(slug=slug,
+                                   status=Page.STATUS_PUBLISHED,
+                                   ptype__in=[Page.PTYPE_MENU, Page.PTYPE_MENU_API, Page.PTYPE_INNER]).values_list('slug', flat=True)[0]
     except IndexError as err:
         slug = None
         logger.error(str(err))
