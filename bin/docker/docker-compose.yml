@@ -1,0 +1,35 @@
+version: '2'
+services:
+  mysmile-web:
+    build:
+        context : ../..
+        dockerfile: bin/docker/web/Dockerfile
+    environment:
+      - DJANGO_SETTINGS_MODULE=mysmile.settings.docker
+    volumes:
+      - ../../:/mysmile
+    ports:
+       - "8002:8002"
+       - "2230:22"
+
+  mysmile-nginx:
+    build:
+      context : .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "8445:445"
+    volumes:
+      - /www/static
+    volumes_from:
+      - mysmile-web
+    links:
+      - mysmile-web:mysmile-web
+
+  mysmile-node:
+    build:
+      context : ../..
+      dockerfile: bin/docker/node/Dockerfile
+    volumes_from:
+      - mysmile-web
+    links:
+      - mysmile-web:mysmile-web
