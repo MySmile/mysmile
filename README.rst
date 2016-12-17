@@ -43,9 +43,9 @@ Installation
 ============
 
 #. Install dependencies: ``make install``
-#. Run developing server: ``$ python3 manage.py runserver``
+#. Run developing server: ``python3 manage.py runserver``
 #. Open in browser: `<http://127.0.0.1:8000>`_
-#. Change default admin credentials logging `<http://127.0.0.1:8000/admin>`_ by credentials: login - *test*, password - *test*
+#. Change default admin credentials logging `<http://127.0.0.1:8000/admin>`_ by credentials: login - ``test``, password - ``test``
 
 Requirements
 ============
