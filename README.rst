@@ -42,28 +42,10 @@ MySmile is the lightweight open-source CMS based on Django. It helps to create w
 Installation
 ============
 
-1. Unpack archive with MySmile to the project directory
-
-2. Install with command: ``$ make install``
-
-3. In the project directory run a command in the terminal:
-    
-  ``$ python3 manage.py runserver``
-    
-  Now your website is available here:
-	
-  `<http://127.0.0.1:8000>`_ 
-
-4. Change default credentials to admin page:
-
-4.1. Link to admin page:
-      
-  `<http://127.0.0.1:8000/admin>`_
-      
-4.2. Log in with default credentials:
-  
-  * login: *test*
-  * password: *test*
+#. Install dependencies: ``make install``
+#. Run developing server: ``$ python3 manage.py runserver``
+#. Open in browser: `<http://127.0.0.1:8000>`_
+#. Change default admin credentials logging `<http://127.0.0.1:8000/admin>`_ by credentials: login - *test*, password - *test*
 
 Requirements
 ============
