@@ -1,7 +1,3 @@
-===========================
-Lightweight CMS for Django
-===========================
-
 Master:
   .. image:: https://travis-ci.org/MySmile/mysmile.svg?branch=master
     :target: https://travis-ci.org/MySmile/mysmile?branch=master
@@ -32,8 +28,9 @@ Dev:
     :target: https://readthedocs.org/projects/mysmile/?badge=dev
     :alt: Documentation    
 
-About
-=====
+*******
+MySmile
+*******
 
 MySmile is the lightweight open-source CMS based on Django. It helps to create websites with configurable design and minimum cost. 
 
@@ -41,13 +38,6 @@ MySmile is the lightweight open-source CMS based on Django. It helps to create w
 * Try `demo version <http://demo.mysmile.com.ua>`_
 * Read `documentation <http://mysmile.com.ua/en/documentation.html>`_
 * `Source code <https://github.com/MySmile/MySmile>`_ on GitHub
-
-Dependencies
-============
-
-a) `Django 1.8 <http://djangoproject.com>`_
-b) `Pillow <https://python-pillow.github.io/>`_ for working with images
-c) `Sphinx <http://sphinx-doc.org/>`_ for generate docs in various format
 
 Installation
 ============
@@ -74,3 +64,51 @@ Installation
   
   * login: *test*
   * password: *test*
+
+Requirements
+============
+
+- `Django 1.8 <http://djangoproject.com>`_
+- `Pillow <https://python-pillow.github.io/>`_ for working with images
+- `Sphinx <http://sphinx-doc.org/>`_ for generate docs in various format
+
+Documentation
+=============
+- Technical documentation is available in `html <https://mysmile.readthedocs.org/en/latest/>`_
+- Technical documentation source is in `docs </docs>`_ folder
+
+Docker
+======
+Instruction how to use Docker can be found in `Docker Readme </bin/docker>`_.
+
+Tests
+=====
+
+Back-end unit
+-------------
+Python unit test can be found in ``tests`` folder inside each applications.
+
+Running
+```````
+Manually:
+
+- to run all tests execute ``make test``.
+- to run specific test it's necessary set full path to test class. For instance: ``python3 manage.py test apps.chat.tests.test_views``.
+
+With IDE:
+
+All information to configure your IDE with Docker is in `Docker Readme </bin/docker>`_ using `PyCharm <https://www.jetbrains.com/pycharm/>`_ as an example.
+
+Contribution
+============
+If you find this project worth to use please add a star. Follow changes to see all activities.
+And if you see room for improvement, proposals please feel free to create an issue or send pull request.
+
+Please note that this project is released with a `Contributor Code of Conduct <http://contributor-covenant.org/version/1/4/>`_.
+By participating in this project and its community you agree to abide by those terms.
+
+More information is in `Contributing <CONTRIBUTING.rst>`_.
+
+License
+=======
+MySmile is licensed under the BSD 3-Clause License. Please see the `LICENSE <LICENSE.txt>`_ file for details.

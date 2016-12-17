@@ -2,15 +2,16 @@
 Changelog
 *********
 
-**2016-09-## Version 0.8.0**
+**2017-##-## Version 0.8.0**
   - New MySmile API v2 based on Django Rest Framework 3
   - Updated docs
 
-**2016-06-## Version 0.7.2**
-  - Database file removed from repository. #14
-  - Turn off language is working correctly into admin. #15
-  - Add language aternative for 404 page for inner page type. #16.
-  - Updated docs.
+**2016-12-## Version 0.7.2**
+  - Removed Database file from repository. #14
+  - Turned off language is working correctly into admin. #15
+  - Added 404 page language alternative for inner page. #16.
+  - Updated docs
+  - Added Docker
 
 **2015-10-15 Version 0.7.1**
   - Added IMAGE_AUTOSCALE preference to admin panel
