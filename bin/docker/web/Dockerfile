@@ -34,25 +34,6 @@ RUN apt-get install -y supervisor
 RUN mkdir -p  /var/log/supervisor
 ADD ./bin/docker/web/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# openssl
-RUN apt-get -y install openssl
-
-# stunnel
-RUN apt-get -y install stunnel4
-ADD ./bin/docker/web/config/stunnel.conf /etc/stunnel/stunnel.conf
-
-RUN openssl req \
-    -new \
-    -x509 \
-    -days 365 \
-    -nodes \
-    -out /etc/stunnel/stunnel.pem \
-    -keyout /etc/stunnel/stunnel.pem \
-    -subj "/C=UA/ST=./L=Kyiv/O=Home/CN=mysmile-web/OU=Development"
-
-# sphinx
-RUN pip install sphinx
-
 # expose ports
 EXPOSE 22 8002
 CMD ["supervisord", "--configuration", "/etc/supervisor/conf.d/supervisord.conf", "--logfile", "/var/log/supervisor/supervisord.log", "--logfile_maxbytes", "5000000", "--logfile_backups", "5", "--pidfile", "/var/tmp/supervisord.pid"]

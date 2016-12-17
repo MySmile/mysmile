@@ -5,7 +5,6 @@ Docker
 Docker composer has several containers:
 
 #. mysmile-web   - official `Python 3.5 Docker <https://hub.docker.com/_/python/>`_, ssh server, sphinx, application requirements
-#. mysmile-nginx - official `Nginx 1.11.5 Docker <https://hub.docker.com/_/nginx/>`_, stunnel
 #. mysmile-node  - official `Node 0.12 Docker <https://hub.docker.com/_/node/>`_, Bower
 
 Pre installation
@@ -22,7 +21,7 @@ Installation
 #. Open bash in ``mysmile-web`` container ``sudo docker-compose -f ./bin/docker/docker-compose.yml exec mysmile-web bash``
 #. Execute in ``mysmile-web`` container ``make newdb``
 #. Update your ``hosts`` with ``0.0.0.0 mysmile.dev``
-#. Check how it's working ``http://mysmile.dev:8445``
+#. Check how it's working ``http://mysmile.dev:8002``
 #. Accept self signed certificate
 
 Containers
@@ -33,7 +32,7 @@ mysmile-web
 Web container has exposed those ports:
 
 - 2227 - `OpenSSH <https://www.openssh.com/>`_
-- 8002 - `stunnel <https://www.stunnel.org>`_
+- 8002 - `Developing server <https://docs.djangoproject.com/en/1.10/intro/tutorial01/#the-development-server>`_
 
 SSH
 ````
@@ -52,9 +51,9 @@ To make connection by console simple run ``ssh root@0.0.0.0 -p 2230``.
 *Note*: if connection was refused just checkout inside container how it is ``service ssh status``.
 In case it's not running execute ``service ssh start``.
 
-HTTPS
-`````
-Application runs on ``runserver`` with ``stunnel``.
+HTTP
+````
+Application runs on ``runserver``.
 
 Sphinx
 ``````
@@ -66,10 +65,6 @@ To generate documentation please run commands bellow inside ``docs`` directory b
 - to get documentation in ``epub`` format please run: ``make epub``
 
 *Note*: generated documentation is saved in ``docs/build`` directory.
-
-mysmile-nginx
--------------
-Nginx works as a proxy by passing non-static to ``mysmile-web`` container.
 
 mysmile-node
 ------------
@@ -87,7 +82,7 @@ Usefull commands
 - build container ``sudo docker-compose -f ./bin/docker/docker-compose.yml build {{container-name}}``
 - build container without caching ``sudo docker-compose -f ./bin/docker/docker-compose.yml build --no-cache {{container-name}}``
 
-*Note*: please substitute all ``{{container-name}}`` by ``mysmile-web``, ``mysmile-nginx`` or ``mysmile-node``.
+*Note*: please substitute all ``{{container-name}}`` by ``mysmile-web`` or ``mysmile-node``.
 
 For more information please visit `Docker Compose Command-line Reference <https://docs.docker.com/compose/reference/>`_.
 
@@ -144,9 +139,9 @@ Django support
 #. Choose project
 #. "Enable Django Support": set checked
 #. "Django project root": path to mysmile root
-#. "Settings: ``mysmile/settings/docker.py``
+#. "Settings: ``mysmile/settings/local.py``
 #. "Manage script": will set automatically to ``manage.py``
-#. "Environment variables": ``DJANGO_SETTINGS_MODULE=mysmile.settings.docker``
+#. "Environment variables": ``DJANGO_SETTINGS_MODULE=mysmile.settings.local``
 
 More information in `official documentation <https://www.jetbrains.com/help/pycharm/2016.1/django-2.html>`_.
 

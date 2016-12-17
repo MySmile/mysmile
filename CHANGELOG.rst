@@ -7,11 +7,12 @@ Changelog
   - Updated docs
 
 **2016-12-## Version 0.7.2**
-  - Removed Database file from repository. #14
-  - Turned off language is working correctly into admin. #15
-  - Added 404 page language alternative for inner page. #16.
+  - Removed database from repository. #14
+  - Fixed turning off language in admin. #15
+  - Added 404 page language alternative for inner page. #16
   - Updated docs
   - Added Docker
+  - Upgraded Django 1.8.17
 
 **2015-10-15 Version 0.7.1**
   - Added IMAGE_AUTOSCALE preference to admin panel
