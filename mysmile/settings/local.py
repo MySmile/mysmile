@@ -60,3 +60,9 @@ STATICFILES_FINDERS = (
 )
 
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
+
+
+if MYSMILE_ADMIN_FAIL_LOGIN_ENABLE:
+    AUTHENTICATION_BACKENDS = ('apps.admin.fail_login.backends.FailLoginModelBackend',)
+else:
+    AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)

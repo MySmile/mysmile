@@ -1,0 +1,22 @@
+version: '2'
+services:
+  mysmile-web:
+    build:
+        context : ../..
+        dockerfile: bin/docker/web/Dockerfile
+    environment:
+      - DJANGO_SETTINGS_MODULE=mysmile.settings.local
+    volumes:
+      - ../../:/mysmile
+    ports:
+       - "8002:8002"
+       - "2230:22"
+
+  mysmile-node:
+    build:
+      context : ../..
+      dockerfile: bin/docker/node/Dockerfile
+    volumes_from:
+      - mysmile-web
+    links:
+      - mysmile-web:mysmile-web

@@ -1,7 +1,7 @@
 General parameters
 ==================
 
-List bellow show required parameters that have default values. It means that if they are not present in request that default value are going to be used.
+List bellow shows required parameters with default values.
 
 .. toctree::
    :maxdepth: 2
@@ -10,4 +10,3 @@ List bellow show required parameters that have default values. It means that if 
    Format
    Version monitoring <Version_monitoring>
    Language
-

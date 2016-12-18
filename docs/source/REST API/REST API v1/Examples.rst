@@ -3,9 +3,11 @@
 Examples
 ========
 
-
 .. tabularcolumns:: |p{2.8cm}|p{12cm}
 .. list-table::
+
+    * - **HTTP**
+      - **Example**
 
     * - Request/GET
       - http://mysmile.com.ua/api/content?v=1&lang=en&format=json
@@ -21,9 +23,9 @@ Examples
 
           {
             code: 200,
-            data: [{"home":"Home"},
-                   {"about":"About"},
-                   {"contact":"Contact"}
-                  ]
-            }
-
+            data: [
+                {"home":"Home"},
+                {"about":"About"},
+                {"contact":"Contact"}
+            ]
+          }

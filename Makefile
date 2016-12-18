@@ -37,7 +37,12 @@ syncdb:
 # migrate - Run makemigrations & migrate command simultaneously
 migrate:
 	python3 manage.py makemigrations --settings=mysmile.settings.local
-	python3 manage.py migrate --settings=mysmile.settings.local
+	python3 manage.py migrate --fake-initial --settings=mysmile.settings.local
+
+# # onemigrate - Run makemigrations & migrate for one apps or table 
+# onemigrate:
+# 	python3 manage.py makemigrations --settings=mysmile.settings.local
+# 	python3 manage.py migrate preferences --settings=mysmile.settings.local
 
 # newdb - Create new empty database with one page
 newdb:
@@ -47,6 +52,10 @@ newdb:
 	make migrate
 	python3 manage.py loaddata preferences.json --settings=mysmile.settings.local
 	python3 manage.py loaddata onepage.json --settings=mysmile.settings.local
+
+# docker-up - up application docker-compose
+docker-up:
+	docker-compose -f bin/docker/docker-compose.yml up
 
 # DEPLOY
 # clean - Clean all temporary files

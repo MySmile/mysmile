@@ -15,7 +15,7 @@ Contents:
    :titlesonly:
    
    Getting started/index
-   Technical Specification/index
+   Technical Specifications/index
    Themes/index
    REST API/index
    Frequently Asked Questions

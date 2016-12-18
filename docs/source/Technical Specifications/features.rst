@@ -1,7 +1,7 @@
 Features
 ============
 
-Fundamental features:
+There are following fundamental features:
 
 * Internationalization and localization
 * Google Analytics is connected
@@ -14,7 +14,7 @@ Fundamental features:
 * Unlimited number of pages
 
 
-SEO features:
+The following are SEO features:
 
 * HTML5 semantic
 * Sitemap.xml
@@ -27,4 +27,3 @@ SEO features:
 .. seealso::
 
    :ref:`SEO_configuration` 
-

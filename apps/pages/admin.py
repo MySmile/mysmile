@@ -23,6 +23,8 @@ class Page_translationInline(admin.StackedInline):
                      'col_bottom_3']
     max_num = len(settings.LANGUAGES)
 
+    def get_queryset(self, request):
+        return Page_translation.objects.filter(lang__in=[x[0] for x in settings.LANGUAGES])
 
 class PageAdmin(admin.ModelAdmin):
     form = PageForm

@@ -34,7 +34,7 @@ DATABASES = {
 # }
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'mysmile.dev']
 
 # Enter path to media folder
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mysmile/media/')

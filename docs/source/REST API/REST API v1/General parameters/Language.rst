@@ -1,7 +1,7 @@
 Language
 --------
 
-Parameter that sets language of response.
+It is used parameter to indicate response language.
 
 .. list-table::
     :header-rows: 1
