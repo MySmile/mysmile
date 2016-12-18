@@ -34,14 +34,14 @@ MySmile
 
 MySmile is the lightweight open-source CMS based on Django. It helps to create websites with configurable design and minimum cost. 
 
-* The official `project site <http://mysmile.com.ua>`_
-* Try `demo version <http://demo.mysmile.com.ua>`_
-* Read `documentation <http://mysmile.com.ua/en/documentation.html>`_
-* `Source code <https://github.com/MySmile/MySmile>`_ on GitHub
+* Official site `<http://mysmile.com.ua>`_
+* Demo version `<http://demo.mysmile.com.ua>`_
+* Documentation `<http://mysmile.com.ua/en/documentation.html>`_
 
 Installation
 ============
 
+#. Clone repository: ``git clone git@github.com:MySmile/mysmile.git``
 #. Install dependencies: ``make install``
 #. Run developing server: ``python3 manage.py runserver``
 #. Open in browser: `<http://127.0.0.1:8000>`_
@@ -51,13 +51,13 @@ Requirements
 ============
 
 - `Django 1.8 <http://djangoproject.com>`_
-- `Pillow <https://python-pillow.github.io/>`_ for working with images
-- `Sphinx <http://sphinx-doc.org/>`_ for generate docs in various format
+- `Pillow <https://python-pillow.github.io/>`_
+- `Sphinx <http://sphinx-doc.org/>`_
 
 Documentation
 =============
 - Technical documentation is available in `html <https://mysmile.readthedocs.org/en/latest/>`_
-- Technical documentation source is in `docs </docs>`_ folder
+- Technical documentation source is in `docs </docs>`_
 
 Docker
 ======

@@ -3,7 +3,7 @@
 REST API v2
 ***********
 
-REST API V2 will be created on Django Rest Framework 3. Documentation of this version in process.
+REST API V2 will be created on Django Rest Framework 3. Documentation is "in process".
 
 .. .. toctree::
 ..    :maxdepth: 2
@@ -20,4 +20,3 @@ REST API V2 will be created on Django Rest Framework 3. Documentation of this ve
 ..    Errors
 ..    Examples
 ..    Useful links <Useful_links>
-

@@ -36,6 +36,3 @@ Technical configuration
       - no
       - yes
       - no
-   
-      
-      

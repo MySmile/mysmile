@@ -3,7 +3,7 @@
 SEO configuration
 -----------------
 
-Search engine optimization (SEO) is presented with configuration parameters. The table bellow describes the properties of such options.
+Search engine optimization (SEO) is presented with configuration parameters.
 
 .. tabularcolumns:: |p{3cm}|p{6cm}|p{1.5cm}|p{1.8cm}|p{2cm}|
 .. list-table::
@@ -22,7 +22,7 @@ Search engine optimization (SEO) is presented with configuration parameters. The
      - no
      
    * - Slug
-     - Part of URL. All spaces and other non alphanumeric characters are changed to underscore.
+     - Part of URL. All spaces and other non alphanumeric characters are changed to hyphen.
      - no
      - yes
      - yes

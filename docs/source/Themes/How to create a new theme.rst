@@ -1,7 +1,7 @@
 How to create a new theme
 =========================
 
-The new theme is created from any available template, which can be downloaded from the Internet.
+It's possible to create custom Theme for MySmile.
 
 
 .. todo::

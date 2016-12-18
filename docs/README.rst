@@ -2,7 +2,7 @@
 Documentation
 *************
 
-For generating it's used `Sphinx <http://www.sphinx-doc.org/>`_ and published in `Read the Docs <https://readthedocs.org/>`_.
+For generating documentation it's used `Sphinx <http://www.sphinx-doc.org/>`_ with publishing in `Read the Docs <https://readthedocs.org/>`_.
 
 Installation
 ============

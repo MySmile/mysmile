@@ -3,8 +3,9 @@
 Language localisation
 ---------------------
 
-Add another language with option **LANGUAGES** in *mysmile/settings/base.py*. For example, if the language is to be
-Polish, create directory *pl* in directory *mysmile/locale/*
+To add new localisation please use option **LANGUAGES** in *mysmile/settings/base.py*.
+
+For example, for Polish create directory *pl* in *mysmile/locale/*
 
 Run command::
 

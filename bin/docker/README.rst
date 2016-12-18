@@ -147,9 +147,19 @@ More information in `official documentation <https://www.jetbrains.com/help/pych
 
 Unit-test
 ---------
-Firstly it's need to be sure that `Remote Interpreter <#remote-interpreter>`_ and `Django support <#django-support>`_ for configured.
+Firstly it's need to be sure that `Remote Interpreter <#remote-interpreter>`_ and `Django support <#django-support>`_ are configured.
 
-That's all, just push "Ctrl + Shift + F10" on project root ang choose ``dj`` as a runner to execute all unit tests.
+#. Choose "Run->Edit Configurations"
+#. Click "+"
+#. Choose "Django tests"
+#. Fill "Name": MySmile App Django Test
+#. Fill field "Target": apps
+#. Set "Options": --pattern=test_*.py
+#. Set "Project": MySmile
+#. Set Environment variables: name: DJANGO_SETTINGS_MODULE, value: mysmile.settings.test
+#. Choose "Python interpreter": Project Default
+#. CLick "Ok"
+#. Push "Ctrl + Shift + F10" on "apps" directory
 
 More information in `official documentation <https://www.jetbrains.com/help/pycharm/2016.1/run-debug-configuration-django-test.html#d473601e145>`_
 

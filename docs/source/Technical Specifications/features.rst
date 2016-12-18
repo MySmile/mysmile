@@ -1,7 +1,7 @@
 Features
 ============
 
-Thera are the following fundamental features:
+There are following fundamental features:
 
 * Internationalization and localization
 * Google Analytics is connected
@@ -27,4 +27,3 @@ The following are SEO features:
 .. seealso::
 
    :ref:`SEO_configuration` 
-

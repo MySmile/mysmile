@@ -1,5 +1,4 @@
 Methods
 =======
 
-MySmile api is support only /GET method.
-
+MySmile API supports only ``/GET`` method.

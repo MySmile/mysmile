@@ -1,7 +1,6 @@
 Page parts
 ----------
 
-
 .. tabularcolumns:: |p{3.7cm}|p{6.1cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|
 .. list-table::
    :header-rows: 1
@@ -31,7 +30,7 @@ Page parts
      - no
 
    * - Right Column: Text
-     - Right Column of the article. Central column of the article
+     - Right Column of the article. Central column of the article.
      - yes
      - no
      - no   
@@ -43,8 +42,7 @@ Page parts
      - no     
 
    * - Bottom columns
-     - Columns in the bottom side of the article. There are only 3 or less  bottom columns
+     - Columns in the bottom side of the article. There are only 3 or less  bottom columns.
      - yes
      - no
      - no     
-

@@ -1,9 +1,9 @@
 Menu
 ====
 
-MySmile provides two types of menu:
+MySmile provides two menu types:
   * Main menu --- like "home", "about", "contact", etc.
-  * Additional dynamic menu --- internal links on the page for instance "readme", "instructions", etc.
+  * Additional dynamic menu --- internal links inside page for instance "readme", "instructions", etc.
 
 +----------------------------+-------------+
 | Name                       | Required    |

@@ -3,7 +3,7 @@
 Preferences
 -----------
 
-This preferences contains information on contact and general technological details. All of them can be changed from the
+This preferences contains information on contact and general technological details. All of them can be changed from
 :ref:`AdminPanel`.
 
 .. tabularcolumns:: |p{4cm}|p{3.5cm}|p{9cm}|
@@ -40,7 +40,7 @@ This preferences contains information on contact and general technological detai
      
    * - Image quality
      - 70 
-     - Global setting for the quality of the uploaded pictures. The picture quality is in the direct proportion to the size of the file. A value of 100 corresponds to the maximum quality.
+     - Global setting for the quality of the uploaded pictures. Picture quality is in the direct proportion to the size of the file. A value of 100 corresponds to the maximum quality.
      
    * - Image autoscale
      - True 

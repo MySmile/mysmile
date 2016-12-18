@@ -1,7 +1,7 @@
 Contact
 -------
 
-That resource [#f1]_ returns structured contact information such as phone, email, skype.
+Contact resource [#f1]_ returns structured contact information such as phone, email, skype.
 
 .. tabularcolumns:: |p{2.5cm}|p{4cm}|p{8.5cm}|
 .. list-table::
@@ -25,4 +25,4 @@ That resource [#f1]_ returns structured contact information such as phone, email
           }
 
 .. rubric:: Notes
-.. [#f1] Parameters of response configurable through MySmile settings table in database (since v 0.5.0 of api sever).
+.. [#f1] Parameters of response configurable through MySmile settings table in database (since v0.5.0).
