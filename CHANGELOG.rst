@@ -6,7 +6,7 @@ Changelog
   - New MySmile API v2 based on Django Rest Framework 3
   - Updated docs
 
-**2016-12-## Version 0.7.2**
+**2016-12-18 Version 0.7.2**
   - Removed database from repository. #14
   - Fixed turning off language in admin. #15
   - Added 404 page language alternative for inner page. #16
