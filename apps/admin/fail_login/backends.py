@@ -39,6 +39,7 @@ class FailLoginModelBackend(ModelBackend):
 
     def login_failed(self, username):
         try:
+            count_fl = 1 # TODO exception in User.objects.get cause returning unregistered variable count_fl
             user = User.objects.get(username=username)
 
             # delete records, older then MYSMILE_ADMIN_FAIL_LOGIN_TIMEOUT

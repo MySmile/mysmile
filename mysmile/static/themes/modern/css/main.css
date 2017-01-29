@@ -5,13 +5,28 @@ aside {
     width: 33.37%;
 }
 
-aside img{
+aside img {
     display: block;
     margin: 0 auto;
 }
 
+aside iframe {
+    width: 330px;
+    height: 250px;
+    margin: 2px;
+    box-shadow: 0 15px 15px -13px #333;
+    -moz-box-shadow: 0 15px 15px -13px #333;
+    -webkit-box-shadow: 0 15px 15px -13px #333;
+}
 
-/* Page header styles
+@media only screen and (max-width: 500px) {
+    aside {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+/* Page header
 -------------------------------------------------- */
 .page-header {
     padding-bottom: 9px;
@@ -19,10 +34,8 @@ aside img{
     border-bottom: none;
 }
 
-
-/* Navbar styles
+/* Navbar
 -------------------------------------------------- */
-
 .navbar-default {
     background-color: #FFE9CE;
     border-color: #FFD7A7;
@@ -45,13 +58,13 @@ aside img{
     padding-bottom: 10px;
 }
 
-/* Sticky footer styles
+/* Sticky footer
 -------------------------------------------------- */
 .page-container {
     padding-bottom: 110px; /* related with height of the footer */
 }
 
-/* Sticky footer styles
+/* Sticky footer
 -------------------------------------------------- */
 html {
     position: relative;
