@@ -10,7 +10,7 @@ There are following fundamental features:
 * Switching between the themes from admin
 * User interface that `"Don't make me think" <http://en.wikipedia.org/wiki/Don%27t_Make_Me_Think/>`_  
 * Additional dynamic menu like a mix of "cloud of links" and "bread crumbs"
-* REST API with `REST API Client on PHP, Java, Python <http://mysmile.com.ua/en/download.html/>`_
+* REST API with `REST API Client on PHP, Java, Python <https://github.com/MySmile/mysmile>`_
 * Unlimited number of pages
 
 

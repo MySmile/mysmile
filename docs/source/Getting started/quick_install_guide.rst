@@ -3,7 +3,7 @@ Quick installation guide
 
 It is assumed that the `python <http://python.org>`_ version 3.x  and `bower <http://bower.io/>`_ are already installed on your computer.
 
-#. Download `MySmile <http://mysmile.com.ua>`_  and unpack it to the project’s directory
+#. Download `MySmile <https://github.com/MySmile/mysmile>`_  and unpack it to the project’s directory
 #. Install with one command: :command:`$ make install` 
 #. While in the project directory run the following command on the terminal: :command:`$ python3 manage.py runserver`
 
