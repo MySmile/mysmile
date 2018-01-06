@@ -6,6 +6,10 @@ Changelog
   - New MySmile API v2 based on Django Rest Framework 3
   - Updated docs
 
+**2017-01-## Version 0.7.3**
+  - Fixed login into admin panel with wrong credentials
+  - Fixed right column appearance on mobile devices
+
 **2016-12-18 Version 0.7.2**
   - Removed database from repository. #14
   - Fixed turning off language in admin. #15

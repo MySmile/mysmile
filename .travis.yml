@@ -1,17 +1,20 @@
 language: python
 python:
   - "3.4"
-  # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
-  # maintainers to fix their pypy-dev package.
-  #- "pypy"
+
+cache:
+  pip: true
+
 # command to install dependencies
 install:
   - pip install -r config/requirements/local.txt
   - pip install coveralls
+
 # command to run tests
 script:
   - make migrate
   - make test
   - coverage run --source=apps manage.py test --pattern="test_*.py" --settings=mysmile.settings.test
+
 after_success:
   coveralls

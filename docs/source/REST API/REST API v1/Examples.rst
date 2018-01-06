@@ -10,7 +10,7 @@ Examples
       - **Example**
 
     * - Request/GET
-      - http://mysmile.com.ua/api/content?v=1&lang=en&format=json
+      - http://127.0.0.1:8000/api/content?v=1&lang=en&format=json
 
     * - Response/Code
       - 200

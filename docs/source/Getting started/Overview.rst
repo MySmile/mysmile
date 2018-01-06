@@ -21,5 +21,3 @@ Source code is available on `GitHub <https://github.com/MySmile/MySmile.git/>`_.
 Get the latest version with the command: ``$ git clone --branch=master git@github.com:MySmile/mysmile.git``
 
 See unstable development version: ``$ git clone --branch=dev git@github.com:MySmile/mysmile.git``
-
-Please read this documentation or try `<http://demo.mysmile.com.ua/>`_ for more information.
