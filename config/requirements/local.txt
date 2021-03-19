@@ -2,6 +2,6 @@ django==1.8.17
 pillow==3.2.0
 sphinx==1.4
 django_compressor==2.0
-djangorestframework==3.2.4
+djangorestframework==3.11.2
 django-debug-toolbar==1.4.0
 selenium==2.53.1
