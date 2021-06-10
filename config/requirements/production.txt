@@ -1,4 +1,4 @@
-django==1.8.17
+django==2.2.24
 pillow==3.2.0
 sphinx==1.4
 django_compressor==2.0
